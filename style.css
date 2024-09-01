@@ -1,0 +1,50 @@
+/* 全体を中央寄せ */
+body {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #f4f4f4; /* 背景色は好みに合わせて変更可 */
+    color: #333;
+    text-align: center;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+/* コンテンツの中央寄せ */
+.container {
+    display: inline-block;
+    text-align: left; /* テキストは左寄せ */
+    max-width: 600px; /* 必要に応じて調整 */
+}
+
+/* ヘッダースタイル */
+h1, h2 {
+    font-family: "Courier New", Courier, monospace;
+    color: #333;
+}
+
+/* テーブルのスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+}
+
+td a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
