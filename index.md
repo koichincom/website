@@ -1,7 +1,3 @@
-<head>
-<link rel="stylesheet" href="style.css">
-</head>
-
 ## Koichi Nakayamada
 
 Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College in the US, from Japan.
