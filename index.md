@@ -6,7 +6,6 @@ Hi, I'm Koichi Nakayamada. A Computer Science student at De Anza College, US, fr
 
 - [**Blog**: ](https://koichin.medium.com) about tech, society, and self-improvement
 - [**X (formerly Twitter)**: ](https://x.com/KoichiNkymd) for every updates
-- 
 - [**GitHub**: ](https://github.com/koichinakayamada)
 - [**LinkedIn**: ](https://linkedin.com/koichinakayamada)
 
