@@ -1,48 +1,51 @@
-/* 全体を中央寄せ */
+/* 全体のスタイル */
 body {
-    font-family: "Courier New", Courier, monospace;
-    background-color: #f4f4f4; /* 背景色は好みに合わせて変更可 */
-    color: #333;
-    text-align: center;
-    line-height: 1.6;
+    font-family: "Courier New", Courier, monospace; /* 等幅フォント */
+    background-color: #ffffff; /* 背景色 */
+    color: #333333; /* テキストの色 */
+    display: flex;
+    justify-content: center; /* 水平方向に中央寄せ */
+    align-items: center;
+    min-height: 100vh; /* 画面全体に中央寄せ */
     margin: 0;
     padding: 20px;
+    box-sizing: border-box;
 }
 
-/* コンテンツの中央寄せ */
+/* コンテンツ全体を中央に寄せる */
 .container {
-    display: inline-block;
-    text-align: left; /* テキストは左寄せ */
-    max-width: 600px; /* 必要に応じて調整 */
+    text-align: left; /* コンテンツ内のテキストは左寄せ */
+    max-width: 600px;
+    width: 100%; /* テーブルが崩れないように全幅に */
 }
 
 /* ヘッダースタイル */
 h1, h2 {
-    font-family: "Courier New", Courier, monospace;
-    color: #333;
+    text-align: center; /* 見出しは中央寄せ */
+    color: #333333;
 }
 
 /* テーブルのスタイル */
 table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%; /* テーブルをコンテナの幅に合わせる */
+    border-collapse: collapse; /* セルのボーダーをまとめる */
     margin-top: 20px;
 }
 
-table, th, td {
-    border: 1px solid #ddd;
+th, td {
+    border: 1px solid #ddd; /* テーブルのボーダー */
     padding: 10px;
+    text-align: left; /* セル内のテキストを左寄せ */
 }
 
 th {
-    background-color: #f8f8f8;
+    background-color: #f0f0f0;
     font-weight: bold;
 }
 
 td a {
-    color: #333;
+    color: #333333;
     text-decoration: none;
-    font-weight: bold;
 }
 
 td a:hover {
