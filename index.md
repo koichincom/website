@@ -7,7 +7,8 @@ Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College in the 
 | Platform              | URL                                              |
 |-----------------------|--------------------------------------------------------|
 | **Blog**              | [koichin.medium.com](https://koichin.medium.com)        |
-| **X (Twitter)** | [x.com/KoichiNkymd](https://x.com/KoichiNkymd)          |
+| **X** | [x.com/KoichiNkymd](https://x.com/KoichiNkymd)          |
+
 | **GitHub**            | [github.com/koichinakayamada](https://github.com/koichinakayamada) |
 | **LinkedIn**          | [linkedin.com/koichinakayamada](https://linkedin.com/koichinakayamada) |
 
