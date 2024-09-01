@@ -1,3 +1,9 @@
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<div class="container">
+
 ## Koichi Nakayamada
 
 Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College in the US, from Japan.
@@ -12,3 +18,5 @@ Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College in the 
 | **LinkedIn**          | [linkedin.com/in/koichinakayamada](https://linkedin.com/in/koichinakayamada) |
 
 Feel free to connect with me through any of these platforms!
+
+</div>
