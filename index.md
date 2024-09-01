@@ -1,12 +1,12 @@
-# Welcome to my page!
+# Koichi Nakayamada
 
-Hi, I'm Koichi Nakayamada. A Computer Science student at De Anza College, US, from Japan.
+Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College in the US, from Japan.
 
 ## Here's where you can find me online:
 
-- [**Blog**: ](https://koichin.medium.com) about tech, society, and self-improvement
-- [**X (formerly Twitter)**: ](https://x.com/KoichiNkymd) for every updates
-- [**GitHub**: ](https://github.com/koichinakayamada)
-- [**LinkedIn**: ](https://linkedin.com/koichinakayamada)
+- **Blog**: [koichin.medium.com](https://koichin.medium.com)
+- **X (formerly Twitter)**: [x.com/KoichiNkymd](https://x.com/KoichiNkymd)
+- **GitHub**: [github.com/koichinakayamada](https://github.com/koichinakayamada)
+- **LinkedIn**: [linkedin.com/koichinakayamada](https://linkedin.com/koichinakayamada)
 
 Feel free to connect with me through any of these platforms!
