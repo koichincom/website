@@ -4,6 +4,7 @@ Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College in the 
 
 ## Here's where you can find me online:
 
+| Platform              | URL                                              |
 |-----------------------|--------------------------------------------------------|
 | **Blog**              | [koichin.medium.com](https://koichin.medium.com)        |
 | **X** | [x.com/KoichiNkymd](https://x.com/KoichiNkymd)          |
