@@ -1,9 +1,9 @@
-/* Import Google Fonts for Mono font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+/* Import Google Fonts for a coding-style Mono font */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
 /* Apply the font to the entire body */
 body {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Fira Code', monospace;
     margin: 0;
     padding: 20px;
     line-height: 1.6;
@@ -13,7 +13,7 @@ body {
 
 /* Style for images */
 img {
-    max-width: 100%;
+    max-width: 300px; /* Set a maximum width for the image */
     height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
