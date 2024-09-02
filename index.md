@@ -5,7 +5,7 @@
 
 ## Koichi Nakayamada
 
-Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College, Cupertino, CA. I was born and raised in Japan and was born in 2004.
+Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College, Cupertino, CA. I was born and raised in Japan and was born in 2004. My vision is to advance humanity through technology. I believe the brain-machine interface is one of the most significant fields contributing to it while I'm alive, so I stake my life in it.
 
 ---
 
