@@ -1,0 +1,4 @@
+/* Hide the GitHub repository link and edit link */
+.page-header, .repo-header {
+    display: none;
+}
