@@ -1,0 +1,40 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+/* Apply the font to the entire body */
+body {
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Optional: Add some padding and margin adjustments for better readability */
+body {
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Style for images */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Style for headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #222;
+    margin-top: 20px;
+}
+
+/* Style for links */
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
