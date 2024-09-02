@@ -1,13 +1,9 @@
-/* Import Google Fonts */
+/* Import Google Fonts for Mono font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 /* Apply the font to the entire body */
 body {
     font-family: 'Roboto Mono', monospace;
-}
-
-/* Optional: Add some padding and margin adjustments for better readability */
-body {
     margin: 0;
     padding: 20px;
     line-height: 1.6;
@@ -37,4 +33,12 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+/* Style for horizontal rules */
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 20px 0;
 }
