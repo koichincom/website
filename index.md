@@ -1,4 +1,4 @@
-![Koichi's Photo](profile.jpg)
+![Koichi's Photo](profile320.jpg)
 
 ---
 
