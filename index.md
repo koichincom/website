@@ -1,7 +1,3 @@
----
-layout: default
-title: Koichi Nakayamada
----
 
 ![Koichi's Photo](profile150.jpg)
 
