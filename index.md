@@ -13,8 +13,6 @@ Connect with me on these platforms:
 - [**LinkedIn**](https://linkedin.com/in/koichinakayamada)  
 - [**GitHub**](https://github.com/koichinakayamada)  
 
----
-
 ## Contact Me
 
 Have a question or want to get in touch? Fill out this form:
