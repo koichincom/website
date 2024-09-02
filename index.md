@@ -11,6 +11,7 @@ Connect with me on:
 - [**X**](https://x.com/KoichiNkymd): Follow me for quick updates, thoughts, and tech news.
 - [**LinkedIn**](https://linkedin.com/in/koichinakayamada): Let's connect professionally and explore opportunities.
 - [**GitHub**](https://github.com/koichinakayamada): Check out my coding projects and contributions.
+
 ---
 
 ## Contact Me
