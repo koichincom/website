@@ -6,13 +6,13 @@ Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College, Cupert
 
 | Platform | URL |
 |-|-|
-| **Blog** | [koichin.medium.com](https://koichin.medium.com)        |
-| **X** | [x.com/KoichiNkymd](https://x.com/KoichiNkymd)          |
-| **GitHub** | [github.com/koichinakayamada](https://github.com/koichinakayamada) |
-| **LinkedIn** | [linkedin.com/in/koichinakayamada](https://linkedin.com/in/koichinakayamada) |
+| [**Blog**](https://koichin.medium.com) | 
+| [**X**](https://x.com/KoichiNkymd) | 
+| [**GitHub**](https://github.com/koichinakayamada) | 
+| [**LinkedIn**](https://linkedin.com/in/koichinakayamada) |
+
+Feel free to connect with me through any of these platforms!
 
 ## Contact Me
 
-- [ **Form:** ](https://forms.gle/TTmCVmB7TK8fyH5Z8) Please fill out this form to reach me.
-
-Feel free to connect with me through any of these platforms!
+- [**Form**](https://forms.gle/TTmCVmB7TK8fyH5Z8): Please fill out this form to reach me.
