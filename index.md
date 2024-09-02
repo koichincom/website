@@ -1,4 +1,4 @@
-![Koichi's Photo](profile320.jpg)
+![Koichi's Photo](profile150.jpg)
 
 ## Koichi Nakayamada
 
