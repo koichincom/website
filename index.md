@@ -1,16 +1,17 @@
 ## Koichi Nakayamada
 
-Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College, Cupertino, CA. I was born and raised in Japan and was born in 2004. 
+Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College, Cupertino, CA. I was born and raised in Japan and was born in 2004.
 
 ---
 
 ## Find Me
 
-Connect with me on:
+Connect with me:
+
 - [**Blog**](https://koichin.medium.com): I write about technology, personal growth, and my experiences as a student in the US.
-- [**X**](https://x.com/KoichiNkymd): Follow me for quick updates, thoughts, and tech news.
+- [**X (Formerly Twitter)**](https://x.com/KoichiNkymd): I post every updates about any important news or changes here.
 - [**LinkedIn**](https://linkedin.com/in/koichinakayamada): Let's connect professionally and explore opportunities.
-- [**GitHub**](https://github.com/koichinakayamada): Check out my coding projects and contributions.
+- [**GitHub**](https://github.com/koichinakayamada): I publicly document all my learning progress and projects here. Feel free to explore my journey.
 
 ---
 
