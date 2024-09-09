@@ -15,7 +15,7 @@ Feel free to follow me on:
 
 - [**Blog (on Medium)**](https://koichin.medium.com): I share ideas and opinions on tech, society, and life.
 - [**X (formerly Twitter)**](https://x.com/koichincom): I post all updates here, but not frequently used.
-- Other profiles: [**Facebook**](https://www.facebook.com/koichincom), [**LinkedIn**](https://linkedin.com/in/koichinakayamada), and [**GitHub**](https://github.com/koichinakayamada)
+- **Other profiles**: [Facebook](https://www.facebook.com/koichincom), [LinkedIn](https://linkedin.com/in/koichinakayamada), and [GitHub](https://github.com/koichinakayamada)
 
 ---
 
