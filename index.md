@@ -13,7 +13,7 @@ Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College, Cupert
 
 - [**Blog**](https://koichin.medium.com): thoughts on tech, society, and life
 - [**X**](https://x.com/koichincom): all updates but not frequently used
-- [**LinkedIn**](https://linkedin.com/in/koichincom): looking for a job and internship
+- [**LinkedIn**](https://linkedin.com/in/koichincom): looking for a job and an internship
 - [**GitHub**](https://github.com/koichincom): store projects and learning process
 
 ---
