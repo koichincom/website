@@ -12,8 +12,6 @@ Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College, Cupert
 # Find Me
 
 - [**Blog**](https://koichin.medium.com): Thoughts on tech and life.
-
-All IDs are the domain of this website: koichincom below.
 - [**X**](https://x.com/koichincom): All updates.
 - [**Facebook**](https://www.facebook.com/koichincom)
 - [**LinkedIn**](https://linkedin.com/in/koichincom)
