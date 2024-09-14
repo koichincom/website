@@ -11,7 +11,7 @@ Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College, Cupert
 
 # Find Me
 
-Feel free to follow me. All IDs are the domain of this website: **"koichincom"**!
+Feel free to follow me. All IDs are the domain of this website: **"koichincom"**! These links will be opened in a new tab.
 
 - [**Blog**](https://medium.com/@koichincom){:target="_blank"}: thoughts on tech, society, and life
 - [**X**](https://x.com/koichincom){:target="_blank"}: all updates but not frequently used
