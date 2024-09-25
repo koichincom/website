@@ -20,10 +20,10 @@ Hi, I'm Koichi Nakayamada, a Computer Science student at De Anza College, Cupert
 
 Feel free to follow me. All IDs are the domain of this website: **"koichincom"**! These links will be opened in a new tab.
 
-- [**Blog**](https://medium.com/@koichincom){:target="_blank"}: thoughts on tech, society, and life
-- [**X**](https://x.com/koichincom){:target="_blank"}: all updates but not frequently used
-- [**LinkedIn**](https://linkedin.com/in/koichincom){:target="_blank"}: looking for a job and an internship
-- [**GitHub**](https://github.com/koichincom){:target="_blank"}: store projects and learning process
+- [**Blog**](https://medium.com/@koichincom): thoughts on tech, society, and life
+- [**X**](https://x.com/koichincom): all updates but not frequently used
+- [**LinkedIn**](https://linkedin.com/in/koichincom): looking for a job and an internship
+- [**GitHub**](https://github.com/koichincom): store projects and learning process
 
 ---
 
