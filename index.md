@@ -1,11 +1,9 @@
 # De Anza Neurotechnology Club (not official yet)
 
-We need the first 10 members to start a club officially, so please join us on Discord if you're interested. 
+To officially start a club, we need the first 10 members, so please join us on Discord if you're interested. 
 
 [Discord](https://discord.gg/TF38g4AGtk)
 
----
----
 ---
 
 ![Koichi's Photo](profile150.jpg)
