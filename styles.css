@@ -5,14 +5,14 @@
 }
 
 body {
-    font-family: "Courier New", Courier, monospace; /* Monospaced font for programming feel */
-    background-color: #f9f9f9; /* Gray background for everything */
+    font-family: "Courier New", Courier, monospace; /* 等幅フォントで全体を統一 */
+    background-color: #f9f9f9;
     color: #333;
     line-height: 1.6;
 }
 
 header {
-    background-color: #f9f9f9; /* Matching gray for the header */
+    background-color: #f9f9f9;
     padding: 20px;
     text-align: center;
     border-bottom: 1px solid #ccc;
@@ -62,36 +62,34 @@ p {
     color: #555;
 }
 
-/* Grid layout for Find Me buttons (2 columns, 2 rows) */
-.find-me-grid {
+/* ボタンのレイアウト (Find Me や Contact の共通スタイル) */
+.button-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
-    gap: 10px; /* Space between buttons */
-    margin-bottom: 20px; /* Add some space below the grid */
+    grid-template-columns: repeat(2, 1fr); /* 2カラムのグリッド */
+    gap: 10px; /* ボタン間のスペース */
+    margin-bottom: 20px;
 }
 
-/* Buttons for Find Me links and Contact button */
 .button {
     display: inline-block;
-    text-decoration: none;
-    font-size: 1.1rem;
-    background-color: #cccccc; /* Light gray buttons */
+    background-color: #cccccc; /* 灰色ボタン */
     color: black;
     padding: 10px 20px;
-    border-radius: 8px; /* Uniform rounded shape */
     text-align: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 12px; /* 角を丸く */
     transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background-color: #aaaaaa; /* Darker gray on hover */
+    background-color: #aaaaaa; /* ホバー時に少し暗くなる */
 }
 
-/* Footer background color */
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #f9f9f9; /* Match the body background */
+    background-color: #f9f9f9;
     color: #777;
     margin-top: 20px;
 }
