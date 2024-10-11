@@ -70,16 +70,23 @@ ul li {
     margin-bottom: 10px;
 }
 
+/* Buttons for Find Me links */
 ul li a {
+    display: inline-block;
     text-decoration: none;
     font-size: 1.1rem;
-    color: #007BFF;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
 ul li a:hover {
-    text-decoration: underline;
+    background-color: #0056b3;
 }
 
+/* Contact Form Button */
 .contact-button {
     display: inline-block;
     background-color: #007BFF;
@@ -88,17 +95,18 @@ ul li a:hover {
     border-radius: 25px;
     text-decoration: none;
     font-size: 1.2rem;
+    transition: background-color 0.3s ease;
 }
 
 .contact-button:hover {
     background-color: #0056b3;
 }
 
+/* Footer background color */
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #fff;
-    border-top: 1px solid #ccc;
-    margin-top: 20px;
+    background-color: #f9f9f9; /* Match the body background */
     color: #777;
+    margin-top: 20px;
 }
