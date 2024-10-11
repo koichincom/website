@@ -5,13 +5,13 @@
     box-sizing: border-box;
 }
 
-/* Use a clean monospace font for a coding-inspired design */
+/* Switch to a modern sans-serif font for simplicity and readability */
 body {
-    font-family: "Monaco", "Consolas", monospace;
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.8;
-    padding: 10px; /* Added padding to prevent content from touching edges */
+    padding: 10px;
 }
 
 /* Header styling */
@@ -71,7 +71,32 @@ p {
     color: #555;
 }
 
-/* Button grid layout for 'Find Me' section */
+/* Blog section styling */
+.latest-blogs ul {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.latest-blogs ul li {
+    margin-bottom: 10px;
+}
+
+.latest-blogs ul li a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.latest-blogs ul li a:hover {
+    text-decoration: underline;
+}
+
+.view-more {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Button grid layout for 'Find Me' and 'Contact' section */
 .button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns layout */
@@ -88,12 +113,12 @@ p {
     text-align: center;
     text-decoration: none;
     font-size: 1rem;
-    border-radius: 8px; /* Slightly rounded corners */
+    border-radius: 8px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border: 1px solid #bbb; /* Subtle border to add structure */
+    border: 1px solid #bbb;
 }
 
-/* Button hover effect for interaction feedback */
+/* Button hover effect */
 .button:hover {
     background-color: #c0c0c0;
     color: #000;
@@ -102,7 +127,7 @@ p {
 /* Responsive design: Make the buttons stack in a single column on smaller screens */
 @media (max-width: 600px) {
     .button-grid {
-        grid-template-columns: 1fr; /* Buttons stack in one column on mobile */
+        grid-template-columns: 1fr; /* Stack buttons in one column on mobile */
     }
 }
 
