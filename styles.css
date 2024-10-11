@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Switch to a modern sans-serif font for simplicity and readability */
+/* Revert to a standard sans-serif font */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -69,31 +69,6 @@ p {
     font-size: 1rem;
     margin-bottom: 15px;
     color: #555;
-}
-
-/* Blog section styling */
-.latest-blogs ul {
-    list-style: none;
-    margin-bottom: 15px;
-}
-
-.latest-blogs ul li {
-    margin-bottom: 10px;
-}
-
-.latest-blogs ul li a {
-    text-decoration: none;
-    color: #007BFF;
-}
-
-.latest-blogs ul li a:hover {
-    text-decoration: underline;
-}
-
-.view-more {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
 }
 
 /* Button grid layout for 'Find Me' and 'Contact' section */
