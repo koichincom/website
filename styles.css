@@ -91,13 +91,13 @@ p {
     font-size: 1rem;
     border-radius: 8px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border: 1px solid #bbb;
+    border: 1px solid #bbb; /* Subtle border */
 }
 
-/* Button hover effect */
+/* Button hover effect: turns light gray on hover */
 .button:hover {
-    background-color: #f0f0f0; /* Light gray on hover */
-    color: #000;
+    background-color: #e0e0e0; /* Light gray on hover */
+    color: #000; /* Keep dark text on hover */
 }
 
 /* Responsive design: Make the buttons stack in a single column on smaller screens */
