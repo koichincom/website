@@ -62,51 +62,29 @@ p {
     color: #555;
 }
 
-ul {
-    list-style-type: none;
+/* Grid layout for Find Me buttons (2 columns, 2 rows) */
+.find-me-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
+    gap: 10px; /* Space between buttons */
+    margin-bottom: 20px; /* Add some space below the grid */
 }
 
-ul li {
-    margin-bottom: 10px;
-}
-
-/* Buttons for Find Me links */
-ul li a {
+/* Buttons for Find Me links and Contact button */
+.button {
     display: inline-block;
     text-decoration: none;
     font-size: 1.1rem;
     background-color: #cccccc; /* Light gray buttons */
     color: black;
     padding: 10px 20px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-ul li a:hover {
-    background-color: #aaaaaa; /* Slightly darker on hover */
-}
-
-/* Contact Form Buttons (2x2 grid layout) */
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 10px; /* Space between buttons */
-}
-
-.contact-button {
-    display: inline-block;
-    background-color: #cccccc; /* Same light gray as Find Me buttons */
-    color: black;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 1.1rem;
+    border-radius: 8px; /* Uniform rounded shape */
     text-align: center;
     transition: background-color 0.3s ease;
 }
 
-.contact-button:hover {
-    background-color: #aaaaaa; /* Slightly darker on hover */
+.button:hover {
+    background-color: #aaaaaa; /* Darker gray on hover */
 }
 
 /* Footer background color */
