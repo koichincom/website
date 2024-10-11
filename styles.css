@@ -5,14 +5,14 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    font-family: "Courier New", Courier, monospace; /* Monospaced font for programming feel */
+    background-color: #f9f9f9; /* Gray background for everything */
     color: #333;
     line-height: 1.6;
 }
 
 header {
-    background-color: #fff;
+    background-color: #f9f9f9; /* Matching gray for the header */
     padding: 20px;
     text-align: center;
     border-bottom: 1px solid #ccc;
@@ -75,31 +75,38 @@ ul li a {
     display: inline-block;
     text-decoration: none;
     font-size: 1.1rem;
-    background-color: #007BFF;
-    color: white;
+    background-color: #cccccc; /* Light gray buttons */
+    color: black;
     padding: 10px 20px;
     border-radius: 8px;
     transition: background-color 0.3s ease;
 }
 
 ul li a:hover {
-    background-color: #0056b3;
+    background-color: #aaaaaa; /* Slightly darker on hover */
 }
 
-/* Contact Form Button */
+/* Contact Form Buttons (2x2 grid layout) */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 10px; /* Space between buttons */
+}
+
 .contact-button {
     display: inline-block;
-    background-color: #007BFF;
-    color: white;
+    background-color: #cccccc; /* Same light gray as Find Me buttons */
+    color: black;
     padding: 10px 20px;
-    border-radius: 25px;
+    border-radius: 8px;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    text-align: center;
     transition: background-color 0.3s ease;
 }
 
 .contact-button:hover {
-    background-color: #0056b3;
+    background-color: #aaaaaa; /* Slightly darker on hover */
 }
 
 /* Footer background color */
