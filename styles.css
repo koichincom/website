@@ -1,18 +1,22 @@
+/* Global reset and box-sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Use a clean monospace font for a coding-inspired design */
 body {
-    font-family: "Courier New", Courier, monospace; /* 等幅フォントで全体を統一 */
-    background-color: #f9f9f9;
+    font-family: "Monaco", "Consolas", monospace;
+    background-color: #f4f4f4;
     color: #333;
-    line-height: 1.6;
+    line-height: 1.8;
+    padding: 10px; /* Added padding to prevent content from touching edges */
 }
 
+/* Header styling */
 header {
-    background-color: #f9f9f9;
+    background-color: #f4f4f4;
     padding: 20px;
     text-align: center;
     border-bottom: 1px solid #ccc;
@@ -21,6 +25,7 @@ header {
 header h1 {
     font-size: 2.5rem;
     color: #333;
+    font-weight: bold;
 }
 
 header p {
@@ -29,6 +34,7 @@ header p {
     margin-top: 10px;
 }
 
+/* Profile photo styling */
 .profile-photo {
     margin-bottom: 15px;
 }
@@ -41,19 +47,22 @@ header p {
     border: 3px solid #ccc;
 }
 
+/* Section styling for content boxes */
 section {
     padding: 20px;
     margin: 20px auto;
     max-width: 800px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Headings within sections */
 h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 10px;
     color: #333;
+    font-weight: bold;
 }
 
 p {
@@ -62,34 +71,46 @@ p {
     color: #555;
 }
 
-/* ボタンのレイアウト (Find Me や Contact の共通スタイル) */
+/* Button grid layout for 'Find Me' section */
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2カラムのグリッド */
-    gap: 10px; /* ボタン間のスペース */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns layout */
+    gap: 10px;
     margin-bottom: 20px;
 }
 
+/* Button styling */
 .button {
     display: inline-block;
-    background-color: #cccccc; /* 灰色ボタン */
-    color: black;
-    padding: 10px 20px;
+    background-color: #d6d6d6; /* Neutral gray background */
+    color: #333;
+    padding: 12px 20px;
     text-align: center;
     text-decoration: none;
-    font-size: 1.1rem;
-    border-radius: 12px; /* 角を丸く */
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    border-radius: 8px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid #bbb; /* Subtle border to add structure */
 }
 
+/* Button hover effect for interaction feedback */
 .button:hover {
-    background-color: #aaaaaa; /* ホバー時に少し暗くなる */
+    background-color: #c0c0c0;
+    color: #000;
 }
 
+/* Responsive design: Make the buttons stack in a single column on smaller screens */
+@media (max-width: 600px) {
+    .button-grid {
+        grid-template-columns: 1fr; /* Buttons stack in one column on mobile */
+    }
+}
+
+/* Footer styling */
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #f4f4f4;
     color: #777;
     margin-top: 20px;
 }
