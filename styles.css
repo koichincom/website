@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Revert to a standard sans-serif font */
+/* Standard sans-serif font */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -19,7 +19,8 @@ header {
     background-color: #f4f4f4;
     padding: 20px;
     text-align: center;
-    border-bottom: 1px solid #ccc;
+    /* Remove the border under the header */
+    border-bottom: none;
 }
 
 header h1 {
@@ -82,8 +83,8 @@ p {
 /* Button styling */
 .button {
     display: inline-block;
-    background-color: #d6d6d6; /* Neutral gray background */
-    color: #333;
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text for visibility */
     padding: 12px 20px;
     text-align: center;
     text-decoration: none;
@@ -95,7 +96,7 @@ p {
 
 /* Button hover effect */
 .button:hover {
-    background-color: #c0c0c0;
+    background-color: #f0f0f0; /* Light gray on hover */
     color: #000;
 }
 
