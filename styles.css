@@ -19,7 +19,6 @@ header {
     background-color: #f4f4f4;
     padding: 20px;
     text-align: center;
-    /* Remove the border under the header */
     border-bottom: none;
 }
 
@@ -98,6 +97,11 @@ p {
 .button:hover {
     background-color: #e0e0e0; /* Light gray on hover */
     color: #000; /* Keep dark text on hover */
+}
+
+/* Span the contact button across two columns */
+.contact-button {
+    grid-column: span 2; /* This makes the button span two columns */
 }
 
 /* Responsive design: Make the buttons stack in a single column on smaller screens */
