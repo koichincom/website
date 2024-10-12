@@ -74,7 +74,7 @@ p {
 /* Button grid layout for 'Find Me' and 'Contact' section */
 .button-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Single column by default */
+    grid-template-columns: 1fr; /* Single column by default for mobile */
     gap: 10px;
     margin-bottom: 20px;
 }
@@ -101,15 +101,13 @@ p {
     color: #000;
 }
 
-/* Span the contact button across two columns for larger screens */
-.contact-button {
-    grid-column: span 2;
-}
-
 /* Responsive design: Adjust button layout for larger screens */
-@media (min-width: 601px) {
+@media (min-width: 768px) {
     .button-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 columns for larger screens */
+    }
+    .button-grid .button:nth-child(5) {
+        grid-column: span 2; /* Contact Form button spans two columns */
     }
 }
 
