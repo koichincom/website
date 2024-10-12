@@ -74,7 +74,7 @@ p {
 /* Button grid layout for 'Find Me' and 'Contact' section */
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns layout for larger screens */
+    grid-template-columns: 1fr; /* Single column by default */
     gap: 10px;
     margin-bottom: 20px;
 }
@@ -82,35 +82,34 @@ p {
 /* Button styling */
 .button {
     display: inline-block;
-    background-color: #fff; /* White background */
-    color: #333; /* Dark text for visibility */
+    background-color: #fff;
+    color: #333;
     padding: 12px 20px;
     text-align: center;
     text-decoration: none;
     font-size: 1rem;
     border-radius: 8px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border: 1px solid #bbb; /* Subtle border */
+    border: 1px solid #bbb;
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 /* Button hover effect: turns light gray on hover */
 .button:hover {
-    background-color: #e0e0e0; /* Light gray on hover */
-    color: #000; /* Keep dark text on hover */
+    background-color: #e0e0e0;
+    color: #000;
 }
 
-/* Span the contact button across two columns */
+/* Span the contact button across two columns for larger screens */
 .contact-button {
-    grid-column: span 2; /* This makes the button span two columns */
+    grid-column: span 2;
 }
 
-/* Responsive design: Make the buttons stack in a single column on smaller screens */
-@media (max-width: 600px) {
+/* Responsive design: Adjust button layout for larger screens */
+@media (min-width: 601px) {
     .button-grid {
-        grid-template-columns: 1fr; /* Stack buttons in one column on mobile */
-    }
-    .button {
-        width: 100%; /* Ensure buttons take up full width of the container */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for larger screens */
     }
 }
 
