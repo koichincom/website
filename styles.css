@@ -73,15 +73,15 @@ p {
 
 /* Button grid layout for 'Find Me' and 'Contact' section */
 .button-grid {
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack buttons vertically for mobile */
-    gap: 10px; /* Space between buttons */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
 /* Button styling */
 .button {
-    display: block; /* Ensure the button behaves as a block */
+    display: inline-block;
     background-color: #fff;
     color: #333;
     padding: 12px;
@@ -91,8 +91,8 @@ p {
     border-radius: 8px;
     transition: background-color 0.3s ease, color 0.3s ease;
     border: 1px solid #bbb;
-    width: 100%; /* Full width for mobile */
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Button hover effect: turns light gray on hover */
@@ -102,24 +102,22 @@ p {
 }
 
 /* Responsive design: Adjust button layout for larger screens */
-@media (min-width: 601px) {
+@media (min-width: 768px) {
     .button-grid {
-        flex-direction: row; /* Row layout for larger screens */
-        flex-wrap: wrap; /* Allow buttons to wrap */
-        justify-content: space-between; /* Distribute space evenly */
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
     }
 
     .button {
-        flex: 0 1 calc(50% - 10px); /* Each button takes up half the width minus gap */
-        margin: 5px; /* Add margin for spacing */
-        min-width: 200px; /* Minimum width for buttons */
+        flex: 0 1 calc(50% - 10px); /* Two buttons per row */
+        margin: 5px; /* Ensure space between buttons */
     }
 
-    /* Contact Form button spanning full width */
+    /* Contact Form button taking full width on its own row */
     .contact-button {
-        flex-basis: 100%; /* Contact Form button spans full width */
-        margin-top: 10px; /* Space above Contact Form */
-        text-align: left; /* Left-align the Contact Form button */
+        flex: 0 1 100%; /* Full width */
+        margin: 5px 5px 5px 0; /* Left align Contact Form */
     }
 }
 
