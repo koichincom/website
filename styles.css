@@ -74,14 +74,14 @@ p {
 /* Button grid layout for 'Find Me' and 'Contact' section */
 .button-grid {
     display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack buttons vertically for mobile */
+    flex-direction: column; /* Stack buttons vertically */
     gap: 10px; /* Space between buttons */
     margin-bottom: 20px;
 }
 
 /* Button styling */
 .button {
-    display: block; /* Ensure the button behaves as a block */
+    display: inline-block;
     background-color: #fff;
     color: #333;
     padding: 12px;
@@ -106,19 +106,11 @@ p {
     .button-grid {
         flex-direction: row; /* Row layout for larger screens */
         flex-wrap: wrap; /* Allow buttons to wrap */
-        justify-content: space-between; /* Distribute space evenly */
     }
 
     .button {
         flex: 1 1 calc(50% - 10px); /* Each button takes up half the width minus gap */
         margin: 5px; /* Add margin for spacing */
-        min-width: 200px; /* Minimum width for buttons */
-    }
-
-    /* Contact Form button spanning full width */
-    .contact-button {
-        flex-basis: 100%; /* Contact Form button spans full width */
-        margin: 0; /* No margin for the contact button */
     }
 }
 
