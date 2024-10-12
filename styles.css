@@ -74,7 +74,7 @@ p {
 /* Button grid layout for 'Find Me' and 'Contact' section */
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns layout */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns layout for larger screens */
     gap: 10px;
     margin-bottom: 20px;
 }
@@ -108,6 +108,9 @@ p {
 @media (max-width: 600px) {
     .button-grid {
         grid-template-columns: 1fr; /* Stack buttons in one column on mobile */
+    }
+    .button {
+        width: 100%; /* Ensure buttons take up full width of the container */
     }
 }
 
