@@ -73,9 +73,9 @@ p {
 
 /* Button grid layout for 'Find Me' and 'Contact' section */
 .button-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column by default */
-    gap: 10px;
+    display: flex; /* Use flexbox instead of grid */
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Space between buttons */
     margin-bottom: 20px;
 }
 
@@ -101,15 +101,15 @@ p {
     color: #000;
 }
 
-/* Span the contact button across two columns for larger screens */
-.contact-button {
-    grid-column: span 2;
-}
-
 /* Responsive design: Adjust button layout for larger screens */
 @media (min-width: 601px) {
     .button-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for larger screens */
+        flex-direction: row; /* Row layout for larger screens */
+        flex-wrap: wrap; /* Allow buttons to wrap to the next line if needed */
+    }
+
+    .button {
+        flex: 1 1 48%; /* Each button takes up approximately half the width */
     }
 }
 
