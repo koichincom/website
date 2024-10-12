@@ -81,7 +81,7 @@ p {
 
 /* Button styling */
 .button {
-    display: inline-block;
+    display: block;
     background-color: #fff;
     color: #333;
     padding: 12px;
@@ -95,7 +95,7 @@ p {
     box-sizing: border-box;
 }
 
-/* Button hover effect: turns light gray on hover */
+/* Button hover effect */
 .button:hover {
     background-color: #e0e0e0;
     color: #000;
@@ -106,18 +106,21 @@ p {
     .button-grid {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: space-between; /* Adjust spacing evenly */
     }
 
     .button {
         flex: 0 1 calc(50% - 10px); /* Two buttons per row */
-        margin: 5px; /* Ensure space between buttons */
+        margin: 5px; /* Ensure spacing between buttons */
+        max-width: calc(50% - 10px); /* Ensure buttons do not exceed half the width */
     }
 
-    /* Contact Form button taking full width on its own row */
+    /* Ensure Contact Form is on its own row */
     .contact-button {
         flex: 0 1 100%; /* Full width */
-        margin: 5px 5px 5px 0; /* Left align Contact Form */
+        margin-top: 10px; /* Add spacing above */
+        max-width: calc(50% - 10px); /* Left-align by limiting width */
+        margin-left: 0; /* Left align the button */
     }
 }
 
