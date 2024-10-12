@@ -1,1 +1,1 @@
-(https://koichin.com/)[Link to the website]
+Link to the website:[koichin.com](https://koichin.com/)
