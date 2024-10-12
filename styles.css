@@ -73,54 +73,43 @@ p {
 
 /* Button grid layout for 'Find Me' and 'Contact' section */
 .button-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr; /* Single column by default */
     gap: 10px;
     margin-bottom: 20px;
 }
 
 /* Button styling */
 .button {
-    display: block;
+    display: inline-block;
     background-color: #fff;
     color: #333;
-    padding: 12px;
+    padding: 12px 20px;
     text-align: center;
     text-decoration: none;
     font-size: 1rem;
     border-radius: 8px;
     transition: background-color 0.3s ease, color 0.3s ease;
     border: 1px solid #bbb;
-    width: 100%;
-    box-sizing: border-box;
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
-/* Button hover effect */
+/* Button hover effect: turns light gray on hover */
 .button:hover {
     background-color: #e0e0e0;
     color: #000;
 }
 
+/* Span the contact button across two columns for larger screens */
+.contact-button {
+    grid-column: span 2;
+}
+
 /* Responsive design: Adjust button layout for larger screens */
-@media (min-width: 768px) {
+@media (min-width: 601px) {
     .button-grid {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between; /* Adjust spacing evenly */
-    }
-
-    .button {
-        flex: 0 1 calc(50% - 10px); /* Two buttons per row */
-        margin: 5px; /* Ensure spacing between buttons */
-        max-width: calc(50% - 10px); /* Ensure buttons do not exceed half the width */
-    }
-
-    /* Ensure Contact Form is on its own row */
-    .contact-button {
-        flex: 0 1 100%; /* Full width */
-        margin-top: 10px; /* Add spacing above */
-        max-width: calc(50% - 10px); /* Left-align by limiting width */
-        margin-left: 0; /* Left align the button */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for larger screens */
     }
 }
 
