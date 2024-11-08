@@ -8,7 +8,7 @@
 /* Standard sans-serif font */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #fff;
     color: #333;
     line-height: 1.8;
     padding: 10px;
@@ -16,7 +16,7 @@ body {
 
 /* Header styling */
 header {
-    background-color: #f4f4f4;
+    background-color: #fff;
     padding: 20px;
     text-align: center;
     border-bottom: none;
@@ -69,46 +69,6 @@ p {
     font-size: 1rem;
     margin-bottom: 15px;
     color: #555;
-}
-
-/* Button grid layout for 'Find Me' and 'Contact' section */
-.button-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column by default for mobile */
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-/* Button styling */
-.button {
-    display: inline-block;
-    background-color: #fff;
-    color: #333;
-    padding: 12px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1rem;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    border: 1px solid #bbb;
-    width: 100%; /* Full width */
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
-}
-
-/* Button hover effect: turns light gray on hover */
-.button:hover {
-    background-color: #e0e0e0;
-    color: #000;
-}
-
-/* Responsive design: Adjust button layout for larger screens */
-@media (min-width: 768px) {
-    .button-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for larger screens */
-    }
-    .button-grid .button:nth-child(5) {
-        grid-column: span 2; /* Contact Form button spans two columns */
-    }
 }
 
 /* Footer styling */
