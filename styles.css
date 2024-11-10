@@ -1,40 +1,45 @@
-/* Center-align the entire navbar */
+/* Navbar styling */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Center content horizontally */
-    gap: 20px;
-    /* Space between elements */
-    padding: 20px;
+    padding: 10px 20px;
     font-family: Arial, sans-serif;
-    font-size: 1.2em;
+    gap: 15px;
 }
 
-/* Styling the site title */
-.site-title {
-    font-size: 1.3em;
-    /* Larger font for site title */
-    font-weight: bold;
-    text-decoration: none;
-    color: black;
-}
-
-/* Styling for navigation links */
+/* Navigation Links */
 .navbar a {
+    font-size: 1.75em;
     text-decoration: none;
     color: black;
+    margin: 10px;
 }
 
-/* Styling social media icons */
+/* Social Media */
 .navbar i {
-    font-size: 1.2em;
-    margin-left: 10px;
     color: black;
+    margin-left: 5px;
 }
 
-/* Hover effect for links and icons */
-.navbar a:hover,
-.navbar i:hover {
-    color: #333;
+/* Hover */
+.navbar a:hover,.navbar i:hover {
+    color: #007aff;
+    /* Change color on hover to a darker shade */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        /* Stack items vertically on smaller screens */
+        gap: 10px;
+        /* Reduce space between items */
+    }
+
+    .navbar a,
+    .navbar i {
+        font-size: 1.2em;
+        /* Adjust font size to fit smaller screens */
+    }
 }
