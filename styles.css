@@ -39,8 +39,8 @@ body {
     align-items: center;
 }
 
-/* Featured Box */
 
+/* Featured */
 .featured {
     width: 100%;
     max-width: 1200px;
@@ -50,9 +50,7 @@ body {
 .featured-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* 3 columns side by side */
     gap: 40px;
-    /* Space between boxes */
     text-align: center;
 }
 
@@ -61,6 +59,11 @@ body {
     width: 100%;
     max-width: 300px;
     text-align: left;
+}
+
+.featured-box h1,
+.featured-box p {
+    transition: color 0.3s;
 }
 
 .featured-box img {
@@ -78,6 +81,16 @@ body {
 .featured-box p {
     font-size: 1em;
     color: #555;
+}
+
+.featured-box h1 a,
+.featured-box p a {
+    text-decoration: none;
+}
+
+.featured-box h1 a:hover,
+.featured-box p a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive */
