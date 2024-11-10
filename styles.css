@@ -1,0 +1,40 @@
+/* Center-align the entire navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center content horizontally */
+    gap: 20px;
+    /* Space between elements */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+}
+
+/* Styling the site title */
+.site-title {
+    font-size: 1.3em;
+    /* Larger font for site title */
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+/* Styling for navigation links */
+.navbar a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Styling social media icons */
+.navbar i {
+    font-size: 1.2em;
+    margin-left: 10px;
+    color: black;
+}
+
+/* Hover effect for links and icons */
+.navbar a:hover,
+.navbar i:hover {
+    color: #333;
+}
