@@ -44,13 +44,13 @@ body {
 .featured {
     width: 100%;
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 100px auto;
 }
 
 .featured-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 45px;
     text-align: center;
 }
 
@@ -61,35 +61,35 @@ body {
     text-align: left;
 }
 
-.featured-box h1,
-.featured-box p {
-    transition: color 0.3s;
-}
-
 .featured-box img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .featured-box h1 {
-    font-size: 1.5em;
+    font-size: 1.85em;
     color: black;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .featured-box p {
-    font-size: 1em;
+    font-size: 1.25em;
     color: #555;
+    margin-top: 5px;
 }
 
 .featured-box h1 a,
 .featured-box p a {
-    text-decoration: none;
+    text-decoration: underline;
+    color: inherit;
 }
 
 .featured-box h1 a:hover,
 .featured-box p a:hover {
+    color: #007aff;
     text-decoration: underline;
 }
 
