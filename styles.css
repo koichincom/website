@@ -1,4 +1,4 @@
-/* Navbar styling */
+/* Navbar */
 .navbar {
     display: flex;
     align-items: center;
@@ -8,38 +8,97 @@
     gap: 15px;
 }
 
-/* Navigation Links */
 .navbar a {
-    font-size: 1.75em;
+    font-size: 1.5em;
     text-decoration: none;
     color: black;
     margin: 10px;
 }
 
-/* Social Media */
+.navbar a:first-child {
+    font-weight: bold;
+}
+
 .navbar i {
     color: black;
     margin-left: 5px;
 }
 
-/* Hover */
-.navbar a:hover,.navbar i:hover {
+.navbar a:hover,
+.navbar i:hover {
     color: #007aff;
-    /* Change color on hover to a darker shade */
 }
 
-/* Responsive adjustments for smaller screens */
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Featured Box */
+
+.featured {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns side by side */
+    gap: 40px;
+    /* Space between boxes */
+    text-align: center;
+}
+
+/* Featured Box */
+.featured-box {
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+}
+
+.featured-box img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+.featured-box h1 {
+    font-size: 1.5em;
+    color: black;
+}
+
+.featured-box p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .featured {
+        padding: 0 5%;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        /* Stack items vertically on smaller screens */
         gap: 10px;
-        /* Reduce space between items */
     }
 
     .navbar a,
     .navbar i {
         font-size: 1.2em;
-        /* Adjust font size to fit smaller screens */
+    }
+
+    .featured-grid {
+        grid-template-columns: 1fr;
     }
 }

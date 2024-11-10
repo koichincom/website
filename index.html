@@ -11,21 +11,40 @@
 
 <body>
 
-    <!-- Header -->
-    <div id="header"></div>
+    <div id="navbar"></div>
     <script>
-        fetch('/header.html')
+        fetch('/navbar.html')
             .then(response => response.text())
             .then(data => {
-                document.getElementById('header').innerHTML = data;
+                document.getElementById('navbar').innerHTML = data;
             })
             .catch(error => console.error('Error loading header:', error));
     </script>
 
-    <!-- Page Content -->
-    <section>
-        
-    </section>
+    <main class="content">
+
+        <!-- Featured Section -->
+        <section class="featured">
+            <div class="featured-grid">
+                <div class="featured-box">
+                    <img src="images/featured/dant.jpg" alt="picture of the neuron">
+                    <h1>DANT1</h1>
+                    <p>A club focused on neurotechnology at De Anza College. Join our Discord 
+                        if you're interested and a De Anza student.</p>
+                </div>
+                <div class="featured-box">
+                    <img src="images/featured/dant.jpg" alt="neuron picture">
+                    <h1>DANT2</h1>
+                    <p>A club focused on neurotechnology at De Anza College</p>
+                </div>
+                <div class="featured-box">
+                    <img src="images/featured/dant.jpg" alt="neuron picture">
+                    <h1>DANT3</h1>
+                    <p>A club focused on neurotechnology at De Anza College</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
 </body>
 

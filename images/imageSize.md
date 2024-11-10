@@ -1,0 +1,1 @@
+1080 * 720 px for all images
