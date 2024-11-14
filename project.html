@@ -18,7 +18,7 @@
             .then(data => {
                 document.getElementById('navbar').innerHTML = data;
             })
-            .catch(error => console.error('Error loading header:', error));
+            .catch(error => console.error('Error loading navbar:', error));
     </script>
 
     <main class="content">
@@ -26,13 +26,48 @@
         <section class="gallery">
             <div class="gallery-grid">
                 <div class="gallery-box">
-                    <img src="images/project/koichin.com.jpeg" alt="a coding man">
+                    <img src="images/thumbnail/koichin.com.png" alt="a coding man">
                     <h1>koichin.com</h1>
                     <p>I redesigned this personal website. I will keep my projects and blogs here.
                         <a href="https://github.com/koichincom/my-website">GitHub</a>
                     </p>
                 </div>
-                <!-- Additional gallery Items -->
+                <div class="gallery-box">
+                    <img src="images/thumbnail/koichin.com.png" alt="a coding man">
+                    <h1>koichin.com</h1>
+                    <p>I redesigned this personal website. I will keep my projects and blogs here.
+                        <a href="https://github.com/koichincom/my-website">GitHub</a>
+                    </p>
+                </div>
+                <div class="gallery-box">
+                    <img src="images/thumbnail/koichin.com.png" alt="a coding man">
+                    <h1>koichin.com</h1>
+                    <p>I redesigned this personal website. I will keep my projects and blogs here.
+                        <a href="https://github.com/koichincom/my-website">GitHub</a>
+                    </p>
+                </div>
+                <!-- Additional gallery Items can go here -->
+            </div>
+        </section>
+
+        <!-- text List Section -->
+        <section class="text-list">
+            <div class="text-entry">
+                <h1>Project Title 1</h1>
+                <p class="date">Last Updated: Aug 15, 2024</p>
+                <p class="subtitle">A short description of the first project, explaining its purpose and features.</p>
+            </div>
+
+            <div class="text-entry">
+                <h1>Project Title 2</h1>
+                <p class="date">Last Updated: Aug 10, 2024</p>
+                <p class="subtitle">Brief details about the second project, its goals, and what it aims to achieve.</p>
+            </div>
+
+            <div class="text-entry">
+                <h1>Project Title 3</h1>
+                <p class="date">Last Updated: Aug 5, 2024</p>
+                <p class="subtitle">An overview of the third project, including key features or highlights.</p>
             </div>
         </section>
     </main>

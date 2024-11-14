@@ -94,21 +94,21 @@ body {
     text-decoration: underline;
 }
 
-/* Blog List */
-.blog-list {
+/* text List */
+.text-list {
     width: 100%;
     max-width: 900px;
     margin: 50px auto;
     padding: 0 20px;
 }
 
-.blog-entry {
+.text-entry {
     padding: 20px 0;
     border-bottom: 1px solid #ddd;
     margin-bottom: 20px;
 }
 
-.blog-entry h1 {
+.text-entry h1 {
     font-size: 1.8em;
     font-weight: 600;
     color: #111;
