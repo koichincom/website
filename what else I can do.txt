@@ -1,5 +1,0 @@
-ページに応じてnavbarのBoldを変更
-projectページをHomeと同様に
-blogページを画像なしのシステムで
-aboutページに顔写真と説明
-projectページのコンテンツを作成
