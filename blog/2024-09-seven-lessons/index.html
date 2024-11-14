@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Title</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar loading -->
+    <div id="navbar"></div>
+    <script>
+        fetch('../../navbar.html') // Adjusted path for loading the navbar
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+
+    <!-- Main blog content -->
+    <main class="blog-content">
+        <article>
+            <h1>Blog Post Title</h1> <!-- Blog post title -->
+            <p class="date">Posted on: Sep 9, 2024</p> <!-- Publication date -->
+            <p class="subtitle">This is a short subtitle for the blog post.</p> <!-- Short subtitle or intro -->
+
+            <section class="blog-body">
+                <!-- Main content of the blog post -->
+                <p>This is the content of the blog post. Here you can write paragraphs, include images, and format the
+                    content as needed.</p>
+                <p>More content follows here, detailing the insights, stories, or topics of this blog post.</p>
+                <!-- Additional content, images, lists, etc. can be added here -->
+            </section>
+        </article>
+    </main>
+
+</body>
+
+</html>

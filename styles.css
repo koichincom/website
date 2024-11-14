@@ -13,6 +13,7 @@
     font-size: 2em;
     text-decoration: none;
     color: black;
+    /* Navbar link color set to black */
     margin: 10px;
 }
 
@@ -25,9 +26,15 @@
     margin-left: 5px;
 }
 
+/* Hover color for all links */
 .navbar a:hover,
-.navbar i:hover {
+.navbar i:hover,
+.text-entry a:hover,
+.gallery-box h1 a:hover,
+.gallery-box p a:hover {
     color: #007aff;
+    /* Set hover color to blue */
+    text-decoration: none;
 }
 
 /* Body */
@@ -76,22 +83,18 @@ body {
     margin-bottom: 5px;
 }
 
+/* Remove default link color in gallery-box */
+.gallery-box h1 a,
+.gallery-box p a {
+    color: inherit;
+    /* Inherit color from parent element */
+    text-decoration: none;
+}
+
 .gallery-box p {
     font-size: 1.25em;
     color: #555;
     margin-top: 5px;
-}
-
-.gallery-box h1 a,
-.gallery-box p a {
-    text-decoration: underline;
-    color: inherit;
-}
-
-.gallery-box h1 a:hover,
-.gallery-box p a:hover {
-    color: #007aff;
-    text-decoration: underline;
 }
 
 /* text List */
@@ -115,6 +118,13 @@ body {
     margin: 0 0 10px;
 }
 
+/* Remove default link color in text-entry */
+.text-entry h1 a {
+    color: inherit;
+    /* Inherit color from parent element */
+    text-decoration: none;
+}
+
 .date {
     font-size: 1em;
     color: #777;
@@ -133,6 +143,7 @@ body {
     .gallery {
         padding: 0 5%;
     }
+
     .gallery-box img {
         height: auto;
     }
