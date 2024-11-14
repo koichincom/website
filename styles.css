@@ -95,19 +95,10 @@ body {
 }
 
 /* Blog List */
-body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
 .blog-list {
     width: 100%;
-    max-width: 1000px;
-    margin: px auto;
+    max-width: 900px;
+    margin: 50px auto;
     padding: 0 20px;
 }
 
