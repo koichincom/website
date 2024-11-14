@@ -14,7 +14,7 @@
     <!-- Navbar loading -->
     <div id="navbar"></div>
     <script>
-        fetch('../../navbar.html') // Adjusted path for loading the navbar
+        fetch('../../navbar.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar').innerHTML = data;
