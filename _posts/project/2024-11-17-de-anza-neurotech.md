@@ -4,7 +4,8 @@ title: "De Anza Neurotech Club (DANT)"
 date: 2024-11-17
 categories: project
 description: "A vibrant community fostering neurotechnology learning, collaboration, and innovation."
-start_date: 2023-09-01
+start_date: 2024-09-01
+end_date:
 ---
 
 The De Anza Neurotechnology Club (DANT) is a passionate community dedicated to exploring the exciting field of neurotechnology. Situated in Silicon Valley, our club provides opportunities for enthusiasts to learn from scratch, collaborate on innovative projects, and turn dreams into reality.
