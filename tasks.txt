@@ -1,8 +1,0 @@
-- responsive
-- underline for linked texts
-- indicator where the user is viewing (project, blog, and about)
-- bring the blog texts from medium
-- css for blogs
-- explanation for blog page
-- finish up about
-- prepare hello@koichin.com to receive emails

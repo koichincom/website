@@ -1,0 +1,192 @@
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Hover effect */
+.navbar a:hover,
+.text-entry a:hover,
+.gallery-box h1 a:hover,
+.gallery-box p a:hover {
+    color: #007aff;
+    text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
+    gap: 15px;
+    margin-top: 80px;
+}
+
+.navbar a {
+    font-size: 2em;
+    text-decoration: none;
+    color: #666;
+    margin: 10px;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: black;
+}
+
+/* Gallery */
+.gallery {
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+    text-align: center;
+}
+
+/* Gallery Box */
+.gallery-box {
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+}
+
+.gallery-box img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 2px;
+}
+
+.gallery-box h1 {
+    font-size: 1.85em;
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Remove default link color in gallery-box */
+.gallery-box h1 a,
+.gallery-box p a {
+    color: inherit;
+    /* Inherit color from parent element */
+    text-decoration: none;
+}
+
+.gallery-box p {
+    font-size: 1.25em;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Text List */
+.text-list {
+    width: 100%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.text-entry {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.text-entry h1 {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #111;
+    margin: 0 0 10px;
+}
+
+/* Remove default link color in text-entry */
+.text-entry h1 a {
+    color: inherit;
+    /* Inherit color from parent element */
+    text-decoration: none;
+}
+
+/* Blog Content Styling */
+.blog-content {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.blog-content article {
+    width: 100%;
+}
+
+.blog-content h1 {
+    font-size: 2.5em;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.blog-content .date {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.blog-content .blog-body p {
+    line-height: 1.8;
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: #555;
+    font-weight: 300;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .gallery {
+        padding: 0 5%;
+    }
+
+    .gallery-box img {
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar a,
+    .navbar i {
+        font-size: 1.2em;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-content {
+        padding: 0 15px;
+    }
+
+    .blog-content h1 {
+        font-size: 2em;
+    }
+}

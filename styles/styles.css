@@ -1,3 +1,22 @@
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Hover effect */
+.navbar a:hover,
+.text-entry a:hover,
+.gallery-box h1 a:hover,
+.gallery-box p a:hover {
+    color: #007aff;
+    text-decoration: none;
+}
+
 /* Navbar */
 .navbar {
     display: flex;
@@ -12,43 +31,16 @@
 .navbar a {
     font-size: 2em;
     text-decoration: none;
-    color: black;
-    /* Navbar link color set to black */
+    color: #666;
     margin: 10px;
 }
 
-.navbar a:first-child {
+.nav-link.active {
     font-weight: bold;
-}
-
-.navbar i {
     color: black;
-    margin-left: 5px;
 }
 
-/* Hover color for all links */
-.navbar a:hover,
-.navbar i:hover,
-.text-entry a:hover,
-.gallery-box h1 a:hover,
-.gallery-box p a:hover {
-    color: #007aff;
-    /* Set hover color to blue */
-    text-decoration: none;
-}
-
-/* Body */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-/* gallery */
+/* Gallery */
 .gallery {
     width: 100%;
     max-width: 1200px;
@@ -62,7 +54,7 @@ body {
     text-align: center;
 }
 
-/* gallery Box */
+/* Gallery Box */
 .gallery-box {
     width: 100%;
     max-width: 300px;
@@ -97,7 +89,7 @@ body {
     margin-top: 5px;
 }
 
-/* text List */
+/* Text List */
 .text-list {
     width: 100%;
     max-width: 900px;
@@ -157,22 +149,6 @@ body {
     margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-    .blog-content {
-        padding: 0 15px;
-    }
-
-    .blog-content h1 {
-        font-size: 2em;
-    }
-}
-
-.date {
-    font-size: 1em;
-    color: #777;
-    margin-bottom: 10px;
-}
-
 .subtitle {
     font-size: 1.1em;
     color: #555;
@@ -205,10 +181,12 @@ body {
     .gallery-grid {
         grid-template-columns: 1fr;
     }
-}
 
-.nav-link.active {
-    color: red;
-    font-weight: bold;
-    text-decoration: underline;
+    .blog-content {
+        padding: 0 15px;
+    }
+
+    .blog-content h1 {
+        font-size: 2em;
+    }
 }

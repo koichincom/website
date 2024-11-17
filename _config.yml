@@ -1,0 +1,25 @@
+title: Koichi Nakayamada
+description: Personal Blog and Projects
+baseurl: ""
+url: "https://koichin.com"
+
+permalink: /:categories/:title/
+
+
+plugins:
+  - jekyll-feed
+
+markdown: kramdown
+
+defaults:
+  - scope:
+      path: "_posts/blog"
+    values:
+      layout: post
+      categories: blog
+
+  - scope:
+      path: "_posts/project"
+    values:
+      layout: post
+      categories: project

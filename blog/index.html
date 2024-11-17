@@ -1,48 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Blog
+---
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-
-<body>
-
-    <div id="navbar"></div>
-    <script>
-        fetch('../navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading header:', error));
-    </script>
-
-    <main class="text-list">
-
-        <div class="text-entry">
-            <p class="date">Sep 9, 2024</p>
-            <h1><a href="/blog/2024-09-seven-lessons/">Seven Things I've Learned in 19 Years of My Life</a></h1>
-            <p class="subtitle">This is a short subtitle for the text post.</p>
-        </div>
-
-        <div class="text-entry">
-            <p class="date">Aug 15, 2024</p>
-            <h1><a href="/blog/2024-08-phone-addiction/">A Cross Roads of Phone Addiction</a></h1>
-            <p class="subtitle">Another subtitle to give a brief idea of the post.</p>
-        </div>
-
-        <div class="text-entry">
-            <p class="date">Mar 30, 2024</p>
-            <h1><a href="/blog/2024-03-running-away/">Running Away from Pain</a></h1>
-            <p class="subtitle">Subtitle for the third blog post.</p>
-        </div>
-
-    </main>
-
-</body>
-
-</html>
+<div class="text-list">
+    {% for post in site.categories.blog %}
+    <div class="text-entry">
+        <p class="date">{{ post.date | date: "%B %d, %Y" }}</p>
+        <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+        <p class="subtitle">{{ post.description }}</p>
+    </div>
+    {% endfor %}
+</div>
