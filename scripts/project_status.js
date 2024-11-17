@@ -17,11 +17,11 @@ document.querySelectorAll(".text-entry").forEach((entry) => {
     if (startDate) {
         if (endDate) {
             // Completed project
-            statusElement.textContent = "Status: Completed";
+            statusElement.textContent = "Completed";
             daysElement.textContent = `Days Taken: ${calculateDays(startDate, endDate)} days`;
         } else {
             // Ongoing project
-            statusElement.textContent = "Status: Ongoing";
+            statusElement.textContent = "Ongoing";
             daysElement.textContent = `Days Ongoing: ${calculateDays(startDate)} days`;
         }
     } else {
