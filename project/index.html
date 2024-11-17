@@ -5,10 +5,12 @@ title: Projects
 
 <div class="text-list">
     {% for post in site.categories.project %}
-    <div class="text-entry">
-        <p class="date">{{ post.date | date: "%B %d, %Y" }}</p>
+    <div class="text-entry" data-start-date="{{ post.start_date }}" data-end-date="{{ post.end_date }}">
         <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
         <p class="subtitle">{{ post.description }}</p>
+        <p class="status"></p>
+        <p class="days"></p>
     </div>
     {% endfor %}
 </div>
+<script src="/scripts/project_status.js"></script>

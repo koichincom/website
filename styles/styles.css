@@ -144,6 +144,19 @@ p a:hover {
     font-weight: 300;
 }
 
+.text-entry .status {
+    font-size: 1em;
+    font-weight: bold;
+    color: #007aff;
+    margin-bottom: 5px;
+}
+
+.text-entry .days {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
 /* ==========================================
     5. Individual Post (Blog & Project Detail)
    ========================================== */
