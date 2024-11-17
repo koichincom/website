@@ -125,6 +125,48 @@ body {
     text-decoration: none;
 }
 
+/* Blog Content Styling */
+.blog-content {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.blog-content article {
+    width: 100%;
+}
+
+.blog-content h1 {
+    font-size: 2.5em;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.blog-content .date {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.blog-content .blog-body p {
+    line-height: 1.8;
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .blog-content {
+        padding: 0 15px;
+    }
+
+    .blog-content h1 {
+        font-size: 2em;
+    }
+}
+
 .date {
     font-size: 1em;
     color: #777;
