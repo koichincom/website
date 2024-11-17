@@ -16,6 +16,16 @@ a {
     text-decoration: none;
 }
 
+p a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+p a:hover {
+    text-decoration: none;
+    color: #007aff;
+}
+
 /* ==========================================
     2. Navbar
    ========================================== */
@@ -84,8 +94,9 @@ a {
 
 .text-entry.blog .date {
     font-size: 0.9em;
-    color: #666;
+    color: #777;
     margin-bottom: 5px;
+    font-style: italic;
 }
 
 .text-entry.blog .subtitle {
@@ -109,8 +120,9 @@ a {
 
 .text-entry.project .date {
     font-size: 0.9em;
-    color: #666;
+    color: #888;
     margin-bottom: 5px;
+    font-style: italic;
 }
 
 .text-entry.project .status {
@@ -148,9 +160,10 @@ a {
 
 .post-content .date {
     font-size: 1em;
-    color: #666;
+    color: #777;
     text-align: center;
     margin-bottom: 20px;
+    font-style: italic;
 }
 
 .post-content .content {
@@ -161,7 +174,50 @@ a {
 }
 
 /* ==========================================
-    5. Gallery (Homepage or Projects Showcase)
+    5. About Section
+   ========================================== */
+
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.profile-picture {
+    flex-shrink: 0;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.about-text {
+    max-width: 600px;
+}
+
+.about-text h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.about-text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* ==========================================
+    6. Gallery
    ========================================== */
 
 .gallery {
@@ -197,12 +253,12 @@ a {
 
 .gallery-box p {
     font-size: 1.25em;
-    color: #333;
+    color: #555;
     margin-top: 5px;
 }
 
 /* ==========================================
-   6. Footer
+    7. Footer
    ========================================== */
 
 .footer-space {
@@ -210,7 +266,7 @@ a {
 }
 
 /* ==========================================
-   7. Responsive Design
+    8. Responsive Design
    ========================================== */
 
 @media (max-width: 1024px) {
@@ -277,5 +333,19 @@ a {
 
     .gallery-box img {
         height: auto;
+    }
+
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-picture img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-text {
+        max-width: 100%;
     }
 }
