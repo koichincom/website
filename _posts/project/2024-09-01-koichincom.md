@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "koichin.com"
+title: "Personal Website: koichin.com"
 date: 2024-08-15
 start_date: 2024-09-01
 end_date: 
