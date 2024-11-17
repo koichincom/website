@@ -18,7 +18,6 @@ a {
 
 p a {
     text-decoration: underline;
-    color: inherit;
 }
 
 p a:hover {
@@ -35,13 +34,18 @@ p a:hover {
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
-    gap: 15px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .navbar a {
-    font-size: 2em;
+    font-size: 1.8em;
     color: #666;
     margin: 10px;
 }
@@ -49,6 +53,7 @@ p a:hover {
 .nav-link.active {
     font-weight: bold;
     color: black;
+    font-size: 2em;
 }
 
 .navbar a:hover {
@@ -62,44 +67,100 @@ p a:hover {
 }
 
 /* ==========================================
-    3. Gallery
+    3. Gallery (Adjusted Feature + Square Cards)
    ========================================== */
 
 .gallery {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    gap: 40px;
 }
 
-.gallery-grid {
+/* Feature Section */
+.gallery-feature {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 45px;
-    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.gallery-feature img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+    border-radius: 5px;
+}
+
+.gallery-feature-content {
+    text-align: left;
+}
+
+.gallery-feature h1 {
+    font-size: em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.gallery-feature p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+}
+
+.gallery-grid-rows {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .gallery-grid-rows {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-feature {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid-rows {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-feature {
+        grid-template-columns: 1fr;
+    }
 }
 
 .gallery-box {
-    width: 100%;
-    max-width: 300px;
     text-align: left;
 }
 
 .gallery-box img {
     width: 100%;
-    height: 180px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .gallery-box h1 {
-    font-size: 1.85em;
-    color: black;
-    margin-top: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #333;
 }
 
 .gallery-box p {
-    font-size: 1.25em;
+    font-size: 0.9em;
     color: #555;
-    margin-top: 5px;
+    line-height: 1.5;
+    margin-bottom: 10px;
 }
 
 /* ==========================================
@@ -158,7 +219,7 @@ p a:hover {
 }
 
 /* ==========================================
-    Individual Post Styling (Markdown Support)
+    5. Individual Post (Blog & Project Detail)
    ========================================== */
 
 .post-content {
@@ -168,16 +229,15 @@ p a:hover {
     box-sizing: border-box;
 }
 
-/* Headings */
 .post-content h1 {
     font-size: 3em;
     color: black;
     text-align: center;
-    margin: 40px 0;
+    margin: 40px;
 }
 
 .post-content h2 {
-    font-size: 2.2em;
+    font-size: 1.5em;
     color: #444;
     margin: 30px 0 15px;
     line-height: 1.5;
@@ -185,23 +245,20 @@ p a:hover {
     padding-bottom: 5px;
 }
 
-.post-content h3 {
-    font-size: 1.6em;
-    color: #555;
-    margin: 20px 0 10px;
-    line-height: 1.5;
+.post-content .date {
+    font-size: 1em;
+    color: #666;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-
-/* Paragraphs */
-.post-content p {
+.post-content .content {
     line-height: 1.8;
     font-size: 1.1em;
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Links */
 .post-content a {
     text-decoration: underline;
     color: inherit;
@@ -212,7 +269,7 @@ p a:hover {
     text-decoration: none;
 }
 
-/* Blockquotes */
+/* Blockquote Styling */
 .post-content blockquote {
     font-style: italic;
     color: #555;
@@ -222,7 +279,7 @@ p a:hover {
     background-color: #f9f9f9;
 }
 
-/* Code Blocks */
+/* Preformatted Code */
 .post-content pre {
     background-color: #f4f4f4;
     border: 1px solid #ddd;
@@ -242,7 +299,7 @@ p a:hover {
     color: #d14;
 }
 
-/* Lists */
+/* Lists Styling */
 .post-content ul,
 .post-content ol {
     margin: 20px 0 20px 40px;
@@ -257,82 +314,6 @@ p a:hover {
 .post-content ol li {
     list-style-type: decimal;
     margin-bottom: 10px;
-}
-
-/* Tables */
-.post-content table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-.post-content th,
-.post-content td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-.post-content th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-}
-
-/* Images */
-.post-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px 0;
-}
-
-/* Horizontal Rules */
-.post-content hr {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 30px 0;
-}
-
-/* Inline Elements */
-.post-content strong {
-    font-weight: bold;
-    color: #000;
-}
-
-.post-content em {
-    font-style: italic;
-    color: #555;
-}
-
-.post-content del {
-    text-decoration: line-through;
-    color: #999;
-}
-
-/* Alerts (Custom Markdown Extensions) */
-.post-content .alert {
-    padding: 15px;
-    margin: 20px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.post-content .alert.alert-info {
-    background-color: #e7f3fe;
-    color: #31708f;
-    border-color: #bce8f1;
-}
-
-.post-content .alert.alert-warning {
-    background-color: #fcf8e3;
-    color: #8a6d3b;
-    border-color: #faebcc;
-}
-
-.post-content .alert.alert-danger {
-    background-color: #f2dede;
-    color: #a94442;
-    border-color: #ebccd1;
 }
 
 /* ==========================================

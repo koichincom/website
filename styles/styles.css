@@ -18,7 +18,6 @@ a {
 
 p a {
     text-decoration: underline;
-    color: inherit;
 }
 
 p a:hover {
@@ -35,13 +34,18 @@ p a:hover {
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
-    gap: 15px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .navbar a {
-    font-size: 2em;
+    font-size: 1.8em;
     color: #666;
     margin: 10px;
 }
@@ -49,6 +53,7 @@ p a:hover {
 .nav-link.active {
     font-weight: bold;
     color: black;
+    font-size: 2em;
 }
 
 .navbar a:hover {
@@ -62,44 +67,100 @@ p a:hover {
 }
 
 /* ==========================================
-    3. Gallery
+    3. Gallery (Adjusted Feature + Square Cards)
    ========================================== */
 
 .gallery {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    gap: 40px;
 }
 
-.gallery-grid {
+/* Feature Section */
+.gallery-feature {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 45px;
-    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.gallery-feature img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+    border-radius: 5px;
+}
+
+.gallery-feature-content {
+    text-align: left;
+}
+
+.gallery-feature h1 {
+    font-size: em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.gallery-feature p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+}
+
+.gallery-grid-rows {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .gallery-grid-rows {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-feature {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid-rows {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-feature {
+        grid-template-columns: 1fr;
+    }
 }
 
 .gallery-box {
-    width: 100%;
-    max-width: 300px;
     text-align: left;
 }
 
 .gallery-box img {
     width: 100%;
-    height: 180px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .gallery-box h1 {
-    font-size: 1.85em;
-    color: black;
-    margin-top: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #333;
 }
 
 .gallery-box p {
-    font-size: 1.25em;
+    font-size: 0.9em;
     color: #555;
-    margin-top: 5px;
+    line-height: 1.5;
+    margin-bottom: 10px;
 }
 
 /* ==========================================
@@ -189,7 +250,6 @@ p a:hover {
     color: #666;
     text-align: center;
     margin-bottom: 30px;
-    font-style: italic;
 }
 
 .post-content .content {
