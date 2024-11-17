@@ -158,7 +158,7 @@ p a:hover {
 }
 
 /* ==========================================
-    5. Individual Post (Blog & Project Detail)
+    Individual Post Styling (Markdown Support)
    ========================================== */
 
 .post-content {
@@ -168,25 +168,171 @@ p a:hover {
     box-sizing: border-box;
 }
 
+/* Headings */
 .post-content h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     color: black;
     text-align: center;
-    margin-bottom: 20px;
+    margin: 40px 0;
 }
 
-.post-content .date {
-    font-size: 1.2em;
-    color: #666;
-    text-align: center;
-    margin-bottom: 50px;
+.post-content h2 {
+    font-size: 2.2em;
+    color: #444;
+    margin: 30px 0 15px;
+    line-height: 1.5;
+    text-align: left;
+    padding-bottom: 5px;
 }
 
-.post-content .content {
+.post-content h3 {
+    font-size: 1.6em;
+    color: #555;
+    margin: 20px 0 10px;
+    line-height: 1.5;
+}
+
+
+/* Paragraphs */
+.post-content p {
     line-height: 1.8;
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: #333;
     margin-bottom: 20px;
+}
+
+/* Links */
+.post-content a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+.post-content a:hover {
+    color: #007aff;
+    text-decoration: none;
+}
+
+/* Blockquotes */
+.post-content blockquote {
+    font-style: italic;
+    color: #555;
+    border-left: 4px solid #ddd;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+}
+
+/* Code Blocks */
+.post-content pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 20px 0;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.post-content code {
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #d14;
+}
+
+/* Lists */
+.post-content ul,
+.post-content ol {
+    margin: 20px 0 20px 40px;
+    padding: 0;
+}
+
+.post-content ul li {
+    list-style-type: disc;
+    margin-bottom: 10px;
+}
+
+.post-content ol li {
+    list-style-type: decimal;
+    margin-bottom: 10px;
+}
+
+/* Tables */
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.post-content th,
+.post-content td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.post-content th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+/* Images */
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+}
+
+/* Horizontal Rules */
+.post-content hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 30px 0;
+}
+
+/* Inline Elements */
+.post-content strong {
+    font-weight: bold;
+    color: #000;
+}
+
+.post-content em {
+    font-style: italic;
+    color: #555;
+}
+
+.post-content del {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* Alerts (Custom Markdown Extensions) */
+.post-content .alert {
+    padding: 15px;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.post-content .alert.alert-info {
+    background-color: #e7f3fe;
+    color: #31708f;
+    border-color: #bce8f1;
+}
+
+.post-content .alert.alert-warning {
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+    border-color: #faebcc;
+}
+
+.post-content .alert.alert-danger {
+    background-color: #f2dede;
+    color: #a94442;
+    border-color: #ebccd1;
 }
 
 /* ==========================================

@@ -169,24 +169,91 @@ p a:hover {
 }
 
 .post-content h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     color: black;
     text-align: center;
-    margin-bottom: 20px;
+    margin: 40px;
+}
+
+.post-content h2 {
+    font-size: 1.5em;
+    color: #444;
+    margin: 30px 0 15px;
+    line-height: 1.5;
+    text-align: left;
+    padding-bottom: 5px;
 }
 
 .post-content .date {
-    font-size: 1.2em;
+    font-size: 1em;
     color: #666;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    font-style: italic;
 }
 
 .post-content .content {
     line-height: 1.8;
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: #333;
     margin-bottom: 20px;
+}
+
+.post-content a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+.post-content a:hover {
+    color: #007aff;
+    text-decoration: none;
+}
+
+/* Blockquote Styling */
+.post-content blockquote {
+    font-style: italic;
+    color: #555;
+    border-left: 4px solid #ddd;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+}
+
+/* Preformatted Code */
+.post-content pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 20px 0;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.post-content code {
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #d14;
+}
+
+/* Lists Styling */
+.post-content ul,
+.post-content ol {
+    margin: 20px 0 20px 40px;
+    padding: 0;
+}
+
+.post-content ul li {
+    list-style-type: disc;
+    margin-bottom: 10px;
+}
+
+.post-content ol li {
+    list-style-type: decimal;
+    margin-bottom: 10px;
 }
 
 /* ==========================================
