@@ -8,6 +8,12 @@ body {
     align-items: center;
 }
 
+.body,
+.text-entry h1 a {
+    color: inherit;
+    text-decoration: none;
+}
+
 /* Hover effect */
 .navbar a:hover,
 .text-entry a:hover,
@@ -108,11 +114,9 @@ body {
     margin: 0 0 10px;
 }
 
-/* Remove default link color in text-entry */
-.text-entry h1 a {
-    color: inherit;
-    /* Inherit color from parent element */
-    text-decoration: none;
+.text-entry .post-title {
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 /* Blog Content Styling */

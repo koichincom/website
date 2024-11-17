@@ -1,5 +1,11 @@
 // Get the current path from the URL
-const currentPath = window.location.pathname;
+let currentPath = window.location.pathname;
+
+// Simplify the path to its parent directory
+// This removes everything after the last slash if the path isn't root
+if (currentPath !== "/") {
+    currentPath = currentPath.replace(/\/[^/]*$/, "/");
+}
 
 // Map links to their corresponding paths
 const navLinks = {
@@ -18,5 +24,6 @@ document.querySelectorAll(".nav-link").forEach(link => {
 for (const [path, linkId] of Object.entries(navLinks)) {
     if (currentPath === path) {
         document.getElementById(linkId)?.classList.add("active");
+        break; // Stop the loop once the match is found
     }
 }
