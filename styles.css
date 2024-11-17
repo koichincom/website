@@ -206,3 +206,9 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+.nav-link.active {
+    color: red;
+    font-weight: bold;
+    text-decoration: underline;
+}
