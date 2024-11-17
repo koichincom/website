@@ -70,36 +70,29 @@ body {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    margin-bottom: 2px;
 }
 
 .gallery-box h1 {
     font-size: 1.85em;
     color: black;
     margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-/* Remove default link color in gallery-box */
-.gallery-box h1 a,
-.gallery-box p a {
-    color: inherit;
-    /* Inherit color from parent element */
-    text-decoration: none;
 }
 
 .gallery-box p {
     font-size: 1.25em;
-    color: #555;
+    color: #333;
     margin-top: 5px;
+}
+
+.gallery-box h1 a,
+.gallery-box p a {
+    color: inherit;
 }
 
 /* Text List */
 .text-list {
     width: 100%;
     max-width: 900px;
-    margin: 50px auto;
-    padding: 0 20px;
 }
 
 .text-entry {
@@ -163,7 +156,7 @@ body {
 
 /* Footer */
 .footer-space {
-    height: 320px;
+    height: 240px;
 }
 
 /* Responsive */
