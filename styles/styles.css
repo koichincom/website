@@ -62,162 +62,7 @@ p a:hover {
 }
 
 /* ==========================================
-    3. List Pages (Blog & Project Index)
-   ========================================== */
-
-/* General List Container */
-.text-list {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-.text-entry {
-    padding: 20px 0;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
-}
-
-/* Blog-Specific Entries */
-.text-entry.blog {
-    padding: 25px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.text-entry.blog h1 {
-    font-size: 1.8em;
-    font-weight: 600;
-    color: black;
-    margin: 0 0 10px;
-}
-
-.text-entry.blog .date {
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 5px;
-    font-style: italic;
-}
-
-.text-entry.blog .subtitle {
-    font-size: 1.1em;
-    color: #555;
-    font-weight: 300;
-}
-
-/* Project-Specific Entries */
-.text-entry.project {
-    padding: 25px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.text-entry.project h1 {
-    font-size: 1.8em;
-    font-weight: 600;
-    color: black;
-    margin: 0 0 10px;
-}
-
-.text-entry.project .date {
-    font-size: 0.9em;
-    color: #888;
-    margin-bottom: 5px;
-    font-style: italic;
-}
-
-.text-entry.project .status {
-    font-size: 0.9em;
-    color: #007aff;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.text-entry.project .subtitle {
-    font-size: 1.1em;
-    color: #555;
-    font-weight: 300;
-}
-
-/* ==========================================
-    4. Individual Posts (Blog & Project Detail)
-   ========================================== */
-
-.post-content {
-    width: 100%;
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-.post-content h1 {
-    font-size: 2.5em;
-    color: #111;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.post-content .date {
-    font-size: 1em;
-    color: #777;
-    text-align: center;
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-.post-content .content {
-    line-height: 1.8;
-    font-size: 1.1em;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* ==========================================
-    5. About Section
-   ========================================== */
-
-.about-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-.profile-picture {
-    flex-shrink: 0;
-}
-
-.profile-picture img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    display: block;
-}
-
-.about-text {
-    max-width: 600px;
-}
-
-.about-text h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.about-text p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    color: #555;
-}
-
-/* ==========================================
-    6. Gallery
+    3. Gallery
    ========================================== */
 
 .gallery {
@@ -258,7 +103,83 @@ p a:hover {
 }
 
 /* ==========================================
-    7. Footer
+    4. List Pages (Blog & Project Index)
+   ========================================== */
+
+.text-list {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.text-entry {
+    padding: 25px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.text-entry h1 {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: black;
+    margin: 0 0 10px;
+}
+
+.text-entry h1:hover {
+    color: #007aff;
+    text-decoration: none;
+}
+
+.text-entry .date {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.text-entry .subtitle {
+    font-size: 1.1em;
+    color: #555;
+    font-weight: 300;
+}
+
+/* ==========================================
+    5. Individual Post (Blog & Project Detail)
+   ========================================== */
+
+.post-content {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.post-content h1 {
+    font-size: 2.5em;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.post-content .date {
+    font-size: 1em;
+    color: #777;
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.post-content .content {
+    line-height: 1.8;
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* ==========================================
+    6. Footer
    ========================================== */
 
 .footer-space {
@@ -266,7 +187,7 @@ p a:hover {
 }
 
 /* ==========================================
-    8. Responsive Design
+    7. Responsive Design
    ========================================== */
 
 @media (max-width: 1024px) {
@@ -274,13 +195,11 @@ p a:hover {
         padding: 0 15px;
     }
 
-    .text-entry.blog h1,
-    .text-entry.project h1 {
+    .text-entry h1 {
         font-size: 1.6em;
     }
 
-    .text-entry.blog .subtitle,
-    .text-entry.project .subtitle {
+    .text-entry .subtitle {
         font-size: 1em;
     }
 }
@@ -300,22 +219,15 @@ p a:hover {
         padding: 0 10px;
     }
 
-    .text-entry.blog h1,
-    .text-entry.project h1 {
+    .text-entry h1 {
         font-size: 1.4em;
     }
 
-    .text-entry.blog .subtitle,
-    .text-entry.project .subtitle {
+    .text-entry .subtitle {
         font-size: 0.9em;
     }
 
-    .text-entry.blog .date,
-    .text-entry.project .date {
-        font-size: 0.8em;
-    }
-
-    .text-entry.project .status {
+    .text-entry .date {
         font-size: 0.8em;
     }
 
@@ -333,19 +245,5 @@ p a:hover {
 
     .gallery-box img {
         height: auto;
-    }
-
-    .about-section {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .profile-picture img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .about-text {
-        max-width: 100%;
     }
 }
