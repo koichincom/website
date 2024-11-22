@@ -9,7 +9,7 @@
     <!-- Meta Description -->
     <meta name="description"
         content="{% if page.description %}{{ page.description }}{% else %}A post by Koichi Nakayamada{% endif %}">
-    <meta name="author" content="Koichi Nakayamada">
+    <meta name="author" content="{{ page.author }}">
     <meta name="keywords"
         content="{% if page.keywords %}{{ page.keywords | join: ', ' }}{% else %}Koichi Nakayamada, blog, computer science{% endif %}">
 
@@ -21,9 +21,10 @@
         "headline": "{{ page.title }}",
         "description": "{% if page.description %}{{ page.description }}{% else %}A blog/project post by Koichi Nakayamada{% endif %}",
         "datePublished": "{{ page.date | date_to_rfc3339 }}",
+        "dateModified": "{% if page.last_updated %}{{ page.last_updated | date_to_rfc3339 }}{% else %}{{ page.date | date_to_rfc3339 }}{% endif %}",
         "author": {
             "@type": "Person",
-            "name": "Koichi Nakayamada",
+            "name": "{{ page.author }}",
             "url": "https://koichin.com"
         },
         "mainEntityOfPage": {
@@ -47,16 +48,28 @@
     <main class="post-content">
         <h1>{{ page.title }}</h1>
         <p class="meta">
-            Published on: {{ page.date | date: "%B %d, %Y" }} | Author: {{ page.author }}
+            Published on: {{ page.date | date: "%B %d, %Y" }}<br>
+            {% if page.last_updated %}
         </p>
+
         <p class="meta">
-            Category: {{ page.categories | capitalize }}
+            Last Updated: {{ page.last_updated | date: "%B %d, %Y" }}
+            {% endif %}
+        </p>
+
+        <p class="meta">
+            Author: {{ page.author }}
+        </p>
+
+        <!-- Reading Time -->
+        <p class="meta reading-time">
+            Reading Time: <span id="reading-time"></span>
         </p>
 
         <!-- Project Status and Days -->
         <div class="project-status" data-start-date="{{ page.start_date }}" data-end-date="{{ page.end_date }}">
-            <span class="status"></span>
-            <span class="days"></span>
+            <p>Status: <span class="status"></span></p>
+            <p>Days: <span class="days"></span></p>
         </div>
 
         <!-- Post Content -->
@@ -70,7 +83,8 @@
 
     <!-- Scripts -->
     <script src="/scripts/navbar.js"></script>
-    <script src="/scripts/scripts.js"></script>
+    <script src="/scripts/project_status.js"></script>
+    <script src="/scripts/reading_time.js"></script>
 </body>
 
 </html>

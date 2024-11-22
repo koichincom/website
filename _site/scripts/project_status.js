@@ -5,28 +5,29 @@ const calculateDays = (startDate, endDate) => {
     return Math.floor((end - start) / (1000 * 60 * 60 * 24));
 };
 
-// Iterate over each project entry
-document.querySelectorAll(".text-entry").forEach((entry) => {
-    const startDate = entry.getAttribute("data-start-date");
-    const endDate = entry.getAttribute("data-end-date");
+// Update project status and days dynamically
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".project-status").forEach((entry) => {
+        const startDate = entry.getAttribute("data-start-date");
+        const endDate = entry.getAttribute("data-end-date");
 
-    // Elements for status and days
-    const statusElement = entry.querySelector(".status");
-    const daysElement = entry.querySelector(".days");
+        const statusElement = entry.querySelector(".status");
+        const daysElement = entry.querySelector(".days");
 
-    if (startDate) {
-        if (endDate) {
-            // Completed project
-            statusElement.textContent = "Completed";
-            daysElement.textContent = `Days Taken: ${calculateDays(startDate, endDate)} days`;
+        if (startDate) {
+            if (endDate) {
+                // Completed project
+                statusElement.textContent = "Completed";
+                daysElement.textContent = `${calculateDays(startDate, endDate)} days`;
+            } else {
+                // Ongoing project
+                statusElement.textContent = "Ongoing";
+                daysElement.textContent = `${calculateDays(startDate)} days`;
+            }
         } else {
-            // Ongoing project
-            statusElement.textContent = "Ongoing";
-            daysElement.textContent = `Days Ongoing: ${calculateDays(startDate)} days`;
+            // Unknown status
+            statusElement.textContent = "Unknown";
+            daysElement.textContent = "N/A";
         }
-    } else {
-        // If no start date is provided, fallback
-        statusElement.textContent = "Status: Unknown";
-        daysElement.textContent = "";
-    }
+    });
 });
