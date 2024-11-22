@@ -206,11 +206,11 @@ p a:hover {
 }
 
 .project-status .status-ongoing {
-    color: #ff9900;
+    color: #ff9f0a;
 }
 
 .project-status .status-completed {
-    color: #28a745;
+    color: #32d74b;
 }
 
 .project-status .status-unknown {
