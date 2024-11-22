@@ -189,7 +189,7 @@ p a:hover {
     text-decoration: none;
 }
 
-.text-entry .subtitle {
+.text-entry .description {
     font-size: 20px;
     color: #555;
     font-weight: 300;
@@ -233,7 +233,22 @@ p a:hover {
     font-weight: bold;
     color: #000;
     text-align: left;
-    line-height: 1.4;
+}
+
+.post-content .meta {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.post-content .description {
+    font-size: 25px;
+    color: #555;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 30px;
 }
 
 .post-content h2 {
@@ -457,7 +472,7 @@ p a:hover {
         font-size: 1.6em;
     }
 
-    .text-entry .subtitle {
+    .text-entry .description {
         font-size: 1em;
     }
 }
@@ -505,7 +520,7 @@ p a:hover {
         font-size: 1.4em;
     }
 
-    .text-entry .subtitle {
+    .text-entry .description {
         font-size: 0.9em;
     }
 
