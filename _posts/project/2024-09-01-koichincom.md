@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "KOICHIN.com"
+title: "koichin.com"
 date: 2024-11-16
 last_updated: 2024-11-22
 author: Koichi Nakayamada
 categories: project
-description: "An overview of my website’s structure, features, and future plans."
+description: "My personal website for my portfolio and blogs."
 start_date: 2024-09-01
 end_date: 2024-11-22
 ---
