@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "7 Things I Learned in 19 Years of my Life"
-date: 2024-08-15
+date: 2024-09-08
 categories: blog
-description: "Exploring the journey of overcoming phone addiction by setting rules and creating a conducive environment."
+description: "Seven life lessons."
 ---
 
 1. You were born to be free. Take others’ advice with a pinch of salt. Every action should eventually connected to your happiness, and its process can pleasure others.
