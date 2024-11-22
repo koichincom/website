@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "KOICHIN.com"
-date: 2024-08-15
-last_updated: 
+date: 2024-11-16
+last_updated: 2024-11-22
 author: Koichi Nakayamada
 categories: project
 description: "An overview of my website’s structure, features, and future plans."

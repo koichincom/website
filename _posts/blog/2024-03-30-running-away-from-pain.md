@@ -5,8 +5,8 @@ date: 2024-03-30
 last_updated: 
 author: Koichi Nakayamada
 categories: blog
-description: ""The story I became a proactive truant and now I'm in the US to 
-study Computer Science.""
+description: "The story I became a proactive truant and now I'm in the US to 
+study Computer Science."
 start_date: 
 end_date: 
 ---
