@@ -265,14 +265,12 @@ p a:hover {
 }
 
 .post-content a {
-    text-decoration: underline;
+    text-decoration: none;
     color: #007aff;
-    transition: color 0.3s ease;
 }
 
 .post-content a:hover {
-    color: #0056b3;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .post-content blockquote {

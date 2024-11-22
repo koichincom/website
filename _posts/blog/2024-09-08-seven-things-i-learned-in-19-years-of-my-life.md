@@ -1,9 +1,13 @@
 ---
 layout: post
-title: "7 Things I Learned in 19 Years of my Life"
+title: "7 Things I Learned in 19 Years of My Life"
 date: 2024-09-08
+last_updated: blog
+author: Koichi Nakayamada
 categories: blog
-description: "Seven life lessons."
+description: "7 Principles for a Purposeful and Fulfilling Life"
+start_date: 
+end_date: 
 ---
 
 1. You were born to be free. Take others’ advice with a pinch of salt. Every action should eventually connected to your happiness, and its process can pleasure others.

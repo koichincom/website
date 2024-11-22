@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Website: koichin.com</title>
+    <title>KOICHIN.com</title>
 
     <!-- Meta Description -->
     <meta name="description"
-        content="This website, koichin.com, is a simple personal project that shows my projects, blog posts, and basic info. I used technologies like HTML, CSS, JavaScript, Ruby, YAML, and Jekyll.">
+        content="An overview of my website’s structure, features, and future plans.">
     <meta name="author" content="Koichi Nakayamada">
     <meta name="keywords"
         content="Koichi Nakayamada, blog, computer science">
@@ -18,8 +18,8 @@
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "Personal Website: koichin.com",
-        "description": "This website, koichin.com, is a simple personal project that shows my projects, blog posts, and basic info. I used technologies like HTML, CSS, JavaScript, Ruby, YAML, and Jekyll.",
+        "headline": "KOICHIN.com",
+        "description": "An overview of my website’s structure, features, and future plans.",
         "datePublished": "2024-08-15 00:00:00 -0700",
         "author": {
             "@type": "Person",
@@ -55,88 +55,52 @@
 
     <!-- Main Content -->
     <main class="post-content">
-        <h1>Personal Website: koichin.com</h1>
-        <p class="date">August 15, 2024</p>
+        <h1>KOICHIN.com</h1>
+        <p class="meta">
+            Published on: August 15, 2024 | Author: Koichi Nakayamada
+        </p>
+        <p class="meta">
+            Category: ["project"]
+        </p>
+
+        <!-- Project Status and Days -->
+        <div class="project-status" data-start-date="2024-09-01" data-end-date="2024-11-22">
+            <span class="status"></span>
+            <span class="days"></span>
+        </div>
+
+        <!-- Post Content -->
         <div class="content">
             <h2 id="overview">Overview</h2>
-<p>This website is a personal portfolio and blog that showcases my journey as a student majoring in Computer Science. It also provides a platform to share projects, ideas, and experiences that reflect my growth and aspirations in Silicon Valley. The website’s primary aim is to present information in a clean, structured, and professional manner while maintaining simplicity and functionality.</p>
+<p>This website serves as my personal portfolio and blog, built with a focus on simplicity and functionality. Using Jekyll, I streamlined content management by converting Markdown files into HTML and leveraged features like front matter to integrate JavaScript for dynamic elements such as date calculations. The project helped me deepen my understanding of web development fundamentals, including structuring and styling a website effectively.</p>
 
 <h2 id="website-structure">Website Structure</h2>
-
-<h3 id="1-homepage">1. <strong>Homepage</strong></h3>
-<p>The homepage serves as an introduction to who I am. It briefly highlights my key interests, achievements, and current activities. It also includes links to the primary sections of the website:</p>
+<p>The site is designed with a clean navigation bar at the top, providing easy access to the following sections:</p>
 <ul>
-  <li>Blog</li>
-  <li>Projects</li>
-  <li>About Me</li>
+  <li><strong>Homepage</strong>: A brief introduction to who I am and what I do.</li>
+  <li><strong>Projects</strong>: Highlights of my work, with start and end dates calculated dynamically using JavaScript.</li>
+  <li><strong>Blog</strong>: A collection of my thoughts and experiences, presented with clear formatting for readability.</li>
+  <li><strong>About</strong>: A short biography with links to my social profiles for networking.</li>
 </ul>
 
-<h3 id="2-blog">2. <strong>Blog</strong></h3>
-<p>The blog is a collection of posts where I share insights, personal experiences, and thoughts on various topics. These posts are structured with:</p>
+<h2 id="design-philosophy">Design Philosophy</h2>
+<p>I prioritized a simple and intuitive design to enhance user experience. The navigation bar and layout are clean and minimalistic, allowing users to focus on the content. Responsive design ensures the site is accessible across all devices.</p>
+
+<h2 id="technical-highlights">Technical Highlights</h2>
 <ul>
-  <li><strong>Date of publication</strong>: Displayed prominently to indicate when the content was written.</li>
-  <li><strong>Title</strong>: A descriptive and concise heading for each post.</li>
-  <li><strong>Description</strong>: A short summary of the post.</li>
-  <li><strong>Content</strong>: Detailed discussions or narratives, formatted for readability.</li>
+  <li><strong>Jekyll Integration</strong>: Simplified content management with Markdown and front matter.</li>
+  <li><strong>Dynamic Elements</strong>: Used JavaScript to calculate project durations and display them dynamically.</li>
+  <li><strong>GitHub Pages Deployment</strong>: The website is deployed using GitHub Pages, making it easy to host and maintain. The source code is available in the <a href="https://github.com/koichincom/my-website">GitHub Repository</a></li>
+  <li><strong>Learning Outcomes</strong>: Through this project, I improved my understanding of website structure, responsive design, and efficient content management systems.</li>
 </ul>
 
-<h3 id="3-projects">3. <strong>Projects</strong></h3>
-<p>The projects section highlights my work and contributions. It is designed to track the lifecycle of each project with:</p>
+<h2 id="future-improvements">Future Improvements</h2>
+<p>I plan to expand the functionality by adding:</p>
 <ul>
-  <li><strong>Start and End Dates</strong>: Used to calculate the duration of each project.</li>
-  <li><strong>Status</strong>: Indicates whether the project is ongoing or completed.</li>
-  <li><strong>Description</strong>: Provides context and details about the project.</li>
+  <li>Interactive elements such as recommended posts or animations.</li>
+  <li>Advanced tracking features for project milestones.</li>
+  <li>Enhanced accessibility to ensure inclusivity for all users.</li>
 </ul>
-
-<h3 id="4-about">4. <strong>About</strong></h3>
-<p>This page introduces me in greater detail, featuring:</p>
-<ul>
-  <li>A profile picture styled with CSS to be visually appealing.</li>
-  <li>A short biography summarizing my academic background, interests, and goals.</li>
-  <li>Contact information with a <strong>mailto</strong> link for easy communication.</li>
-</ul>
-
-<h3 id="5-responsive-design">5. <strong>Responsive Design</strong></h3>
-<p>The entire website is responsive, ensuring optimal user experience across various devices. The layout adjusts seamlessly to different screen sizes without compromising on readability or functionality.</p>
-
-<h2 id="key-features-and-goals">Key Features and Goals</h2>
-
-<h3 id="1-minimalist-design">1. <strong>Minimalist Design</strong></h3>
-<p>The design emphasizes simplicity, using clean layouts, neutral colors, and sufficient spacing for a professional appearance. This approach enhances user focus on the content.</p>
-
-<h3 id="2-dynamic-functionality">2. <strong>Dynamic Functionality</strong></h3>
-<p>Features like:</p>
-<ul>
-  <li>Status and duration tracking for projects.</li>
-  <li>JSON-LD structured data for search engine optimization (SEO).</li>
-  <li>JavaScript to dynamically display recommended posts or additional interactive elements.</li>
-</ul>
-
-<h3 id="3-seo-optimization">3. <strong>SEO Optimization</strong></h3>
-<p>Meta descriptions, keywords, and structured data are implemented across pages to ensure the website ranks effectively on search engines. This includes:</p>
-<ul>
-  <li>Personalized metadata for each blog post and project.</li>
-  <li>Structured data using JSON-LD to define my professional profile and content.</li>
-</ul>
-
-<h3 id="4-scalability">4. <strong>Scalability</strong></h3>
-<p>The website is built to accommodate future enhancements, such as:</p>
-<ul>
-  <li>Adding new sections or features without disrupting the existing structure.</li>
-  <li>Differentiating the Blog and Projects sections while maintaining shared components for efficiency.</li>
-</ul>
-
-<h2 id="future-plans">Future Plans</h2>
-<ul>
-  <li><strong>Expand the Projects Section</strong>: Incorporate more detailed tracking and visualization for project progress, including timelines and milestones.</li>
-  <li><strong>Enhance User Engagement</strong>: Add features like recommended posts, interactive elements, or animations.</li>
-  <li><strong>Improve Accessibility</strong>: Ensure the website adheres to accessibility standards for all users.</li>
-  <li><strong>Continuous Learning</strong>: Use this website as a platform to experiment with new technologies and improve my skills in web development.</li>
-</ul>
-
-<h2 id="summary">Summary</h2>
-<p>This website is more than just a portfolio—it’s a reflection of my journey, interests, and aspirations. It blends simplicity with functionality, aiming to create a platform that is both personal and professional. As I continue to grow, so will this website, serving as a dynamic record of my learning and achievements.</p>
-
 
         </div>
     </main>
@@ -146,6 +110,7 @@
 
     <!-- Scripts -->
     <script src="/scripts/navbar.js"></script>
+    <script src="/scripts/scripts.js"></script>
 </body>
 
 </html>

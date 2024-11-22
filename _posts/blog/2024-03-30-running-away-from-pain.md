@@ -2,8 +2,13 @@
 layout: post
 title: "Running Away from Pain"
 date: 2024-03-30
+last_updated: 
+author: Koichi Nakayamada
 categories: blog
-description: "The story I became a proactive truant and now I'm in the US to study Computer Science."
+description: ""The story I became a proactive truant and now I'm in the US to 
+study Computer Science.""
+start_date: 
+end_date: 
 ---
 
 I became a proactive truant and got depressed in my first year of high school because of the intimidating and closed environment and teachers. While at home, I was thinking about my purpose of attending school, studying, and living all the time. Eventually, I got a straightforward and obvious but essential purpose for living.

@@ -2,8 +2,12 @@
 layout: post
 title: "A Cross Roads of Phone Addiction"
 date: 2024-08-15
+last_updated: 
+author: Koichi Nakayamada
 categories: blog
-description: "Exploring the journey of overcoming phone addiction by setting rules and creating a conducive environment."
+description: "How I Took Control of My YouTube Habits"
+start_date: 
+end_date: 
 ---
 
 It should be because of your phone if you feel you aren't doing well. It consumes your time and is known as life. But you've already known this and don't need to understand why you should do that anymore. I've recognized it for a long time, too. I deleted all social media apps on my phone, turned the gray color filter on, left only four apps on my home screen, and so on. But my screen time is still around 6 hours a day, and it gets 10 hours or more on a terrible day. It's ridiculous that I spend a quarter of my life on my phone, but how does it happen? For me, it was because of YouTube addiction. It was my bestie and, simultaneously, my Arch-enemy.
