@@ -7,7 +7,7 @@ title: Blog
     {% for post in site.categories.blog %}
     <div class="text-entry">
         <p class="date-and-reading-time">
-            {{ post.date | date: "%B %d, %Y" }} · <span class="reading-time" data-url="{{ post.url }}"></span>
+            {{ post.date | date: "%B %d, %Y" }} · <span class="reading-time"></span>
         </p>
         <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
         <p class="subtitle">{{ post.description }}</p>
@@ -15,4 +15,4 @@ title: Blog
     {% endfor %}
 </div>
 
-<script src="/scripts/reading-time.js"></script>
+<script src="/scripts/reading-time.js" defer></script>

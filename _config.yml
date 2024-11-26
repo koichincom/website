@@ -16,8 +16,10 @@ defaults:
       path: "_posts/blog"
     values:
       layout: post
+      category: blog
 
   - scope:
       path: "_posts/project"
     values:
       layout: post
+      category: project
