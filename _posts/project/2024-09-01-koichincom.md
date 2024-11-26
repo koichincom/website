@@ -1,13 +1,11 @@
 ---
 layout: post
-title: "koichin.com"
-date: 2024-11-16
-last_updated: 2024-11-22
-author: Koichi Nakayamada
-categories: project
+title: "My Personal Website"
 description: "My personal website for my portfolio and blogs."
+date: 2024-11-16
 start_date: 2024-09-01
-end_date: 2024-11-22
+end_date:
+author:
 ---
 
 ## Overview  

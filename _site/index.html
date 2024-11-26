@@ -32,9 +32,10 @@
 <body>
     <nav class="navbar">
     <a href="/" class="nav-link" id="home-link">Koichi Nakayamada</a>
-    <a href="/project/" class="nav-link" id="project-link">project</a>
-    <a href="/blog/" class="nav-link" id="blog-link">blog</a>
-    <a href="/about/" class="nav-link" id="about-link">about</a>
+    <a href="/project/" class="nav-link" id="project-link">Project</a>
+    <a href="/blog/" class="nav-link" id="blog-link">Blog</a>
+    <a href="/vision/" class="nav-link" id="vision-link">Vision</a>
+    <a href="/about/" class="nav-link" id="about-link">About</a>
     <div class="social-links">
         <a href="https://twitter.com/koichincom" target="_blank"><i class="fab fa-twitter"></i></a>
         <a href="https://github.com/koichincom" target="_blank"><i class="fab fa-github"></i></a>
@@ -44,48 +45,35 @@
     <main>
         <section class="gallery">
 
-    <section class="gallery">
-        <!-- Feature Section -->
-        <div class="gallery-feature">
+    <div class="gallery-grid-rows">
+        <div class="gallery-box">
             <a href="/project/dant/">
-                <img src="/images/thumbnail/dant.jpg" alt="DANT image">
+                <img src="/images/thumbnail/dant.png" alt="Logo of De Anza Neurotech">
             </a>
-            <div class="gallery-feature-content">
-                <a href="/project/dant/"><h1>De Anza NeuroTech Club</h1></a>
-                <p>A club focused on neurotech at De Anza College. Join us on
-                    <a href="https://discord.gg/TF38g4AGtk">Discord</a> (DA student only).
-                </p>
-            </div>
+            <a href="/project/dant/">
+                <h1>De Anza Neurotech</h1>
+            </a>
+            <p>A Neurotechnology club in De Anza College</p>
         </div>
-    
-        <!-- Grid Section -->
-        <div class="gallery-grid-rows">
-            <div class="gallery-box">
-                <a href="/project/koichincom/">
-                    <img src="/images/thumbnail/koichincom.jpg" alt="Project 1">
-                </a>
-                <a href="/project/koichincom/">
-                    <h1>koichin.com</h1>
-                </a>
-                <p>What I've learned through making this website.</p>
-            </div>
-            <div class="gallery-box">
-                <img src="/images/thumbnail/null.jpg" alt="a young woman">
-                <h1>Null</h1>
-                <p>Description goes here.</p>
-            </div>
-            <div class="gallery-box">
-                <img src="/images/thumbnail/null.jpg" alt="a young woman">
-                <h1>Null</h1>
-                <p>Description goes here.</p>
-            </div>
-            <div class="gallery-box">
-                <img src="/images/thumbnail/null.jpg" alt="a young woman">
-                <h1>Null</h1>
-                <p>Description goes here.</p>
-            </div>
+        <div class="gallery-box">
+            <a href="/project/koichincom/">
+                <img src="/images/thumbnail/koichincom.jpg" alt="Logo of Koichin.com">
+            </a>
+            <a href="/project/koichincom/">
+                <h1>koichin.com</h1>
+            </a>
+            <p>What I've learned through making this website.</p>
         </div>
-    </section>
+    </div>
+
+    <div class="life-timer">
+        <h2>Remaining Time</h2>
+        <p>Let's say my life expectancy is <span id="lifespan"></span> years.</p>
+        <p id="remaining-time"></p>
+        <p id="remaining-time-conversions"></p>
+    </div>
+
+    <script src="/scripts/life-timer.js" defer></script>
 
 </section>
     </main>

@@ -1,13 +1,9 @@
 ---
 layout: post
 title: ""
-date: 
-last_updated: 
-author:
-categories: project or blog
 description: ""
+date:
 start_date: 
-end_date: 
+end_date:
+author:
 ---
-
-Starts from h2, because the header is h1

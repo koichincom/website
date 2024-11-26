@@ -47,13 +47,14 @@ p a:hover {
 
 .nav-link.active {
     font-weight: bold;
-    color: black; 
+    color: black;
 }
 
 .social-links {
     display: flex;
     gap: 25px;
 }
+
 
 /* ==========================================
     Gallery (Adjusted Feature + Square Cards)

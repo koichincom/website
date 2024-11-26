@@ -5,28 +5,34 @@ title: Koichi Nakayamada
 
 <section class="gallery">
 
-    <section class="gallery">
-
-        <div class="gallery-grid-rows">
-            <div class="gallery-box">
-                <a href="{{ '/project/dant/' | relative_url }}">
-                    <img src="/images/thumbnail/dant.png" alt="Logo of De Anza Neurotech">
-                </a>
-                <a href="{{ '/project/dant/' | relative_url}}">
-                    <h1>De Anza Neurotech</h1>
-                </a>
-                <p>A Neurotechnology club in De Anza College</p>
-            </div>
-            <div class="gallery-box">
-                <a href="{{ '/project/koichincom/' | relative_url }}">
-                    <img src="/images/thumbnail/koichincom.jpg" alt="Project 1">
-                </a>
-                <a href="{{ '/project/koichincom/' | relative_url}}">
-                    <h1>koichin.com</h1>
-                </a>
-                <p>What I've learned through making this website.</p>
-            </div>
+    <div class="gallery-grid-rows">
+        <div class="gallery-box">
+            <a href="{{ '/project/dant/' | relative_url }}">
+                <img src="/images/thumbnail/dant.png" alt="Logo of De Anza Neurotech">
+            </a>
+            <a href="{{ '/project/dant/' | relative_url}}">
+                <h1>De Anza Neurotech</h1>
+            </a>
+            <p>A Neurotechnology club in De Anza College</p>
         </div>
-    </section>
+        <div class="gallery-box">
+            <a href="{{ '/project/koichincom/' | relative_url }}">
+                <img src="/images/thumbnail/koichincom.jpg" alt="Logo of Koichin.com">
+            </a>
+            <a href="{{ '/project/koichincom/' | relative_url}}">
+                <h1>koichin.com</h1>
+            </a>
+            <p>What I've learned through making this website.</p>
+        </div>
+    </div>
+
+    <div class="life-timer">
+        <h2>Remaining Time</h2>
+        <p>Let's say my life expectancy is <span id="lifespan"></span> years.</p>
+        <p id="remaining-time"></p>
+        <p id="remaining-time-conversions"></p>
+    </div>
+
+    <script src="/scripts/life-timer.js" defer></script>
 
 </section>

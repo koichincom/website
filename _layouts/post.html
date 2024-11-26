@@ -65,13 +65,7 @@
         <!-- Post Metadata -->
         <p class="meta">
             {{ page.date | date: "%b %d, %Y" }} ·
-
-            <!-- Last Updated Date -->
-            {% if page.last_updated %}
-            (Upd. {{ page.last_updated | date: "%b %d, %Y" }})
-            {% endif %}
-
-            <span id="reading-time"></span>
+            <span class="reading-time-single" id="reading-time"></span>
         </p>
 
         <!-- Post Content -->

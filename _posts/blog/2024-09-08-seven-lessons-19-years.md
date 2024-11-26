@@ -1,20 +1,18 @@
 ---
 layout: post
 title: "Seven Lessons, 19 Years"
-date: 2024-09-08
-last_updated: 2024-11-22
-author: Koichi Nakayamada
-categories: blog
 description: "7 lessons I've learned with exclusiating painin 19 years of my life"
+date: 2024-09-08
 start_date: 
 end_date: 
+author: 
 ---
 
 1. You were born to be free. Take others’ advice with a pinch of salt. Every action should eventually connected to your happiness, and its process can pleasure others.
 
 2. There’s no meaning in everyone’s life. Everything you care about is meaningless. So, do what you feel is meaningful and enthusiastic, and do it with great people. (≈ positive nihilism)
 
-3. Never mind the past, never stick to the future, but live in the moment. Thinking about the past never creates your future. Don’t waste your time. (≈ mindfulness)
+3. Never mind the past, never stick to the future, but live at the moment. Thinking about the past never creates your future. Don’t waste your time. (≈ mindfulness)
 
 4. Own only what you need, and love what you have. It’s the same thing in thinking. Get focused on what you need, and be enthusiastic about what you do. (≈ minimalism)
 

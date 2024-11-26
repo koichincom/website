@@ -1,20 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const wordsPerMinute = 238;
+
     // Function to calculate reading time
-    const calculateReadingTime = (text, wordsPerMinute = 238) => {
-        const words = text.split(/\s+/).length; // Count words
-        const minutes = Math.ceil(words / wordsPerMinute); // Calculate reading time in minutes
-        return { minutes };
+    const calculateReadingTime = (text) => {
+        const words = text.split(/\s+/).length;
+        const minutes = Math.ceil(words / wordsPerMinute);
+        return minutes;
     };
 
-    // Find the content and reading-time element
-    const content = document.querySelector(".content");
-    const readingTimeElement = document.getElementById("reading-time");
-
-    if (content && readingTimeElement) {
-        const text = content.textContent || content.innerText;
-        const { minutes } = calculateReadingTime(text);
-
-        // Display the reading time
-        readingTimeElement.textContent = `${minutes} min read`;
+    // Handle single post page
+    const singlePostReadingTime = document.querySelector(".reading-time-single");
+    if (singlePostReadingTime) {
+        const content = document.querySelector(".content");
+        if (content) {
+            const text = content.textContent || content.innerText;
+            const minutes = calculateReadingTime(text);
+            singlePostReadingTime.textContent = `${minutes} min read`;
+        }
     }
+
+    // Handle blog list page
+    const blogListReadingTimes = document.querySelectorAll(".reading-time");
+    blogListReadingTimes.forEach(async (element) => {
+        const postUrl = element.getAttribute("data-url");
+        if (postUrl) {
+            try {
+                const response = await fetch(postUrl);
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+                const content = doc.querySelector(".content");
+
+                if (content) {
+                    const text = content.textContent || content.innerText;
+                    const minutes = calculateReadingTime(text);
+                    element.textContent = `${minutes} min read`;
+                }
+            } catch (error) {
+                console.error(`Error fetching post content from ${postUrl}:`, error);
+                element.textContent = "Error";
+            }
+        }
+    });
 });
