@@ -9,7 +9,10 @@ author:
 ---
 
 ## Overview  
-This website serves as my personal portfolio and blog, built with a focus on simplicity and functionality. Using Jekyll, I streamlined content management by converting Markdown files into HTML and leveraged features like front matter to integrate JavaScript for dynamic elements such as date calculations. The project helped me deepen my understanding of web development fundamentals, including structuring and styling a website effectively.
+This website serves as my personal portfolio and blog, built with a focus on simplicity and functionality. Using Jekyll, 
+I streamlined content management by converting Markdown files into HTML and leveraged features like front matter to integrate 
+JavaScript for dynamic elements such as date calculations. The project helped me deepen my understanding of web development 
+fundamentals, including structuring and styling a website effectively.
 
 ## Website Structure  
 The site is designed with a clean navigation bar at the top, providing easy access to the following sections:  
@@ -19,13 +22,16 @@ The site is designed with a clean navigation bar at the top, providing easy acce
 - **About**: A short biography with links to my social profiles for networking.  
 
 ## Design Philosophy  
-I prioritized a simple and intuitive design to enhance user experience. The navigation bar and layout are clean and minimalistic, allowing users to focus on the content. Responsive design ensures the site is accessible across all devices.  
+I prioritized a simple and intuitive design to enhance user experience. The navigation bar and layout are clean and 
+minimalistic, allowing users to focus on the content. Responsive design ensures the site is accessible across all devices.  
 
 ## Technical Highlights  
 - **Jekyll Integration**: Simplified content management with Markdown and front matter.  
 - **Dynamic Elements**: Used JavaScript to calculate project durations and display them dynamically.  
-- **GitHub Pages Deployment**: The website is deployed using GitHub Pages, making it easy to host and maintain. The source code is available in the [GitHub Repository](https://github.com/koichincom/my-website)  
-- **Learning Outcomes**: Through this project, I improved my understanding of website structure, responsive design, and efficient content management systems.  
+- **GitHub Pages Deployment**: The website is deployed using GitHub Pages, making it easy to host and maintain. 
+- The source code is available in the [GitHub Repository](https://github.com/koichincom/my-website)  
+- **Learning Outcomes**: Through this project, I improved my understanding of website structure, responsive design, and 
+- efficient content management systems.  
 
 ## Future Improvements  
 I plan to expand the functionality by adding:  
