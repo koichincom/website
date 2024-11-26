@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-26T01:53:35-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Koichi Nakayamada</title><subtitle>Personal Blog and Projects</subtitle><entry><title type="html">De Anza Neurotech Club</title><link href="http://localhost:4000/project/dant/" rel="alternate" type="text/html" title="De Anza Neurotech Club" /><published>2024-11-17T00:00:00-08:00</published><updated>2024-11-17T00:00:00-08:00</updated><id>http://localhost:4000/project/dant</id><content type="html" xml:base="http://localhost:4000/project/dant/"><![CDATA[<p>The De Anza Neurotechnology Club (DANT) is a passionate community dedicated to exploring the exciting field of 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-26T02:04:52-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Koichi Nakayamada</title><subtitle>Personal Blog and Projects</subtitle><entry><title type="html">De Anza Neurotech Club</title><link href="http://localhost:4000/project/dant/" rel="alternate" type="text/html" title="De Anza Neurotech Club" /><published>2024-11-17T00:00:00-08:00</published><updated>2024-11-17T00:00:00-08:00</updated><id>http://localhost:4000/project/dant</id><content type="html" xml:base="http://localhost:4000/project/dant/"><![CDATA[<p>The De Anza Neurotechnology Club (DANT) is a passionate community dedicated to exploring the exciting field of 
 neurotechnology. Situated in Silicon Valley, our club provides opportunities for enthusiasts to learn from scratch, 
 collaborate on innovative projects, and turn dreams into reality.</p>
 
@@ -95,31 +95,19 @@ minimalistic, allowing users to focus on the content. Responsive design ensures 
   <li>Advanced tracking features for project milestones.</li>
   <li>Enhanced accessibility to ensure inclusivity for all users.</li>
 </ul>]]></content><author><name></name></author><category term="project" /><summary type="html"><![CDATA[My personal website for my portfolio and blogs.]]></summary></entry><entry><title type="html">Seven Lessons, 19 Years</title><link href="http://localhost:4000/blog/7-lessons-19-years/" rel="alternate" type="text/html" title="Seven Lessons, 19 Years" /><published>2024-09-08T00:00:00-07:00</published><updated>2024-09-08T00:00:00-07:00</updated><id>http://localhost:4000/blog/7-lessons-19-years</id><content type="html" xml:base="http://localhost:4000/blog/7-lessons-19-years/"><![CDATA[<ol>
-  <li>You were born to be free. Take others’ advice with a pinch of salt. Every action should eventually connected to your</li>
-  <li>
-    <p>happiness, and its process can pleasure others.</p>
-  </li>
-  <li>There’s no meaning in everyone’s life. Everything you care about is meaningless. So, do what you feel is meaningful</li>
-  <li>
-    <p>and enthusiastic, and do it with great people. (≈ positive nihilism)</p>
-  </li>
-  <li>Never mind the past, never stick to the future, but live at the moment. Thinking about the past never creates your</li>
-  <li>
-    <p>future. Don’t waste your time. (≈ mindfulness)</p>
-  </li>
-  <li>Own only what you need, and love what you have. It’s the same thing in thinking. Get focused on what you need, and be</li>
-  <li>
-    <p>enthusiastic about what you do. (≈ minimalism)</p>
-  </li>
-  <li>Separate your problem. Each task must be accessible. “Divide each difficulty into as many parts as is feasible and</li>
-  <li>
-    <p>necessary to resolve it.” — René Descartes (≈ divide and conquer)</p>
-  </li>
-  <li>Don’t make your current status your identity. Time is constantly moving, and your effort should change your status.</li>
-  <li>If you stick to your status, you’ll never progress, and you’ll regret it. You only need direction, not satisfaction</li>
-  <li>
-    <p>with where you’re now.</p>
-  </li>
+  <li>You were born to be free. Take others’ advice with a pinch of salt. Every action should eventually connected to your 
+happiness, and its process can pleasure others.</li>
+  <li>There’s no meaning in everyone’s life. Everything you care about is meaningless. So, do what you feel is meaningful 
+and enthusiastic, and do it with great people. (≈ positive nihilism)</li>
+  <li>Never mind the past, never stick to the future, but live at the moment. Thinking about the past never creates your 
+future. Don’t waste your time. (≈ mindfulness)</li>
+  <li>Own only what you need, and love what you have. It’s the same thing in thinking. Get focused on what you need, and be 
+enthusiastic about what you do. (≈ minimalism)</li>
+  <li>Separate your problem. Each task must be accessible. “Divide each difficulty into as many parts as is feasible and 
+necessary to resolve it.” — René Descartes (≈ divide and conquer)</li>
+  <li>Don’t make your current status your identity. Time is constantly moving, and your effort should change your status. 
+If you stick to your status, you’ll never progress, and you’ll regret it. You only need direction, not satisfaction 
+with where you’re now. (≈ growth mindset)</li>
   <li>Never pursue perfection. Perfection brings nothing but wasted time. Make things work. Get things done.</li>
 </ol>]]></content><author><name></name></author><category term="blog" /><summary type="html"><![CDATA[7 lessons I've learned with exclusiating painin 19 years of my life]]></summary></entry><entry><title type="html">The Crossroads of Phone Addiction</title><link href="http://localhost:4000/blog/the-crossroads-of-phone-addiction/" rel="alternate" type="text/html" title="The Crossroads of Phone Addiction" /><published>2024-08-15T00:00:00-07:00</published><updated>2024-08-15T00:00:00-07:00</updated><id>http://localhost:4000/blog/the-crossroads-of-phone-addiction</id><content type="html" xml:base="http://localhost:4000/blog/the-crossroads-of-phone-addiction/"><![CDATA[<p>It should be because of your phone if you feel you aren’t doing well. It consumes your time and is known as life. But 
 you’ve already known this and don’t need to understand why you should do that anymore. I’ve recognized it for a long time, 
