@@ -7,18 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
     deathDate.setFullYear(deathDate.getFullYear() + Math.floor(lifespan));
     deathDate.setMonth(deathDate.getMonth() + Math.round((lifespan % 1) * 12));
 
-    // Display lifespan in the HTML
-    const lifespanElement = document.getElementById("lifespan");
-    if (lifespanElement) {
-        lifespanElement.textContent = lifespan;
-    }
-
     // Function to calculate remaining time
     const calculateRemainingTime = () => {
         const now = new Date();
         const remainingTime = deathDate - now;
 
-        // If time is up, return zero values
         if (remainingTime <= 0) {
             return {
                 years: 0,
@@ -36,15 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         }
 
-        // Breakdown of remaining time
         const seconds = Math.floor(remainingTime / 1000) % 60;
         const minutes = Math.floor(remainingTime / (1000 * 60)) % 60;
         const hours = Math.floor(remainingTime / (1000 * 60 * 60)) % 24;
-        const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24)) % 30; // Assuming 30 days per month
+        const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24)) % 30; // assume 30 days per month
         const months = Math.floor(remainingTime / (1000 * 60 * 60 * 24 * 30)) % 12;
-        const years = Math.floor(remainingTime / (1000 * 60 * 60 * 24 * 365.25)); // 1 year = 365.25 days
+        const years = Math.floor(remainingTime / (1000 * 60 * 60 * 24 * 365.25));
 
-        // Total conversions
         const totalMonths = Math.floor(remainingTime / (1000 * 60 * 60 * 24 * 30));
         const totalWeeks = Math.floor(remainingTime / (1000 * 60 * 60 * 24 * 7));
         const totalDays = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
@@ -72,16 +63,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const updateDisplay = () => {
         const remaining = calculateRemainingTime();
 
-        // Display "years, months, days, hours, minutes, seconds"
-        const remainingTimeElement = document.getElementById("remaining-time");
-        if (remainingTimeElement) {
-            remainingTimeElement.textContent = `${remaining.years} years, ${remaining.months} months, ${remaining.days} days, ${remaining.hours} hours, ${remaining.minutes} minutes, ${remaining.seconds} seconds`;
+        // Major breakdown: Years, Months, Days
+        const majorRemainingTimeElement = document.getElementById("major-remaining-time");
+        if (majorRemainingTimeElement) {
+            majorRemainingTimeElement.innerHTML = `
+                <div><strong>${remaining.years}</strong> years</div>
+                <div><strong>${remaining.months}</strong> months</div>
+                <div><strong>${remaining.days}</strong> days</div>
+                <div>${remaining.hours} hours</div>
+                <div>${remaining.minutes} minutes</div>
+                <div>${remaining.seconds} seconds</div>
+            `;
         }
 
-        // Display "total months, total weeks, total days, total hours, total minutes, total seconds"
-        const remainingConversionsElement = document.getElementById("remaining-time-conversions");
-        if (remainingConversionsElement) {
-            remainingConversionsElement.textContent = `${remaining.totalMonths} months, ${remaining.totalWeeks} weeks, ${remaining.totalDays} days, ${remaining.totalHours} hours, ${remaining.totalMinutes} minutes, ${remaining.totalSeconds} seconds`;
+        // Supplementary breakdown: Hours, Minutes, Seconds
+        const supplementaryRemainingTimeElement = document.getElementById("supplementary-remaining-time");
+        if (supplementaryRemainingTimeElement) {
+            supplementaryRemainingTimeElement.innerHTML = `
+                <div>${remaining.totalMonths} total months</div>
+                <div>${remaining.totalWeeks} total weeks</div>
+                <div>${remaining.totalDays} total days</div>
+            `;
         }
     };
 

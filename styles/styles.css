@@ -390,7 +390,7 @@ p a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    text-align: left;
     margin: 40px auto;
     max-width: 800px;
     padding: 20px;
@@ -398,8 +398,8 @@ p a:hover {
 }
 
 .profile-picture img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 20px;
@@ -417,6 +417,35 @@ p a:hover {
     margin-bottom: 20px;
 }
 
+.life-timer {
+    margin-top: 30px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.life-timer h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#major-remaining-time, #supplementary-remaining-time {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 1.2em;
+}
+
+#major-remaining-time div {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#supplementary-remaining-time div {
+    font-size: 1em;
+    color: #666;
+}
+
 /* ==========================================
     Footer
    ========================================== */
@@ -428,6 +457,25 @@ p a:hover {
 /* ==========================================
     Responsive Design
    ========================================== */
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 10px;
+    }
+
+    .profile-picture img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-text h1 {
+        font-size: 1.8em;
+    }
+
+    .about-text p {
+        font-size: 1em;
+    }
+}
 
 @media (max-width: 1024px) {
     .text-list {
