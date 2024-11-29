@@ -120,14 +120,13 @@ p a:hover {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .gallery-box h1 {
     font-size: 1.25em;
-    font-weight: bold;
     color: var(--color-gray-1);
-    margin-top: 1px;
+    margin-top: 5px;
     margin-bottom: 1px;
 }
 
@@ -152,6 +151,7 @@ p a:hover {
 .text-list {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     gap: 20px;
     width: 100%;
@@ -161,7 +161,7 @@ p a:hover {
 }
 
 .text-entry {
-    width: 800px;
+    width:780px;
     padding: 20px;
 }
 
@@ -171,7 +171,6 @@ p a:hover {
     color: var(--color-black);
     margin: 0 0 10px;
     line-height: 1.4;
-    letter-spacing: 0.5px;
 }
 
 .text-entry h1:hover {
