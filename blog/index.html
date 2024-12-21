@@ -1,17 +1,24 @@
 ---
 layout: default
-title: Blog
+title: Blog - Koichi Nakayamada
 ---
 
 <div class="text-list">
-    {% for post in site.categories.blog %}
+    {% for post in site.categories.blog limit:10 %}
     <div class="text-entry">
-        <p class="date-and-reading-time">
-            {{ post.date | date: "%B %d, %Y" }} · <span class="reading-time"></span>
-        </p>
         <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-        <p class="subtitle">{{ post.description }}</p>
+        <p class="date">{{ post.date | date: "%B %d, %Y" }}</p>
+        <div class="content">
+            {% capture full_content %}{{ post.content　}}{% endcapture %}
+            {% capture excerpt %}{{ full_content | truncatewords: 250 }}{% endcapture %}
+
+            {{ excerpt }}
+
+            {% if full_content != excerpt %}
+            <br>
+            <a href="{{ post.url }}" class="read-more">Read more</a>
+            {% endif %}
+        </div>
     </div>
     {% endfor %}
-    <script src="/scripts/reading-time.js" defer></script>
 </div>

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: project-post
 title: "De Anza Neurotech Club"
 description: "I'm trying to start a Neurotechology enthusiast club at De Anza College."
 date: 2024-11-17

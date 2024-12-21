@@ -1,9 +1,7 @@
 ---
 layout: post
 title: ""
-description: ""
 date:
 start_date: 
 end_date:
-author:
 ---

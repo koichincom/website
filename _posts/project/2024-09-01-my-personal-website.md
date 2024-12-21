@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: project-post
 title: "My Personal Website"
 description: "My personal website for my portfolio and blogs."
 date: 2024-11-16

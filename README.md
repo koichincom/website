@@ -3,7 +3,5 @@
 - For more information: [project page](https://koichin.com/project/my-website)
 
 ## How can I improve this website?
-- add more contents in vision and about page
-- rethink how to use the howe page
-- rethink how to show the project and blog list pages
-- keep showing the navbar even if the user scrolls down
+- 　Better blog page
+- 　dark and light mode

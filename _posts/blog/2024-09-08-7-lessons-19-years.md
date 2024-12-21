@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: blog-post
 title: "Seven Lessons, 19 Years"
-description: "7 lessons I've learned with exclusiating painin 19 years of my life"
+description: "7 lessons I've learned with excruciating pain in 19 years of my life"
 date: 2024-09-08
 start_date: 
 end_date: 

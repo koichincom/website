@@ -1,7 +1,6 @@
 ---
-layout: post
+layout: blog-post
 title: "The Crossroads of Phone Addiction"
-description: "Phone addiction is a serious problem."
 date: 2024-08-15
 start_date: 
 end_date:

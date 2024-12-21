@@ -1,7 +1,6 @@
 ---
-layout: post
+layout: blog-post
 title: "Running Away from Pain"
-description: "The story I became a proactive truant and now I'm in the US to study Computer Science."
 date: 2024-03-30
 start_date: 
 end_date:
