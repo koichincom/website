@@ -86,7 +86,6 @@ body.dark-mode {
 }
 
 .main-links a:hover {
-    color: var(--color-blue);
     text-decoration: underline;
 }
 
@@ -102,9 +101,11 @@ body.dark-mode {
 }
 
 .social-links a:hover {
-    color: var(--color-blue);
+    text-decoration: underline;
 }
 
+
+/* ======================================== */
 
 .pagination {
     display: flex;
