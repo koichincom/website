@@ -1,7 +1,0 @@
----
-layout: post
-title: ""
-date:
-start_date: 
-end_date:
----

@@ -15,5 +15,3 @@ document.querySelectorAll(".nav-link").forEach(link => {
         link.classList.remove("active");
     }
 });
-
-

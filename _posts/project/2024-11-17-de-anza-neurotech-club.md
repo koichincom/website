@@ -1,11 +1,10 @@
 ---
 layout: project-post
 title: "De Anza Neurotech Club"
-description: "I'm trying to start a Neurotechology enthusiast club at De Anza College."
 date: 2024-11-17
 start_date: 2024-09-24
 end_date:
-author:
+categories: project
 ---
 
 The De Anza Neurotechnology Club (DANT) is a passionate community dedicated to exploring the exciting field of 

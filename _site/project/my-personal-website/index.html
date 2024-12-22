@@ -1,4 +1,50 @@
-<h2 id="overview">Overview</h2>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<main class="project-content">
+    <div class="container">
+        <nav class="navbar">
+    <a href="/" class="nav-link" id="home-link">Koichi Nakayamada</a>
+    <a href="/blog/" class="nav-link" id="blog-link">Blog</a>
+    <a href="/project/" class="nav-link" id="project-link">Project</a>
+    <a href="/about/" class="nav-link" id="about-link">About</a>
+    <div class="social-links">
+        <a href="https://twitter.com/koichincom" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://linkedin.com/in/koichincom" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a id="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+        </a>
+    </div>
+
+</nav>
+        
+        <p class="meta project-status" data-start-date="2024-09-01" data-end-date="">
+            <span class="status"></span>
+            
+            (<span class="days"></span>)
+            
+        </p>
+        
+
+        <h1>My Personal Website</h1>
+
+        
+
+        <div class="content">
+            <h2 id="overview">Overview</h2>
 <p>This website serves as my personal portfolio and blog, built with a focus on simplicity and functionality. Using Jekyll, 
 I streamlined content management by converting Markdown files into HTML and leveraged features like front matter to integrate 
 JavaScript for dynamic elements such as date calculations. The project helped me deepen my understanding of web development 
@@ -34,3 +80,13 @@ minimalistic, allowing users to focus on the content. Responsive design ensures 
   <li>Advanced tracking features for project milestones.</li>
   <li>Enhanced accessibility to ensure inclusivity for all users.</li>
 </ul>
+
+        </div>
+    </div>
+</main>
+<script src="/scripts/navbar.js"></script>
+<script src="/scripts/theme-toggle.js"></script>
+<footer class="footer-space"></footer>
+</body>
+
+</html>

@@ -2,9 +2,7 @@
 layout: blog-post
 title: "Running Away from Pain"
 date: 2024-03-30
-start_date: 
-end_date:
-author:
+categories: blog
 ---
 
 I became a proactive truant and got depressed in my first year of high school because of the intimidating and closed 

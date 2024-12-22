@@ -2,9 +2,7 @@
 layout: blog-post
 title: "The Crossroads of Phone Addiction"
 date: 2024-08-15
-start_date: 
-end_date:
-author:
+categories: blog
 ---
 
 It should be because of your phone if you feel you aren't doing well. It consumes your time and is known as life. But 

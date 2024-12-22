@@ -5,7 +5,6 @@ url: "https://koichin.com"
 
 permalink: /:categories/:title/
 
-
 plugins:
   - jekyll-feed
 
@@ -15,11 +14,11 @@ defaults:
   - scope:
       path: "_posts/blog"
     values:
-      layout: post
-      category: blog
+      layout: blog-post
+      categories: blog
 
   - scope:
       path: "_posts/project"
     values:
-      layout: post
-      category: project
+      layout: project-post
+      categories: project
