@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<nav class="navbar">
+    <a href="/" class="nav-link" id="home-link">Koichi Nakayamada</a>
+    <a href="/blog/" class="nav-link" id="blog-link">Blog</a>
+    <a href="/project/" class="nav-link" id="project-link">Project</a>
+    <a href="/about/" class="nav-link" id="about-link">About</a>
+    <div class="social-links">
+        <a href="https://twitter.com/koichincom" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://linkedin.com/in/koichincom" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a id="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+        </a>
+    </div>
+
+</nav>
+<main class="blog-content">
+    <div class="container">
+        <h1></h1>
+        <p class="meta"></p>
+        <div class="content">
+            
+        </div>
+    </div>
+</main>
+<script src="/scripts/navbar.js"></script>
+<script src="/scripts/theme-toggle.js"></script>
+<footer class="footer-space"></footer>
+</body>
+
+</html>
