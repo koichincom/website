@@ -1,24 +1,20 @@
 title: Koichi Nakayamada
 description: Personal Blog and Projects
-baseurl: ""
+baseurl: "" # Leave blank for local development
 url: "https://koichin.com"
 
 permalink: /:categories/:title/
 
 plugins:
+  - jekyll-paginate
   - jekyll-feed
 
 markdown: kramdown
 
-defaults:
-  - scope:
-      path: "_posts/blog"
-    values:
-      layout: blog-post
-      categories: blog
+include:
+  - _posts/blog
+exclude:
+  - _posts/project
 
-  - scope:
-      path: "_posts/project"
-    values:
-      layout: project-post
-      categories: project
+paginate: 10
+paginate_path: "/blog/page:num"
