@@ -20,12 +20,6 @@ p a {
     text-decoration: underline;
 }
 
-/* JavaScriptでテーマが適用された後に表示 */
-body.theme-applied {
-    visibility: visible;
-}
-
-
 :root {
     --color-black: #000;
     --color-dark-gray: #333;
@@ -35,7 +29,7 @@ body.theme-applied {
 }
 
 body.dark-mode {
-    --color-black: #fff;
+    --color-black: #D1D5DB;
     --color-dark-gray: #ccc;
     --color-gray: #aaa;
     --color-white: #0F172A;
@@ -48,7 +42,6 @@ body.dark-mode {
 
 .navbar {
     display: flex;
-    align-items: center;
     gap: 40px;
     position: sticky;
     top: 0;
@@ -89,21 +82,15 @@ body.dark-mode {
     text-decoration: underline;
 }
 
-/* Social links: Right-aligned */
 .social-links {
     display: flex;
     gap: 20px;
 }
 
 .social-links a {
-    font-size: 1.5rem;
-    color: var(--color-dark-gray);
+    font-size: 20px;
+    color: var(--color-black);
 }
-
-.social-links a:hover {
-    text-decoration: underline;
-}
-
 
 /* ======================================== */
 
