@@ -1,0 +1,220 @@
+/* General */
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-white);
+}
+
+a {
+    text-decoration: underline;
+}
+
+p a {
+    text-decoration: underline;
+}
+
+:root {
+    --color-black: #000;
+    --color-dark-gray: #333;
+    --color-gray: #777;
+    --color-white: #fff;
+    --color-blue: #007aff;
+}
+
+body.dark-mode {
+    --color-black: #D1D5DB;
+    --color-dark-gray: #ccc;
+    --color-gray: #aaa;
+    --color-white: #0F172A;
+    --color-blue: #4c8cff;
+}
+
+/* Navbar */
+
+.navbar {
+    display: flex;
+    gap: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--color-white);
+    padding: 40px 300px;
+}
+
+.home-link {
+    flex: 1;
+}
+
+.home-link a {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-black);
+    text-decoration: none;
+}
+
+.home-link a:hover {
+    text-decoration: underline;
+}
+
+.main-links {
+    display: flex;
+    gap: 30px;
+    margin-right: auto;
+}
+
+.main-links a {
+    font-size: 20px;
+    color: var(--color-black);
+    text-decoration: none;
+}
+
+.main-links a:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    font-size: 20px;
+    color: var(--color-black);
+}
+
+/* Paginatoion */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a.current {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+
+/* Post */
+
+.content {
+    width: 100%;
+    max-width: 700px;
+    padding: 0 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.content h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--color-black);
+    text-align: left;
+    margin-bottom: 24px; /* 少し余白を増加 */
+}
+
+.content h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--color-dark-gray);
+    margin: 30px 0 20px; /* 上下の余白を広げて階層を強調 */
+    line-height: 1.6; /* 行間を少し詰める */
+}
+
+.content h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-gray);
+    margin: 25px 0 15px;
+    line-height: 1.5;
+}
+
+.content p {
+    font-size: 1.125em;
+    line-height: 1.8; /* 行間を広げて読みやすく */
+    color: var(--color-dark-gray);
+    margin-bottom: 15px; /* 段落の余白を調整 */
+}
+
+.content blockquote {
+    font-style: italic;
+    font-size: 1.2em;
+    line-height: 1.8;
+    border-left: 4px solid var(--color-blue); /* アクセントカラーに変更 */
+    margin: 25px 0; /* 上下の余白を統一 */
+    padding: 15px 25px; /* 内側の余白を増やす */
+    color: var(--color-black);
+    background-color: var(--color-gray); /* テキストとのコントラストを調整 */
+    border-radius: 8px; /* 柔らかな印象を与える */
+}
+
+.content code {
+    background-color: var(--color-dark-gray);
+    color: var(--color-white); /* 背景色とのコントラストを向上 */
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+
+/* ==========================================
+    About Page Styles
+   ========================================== */
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.profile-picture img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.about-text h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--color-black);
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--color-gray);
+    margin-bottom: 20px;
+}
+
+/* ==========================================
+    Footer
+   ========================================== */
+
+.footer-space {
+    height: 100px;
+    background-color: var(--color-white);
+}
