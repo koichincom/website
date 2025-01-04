@@ -7,18 +7,18 @@ pagination: true
 <div class="text-list">
     {% for post in paginator.posts %}
     <div class="text-entry">
-        <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
         <div class="content">
+            <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
             {% capture full_content %}{{ post.content }}{% endcapture %}
             {% capture excerpt %}{{ full_content | truncatewords: 1000 }}{% endcapture %}
             {{ excerpt }}
 
             {% if full_content != excerpt %}
-            <br><br>
+            <br>
             <a href="{{ post.url }}" class="read-more">Read more</a>
             {% endif %}
+            <p class="date">{{ post.date | date: "%B %d, %Y" }}</p>
         </div>
-        <p class="date">{{ post.date | date: "%B %d, %Y" }}</p>
     </div>
     {% endfor %}
 </div>

@@ -3,26 +3,29 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Blog post by Koichi Nakayamada">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
 {% include navbar.html %}
+
 <main class="blog-content">
     <div class="container">
-        <h1>{{ page.title }}</h1>
-        <p class="meta">{{ page.date | date: "%B %d, %Y" }}</p>
-        <div class="content">
+        <article class="content">
+            <h1>{{ page.title }}</h1>
+            <p class="meta">{{ page.date | date: "%B %d, %Y" }}</p>
             {{ content }}
-        </div>
+        </article>
     </div>
 </main>
-<script src="/scripts/navbar.js"></script>
-<script src="/scripts/theme-toggle.js"></script>
+
 {% include footer.html %}
+
+<script src="/scripts/navbar.js" defer></script>
+<script src="/scripts/theme-toggle.js" defer></script>
 </body>
 
 </html>
