@@ -11,8 +11,6 @@ plugins:
 
 markdown: kramdown
 
-
-
 include:
   - _posts/blog
 exclude:

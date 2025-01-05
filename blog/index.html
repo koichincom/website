@@ -4,15 +4,20 @@ title: Blog - Koichi Nakayamada
 pagination: true
 ---
 
-<div class="text-list">
+<div class="blog-list">
     {% for post in paginator.posts %}
-    <div class="text-entry">
+    <div class="blog-entry">
         <div class="content">
-            <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+            <div class="title">
+                <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+            </div>
             {% capture full_content %}{{ post.content }}{% endcapture %}
+
+            <!--Truncate the content to 1000 words-->
             {% capture excerpt %}{{ full_content | truncatewords: 1000 }}{% endcapture %}
             {{ excerpt }}
 
+            <!--If the content is truncated, show the "Read more" link-->
             {% if full_content != excerpt %}
             <br>
             <a href="{{ post.url }}" class="read-more">Read more</a>
