@@ -25,10 +25,9 @@ a:hover {
     --color-white: #fff;
     --color-blue: #007aff;
     --color-light-blue: #4c8cff;
-    --color-background-light: #f9f9f9;
-    --color-background-dark: #0F172A;
-    --color-border-light: #e5e7eb;
-    --color-border-dark: #374151;
+    --color-background: #f9f9f9;
+    --color-background-sub: #F6F8FA;
+    --color-border: #e5e7eb;
 }
 
 body.dark-mode {
@@ -41,9 +40,9 @@ body.dark-mode {
     --color-blue: #4c8cff;
     --color-light-blue: #6faeff;
     --color-background-light: #111827;
-    --color-background-dark: #0F172A;
-    --color-border-light: #374151;
-    --color-border-dark: #1F2937;
+    --color-background: #0F172A;
+    --color-background-sub: #1E293B;
+    --color-border: #374151;
 }
 
 /* Navbar */
@@ -99,6 +98,7 @@ body.dark-mode {
 }
 
 /* Blog */
+
 .blog-list {
     display: flex;
     flex-direction: column;
@@ -109,10 +109,9 @@ body.dark-mode {
 }
 
 .blog-entry {
-    border-bottom: 1px solid var(--color-border-light);
+    border-bottom: 2px solid var(--color-border);
 }
 
-/* Content */
 .content {
     width: 100%;
     max-width: 800px;
@@ -121,57 +120,42 @@ body.dark-mode {
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: var(--color-dark-gray);
 }
 
-.title h1{
+.title h1,
+.title h1 a{
     font-size: 40px;
-    text-align: left;
 }
 
-.content h1 a,
 .content h1 {
-    font-size: 40px;
-    text-align: left;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--color-black);
+    margin-bottom: 20px;
 }
 
 .content h2 {
-    font-size: 1.75em;
+    font-size: 30px;
     font-weight: bold;
     color: var(--color-dark-gray);
-    margin: 20px 0 15px;
-}
-
-.content h3 {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--color-gray);
-    margin: 20px 0 10px;
+    margin: 25px 0 20px;
 }
 
 .content p {
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 15px;
-    color: var(--color-dark-gray);
+    font-size: 18px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+    color: var(--color-light-black);
 }
 
 .content blockquote {
-    font-style: italic;
-    font-size: 1.1em;
+    font-size: 18px;
     line-height: 1.8;
-    padding: 10px 20px;
-    border-radius: 6px;
-    color: var(--color-black);
-}
-
-.content code {
-    background-color: var(--color-light-black);
-    color: var(--color-white);
-    padding: 3px 6px;
-    border-radius: 4px;
-    font-size: 0.9em;
-    font-family: 'Courier New', monospace;
+    padding: 15px 25px;
+    background-color: var(--color-background-sub);
+    color: var(--color-light-black);
+    margin: 20px 0;
+    text-align: center;
 }
 
 /* Pagination */
@@ -184,7 +168,7 @@ body.dark-mode {
 
 .pagination a {
     padding: 8px 12px;
-    border: 1px solid var(--color-border-light);
+    border: 1px solid var(--color-border);
     color: var(--color-dark-gray);
     text-decoration: none;
     border-radius: 5px;
