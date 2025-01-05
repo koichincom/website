@@ -122,29 +122,26 @@ body.dark-mode {
     line-height: 1.6;
 }
 
-.title h1,
-.title h1 a{
+.content .title h1,
+.content .title h1 a{
     font-size: 40px;
 }
 
 .content h1 {
-    font-size: 36px;
+    font-size: 35px;
     font-weight: bold;
-    color: var(--color-black);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .content h2 {
     font-size: 30px;
-    font-weight: bold;
-    color: var(--color-dark-gray);
-    margin: 25px 0 20px;
+    color: var(--color-light-black);
+    margin-bottom: 30px;
 }
 
 .content p {
     font-size: 18px;
     line-height: 1.75;
-    margin-bottom: 20px;
     color: var(--color-light-black);
 }
 
@@ -154,11 +151,10 @@ body.dark-mode {
     padding: 15px 25px;
     background-color: var(--color-background-sub);
     color: var(--color-light-black);
-    margin: 20px 0;
+    margin: 30px 0;
     text-align: center;
 }
 
-/* Pagination */
 .pagination {
     display: flex;
     justify-content: center;
