@@ -5,6 +5,8 @@ url: "https://koichin.com"
 
 permalink: /:categories/:title/
 
+theme: minima
+
 plugins:
   - jekyll-paginate
   - jekyll-feed

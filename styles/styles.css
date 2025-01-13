@@ -55,10 +55,9 @@ body.dark-mode {
 .blog-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     margin: 0 auto;
-    padding: 20px;
-    max-width: 800px;
+    max-width: 750px;
 }
 
 .blog-entry {
@@ -68,9 +67,7 @@ body.dark-mode {
 .content {
     width: 100%;
     max-width: 800px;
-    margin: 0 auto;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
     line-height: 1.6;
 }
 
