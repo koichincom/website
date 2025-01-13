@@ -109,10 +109,6 @@ body.dark-mode {
 
 .menu-toggle {
     display: none;
-    background: none;
-    border: none;
-    color: var(--black);
-    font-size: 1.5rem;
 }
 
 .sidebar {
@@ -132,13 +128,36 @@ body.dark-mode {
 }
 
 @media (max-width: 768px) {
+    .header {
+        height: 60px;
+    }
+
+    .header .container {
+        height: 60px;
+    }
+
+    .spacer {
+        height: 60px;
+    }
+
+    .main-link a {
+        font-size: 1.3rem;
+    }
+
     .menu-toggle {
         display: block;
+        background: none;
+        border: none;
+        color: var(--black);
+        font-size: 1.3rem;
+        margin-left: 15px;
     }
+
     .page-links,
     .social-links {
         display: none;
     }
+
     .sidebar {
         display: block;
     }
@@ -167,9 +186,10 @@ body.dark-mode {
 
 .content {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     box-sizing: border-box;
     line-height: 1.6;
+    padding: 20px;
 }
 
 .content .title h1 {
@@ -194,7 +214,6 @@ body.dark-mode {
     font-size: 18px;
     line-height: 1.75;
     color: var(--text);
-    font-family: "Times New Roman", Times, serif;
 }
 
 .content blockquote {
