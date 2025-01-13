@@ -1,6 +1,6 @@
 ---
 title: ""
 date:
-layout: blog-post
+layout: post
 categories: blog
 ---

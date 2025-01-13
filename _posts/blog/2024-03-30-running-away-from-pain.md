@@ -1,5 +1,5 @@
 ---
-layout: blog-post
+layout: post
 title: "Running Away from Pain"
 date: 2024-03-30
 categories: blog

@@ -1,5 +1,5 @@
 ---
-layout: blog-post
+layout: post
 title: "The Crossroads of Phone Addiction"
 date: 2024-08-15
 categories: blog

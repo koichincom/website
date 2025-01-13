@@ -1,5 +1,5 @@
 ---
-layout: blog-post
+layout: post
 title: "Seven Lessons, 19 Years"
 date: 2024-09-08
 categories: blog
