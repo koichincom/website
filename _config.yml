@@ -1,11 +1,9 @@
 title: Koichi Nakayamada
 description: Personal Blog and Projects
-baseurl: "" # Leave blank for local development
+baseurl: ""
 url: "https://koichin.com"
 
 permalink: /:categories/:title/
-
-theme: minima
 
 plugins:
   - jekyll-paginate
