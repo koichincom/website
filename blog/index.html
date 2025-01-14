@@ -10,9 +10,9 @@ title: Blog
         <div class="title">
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </div>
-        {% if post.subtitle %}
-        <div class="subtitle">
-            <p>{{ post.subtitle }}</p>
+        {% if post.description %}
+        <div class="description">
+            <p>{{ post.description }}</p>
         </div>
         {% endif %}
     </div>

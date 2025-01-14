@@ -270,12 +270,12 @@ body.dark-mode {
     max-width: 100%;
 }
 
-.post .subtitle {
+.post .description {
     margin-bottom: 10px;
     max-width: 100%;
 }
 
-.post .subtitle p {
+.post .description p {
     font-size: 1rem;
     color: var(--text);
     line-height: 1.5;
