@@ -251,17 +251,25 @@ body.dark-mode {
     max-width: 800px;
 }
 
+.post .title {
+    margin-bottom: 0.5rem;
+}
+
 .post .title a {
     color: var(--black);
-    font-size: 1.5rem;
-    text-align: left;
+    font-size: 1.75rem;
     font-weight: bold;
+    line-height: 1.4;
+}
+
+.post .subtitle {
+    margin-bottom: 1.5rem;
 }
 
 .post .subtitle p {
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: var(--text);
-    text-align: left;
+    line-height: 1.6;
 }
 
 /* Post */
@@ -305,6 +313,24 @@ body.dark-mode {
     color: var(--black);
     margin: 30px 0;
     text-align: left;
+}
+
+.content ul {
+    list-style-type: disc;
+    margin: 20px 0;
+    padding-left: 40px;
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--text);
+}
+
+.content ol {
+    list-style-type: decimal;
+    margin: 20px 0;
+    padding-left: 40px;
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--text);
 }
 
 /* Footer */
