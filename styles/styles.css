@@ -146,7 +146,7 @@ body.dark-mode {
 
 .sidebar {
     position: fixed;
-    top: 0;
+    top: 60px;
     left: -250px;
     width: 250px;
     height: 100%;
@@ -198,9 +198,11 @@ body.dark-mode {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
 .sidebar .social-links {
     display: flex;
-    gap: 15px;
+    gap: 25px;
+    margin: 0;
 }
 
 .sidebar .social-links a {
@@ -243,6 +245,12 @@ body.dark-mode {
 
     .sidebar {
         display: block;
+    }
+
+    .sidebar .page-links a::after,
+    .sidebar .page-links a:hover::after,
+    .sidebar .page-links a.active::after {
+        content: none;
     }
 }
 
