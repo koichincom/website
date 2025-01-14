@@ -3,12 +3,12 @@ layout: default
 title: Project - Koichi Nakayamada
 ---
 
-<div class="blog-list">
+<div class="post-list">
     {% for post in site.posts %}
     {% if post.path contains "_posts/project/" %}
-    <div class="content">
+    <div class="post">
         <div class="title">
-            <h1><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h1>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </div>
         <div class="subtitle">
             <p>{{ post.subtitle }}</p>

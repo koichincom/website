@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "The Crossroads of Phone Addiction"
+subtitle: "brah brah brah brah brah"
 date: 2024-08-15
 categories: blog
 ---
