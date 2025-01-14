@@ -10,6 +10,13 @@ body {
     background-color: var(--white);
 }
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
 a {
     color: var(--blue);
     text-decoration: none;
@@ -17,10 +24,6 @@ a {
 
 a:hover {
     text-decoration: underline;
-}
-
-html {
-    font-size: 16px;
 }
 
 :root {
