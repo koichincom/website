@@ -101,10 +101,24 @@ with where you’re now. (≈ growth mindset)</p>
     </div>
 </main>
 
-<footer class="footer-space"></footer>
+<p class="footer">
+    <span class="footer-content">
+        © <span id="current-year"></span> Koichi Nakayamada / The source code is on 
+        <a href="https://github.com/koichincom/my-website">GitHub</a>
+    </span>
+</p>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const yearElement = document.getElementById("current-year");
+        const currentYear = new Date().getFullYear();
+        yearElement.textContent = currentYear;
+    });
+</script>
 
 <script src="/scripts/sidebar.js" defer></script>
 <script src="/scripts/theme-toggle.js" defer></script>
+<script src="/scripts/header.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 /*
     General
- */
+*/
 
 body {
     font-family: Arial, sans-serif;
@@ -97,6 +97,38 @@ body.dark-mode {
     gap: 40px;
 }
 
+.page-links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.page-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2.25px;
+    background-color: var(--blue);
+    transition: width 0.3s;
+}
+
+.page-links a:hover::after {
+    width: 100%;
+}
+
+.page-links a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2.25px;
+    background-color: var(--black);
+    transition: width 0.3s;
+}
+
 .social-links {
     display: flex;
     gap: 20px;
@@ -165,7 +197,7 @@ body.dark-mode {
 
 /*
     Blog List
- */
+*/
 
 .blog-list {
     display: flex;
@@ -182,7 +214,7 @@ body.dark-mode {
 
 /*
     Post
- */
+*/
 
 .content {
     width: 100%;
@@ -227,6 +259,22 @@ body.dark-mode {
 }
 
 /* Footer */
-.footer-space {
+.footer {
+    background-color: var(--nav);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: #333;
+    padding: 0;
+    margin: 0;
+    width: 100%;
     height: 100px;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
 }

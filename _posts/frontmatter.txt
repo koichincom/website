@@ -2,5 +2,5 @@
 title: ""
 date:
 layout: post
-categories: blog
+categories: blog / project
 ---

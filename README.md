@@ -3,10 +3,7 @@
 
 ## How can I improve this website?
 - Better blog list
+- Sidebar
 - Project page and its content
 - Home page
-- Header
-  - 対象ページのハイライト
-  - ホバーページのハイライト
-- Sidebar
 - About page
