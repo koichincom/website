@@ -3,4 +3,17 @@ layout: default
 title: Project - Koichi Nakayamada
 ---
 
-<p>Still working on this page, but you can check my <a href="/blog">blog</a> page</p>
+<div class="blog-list">
+    {% for post in site.posts %}
+    {% if post.path contains "_posts/project/" %}
+    <div class="content">
+        <div class="title">
+            <h1><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h1>
+        </div>
+        <div class="subtitle">
+            <p>{{ post.subtitle }}</p>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>

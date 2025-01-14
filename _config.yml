@@ -5,7 +5,17 @@ url: "https://koichin.com"
 
 permalink: /:categories/:title/
 
+collections:
+  blog:
+    output: true
+    permalink: /blog/:title/
+  project:
+    output: true
+    permalink: /project/:title/
+
 plugins:
   - jekyll-feed
 
 markdown: kramdown
+kramdown:
+  input: GFM

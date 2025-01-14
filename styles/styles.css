@@ -31,7 +31,6 @@ a:hover {
     --text: #333;
     --border: #e5e7eb;
     --back: #f1f5f9;
-    --nav: #f9fafc;
     --white: #fff;
     --blue: #007aff;
 }
@@ -41,7 +40,6 @@ body.dark-mode {
     --text: #CBD5E1;
     --border: #334156;
     --back: #1E293B;
-    --nav: #1E293B;
     --white: #0E172A;
     --blue: #0CA5E9;
 }
@@ -55,7 +53,7 @@ body.dark-mode {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--nav);
+    background-color: var(--back);
     z-index: 1000;
     height: 100px;
 }
@@ -176,6 +174,10 @@ body.dark-mode {
     }
 
     .main-link a {
+        margin: 15px;
+    }
+
+    .main-link a {
         font-size: 1.3rem;
     }
 
@@ -185,7 +187,7 @@ body.dark-mode {
         border: none;
         color: var(--black);
         font-size: 1.3rem;
-        margin-left: 15px;
+        margin: 15px;
     }
 
     .page-links,
@@ -198,11 +200,9 @@ body.dark-mode {
     }
 }
 
-/*
-    Blog List
-*/
+/* Post list */
 
-.blog-list {
+.post-list {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -215,10 +215,7 @@ body.dark-mode {
     text-align: center;
 }
 
-/*
-    Post
-*/
-
+/* Post */
 .content {
     width: 100%;
     max-width: 1000px;
@@ -263,12 +260,12 @@ body.dark-mode {
 
 /* Footer */
 .footer {
-    background-color: var(--nav);
+    background-color: var(--back);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
-    color: #333;
+    color: var(--text);
     padding: 0;
     margin: 0;
     width: 100%;

@@ -2,8 +2,6 @@
 - The URL is here: [koichin.com](https://koichin.com)
 
 ## How can I improve this website?
-- Better blog list
+- Better post list CSS
 - Sidebar
-- Project page and its content
-- Home page
-- About page
+- Home & about page

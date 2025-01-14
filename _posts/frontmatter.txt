@@ -1,6 +1,7 @@
 ---
 title: ""
-date:
+subtitle: ""
+date: ""
 layout: post
 categories: blog / project
 ---

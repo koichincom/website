@@ -3,15 +3,17 @@ layout: default
 title: Blog
 ---
 
-<div class="blog-list">
+<div class="post-list">
     {% for post in site.posts %}
+    {% if post.path contains "_posts/blog/" %}
     <div class="content">
         <div class="title">
             <h1><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h1>
         </div>
-        <p class="date">
-            {{ post.date | date: "%B %d, %Y" }}
-        </p>
+        <div class="subtitle">
+            <p>{{ post.subtitle }}</p>
+        </div>
     </div>
+    {% endif %}
     {% endfor %}
 </div>
