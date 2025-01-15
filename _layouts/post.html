@@ -11,25 +11,30 @@
 </head>
 
 <body>
-{% include header.html %}
+    {% include header.html %}
 
-<main class="blog-content">
-    <div class="container">
-        <article class="content">
-            <div class="title">
-                <h1>{{ page.title }}</h1>
-            </div>
-            <p class="meta">{{ page.date | date: "%B %d, %Y" }}</p>
-            {{ content }}
-        </article>
-    </div>
-</main>
+    <main class="blog-content">
+        <div class="container">
+            <article class="content">
+                <div class="title">
+                    <h1>{{ page.title }}</h1>
+                </div>
+                <p class="meta">
+                    {{ page.date | date: "%B %d, %Y" }}
+                    {% if page.revised-date %}
+                    / Revised: {{ page.revised-date | date: "%B %d, %Y" }}
+                    {% endif %}
+                </p>
+                {{ content }}
+            </article>
+        </div>
+    </main>
 
-{% include footer.html %}
+    {% include footer.html %}
 
-<script src="/scripts/sidebar.js" defer></script>
-<script src="/scripts/theme-toggle.js" defer></script>
-<script src="/scripts/header.js"></script>
+    <script src="/scripts/sidebar.js" defer></script>
+    <script src="/scripts/theme-toggle.js" defer></script>
+    <script src="/scripts/header.js"></script>
 </body>
 
 </html>
