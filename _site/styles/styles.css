@@ -144,26 +144,27 @@ body.dark-mode {
     display: none;
 }
 
+/* sidebar */
 .sidebar {
     position: fixed;
     top: 60px;
-    left: -250px;
+    right: -250px;
     width: 250px;
     height: 100%;
     background-color: var(--back);
     z-index: 2000;
-    transition: left 0.3s ease;
+    transition: right 0.3s ease;
 }
 
 .sidebar.open {
-    left: 0;
+    right: 0;
 }
 
 .overlay {
     display: none;
     position: fixed;
     top: 0;
-    left: 250px;
+    right: 250px;
     width: calc(100% - 250px);
     height: 100%;
     z-index: 1500;
@@ -305,6 +306,7 @@ body.dark-mode {
     font-size: 35px;
     font-weight: bold;
     margin-bottom: 30px;
+    color: var(--black);
 }
 
 .content h2 {

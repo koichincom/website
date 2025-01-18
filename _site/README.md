@@ -2,4 +2,6 @@
 The URL is here: [koichin.com](https://koichin.com)
 
 ## How can I improve this website?
-- Home & about page
+- Home page
+- Richer about page with my pic
+- The mobile sidebar should be from the right side

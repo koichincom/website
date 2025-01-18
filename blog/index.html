@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Blogs | Koichi Nakayamada
+title: Blogs | Koichi N.
 ---
 
 <div class="post-list">
-    {% for post in site.posts %}
-    {% if post.path contains "_posts/blog/" %}
+    {% assign blogs = site.posts | where: "categories", "blog" %}
+    {% for post in blogs %}
     <div class="post">
         <div class="title">
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -16,6 +16,5 @@ title: Blogs | Koichi Nakayamada
         </div>
         {% endif %}
     </div>
-    {% endif %}
     {% endfor %}
 </div>
