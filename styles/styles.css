@@ -1,6 +1,4 @@
-/*
-    General
-*/
+/* General */
 
 body {
     font-family: Arial, sans-serif;
@@ -10,7 +8,6 @@ body {
     background-color: var(--white);
 }
 
-html,
 body {
     margin: 0;
     padding: 0;
@@ -44,9 +41,7 @@ body.dark-mode {
     --blue: #0CA5E9;
 }
 
-/*
-    Header
-*/
+/* Header */
 
 .header {
     position: fixed;
@@ -241,27 +236,6 @@ body.dark-mode {
     }
 }
 
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .about {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about_image {
-        margin: 20px 0;
-    }
-
-    .blog_project {
-        flex-direction: column;
-    }
-
-    .blogs,
-    .projects {
-        margin-bottom: 20px;
-    }
-}
 
 /* post list */
 

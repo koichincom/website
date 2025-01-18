@@ -1,8 +1,6 @@
-## This is my peronal website
-The URL is here: [koichin.com](https://koichin.com)
+The URL: [koichin.com](https://koichin.com)
 
-## How can I improve this website?
-- Home page
+## Rest of the things I can do to improve
 - Richer about page with my pic
 - The footer shoudn't be appear unless it's on the bottom or underneath
 - Smooth switching dark and light back and forth
