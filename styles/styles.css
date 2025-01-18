@@ -241,6 +241,28 @@ body.dark-mode {
     }
 }
 
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about_image {
+        margin: 20px 0;
+    }
+
+    .blog_project {
+        flex-direction: column;
+    }
+
+    .blogs,
+    .projects {
+        margin-bottom: 20px;
+    }
+}
+
 /* post list */
 
 .post-list {
