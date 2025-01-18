@@ -4,22 +4,23 @@ title: Koichi Nakayamada
 ---
 
 <div class="home">
-    <section class="about">
+
+    <section class="home-about">
         <p>
             My name is Koichi Nakayamada, a Cognitive Science student interested in the
             Brain-Machine interface and Machine Learning. I am in De Anza College in California,
             where I am studying as an international student from Japan. My vision is to advance 
             humanity through technology with philosophy.
-            <a href="/about/" class="btn">Learn more →</a>
+            <a href="/about/" class="jump-page">Learn more →</a>
         </p>
-        <div class="about_image">
-            <img src="/images/profile.jpeg" alt="Koichi Nakayamada" />
-        </div>
+        <div class="home-profile-image"><img src="/images/profile.jpeg" alt="Koichi Nakayamada" /></div>
     </section>
-    <section class="blog_project">
-        <div class="blogs">
+
+    <section class="home-blog-project">
+
+        <div class="home-blog">
             <h1>Latest Blogs</h1>
-            <p><a href="/blog/">View all →</a></p>
+            <p><a href="/blog/" class="jump-page">View all →</a></p>
             <div class="blogs_list">
                 {% assign blogs = site.posts | where: "categories", "blog" %}
                 {% for post in blogs limit: 3 %}
@@ -28,9 +29,10 @@ title: Koichi Nakayamada
                 {% endfor %}
             </div>
         </div>
-        <div class="projects">
+
+        <div class="home-project">
             <h1>Latest Projects</h1>
-            <p><a href="/project/">View all →</a></p>
+            <p><a href="/project/" class="jump-page">View all →</a></p>
             <div class="projects_list">
                 {% assign projects = site.posts | where: "categories", "project" %}
                 {% for project in projects limit: 3 %}
@@ -39,5 +41,6 @@ title: Koichi Nakayamada
                 {% endfor %}
             </div>
         </div>
+
     </section>
 </div>

@@ -5,3 +5,4 @@ The URL is here: [koichin.com](https://koichin.com)
 - Home page
 - Richer about page with my pic
 - The footer shoudn't be appear unless it's on the bottom or underneath
+- Smooth switching dark and light back and forth
