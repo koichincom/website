@@ -75,7 +75,7 @@ body.dark-mode {
 .main-link a{
     text-decoration: none;
     color: var(--black);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
 }
 
@@ -84,7 +84,7 @@ body.dark-mode {
 .theme-toggle a {
     text-decoration: none;
     color: var(--black);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 
