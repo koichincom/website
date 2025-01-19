@@ -10,36 +10,32 @@ title: Koichi Nakayamada
         <p>
             My name is Koichi Nakayamada, a Cognitive Science student interested in the
             Brain-Machine interface and Machine Learning. I am in De Anza College in California,
-            where I am studying as an international student from Japan 🇯🇵
-            <a href="/about/" class="jump-page">Learn more →</a>
+            where I am studying as an international student from Japan. 
+            <a href="/about/" class="jump-page">Learn more</a>
         </p>
     </section>
 
-    <section class="home-blog-project">
-
-        <div class="home-blog">
-            <h1>Latest Blogs</h1>
-            <p><a href="/blog/" class="jump-page">View all →</a></p>
-            <div class="blogs_list">
-                {% assign blogs = site.posts | where: "categories", "blog" %}
-                {% for post in blogs limit: 3 %}
-                <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-                <p>{{ post.description }}</p>
-                {% endfor %}
-            </div>
+    <div class="home-blog">
+        <h1>Latest Blogs</h1>
+        <p><a href="/blog/" class="jump">View all</a></p>
+        <div class="blogs_list">
+            {% assign blogs = site.posts | where: "categories", "blog" %}
+            {% for post in blogs limit: 5 %}
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <p>{{ post.description }}</p>
+            {% endfor %}
         </div>
+    </div>
 
-        <div class="home-project">
-            <h1>Latest Projects</h1>
-            <p><a href="/project/" class="jump-page">View all →</a></p>
-            <div class="projects_list">
-                {% assign projects = site.posts | where: "categories", "project" %}
-                {% for project in projects limit: 3 %}
-                <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
-                <p>{{ project.description }}</p>
-                {% endfor %}
-            </div>
+    <div class="home-project">
+        <h1>Latest Projects</h1>
+        <p><a href="/project/" class="jump">View all</a></p>
+        <div class="projects_list">
+            {% assign projects = site.posts | where: "categories", "project" %}
+            {% for project in projects limit: 5 %}
+            <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
+            <p>{{ project.description }}</p>
+            {% endfor %}
         </div>
-
-    </section>
+    </div>
 </div>

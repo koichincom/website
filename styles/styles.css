@@ -1,50 +1,47 @@
 /* General */
 
+html {
+    background-color: var(--white);
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--white);
+    background-color: var(--back);
     margin: 0;
     padding: 0;
-    font-size: 16px;
     height: 100%;
 }
 
-html {
-    background-color: var(--back);
-}
-
 a {
-    color: var(--blue);
-    text-decoration: none;
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: var(--gray);
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration-color: var(--text);
 }
 
 :root {
+    --text: #080808;
+    --back: #f9f9f9;
     --black: #111;
-    --text: #333;
-    --border: #e5e7eb;
-    --back: #f1f5f9;
+    --gray: #d5d5d5;
     --white: #fff;
-    --blue: #007aff;
 }
 
 body.dark-mode {
-    --black: #E2E8F0;
-    --text: #CBD5E1;
-    --border: #334156;
-    --back: #1E293B;
-    --white: #0E172A;
-    --blue: #0CA5E9;
+    --text: #f9f9f9;
+    --back: #080808;
+    --black: #f5f5f5;
+    --gray: #4a4a4a;
+    --white: #1a1a1a;
 }
 
 /* Header */
-
 .header {
     position: fixed;
     top: 0;
@@ -77,7 +74,7 @@ body.dark-mode {
 .main-link a{
     text-decoration: none;
     color: var(--black);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
@@ -85,7 +82,7 @@ body.dark-mode {
 .social-links a,
 .theme-toggle a {
     text-decoration: none;
-    color: var(--black);
+    color: var(--text);
     font-size: 1.2rem;
 }
 
@@ -277,8 +274,8 @@ body.dark-mode {
 .home-blog,
 .home-project {
     padding: 20px;
-    background-color: var(--white);
-    border: 1px solid #ddd;
+    background-color: var(--back);
+    border: 1px solid var(--border);
     border-radius: 8px;
 }
 
@@ -304,16 +301,8 @@ body.dark-mode {
 
 .blogs_list p,
 .projects_list p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--border);
-}
-
-.jump-page {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: var(--blue);
-    border-bottom: 1px solid #007aff;
-    padding-bottom: 2px;
 }
 
 /* post list */
