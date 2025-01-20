@@ -4,35 +4,34 @@ title: Koichi Nakayamada
 ---
 
 <div class="home">
-
-    <section class="home-about">
-        <div class="home-profile-image"><img src="/images/profile.jpeg" alt="Koichi Nakayamada" /></div>
+    <section class="about">
+        <div class="profile-image"><img src="/images/profile.jpeg" alt="Koichi Nakayamada" /></div>
         <p>
             My name is Koichi Nakayamada, a Cognitive Science student interested in the
             Brain-Machine interface and Machine Learning. I am in De Anza College in California,
             where I am studying as an international student from Japan. 
-            <a href="/about/" class="jump-page">Learn more</a>
+            <a href="/about/" class="link">Learn more</a>
         </p>
     </section>
 
-    <div class="home-blog">
+    <div class="latest-blogs">
         <h1>Latest Blogs</h1>
-        <p><a href="/blog/" class="jump">View all</a></p>
-        <div class="blogs_list">
+        <p><a href="/blog/" class="link">View all</a></p>
+        <div class="blog-list">
             {% assign blogs = site.posts | where: "categories", "blog" %}
-            {% for post in blogs limit: 5 %}
+            {% for post in blogs limit: 3 %}
             <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
             <p>{{ post.description }}</p>
             {% endfor %}
         </div>
     </div>
 
-    <div class="home-project">
+    <div class="latest-projects">
         <h1>Latest Projects</h1>
         <p><a href="/project/" class="jump">View all</a></p>
-        <div class="projects_list">
+        <div class="projects-list">
             {% assign projects = site.posts | where: "categories", "project" %}
-            {% for project in projects limit: 5 %}
+            {% for project in projects limit: 3 %}
             <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
             <p>{{ project.description }}</p>
             {% endfor %}
