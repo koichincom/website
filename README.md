@@ -1,6 +1,8 @@
-The URL: [koichin.com](https://koichin.com)
+[koichin.com](https://koichin.com)
 
-## Rest of the things I can do to improve
-- Richer about page with my pic
-- The footer shoudn't be appear unless it's on the bottom or underneath
-- Smooth switching dark and light back and forth
+# Rest of the things I can do to improve
+- Better footer position
+- Smooth dark and light switching
+- Better CSS for the home page
+- Better CSS for URLs
+- Better CSS for Blogs
