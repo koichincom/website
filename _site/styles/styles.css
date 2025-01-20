@@ -1,9 +1,3 @@
-/* General */
-
-html {
-    background-color: var(--back);
-}
-
 body {
     font-family: Arial, sans-serif;
     background-color: var(--back);
@@ -19,29 +13,32 @@ a {
     color: var(--text);
     text-decoration: underline;
     text-decoration-color: var(--gray);
+    text-decoration-thickness: 2px;
 }
 
 a:hover {
     text-decoration-color: var(--text);
+    transition: text-decoration-color 0.5s;
 }
 
 :root {
     --text: #080808;
     --back: #f9f9f9;
     --black: #111;
-    --gray: #c5c5c5;
+    --gray: #b4b4b4;
     --white: #fff;
 }
 
-body.dark-mode {
+@media (prefers-color-scheme: dark) {
+    :root{
     --text: #f9f9f9;
     --back: #080808;
     --black: #fff;
     --gray: #9a9a9a;
     --white: #1a1a1a;
+    }
 }
 
-/* Header */
 .header {
     position: fixed;
     top: 0;
@@ -74,17 +71,15 @@ body.dark-mode {
 .main-link a{
     text-decoration: none;
     color: var(--text);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
 }
 
 .page-links a,
-.social-links a,
-.theme-toggle a {
+.social-links a{
     text-decoration: none;
     color: var(--text);
     font-size: 1.2rem;
 }
-
 
 .page-links {
     display: flex;
@@ -137,7 +132,6 @@ body.dark-mode {
     display: none;
 }
 
-/* sidebar */
 .sidebar {
     position: fixed;
     top: 60px;
@@ -234,12 +228,119 @@ body.dark-mode {
     }
 }
 
-/* post list */
+/* Home */
+.home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Aboutセクション */
+.about {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 18px;
+    color: var(--text);
+}
+
+.about .link {
+    color: #007acc;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.about .link:hover {
+    text-decoration: underline;
+}
+
+.latest-blogs,
+.latest-projects {
+    margin-bottom: 40px;
+}
+
+.latest-blogs h1,
+.latest-projects h1 {
+    font-size: 1.75rem;
+    color: var(--text);
+    border-bottom: 2px solid #007acc;
+    margin-bottom: 20px;
+}
+
+.latest-blogs .blog-list,
+.latest-projects .projects-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.latest-blogs h2 a,
+.latest-projects h2 a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.latest-blogs p,
+.latest-projects p {
+    font-size: 16px;
+    color: var(--text);
+    margin-top: 5px;
+}
+
+.latest-blogs .link,
+.latest-projects .jump {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .home {
+        padding: 10px;
+    }
+
+    .profile-image img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .about p {
+        font-size: 16px;
+    }
+
+    .latest-blogs h1,
+    .latest-projects h1 {
+        font-size: 20px;
+    }
+
+    .latest-blogs h2 a,
+    .latest-projects h2 a {
+        font-size: 18px;
+    }
+
+    .latest-blogs p,
+    .latest-projects p {
+        font-size: 14px;
+    }
+}
 
 .post-list {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
