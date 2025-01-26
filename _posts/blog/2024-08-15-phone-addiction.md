@@ -6,12 +6,7 @@ date: 2024-08-15
 categories: blog
 ---
 
-It should be because of your phone if you feel you aren't doing well. It consumes your time and is known as life. But 
-you've already known this and don't need to understand why you should do that anymore. I've recognized it for a long time, 
-too. I deleted all social media apps on my phone, turned the gray color filter on, left only four apps on my home screen, 
-and so on. But my screen time is still around 6 hours a day, and it gets 10 hours or more on a terrible day. It's ridiculous 
-that I spend a quarter of my life on my phone, but how does it happen? For me, it was because of YouTube addiction. 
-It was my bestie and, simultaneously, my Arch-enemy.
+It should be because of your phone if you feel you aren't doing well. It consumes your time and is known as life. But you've already known this and don't need to understand why you should do that anymore. I've recognized it for a long time, too. I deleted all social media apps on my phone, turned the gray color filter on, left only four apps on my home screen, and so on. But my screen time is still around 6 hours a day, and it gets 10 hours or more on a terrible day. It's ridiculous that I spend a quarter of my life on my phone, but how does it happen? For me, it was because of YouTube addiction. It was my bestie and, simultaneously, my Arch-enemy.
 
 I made three rules, but they're pretty simple. They should only watch YouTube videos if they are for learning, search 
 videos only from the search box, not from the recommendations, and meditate for 10 seconds when I'm dying to watch YouTube. 

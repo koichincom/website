@@ -24,18 +24,18 @@ a:hover {
 :root {
     --text: #080808;
     --back: #f9f9f9;
-    --black: #111;
-    --gray: #b4b4b4;
+    --black: #000;
     --white: #fff;
+    --gray: #8c8c8c;
 }
 
 @media (prefers-color-scheme: dark) {
     :root{
-    --text: #f9f9f9;
+    --text: #fff;
     --back: #080808;
     --black: #fff;
-    --gray: #9a9a9a;
-    --white: #1a1a1a;
+    --white: #000;
+    --gray: #8c8c8c;
     }
 }
 
