@@ -1,6 +1,10 @@
 /********************************
-    General
+    General Settings
 ********************************/
+
+html {
+    font-size: 16px;
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -12,57 +16,22 @@ body {
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 30px;
     box-sizing: border-box;
 }
 
-a {
-    color: var(--text);
-    text-decoration: none;
+@media (max-width: 768px) {
+    .container {
+        max-width: 720px;
+        padding: 0 15px;
+    }
 }
 
-a {
-    color: var(--text);
-    text-decoration: underline;
-    text-decoration-color: var(--gray);
-    text-decoration-thickness: 2px;
-    transition: text-decoration-color 0.5s;
-}
-
-a:hover {
-    text-decoration-color: var(--text);
-}
-
-p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
-    font-weight: normal; /* Resetting bold */
-    color: var(--text);
-}
-
-.button {
-    display: inline-block;
-    background-color: var(--text);
-    color: var(--white);
-    font-size: 1rem;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 30px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.5s ease;
-}
-
-.button:hover {
-    background-color: var(--text-sub);
-}
-
-/* For selected texts */
-::selection {
-    background-color: var(--black);
-    color: var(--white);
-}
-
-/* Default (light) */
 :root {
+    --line-height: 1.75;
+    --transition: 0.4s;
+    --header-height: 50px;
+
     --text: #080808;
     --text-sub: #333;
     --back: #f9f9f9;
@@ -72,17 +41,118 @@ p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
     --header: rgba(249, 249, 249, 0.5);
 }
 
-/* Dark */
 @media (prefers-color-scheme: dark) {
-    :root{
-    --text: #fff;
-    --text-sub: #ccc;
-    --back: #080808;
-    --black: #fff;
-    --white: #000;
-    --gray: #8c8c8c;
-    --header: rgba(8, 8, 8, 0.5);
+    :root {
+        --text: #fff;
+        --text-sub: #ccc;
+        --back: #080808;
+        --black: #fff;
+        --white: #000;
+        --gray: #8c8c8c;
+        --header: rgba(8, 8, 8, 0.5);
     }
+}
+
+::selection {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+/********************************
+    General Styles
+********************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+b, a, p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
+    font-weight: normal; /* Resetting bold */
+    color: var(--text);
+}
+
+.page-title h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+
+p {
+    font-size: 1rem;
+    line-height: var(--line-height);
+}
+
+h1 {
+    font-size: 2.5rem;
+    line-height: 1.3;
+    margin: 2.5rem 0;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 2.1875rem 0;
+}
+
+a {
+    text-decoration: underline;
+    text-decoration-color: var(--gray);
+    text-decoration-thickness: 0.09375rem;
+    transition: text-decoration-color var(--transition) ease;
+}
+
+a:hover {
+    text-decoration-color: var(--text);
+}
+
+blockquote {
+    font-size: var(--font-base);
+    /* 18px */
+    line-height: var(--line-height);
+    padding: 0.9375rem 1.5625rem;
+    /* 15px / 16, 25px / 16 */
+    background-color: var(--white);
+    margin: 1.875rem 0;
+    /* 30px / 16 */
+    border-radius: 0.3125rem;
+    /* 5px / 16 */
+    text-align: left;
+}
+
+ul,
+ol {
+    list-style-position: outside;
+    padding-left: 1.25rem;
+    /* 20px / 16 */
+    margin: 1.25rem 0;
+    /* 20px / 16 */
+    line-height: var(--line-height);
+}
+
+ul li,
+ol li {
+    margin-bottom: 0.625rem;
+    /* 10px / 16 */
+}
+
+button {
+    display: inline-block;
+    background-color: var(--text);
+    color: var(--white);
+    font-size: 1rem;
+    /* 16px */
+    padding: 0.75rem 1.5rem;
+    /* 12px / 16, 24px / 16 */
+    border: none;
+    border-radius: 1.875rem;
+    /* 30px / 16 */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color var(--transition) ease;
+}
+
+button:hover {
+    background-color: var(--text-sub);
 }
 
 /********************************
@@ -94,10 +164,10 @@ p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
         top: 0;
         left: 0;
         width: 100%;
-        height: 50px;
+        height: var(--header-height);
         background-color: var(--header);
         backdrop-filter: blur(5px);
-        transition: transform 0.5s ease, background-color 0.5s ease;
+        transition: transform var(--transition) ease;
         z-index: 1000;
     }
 
@@ -108,6 +178,7 @@ p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
 .header .container {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -120,7 +191,7 @@ p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
 }
 
 .spacer {
-    height: 50px;
+    height: var(--header-height);
 }
 
 .main-link {
@@ -153,7 +224,7 @@ p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
     height: 100%;
     background-color: var(--back);
     z-index: 2000;
-    transition: right 0.3s ease;
+    transition: right var(--transition) ease;
 }
 
 .sidebar.open {
@@ -234,10 +305,9 @@ p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
     flex-direction: column;
 }
 
-.page-title h1{
-    font-size: 4rem;
-    text-align: center;
-}
+/********************************
+    Post List (Blog and Project)
+********************************/
 
 .post-list {
     display: flex;
@@ -249,6 +319,10 @@ p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
     box-sizing: border-box;
     text-align: center;
 }
+
+/********************************
+    Post (Blog and Project)
+********************************/
 
 .post {
     display: flex;
@@ -293,46 +367,9 @@ p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
     text-align: center;
 }
 
-h1 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
-
-h2 {
-    font-size: 30px;
-    margin-bottom: 30px;
-}
-
-p {
-    font-size: 18px;
-    line-height: 1.75;
-}
-
-blockquote {
-    font-size: 18px;
-    line-height: 1.8;
-    padding: 15px 25px;
-    background-color: var(--white);
-    margin: 30px 0;
-    text-align: left;
-    border-radius: 5px;
-}
-
-ul {
-    list-style-type: disc;
-    margin: 20px 0;
-    padding-left: 40px;
-    font-size: 18px;
-    line-height: 1.75;
-}
-
-ol {
-    list-style-type: decimal;
-    margin: 20px 0;
-    padding-left: 40px;
-    font-size: 18px;
-    line-height: 1.75;
-}
+/********************************
+    Footer
+********************************/
 
 .footer {
     width: 100%;
