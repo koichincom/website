@@ -18,3 +18,9 @@ This [Website](https://koichin.com) is designed to be **as simple as possible** 
 - Fully responsive and accessible design.
 
 from [project page](https://koichin.com/project/my-website)
+
+---
+
+# Areas for further improvements
+- Search feature
+- A guide to the vision page in the homepage
