@@ -21,7 +21,7 @@ title: Koichi Nakayamada
             {% assign blogs = site.posts | where: "categories", "blog" %}
             {% for post in blogs limit: 3 %}
             <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-            <p>{{ post.description }}</p>
+            <p>{{ post.subtitle }}</p>
             {% endfor %}
         </div>
     </div>
@@ -33,7 +33,7 @@ title: Koichi Nakayamada
             {% assign projects = site.posts | where: "categories", "project" %}
             {% for project in projects limit: 3 %}
             <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
-            <p>{{ project.description }}</p>
+            <p>{{ project.subtitle }}</p>
             {% endfor %}
         </div>
     </div>

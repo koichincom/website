@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Crossroads of Phone Addiction"
-description: "Overcoming Phone Addiction and Reclaiming Your Life"
+subtitle: "Overcoming Phone Addiction and Reclaiming Your Life"
 date: 2024-08-15
 categories: blog
 ---

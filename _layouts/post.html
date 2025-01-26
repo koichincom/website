@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog post by Koichi Nakayamada">
+    <meta name="subtitle" content="Blog post by Koichi Nakayamada">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -16,15 +16,12 @@
     <main class="post-content">
         <div class="container">
             <article class="content">
+                <p class="date">
+                    {{ page.date | date: "%B %d, %Y" }}
+                </p>
                 <div class="title">
                     <h1>{{ page.title }}</h1>
                 </div>
-                <p class="meta">
-                    {{ page.date | date: "%B %d, %Y" }}
-                    {% if page.revised-date %}
-                    / Revised: {{ page.revised-date | date: "%B %d, %Y" }}
-                    {% endif %}
-                </p>
                 {{ content }}
             </article>
         </div>
@@ -34,7 +31,6 @@
 
     <script src="/scripts/sidebar.js"></script>
     <script src="/scripts/header.js"></script>
-    <script src="/scripts/footer.js"></script>
 </body>
 
 </html>

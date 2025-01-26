@@ -14,11 +14,20 @@ a {
     text-decoration: underline;
     text-decoration-color: var(--gray);
     text-decoration-thickness: 2px;
+    transition: text-decoration-color 0.5s;
 }
 
 a:hover {
     text-decoration-color: var(--text);
-    transition: text-decoration-color 0.5s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+::selection {
+    background-color: var(--black);
+    color: var(--white);
 }
 
 :root {
@@ -40,13 +49,23 @@ a:hover {
 }
 
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--back);
-    z-index: 1000;
-    height: 100px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: rgba(249, 249, 249, 0.5);
+        backdrop-filter: blur(10px);
+        transition: transform 0.5s ease, background-color 0.5s ease;
+        z-index: 1000;
+    }
+
+.spacer {
+    height: 50px;
+}
+
+.header.hide {
+    transform: translateY(-100%);
 }
 
 .header .container {
@@ -57,71 +76,29 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    position: relative;
 }
 
-.spacer {
-    height: 100px;
+.header .container a {
+    text-decoration: none;
 }
 
 .main-link {
-    flex: 1;
-    text-align: left;
-}
-
-.main-link a{
-    text-decoration: none;
-    color: var(--text);
-    font-size: 1.25rem;
-}
-
-.page-links a,
-.social-links a{
-    text-decoration: none;
-    color: var(--text);
-    font-size: 1.2rem;
+    flex-shrink: 0;
 }
 
 .page-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     gap: 40px;
 }
 
-.page-links a {
-    position: relative;
-    text-decoration: none;
-    color: var(--text);
-}
-
-.page-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0;
-    height: 2.25px;
-    background-color: var(--text);
-    transition: width 0.3s;
-}
-
-.page-links a:hover::after {
-    width: 100%;
-}
-
-.page-links a.active::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 100%;
-    height: 2.25px;
-    background-color: var(--text);
-    transition: width 0.3s;
-}
-
 .social-links {
+    flex-shrink: 0;
     display: flex;
     gap: 20px;
-    margin-left: 40px;
 }
 
 .theme-toggle {
@@ -286,7 +263,6 @@ a:hover {
 .latest-blogs h2 a,
 .latest-projects h2 a {
     font-size: 1.5rem;
-    font-weight: bold;
     color: var(--text);
     text-decoration: none;
     transition: color 0.3s;
@@ -303,7 +279,6 @@ a:hover {
 .latest-projects .jump {
     display: inline-block;
     margin-top: 10px;
-    font-weight: bold;
     text-decoration: underline;
 }
 
@@ -368,12 +343,12 @@ a:hover {
     color: var(--text);
 }
 
-.post .description {
+.post .subtitle {
     margin-bottom: 10px;
     max-width: 100%;
 }
 
-.post .description p {
+.post .subtitle p {
     font-size: 1rem;
     color: var(--text);
     line-height: 1;
@@ -390,8 +365,14 @@ a:hover {
     padding: 0 20px;
 }
 
+.content .date {
+    font-size: 1rem;
+    color: var(--text);
+    text-align: center;
+}
+
 .content .title h1 {
-    font-size: 2rem;
+    font-size: 3rem;
     margin: 0 auto;
     color: var(--text);
     text-align: center;
@@ -444,7 +425,6 @@ a:hover {
     color: var(--text);
 }
 
-/* Footer */
 .footer {
     display: flex;
     justify-content: center;

@@ -1,8 +1,7 @@
 ---
 title: ""
-description: ""
+subtitle: ""
 date: ""
-revised-date: ""
 categories: blog / project
 layout: post
 ---

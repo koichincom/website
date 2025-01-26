@@ -1,11 +1,14 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll(".page-links a");
-    const currentPath = window.location.pathname.split('/')[1];
+document.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector(".header");
+    let lastScrollY = window.scrollY;
+    const hideThreshold = 10;
 
-    links.forEach(link => {
-        const linkPath = link.getAttribute("href").split('/')[1];
-        if (linkPath === currentPath) {
-            link.classList.add("active");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > lastScrollY && window.scrollY > hideThreshold) {
+            header.classList.add("hide");
+        } else if (window.scrollY < lastScrollY) {
+            header.classList.remove("hide");
         }
+        lastScrollY = window.scrollY;
     });
 });

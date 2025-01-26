@@ -10,9 +10,9 @@ title: Blogs | Koichi N.
         <div class="title">
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </div>
-        {% if post.description %}
-        <div class="description">
-            <p>{{ post.description }}</p>
+        {% if post.subtitle %}
+        <div class="subtitle">
+            <p>{{ post.subtitle }}</p>
         </div>
         {% endif %}
     </div>
