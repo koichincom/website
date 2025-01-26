@@ -1,12 +1,19 @@
+/********************************
+    General
+********************************/
+
 body {
     font-family: Arial, sans-serif;
     background-color: var(--back);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin: 0;
     padding: 0;
-    height: 100%;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 a {
@@ -26,16 +33,18 @@ a:hover {
     text-decoration-color: var(--text);
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-    font-weight: normal;
+p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
+    font-weight: normal; /* Resetting bold */
     color: var(--text);
 }
 
+/* For selected texts */
 ::selection {
     background-color: var(--black);
     color: var(--white);
 }
 
+/* Default (light) */
 :root {
     --text: #080808;
     --back: #f9f9f9;
@@ -45,6 +54,7 @@ p, h1, h2, h3, h4, h5, h6 {
     --header: rgba(249, 249, 249, 0.5);
 }
 
+/* Dark */
 @media (prefers-color-scheme: dark) {
     :root{
     --text: #fff;
@@ -55,6 +65,10 @@ p, h1, h2, h3, h4, h5, h6 {
     --header: rgba(8, 8, 8, 0.5);
     }
 }
+
+/********************************
+    Header and Sidebar
+********************************/
 
 .header {
         position: fixed;
@@ -68,10 +82,6 @@ p, h1, h2, h3, h4, h5, h6 {
         z-index: 1000;
     }
 
-.spacer {
-    height: 50px;
-}
-
 .header.hide {
     transform: translateY(-100%);
 }
@@ -79,7 +89,6 @@ p, h1, h2, h3, h4, h5, h6 {
 .header .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -89,6 +98,10 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .header .container a {
     text-decoration: none;
+}
+
+.spacer {
+    height: 50px;
 }
 
 .main-link {
@@ -205,6 +218,16 @@ p, h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Home */
+
+.home {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+}
+
+
+
 .page-title h1{
     font-size: 5rem;
     text-align: center;
@@ -250,15 +273,7 @@ p, h1, h2, h3, h4, h5, h6 {
     word-wrap: break-word;
     margin: 0;
     text-align: center;
-}
-
-.content {
-    width: 100%;
-    max-width: 1000px;
-    box-sizing: border-box;
-    line-height: 1.6;
-    padding: 0 20px;
-}
+}   
 
 .content .date {
     font-size: 1rem;
