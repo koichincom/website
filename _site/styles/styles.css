@@ -116,7 +116,7 @@ p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
     gap: 40px;
 }
 
-.social-links {
+.search-social {
     flex-shrink: 0;
     display: flex;
     gap: 20px;
@@ -203,7 +203,7 @@ p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
     }
 
     .page-links,
-    .social-links {
+    .search-social {
         display: none;
     }
 
