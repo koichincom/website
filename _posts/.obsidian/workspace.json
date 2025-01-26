@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/2024-08-15-phone-addiction.md",
+                "file": "project/2025-01-25-my-website.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2024-08-15-phone-addiction"
+              "title": "2025-01-25-my-website"
             }
           }
         ]
@@ -164,8 +164,9 @@
   },
   "active": "9274cd3be689cf63",
   "lastOpenFiles": [
+    "blog/2024-08-15-phone-addiction.md",
     "blog/2024-03-30-from-pain.md",
-    "project/2025-01-13-test.md",
+    "project/2025-01-25-my-website.md",
     "template/template.md",
     "blog/2025-01-01-2025.md",
     "blog/2024-09-08-7-lessons.md",

@@ -5,36 +5,45 @@ title: Koichi Nakayamada
 
 <div class="home">
     <section class="about">
-        <div class="profile-image"><img src="/images/profile.jpeg" alt="Koichi Nakayamada" /></div>
+        <h1>Hi, I'm Koichi.</h1>
         <p>
-            My name is Koichi Nakayamada, a Cognitive Science student interested in the
-            Brain-Machine interface and Machine Learning. I am in De Anza College in California,
-            where I am studying as an international student from Japan. 
-            <a href="/about/" class="link">Learn more</a>
+            Some people call me Koh. I'm a Cognitive Science student interested in Brain-Machine Interfaces and Machine Learning.
+            Originally from Japan, I'm currently an international student at De Anza College, CA.
+        </p>
+        <p>
+            Keep up with me on 
+            <a href="https://twitter.com/koichincom">Twitter</a> or
+            <a href="https://linkedin.com/in/koichincom">LinkedIn</a>.
+            Discover more about me on my <a href="/about">about page</a>.
         </p>
     </section>
 
     <div class="latest-blogs">
+        {% assign blogs = site.posts | where: "categories", "blog" %}
+        {% if blogs.size > 0 %}
         <h1>Latest Blogs</h1>
-        <p><a href="/blog/" class="link">View all</a></p>
         <div class="blog-list">
-            {% assign blogs = site.posts | where: "categories", "blog" %}
-            {% for post in blogs limit: 3 %}
-            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-            <p>{{ post.subtitle }}</p>
+            {% for post in blogs limit: 2 %}
+            <h1><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h1>
+            <p class="subtitle">{{ post.subtitle }}</p>
+            <p class="date">{{ post.date | date: "%B %d, %Y" }}</p>
             {% endfor %}
         </div>
+        <p><a href="/blog/">View All Blog Posts</a></p>
+        {% endif %}
     </div>
 
-    <div class="latest-projects">
-        <h1>Latest Projects</h1>
-        <p><a href="/project/" class="jump">View all</a></p>
-        <div class="projects-list">
-            {% assign projects = site.posts | where: "categories", "project" %}
-            {% for project in projects limit: 3 %}
-            <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
-            <p>{{ project.subtitle }}</p>
-            {% endfor %}
+    <div class="featured-projects">
+        {% assign projects = site.posts | where: "categories", "project" %}
+        {% if projects.size > 0 %}
+        <div class="featured-projects">
+            <h1>Featured Projects</h1>
+            <div class="projects-list">
+                <!-- <h1><a href=""></a></h1>
+                <p></p> -->
+            </div>
+            <p><a href="/project/">View All Projects</a></p>
         </div>
+        {% endif %}
     </div>
 </div>

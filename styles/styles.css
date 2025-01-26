@@ -21,8 +21,9 @@ a:hover {
     text-decoration-color: var(--text);
 }
 
-h1, h2, h3, h4, h5, h6 {
+p, h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
+    color: var(--text);
 }
 
 ::selection {
@@ -101,10 +102,6 @@ h1, h2, h3, h4, h5, h6 {
     gap: 20px;
 }
 
-.theme-toggle {
-    margin-left: 20px;
-}
-
 .menu-toggle {
     display: none;
 }
@@ -156,37 +153,33 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar .page-links a {
     font-size: 1.3rem;
     text-decoration: none;
-    color: var(--text);
     padding: 10px;
     margin-left: 10px;
 }
 
 @media (max-width: 768px) {
     .header {
-        height: 60px;
+        height: 40px;
     }
 
     .header .container {
-        height: 60px;
+        height: 40px;
     }
 
     .spacer {
-        height: 60px;
+        height: 40px;
     }
 
     .main-link a {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 
-    .theme-toggle {
-        margin: 0 5px;
-    }
     .menu-toggle {
         display: block;
         background: none;
         border: none;
         color: var(--text);
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 
     .page-links,
@@ -202,113 +195,6 @@ h1, h2, h3, h4, h5, h6 {
     .sidebar .page-links a:hover::after,
     .sidebar .page-links a.active::after {
         content: none;
-    }
-}
-
-/* Home */
-.home {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Aboutセクション */
-.about {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.profile-image img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-}
-
-.about p {
-    font-size: 18px;
-    color: var(--text);
-}
-
-.about .link {
-    color: #007acc;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.about .link:hover {
-    text-decoration: underline;
-}
-
-.latest-blogs,
-.latest-projects {
-    margin-bottom: 40px;
-}
-
-.latest-blogs h1,
-.latest-projects h1 {
-    font-size: 1.75rem;
-    color: var(--text);
-    border-bottom: 2px solid #007acc;
-    margin-bottom: 20px;
-}
-
-.latest-blogs .blog-list,
-.latest-projects .projects-list {
-    display: flex;
-    flex-direction: column;
-}
-
-.latest-blogs h2 a,
-.latest-projects h2 a {
-    font-size: 1.5rem;
-    color: var(--text);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.latest-blogs p,
-.latest-projects p {
-    font-size: 16px;
-    color: var(--text);
-    margin-top: 5px;
-}
-
-.latest-blogs .link,
-.latest-projects .jump {
-    display: inline-block;
-    margin-top: 10px;
-    text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-    .home {
-        padding: 10px;
-    }
-
-    .profile-image img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .about p {
-        font-size: 16px;
-    }
-
-    .latest-blogs h1,
-    .latest-projects h1 {
-        font-size: 20px;
-    }
-
-    .latest-blogs h2 a,
-    .latest-projects h2 a {
-        font-size: 18px;
-    }
-
-    .latest-blogs p,
-    .latest-projects p {
-        font-size: 14px;
     }
 }
 
@@ -336,27 +222,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .post .title a {
     font-size: 1.6rem;
-    font-weight: bold;
     line-height: 1;
     display: inline-block;
     max-width: 100%;
-    color: var(--text);
 }
 
-.post .subtitle {
+.content .subtitle {
     margin-bottom: 10px;
     max-width: 100%;
 }
 
-.post .subtitle p {
+.content .subtitle p {
     font-size: 1rem;
-    color: var(--text);
     line-height: 1;
     word-wrap: break-word;
     margin: 0;
+    text-align: center;
 }
 
-/* Post */
 .content {
     width: 100%;
     max-width: 1000px;
@@ -367,33 +250,29 @@ h1, h2, h3, h4, h5, h6 {
 
 .content .date {
     font-size: 1rem;
-    color: var(--text);
     text-align: center;
 }
 
 .content .title h1 {
     font-size: 3rem;
     margin: 0 auto;
-    color: var(--text);
+
     text-align: center;
 }
 
 .content h1 {
     font-size: 2rem;
     margin-bottom: 30px;
-    color: var(--text);
 }
 
 .content h2 {
     font-size: 30px;
-    color: var(--text);
     margin-bottom: 30px;
 }
 
 .content p {
     font-size: 18px;
     line-height: 1.75;
-    color: var(--text);
 }
 
 .content blockquote {
@@ -401,7 +280,6 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.8;
     padding: 15px 25px;
     background-color: var(--white);
-    color: var(--text);
     margin: 30px 0;
     text-align: left;
     border-radius: 5px;
@@ -413,7 +291,6 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: 40px;
     font-size: 18px;
     line-height: 1.75;
-    color: var(--text);
 }
 
 .content ol {
@@ -422,29 +299,10 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: 40px;
     font-size: 18px;
     line-height: 1.75;
-    color: var(--text);
 }
 
 .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    color: var(--text);
-    padding: 0;
-    margin: 0;
     width: 100%;
     height: 100px;
-}
-
-.footer-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.footer span {
-    color: var(--text);
-    font-size: 1rem;
+    margin: 0;
 }
