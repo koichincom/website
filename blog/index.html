@@ -1,20 +1,38 @@
 ---
 layout: default
-title: Blogs | Koichi N.
+title: Blogs
 ---
 
 <div class="post-list">
     {% assign blogs = site.posts | where: "categories", "blog" %}
-    {% for post in blogs %}
+    {% for post in blogs limit: 10 %}
     <div class="post">
         <div class="title">
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </div>
-        {% if post.subtitle %}
         <div class="subtitle">
             <p>{{ post.subtitle }}</p>
         </div>
-        {% endif %}
     </div>
     {% endfor %}
 </div>
+
+<div class="post-list-hidden" style="display: none;">
+    {% assign hidden_blogs = site.posts | where: "categories", "blog" | offset: 10 %}
+    {% for post in hidden_blogs %}
+    <div class="post">
+        <div class="title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </div>
+        <div class="subtitle">
+            <p>{{ post.subtitle }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if blogs.size > 10 %}
+<div class="load-more-container">
+    <button id="load-more" class="load-more">Load More</button>
+</div>
+{% endif %}
