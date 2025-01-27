@@ -3,39 +3,31 @@ layout: default
 title: Blogs
 ---
 <div class="page-title">
-    <h1>Blog</h1>
+    <h1>Blogs</h1>
 </div>
 
 <div class="post-list">
     {% assign blogs = site.posts | where: "categories", "blog" %}
-    {% for post in blogs limit: 10 %}
-    <div class="post-card">
-        <div class="post-content">
-            <h2 class="post-title">
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            </h2>
-            <p class="post-subtitle">{{ post.subtitle }}</p>
-        </div>
-    </div>
+    {% for post in blogs limit: 9 %}
+    <a href="{{ post.url | relative_url }}" class="post-card">
+        <h1 class="post-title">{{ post.title }}</h1>
+        <p class="post-subtitle">{{ post.subtitle }}</p>
+    </a>
     {% endfor %}
 </div>
 
 <div class="post-list-hidden" style="display: none;">
-    {% assign hidden_blogs = site.posts | where: "categories", "blog" | offset: 10 %}
+    {% assign hidden_blogs = site.posts | where: "categories", "blog" | offset: 9 %}
     {% for post in hidden_blogs %}
-    <div class="post-card">
-        <div class="post-content">
-            <h2 class="post-title">
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            </h2>
-            <p class="post-subtitle">{{ post.subtitle }}</p>
-        </div>
-    </div>
+    <a href="{{ post.url | relative_url }}" class="post-card">
+        <h1 class="post-title">{{ post.title }}</h1>
+        <p class="post-subtitle">{{ post.subtitle }}</p>
+    </a>
     {% endfor %}
 </div>
 
-{% if blogs.size > 10 %}
+{% if blogs.size > 9 %}
 <div class="load-more-container">
-    <button id="load-more">Load more</button>
+    <button id="load-more" class="load-more-button">Load more</button>
 </div>
 {% endif %}

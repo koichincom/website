@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    const posts = hiddenPostsContainer.querySelectorAll(".post");
+    const posts = hiddenPostsContainer.querySelectorAll(".post-card");
     let visibleCount = 0;
-    const postsPerPage = 10;
+    const postsPerPage = 9;
 
     loadMoreButton.addEventListener("click", () => {
         const nextPosts = Array.from(posts).slice(visibleCount, visibleCount + postsPerPage);

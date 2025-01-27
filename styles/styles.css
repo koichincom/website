@@ -75,7 +75,7 @@ b, a, p, h1, h2, h3, h4, h5, h6, ol, ul, blockquote {
 }
 
 .page-title h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     text-align: center;
 }
 
@@ -259,9 +259,9 @@ button:hover {
 
 @media (max-width: 768px) {
     .header .container {
-        margin: 0 15px;
+        padding: 0 15px;
     }
-
+    
     .main-link a {
         font-size: 1rem;
     }
@@ -291,95 +291,68 @@ button:hover {
 }
 
 /********************************
-    Home Page
+    Post List
 ********************************/
 
-.home {
-    display: flex;
-    flex-direction: column;
-}
-
-/********************************
-    Post List (Blog and Project)
-********************************/
-
-/* カードリスト全体の設定 */
 .post-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* 自動的に列を調整 */
+    /* 最大3列に固定 */
     gap: 1.5rem;
+    justify-content: center;
+    /* カードを中央揃え */
     margin: 2rem auto;
     padding: 0 1rem;
     box-sizing: border-box;
 }
 
-/* カードの基本スタイル */
 .post-card {
-    background-color: var(--back);
-    /* 背景色 */
-    border: 1px solid var(--gray);
-    /* 境界線 */
+    background-color: var(--white);
     border-radius: 0.5rem;
-    /* 角丸 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* 軽い影 */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 1.5rem;
-    /* カード内の余白 */
+    transition: transform var(--transition);
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* グリッドの幅に従う */
+    aspect-ratio: 1 / 1;
+    /* 正方形を維持 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
 }
 
-/* カードのホバー効果 */
 .post-card:hover {
-    transform: translateY(-5px);
-    /* カードを少し上に持ち上げる */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    /* 影を濃くする */
-}
-
-/* コンテンツ内のスタイル */
-.post-content {
-    text-align: left;
-    /* 左揃え */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition) ease, box-shadow var(--transition) ease;
 }
 
 .post-title {
     font-size: 1.5rem;
-    /* タイトルを目立たせる */
-    margin-bottom: 0.5rem;
     color: var(--text);
-    /* メインカラー */
-}
-
-.post-title a {
-    text-decoration: none;
-    /* 下線を削除 */
-    color: inherit;
-    /* 親要素の色を引き継ぐ */
-    transition: color 0.3s ease;
-}
-
-.post-title a:hover {
-    color: var(--text-sub);
-    /* ホバー時の色 */
+    margin: 0;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .post-subtitle {
     font-size: 1rem;
-    /* サブタイトルのサイズ */
-    color: var(--text-sub);
-    /* サブカラー */
+    color: var(--text);
     margin: 0;
-    line-height: 1.6;
+    text-align: center;
 }
 
-/* ボタンのスタイル */
 .load-more-container {
     text-align: center;
     margin-top: 2rem;
 }
 
-#load-more {
+.load-more {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     background-color: var(--text);
@@ -390,8 +363,22 @@ button:hover {
     transition: background-color 0.3s ease;
 }
 
-#load-more:hover {
+.load-more:hover {
     background-color: var(--text-sub);
+}
+
+@media (max-width: 1024px) {
+    .post-list {
+        grid-template-columns: repeat(2, 1fr);
+        /* 中程度の画面で2列 */
+    }
+}
+
+@media (max-width: 768px) {
+    .post-list {
+        grid-template-columns: 1fr;
+        /* 狭い画面で1列 */
+    }
 }
 
 /********************************

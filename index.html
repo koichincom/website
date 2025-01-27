@@ -4,16 +4,18 @@ title: Koichi Nakayamada
 ---
 
 <div class="home">
+    <div class="page-title">
+        <h1>Hi, I'm Koichi.</h1>
+    </div>
 
     <section class="about">
-        <h1>Hi, I'm Koichi.</h1>
         <p>
-            Some people call me Koh. I'm a Cognitive Science student interested in Brain-Machine Interfaces and Machine Learning.
+            Some people call me Koh. I'm a Cognitive Science student interested in Brain-Machine Interfaces and Machine
+            Learning.
             Originally from Japan, I'm currently an international student at De Anza College, CA.
         </p><br>
-
         <p>
-            Keep up with me on 
+            Keep up with me on
             <a href="https://twitter.com/koichincom">Twitter</a> or
             <a href="https://linkedin.com/in/koichincom">LinkedIn</a>.
             Discover more about me on <a href="/vision">vision</a> and <a href="/about">about</a>.
@@ -24,28 +26,34 @@ title: Koichi Nakayamada
         {% assign blogs = site.posts | where: "categories", "blog" %}
         {% if blogs.size > 0 %}
         <h1>Latest Blogs</h1>
-        <div class="blog-list">
-            {% for post in blogs limit: 2 %}
-            <h1><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h1>
-            <p class="subtitle">{{ post.subtitle }}</p>
-            <p class="date">{{ post.date | date: "%B %d, %Y" }}</p>
+        <p><a href="/blog/">View All Blogs</a></p>
+        <div class="blog-list post-list">
+            {% for post in blogs limit: 3 %}
+            <a href="{{ post.url | relative_url }}" class="post-card">
+                <h1 class="post-title">{{ post.title }}</h1>
+                <p class="subtitle">{{ post.subtitle }}</p>
+            </a>
             {% endfor %}
         </div>
-        <p><a href="/blog/">View All Blogs</a></p>
         {% endif %}
     </div>
 
     <div class="featured-projects">
-        {% assign projects = site.posts | where: "categories", "project" %}
-        {% if projects.size > 0 %}
-        <div class="featured-projects">
-            <h1>Featured Projects</h1>
-            <div class="projects-list">
-                <h1><a href="https://koichin.com/project/my-website">My Website</a></h1>
-                <p>The ultimate simple site to showcase my blogs and projects</p>
-            </div>
-            <p><a href="/project/">View All Projects</a></p>
+        <h1>Featured Projects</h1>
+        <p><a href="/project/">View All Projects</a></p>
+        <div class="project-list post-list">
+            <a href="https://koichin.com/project/my-website" class="post-card">
+                <h1 class="post-title">My Website</h1>
+                <p class="subtitle">The ultimate simple site to showcase my blogs and projects</p>
+            </a>
+            <a href="https://koichin.com/project/my-website" class="post-card">
+                <h1 class="post-title">My Website</h1>
+                <p class="subtitle">The ultimate simple site to showcase my blogs and projects</p>
+            </a>
+            <a href="https://koichin.com/project/my-website" class="post-card">
+                <h1 class="post-title">My Website</h1>
+                <p class="subtitle">The ultimate simple site to showcase my blogs and projects</p>
+            </a>
         </div>
-        {% endif %}
     </div>
 </div>
