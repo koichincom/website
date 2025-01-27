@@ -316,7 +316,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    border: var(--gray) 0.5px solid;
+    border: var(--gray) 1px solid;
 }
 
 .post-title {
