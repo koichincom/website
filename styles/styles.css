@@ -222,6 +222,7 @@ button:hover {
 }
 
 .overlay {
+    background-color: var(--back);
     display: none;
     position: fixed;
     top: 0;
@@ -326,12 +327,6 @@ button:hover {
     padding: 1rem;
 }
 
-.post-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    transition: transform var(--transition) ease, box-shadow var(--transition) ease;
-}
-
 .post-title {
     font-size: 1.5rem;
     color: var(--text);
@@ -360,7 +355,7 @@ button:hover {
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition) ease;
 }
 
 .load-more:hover {
@@ -370,16 +365,14 @@ button:hover {
 @media (max-width: 1024px) {
     .post-list {
         grid-template-columns: repeat(2, 1fr);
-        /* 中程度の画面で2列 */
     }
 }
 
 @media (max-width: 768px) {
     .post-list {
         grid-template-columns: 1fr;
-        /* 狭い画面で1列 */
     }
-}
+}   
 
 /********************************
     Post (Blog and Project)
