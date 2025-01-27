@@ -9,12 +9,14 @@ title: Projects
 <div class="post-list">
     {% assign projects = site.posts | where: "categories", "project" %}
     {% for post in projects limit: 10 %}
-    <div class="post">
-        <div class="title">
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </div>
-        <div class="subtitle">
-            <p>{{ post.subtitle }}</p>
+    <div class="post-card">
+        <div class="post-content">
+            <div class="title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </div>
+            <div class="subtitle">
+                <p>{{ post.subtitle }}</p>
+            </div>
         </div>
     </div>
     {% endfor %}
@@ -23,12 +25,14 @@ title: Projects
 <div class="post-list-hidden" style="display: none;">
     {% assign hidden_projects = site.posts | where: "categories", "project" | offset: 10 %}
     {% for post in hidden_projects %}
-    <div class="post">
-        <div class="title">
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </div>
-        <div class="subtitle">
-            <p>{{ post.subtitle }}</p>
+    <div class="post-card">
+        <div class="post-content">
+            <div class="title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </div>
+            <div class="subtitle">
+                <p>{{ post.subtitle }}</p>
+            </div>
         </div>
     </div>
     {% endfor %}

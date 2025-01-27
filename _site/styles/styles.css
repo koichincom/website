@@ -16,6 +16,7 @@ body {
 .container {
     max-width: 1000px;
     margin: 0 auto;
+    margin-top: 3rem;
     padding: 0 30px;
     box-sizing: border-box;
 }
@@ -33,23 +34,23 @@ body {
     --header-height: 50px;
 
     --text: #080808;
-    --text-sub: #333;
+    --text-sub: #555;
     --back: #f9f9f9;
     --black: #000;
     --white: #fff;
     --gray: #b4b4b4;
-    --header: rgba(249, 249, 249, 0.5);
+    --header: rgba(249, 249, 249, 0.8);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --text: #fff;
-        --text-sub: #ccc;
-        --back: #080808;
+        --text: #f9f9f9;
+        --text-sub: #aaa;
+        --back: #121212;
         --black: #fff;
         --white: #000;
-        --gray: #8c8c8c;
-        --header: rgba(8, 8, 8, 0.5);
+        --gray: #777;
+        --header: rgba(18, 18, 18, 0.5);
     }
 }
 
@@ -106,16 +107,12 @@ a:hover {
 }
 
 blockquote {
-    font-size: var(--font-base);
-    /* 18px */
+    font-size: 1rem;
     line-height: var(--line-height);
     padding: 0.9375rem 1.5625rem;
-    /* 15px / 16, 25px / 16 */
     background-color: var(--white);
     margin: 1.875rem 0;
-    /* 30px / 16 */
     border-radius: 0.3125rem;
-    /* 5px / 16 */
     text-align: left;
 }
 
@@ -123,16 +120,13 @@ ul,
 ol {
     list-style-position: outside;
     padding-left: 1.25rem;
-    /* 20px / 16 */
     margin: 1.25rem 0;
-    /* 20px / 16 */
     line-height: var(--line-height);
 }
 
 ul li,
 ol li {
     margin-bottom: 0.625rem;
-    /* 10px / 16 */
 }
 
 button {
@@ -140,12 +134,9 @@ button {
     background-color: var(--text);
     color: var(--white);
     font-size: 1rem;
-    /* 16px */
     padding: 0.75rem 1.5rem;
-    /* 12px / 16, 24px / 16 */
     border: none;
     border-radius: 1.875rem;
-    /* 30px / 16 */
     text-align: center;
     cursor: pointer;
     transition: background-color var(--transition) ease;
@@ -156,7 +147,7 @@ button:hover {
 }
 
 /********************************
-    Header and Sidebar
+    Header
 ********************************/
 
 .header {
@@ -176,9 +167,8 @@ button:hover {
 }
 
 .header .container {
-    max-width: 1000px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -268,6 +258,10 @@ button:hover {
 }
 
 @media (max-width: 768px) {
+    .header .container {
+        margin: 0 15px;
+    }
+
     .main-link a {
         font-size: 1rem;
     }
@@ -309,15 +303,95 @@ button:hover {
     Post List (Blog and Project)
 ********************************/
 
+/* カードリスト全体の設定 */
 .post-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 自動的に列を調整 */
+    gap: 1.5rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
     box-sizing: border-box;
+}
+
+/* カードの基本スタイル */
+.post-card {
+    background-color: var(--back);
+    /* 背景色 */
+    border: 1px solid var(--gray);
+    /* 境界線 */
+    border-radius: 0.5rem;
+    /* 角丸 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* 軽い影 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1.5rem;
+    /* カード内の余白 */
+}
+
+/* カードのホバー効果 */
+.post-card:hover {
+    transform: translateY(-5px);
+    /* カードを少し上に持ち上げる */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    /* 影を濃くする */
+}
+
+/* コンテンツ内のスタイル */
+.post-content {
+    text-align: left;
+    /* 左揃え */
+}
+
+.post-title {
+    font-size: 1.5rem;
+    /* タイトルを目立たせる */
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    /* メインカラー */
+}
+
+.post-title a {
+    text-decoration: none;
+    /* 下線を削除 */
+    color: inherit;
+    /* 親要素の色を引き継ぐ */
+    transition: color 0.3s ease;
+}
+
+.post-title a:hover {
+    color: var(--text-sub);
+    /* ホバー時の色 */
+}
+
+.post-subtitle {
+    font-size: 1rem;
+    /* サブタイトルのサイズ */
+    color: var(--text-sub);
+    /* サブカラー */
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ボタンのスタイル */
+.load-more-container {
     text-align: center;
+    margin-top: 2rem;
+}
+
+#load-more {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: var(--text);
+    color: var(--white);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#load-more:hover {
+    background-color: var(--text-sub);
 }
 
 /********************************
@@ -327,44 +401,46 @@ button:hover {
 .post {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    box-sizing: border-box;
+    gap: 1rem;
 }
 
 .post .title {
-    margin-bottom: 5px;
     max-width: 100%;
+    text-align: center;
 }
 
-.post .title a {
-    font-size: 1.6rem;
-    line-height: 1;
-    display: inline-block;
-    max-width: 100%;
+.post .title h1 {
+    font-size: 3.5rem;
+    margin: 2rem 0;
+    line-height: 1.2;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .post .title h1 {
+        font-size: 2.5rem;
+        margin: 1.5rem 0;
+    }
 }
 
 .subtitle {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
     max-width: 100%;
+    text-align: center;
 }
 
 .subtitle p {
     font-size: 1rem;
-    line-height: 1;
+    line-height: 1.5;
     word-wrap: break-word;
-    margin: 10px 0;
+    margin: 0.625rem 0;
     text-align: center;
-}   
+}
 
 .date {
     font-size: 1rem;
     text-align: center;
-}
-
-.title h1 {
-    font-size: 3rem;
-    margin: 0 auto;
-    text-align: center;
+    margin-bottom: 1rem;
 }
 
 /********************************
