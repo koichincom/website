@@ -1,29 +1,24 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
+    const posts = Array.from(document.querySelectorAll(".post-card"));
     const loadMoreButton = document.getElementById("load-more");
-    const hiddenPostsContainer = document.querySelector(".post-list-hidden");
-    const postListContainer = document.querySelector(".post-list");
 
-    if (!hiddenPostsContainer) {
-        console.log("No hidden posts container found.");
-        return;
+    let visibleCount = 30;
+    const LOAD_COUNT = 30;
+
+    if (loadMoreButton) {
+        loadMoreButton.addEventListener("click", function () {
+            const startIndex = visibleCount;
+            const endIndex = visibleCount + LOAD_COUNT;
+
+            for (let i = startIndex; i < endIndex && i < posts.length; i++) {
+                posts[i].classList.remove("hidden");
+            }
+
+            visibleCount += LOAD_COUNT;
+
+            if (visibleCount >= posts.length) {
+                loadMoreButton.style.display = "none";
+            }
+        });
     }
-
-    if (!loadMoreButton) {
-        console.log("Load More button not found.");
-        return;
-    }
-
-    const posts = hiddenPostsContainer.querySelectorAll(".post-card");
-    let visibleCount = 0;
-    const postsPerPage = 9;
-
-    loadMoreButton.addEventListener("click", () => {
-        const nextPosts = Array.from(posts).slice(visibleCount, visibleCount + postsPerPage);
-        nextPosts.forEach(post => postListContainer.appendChild(post));
-        visibleCount += postsPerPage;
-
-        if (visibleCount >= posts.length) {
-            loadMoreButton.style.display = "none";
-        }
-    });
 });

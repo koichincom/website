@@ -2,6 +2,10 @@
     General Settings
 ********************************/
 
+.hidden {
+    display: none;
+}
+
 html {
     font-size: 16px;
 }
@@ -202,12 +206,6 @@ button:hover {
     gap: 40px;
 }
 
-.search-social {
-    flex-shrink: 0;
-    display: flex;
-    gap: 20px;
-}
-
 .menu-toggle {
     display: none;
 }
@@ -328,8 +326,7 @@ button:hover {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     justify-content: center;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
     box-sizing: border-box;
 }
 
@@ -344,18 +341,15 @@ button:hover {
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    border: var(--gray) 2px solid;
 }
 
 .post-title {
-    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-size: 2rem;
     color: var(--text);
     margin: 0;
     text-align: center;
     margin-bottom: 1rem;
     display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
     line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -367,6 +361,10 @@ button:hover {
     color: var(--text);
     margin: 0;
     text-align: center;
+}
+
+.post-card.hidden {
+    display: none;
 }
 
 .load-more-container {
@@ -383,10 +381,6 @@ button:hover {
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background-color var(--transition) ease;
-}
-
-.load-more:hover {
-    background-color: var(--text-sub);
 }
 
 @media (max-width: 1024px) {
