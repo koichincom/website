@@ -341,27 +341,25 @@ ol {
     flex-direction: column;
 }
 
-.post .title,
-.post .date,
-.post .subtitle {
+.post .title h1,
+.post .date p,
+.post .subtitle p {
     text-align: center;
     margin: 0;
     padding: 0;
+    border: 0;
     line-height: var(--line-height);
 }
 
-.post .title {
-    text-align: center;
+.post .title h1 {
     font-size: 3.5rem;
-    padding: 0;
-    line-height: var(--line-height);
 }
 
-.date {
+.date p{
     font-size: 0.9rem;
 }
 
-.subtitle {
+.subtitle p{
     font-size: 1rem;
 }
 
@@ -370,13 +368,24 @@ ol {
 }
 
 @media (max-width: 768px) {
-    .post .date {
+    
+    .post .title {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .post .subtitle {
+        max-width: 75%;
+        margin: 0 auto;
+    }
+
+    .post .date p {
         font-size: 0.8rem;
     }
-    .post .title {
-        font-size: 2.3rem;
+    .post .title h1 {
+        font-size: 2.2rem;
     }
-    .post .subtitle {
+    .post .subtitle p {
         font-size: 0.9rem;
     }
 }
