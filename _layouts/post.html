@@ -13,16 +13,12 @@
     {% include header.html %}
     <main class="container">
         <post class="post">
-            <p class="date">
-                {{ page.date | date: "%B %d, %Y" }}
-            </p>
-            <div class="title">
-                <h1>{{ page.title }}</h1>
+            <p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
+            <h1 class="title">{{ page.title }}</h1>
+            <p class="subtitle">{{ page.subtitle }}</p>
+            <div class="content">
+                {{ content }}
             </div>
-            <div class="subtitle">
-                <p>{{ page.subtitle }}</p>
-            </div>
-            {{ content }}
         </post>
     </main>
     {% include footer.html %}
