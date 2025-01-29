@@ -80,12 +80,26 @@ p {
 
 h1 {
     font-size: 2.5rem;
-    padding: 1rem 0;
+    padding-top: 1rem;
+    padding-bottom: 0;
 }
 
 h2 {
     font-size: 1.8rem;
-    padding: 1rem 0;
+    padding-top: 1rem;
+    padding-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        padding: 0.5rem 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        padding: 0.5rem 0;
+    }
 }
 
 b {
