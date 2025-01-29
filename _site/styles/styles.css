@@ -227,7 +227,14 @@ ol {
 ********************************/
 
 .footer {
-    height: 100px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p{
+    line-height: var(--line-height);
 }
 
 /********************************
