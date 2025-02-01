@@ -7,27 +7,34 @@ title: Projects
     <h1>Projects</h1>
 </div>
 
-<div class="post-list" id="post-list">
+<ul class="post-list">
     {% assign all_projects = site.posts
     | where: "categories", "project"
-    | sort: "date"
+    | sort: "title"
     | reverse
     %}
 
     {% for post in all_projects %}
-    {% if forloop.index0 < 30 %} <a href="{{ post.url | relative_url }}" class="post-card"
-        data-index="{{ forloop.index0 }}">
-        <h1 class="post-title">{{ post.title }}</h1>
-        <p class="post-subtitle">{{ post.subtitle }}</p>
-        </a>
+    {% if forloop.index0 < 30 %} <li class="post-item">
+        <h2 class="post-title">
+            <a href="{{ post.url | relative_url }}" class="post-link" data-index="{{ forloop.index0 }}">
+                {{ post.title }}
+            </a>
+        </h2>
+        <p class="post-info">{{ post.subtitle }}
+        </li>
         {% else %}
-        <a href="{{ post.url | relative_url }}" class="post-card hidden" data-index="{{ forloop.index0 }}">
-            <h1 class="post-title">{{ post.title }}</h1>
-            <p class="post-subtitle">{{ post.subtitle }}</p>
-        </a>
+        <li class="post-item hidden">
+            <h2 class="post-title">
+                <a href="{{ post.url | relative_url }}" class="post-link" data-index="{{ forloop.index0 }}">
+                    {{ post.title }}
+                </a>
+            </h2>
+            <p class="post-info">{{ post.subtitle }}
+        </li>
         {% endif %}
         {% endfor %}
-</div>
+</ul>
 
 {% if all_projects.size > 30 %}
 <div class="load-more-container">

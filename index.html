@@ -26,33 +26,34 @@ title: Koichi Nakayamada
         </p>
     </section>
 
-<!-- <div class="latest-blogs">
-    {% assign blogs = site.posts | where: "categories", "blog" %}
-    {% if blogs.size > 0 %}
-    <div class="section-header">
-        <h1>Latest Blogs</h1>
-        <div><a href="/blog/" class="button">View all</a></div>
+    <!-- <div class="latest-blogs">
+        {% assign blogs = site.posts | where: "categories", "blog" %}
+        {% if blogs.size > 0 %}
+        <div class="section-header">
+            <h1>Latest Blogs</h1>
+            <div><a href="/blog/" class="button">View all</a></div>
+        </div>
+        <div class="blog-list post-list">
+            {% for post in blogs limit: 3 %}
+            <a href="{{ post.url | relative_url }}" class="post-card">
+                <h1 class="post-title">{{ post.title }}</h1>
+                <p class="subtitle">{{ post.subtitle }}</p>
+            </a>
+            {% endfor %}
+        </div>
+        {% endif %}
     </div>
-    <div class="blog-list post-list">
-        {% for post in blogs limit: 3 %}
-        <a href="{{ post.url | relative_url }}" class="post-card">
-            <h1 class="post-title">{{ post.title }}</h1>
-            <p class="subtitle">{{ post.subtitle }}</p>
-        </a>
-        {% endfor %}
-    </div>
-    {% endif %}
-</div>
 
-<div class="featured-projects">
-    <div class="section-header">
-        <h1>Featured Projects</h1>
-        <div><a href="/project/" class="button">View all</a></div>
-    </div>
-    <div class="project-list post-list">
-        <a href="https://koichin.com/project/my-website" class="post-card">
-            <h1 class="post-title">My Website</h1>
-            <p class="subtitle">The ultimate simple site to showcase my blogs and projects</p>
-        </a>
-    </div>
-</div> -->
+    <div class="featured-projects">
+        <div class="section-header">
+            <h1>Featured Projects</h1>
+            <div><a href="/project/" class="button">View all</a></div>
+        </div>
+        <div class="project-list post-list">
+            <a href="https://koichin.com/project/my-website" class="post-card">
+                <h1 class="post-title">My Website</h1>
+                <p class="subtitle">The ultimate simple site to showcase my blogs and projects</p>
+            </a>
+        </div>
+    </div> -->
+</div>
