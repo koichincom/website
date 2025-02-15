@@ -7,7 +7,7 @@ title: Blogs
     <h1>Blogs</h1>
 </div>
 
-<ul class="post-list">
+<div class="post-list">
     {% assign all_blogs = site.posts
     | where: "categories", "blog"
     | sort: "date"
@@ -22,7 +22,7 @@ title: Blogs
                     {{ post.title }}
                 </a>
             </h2>
-            <p class="post-info">{{ post.subtitle }} / {{ post.date | date: "%B %d, %Y" }}</p>
+            <p class="post-info">{{ post.date | date: "%B %d, %Y" }} / {{ post.subtitle }}</p>
         </li>
         {% else %}
         <li class="post-item hidden">
@@ -31,11 +31,11 @@ title: Blogs
                     {{ post.title }}
                 </a>
             </h2>
-            <p class="post-info">{{ post.subtitle }} / {{ post.date | date: "%B %d, %Y" }}</p>
+            <p class="post-info">{{ post.date | date: "%B %d, %Y" }} / {{ post.subtitle }}</p>
         </li>
         {% endif %}
         {% endfor %}
-</ul>
+</div>
 
 {% if all_blogs.size > 30 %}
 <div class="load-more-container">

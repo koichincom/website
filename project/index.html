@@ -7,7 +7,7 @@ title: Projects
     <h1>Projects</h1>
 </div>
 
-<ul class="post-list">
+<div class="post-list">
     {% assign all_projects = site.posts
     | where: "categories", "project"
     | sort: "title"
@@ -34,7 +34,7 @@ title: Projects
         </li>
         {% endif %}
         {% endfor %}
-</ul>
+</div>
 
 {% if all_projects.size > 30 %}
 <div class="load-more-container">
