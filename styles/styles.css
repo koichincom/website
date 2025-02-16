@@ -13,10 +13,11 @@ body {
     padding: 0;
 }
 
-.container {
+.body-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 20px;
+    padding-top: var(--header-height);
     box-sizing: border-box;
 }
 
@@ -30,7 +31,9 @@ body {
     --line-height: 1.75;
     --transition: 0.3s;
     --header-height: 60px;
+}
 
+:root {
     --gen: #080808;
     --gen-sub: #555;
     --back: #f9f9f9;
@@ -65,8 +68,7 @@ body {
     text-align: left;
     font-weight: normal;
     color: var(--gen);
-    line-height: var(--line-height);
-    transition: text-decoration-color var(--transition) ease;
+    line-height: 1.75;
 }
 
 p {
@@ -75,20 +77,25 @@ p {
 
 h1 {
     font-size: 2.5rem;
+    line-height: 1.3;
 }
 
 h2 {
     font-size: 1.8rem;
+    line-height: 1.35;
 }
 
 b {
     font-weight: bold;
+    line-height: inherit;
 }
 
 a {
     text-decoration: underline;
     text-decoration-color: var(--under);
     text-decoration-thickness: 0.125rem;
+    transition: text-decoration-color var(--transition) ease;
+    line-height: inherit;
 }
 
 a:hover {
@@ -117,6 +124,7 @@ ol li {
 .btn-container {
     display: flex;
     justify-content: center;
+    line-height: normal;
 }
 
 .btn {
@@ -130,6 +138,7 @@ ol li {
     color: var(--white);
     cursor: pointer;
     text-decoration: none;
+    line-height: 1.5;
 }
 
 .btn:hover {
@@ -139,7 +148,8 @@ ol li {
 .page-title h1 {
     font-size: 3.5rem;
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 3rem 0;
+    line-height: 1.2;
 }
 
 /********************************
@@ -147,24 +157,15 @@ ol li {
 ********************************/
 
 .header {
-        position: fixed;
-        width: 100%;
-        height: var(--header-height);
-        background-color: var(--trans);
-        backdrop-filter: blur(5px);
-        transition: transform var(--transition) ease;
-        z-index: 1000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--back);
+    height: var(--header-height);
     }
 
-.spacer {
-    height: var(--header-height);
-}
-
-.header.hide {
-    transform: translateY(-100%);
-}
-
-.header .container {
+.header__container {
     margin: 0 auto;
     padding: 0 30px;
     display: flex;
@@ -175,7 +176,7 @@ ol li {
     max-width: 1150px;
 }
 
-.header .container a {
+.header__container a {
     text-decoration: none;
 }
 
@@ -186,10 +187,6 @@ ol li {
     color: var(--gen);
     display: flex;
     font-size: 1rem;
-}
-
-.main-link {
-    flex-shrink: 0;
 }
 
 .page-links {
@@ -208,44 +205,12 @@ ol li {
 }
 
 @media (max-width: 768px) {
-
-    .header.open {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--trans);
-        z-index: 1001;
+    .header__container {
+        padding: 0 20px;
     }
 
-    .header.open .container {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
-
-    .header.open .page-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        font-size: 2rem;
-        overflow-y: auto;
-    }
-    
     .menu-toggle {
         display: block;
-    }
-    
-    .header.open .main-link {
-        display: none;
-    }
-
-    .page-links,
-    .social-links {
-        display: none;
     }
 }
 
@@ -255,27 +220,16 @@ ol li {
 
 .footer {
     height: 100px;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    left: 0;
 }
 
 /********************************
     🟡 Home
 ********************************/
 
-.section-header {
-    margin: 2rem 0;
-}
-
-.home-header {
-    margin: 0;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    color: var(--gen);
-    text-align: center;
-    padding: 0; 
-}
 
 /********************************
     🟡 Post List

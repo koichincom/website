@@ -21,7 +21,14 @@ body {
     box-sizing: border-box;
 }
 
+@media (max-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
 :root {
+    --line-height: 1.75;
     --transition: 0.3s;
     --header-height: 60px;
 }
@@ -80,6 +87,7 @@ h2 {
 
 b {
     font-weight: bold;
+    line-height: inherit;
 }
 
 a {
@@ -87,6 +95,7 @@ a {
     text-decoration-color: var(--under);
     text-decoration-thickness: 0.125rem;
     transition: text-decoration-color var(--transition) ease;
+    line-height: inherit;
 }
 
 a:hover {
@@ -105,7 +114,6 @@ ul,
 ol {
     list-style-position: outside;
     padding: 0.5rem 1rem;
-
 }
 
 ul li,
@@ -116,6 +124,7 @@ ol li {
 .btn-container {
     display: flex;
     justify-content: center;
+    line-height: normal;
 }
 
 .btn {
@@ -129,6 +138,7 @@ ol li {
     color: var(--white);
     cursor: pointer;
     text-decoration: none;
+    line-height: 1.5;
 }
 
 .btn:hover {
@@ -138,14 +148,8 @@ ol li {
 .page-title h1 {
     font-size: 3.5rem;
     text-align: center;
-    padding: 1.5rem 0;
-    line-height: 1.2;
-}
-
-.page-title h1 {
-    font-size: 3.5rem;
-    text-align: center;
     padding: 3rem 0;
+    line-height: 1.2;
 }
 
 /********************************
@@ -157,8 +161,8 @@ ol li {
     width: 100%;
     top: 0;
     left: 0;
-    height: var(--header-height);
     background-color: var(--back);
+    height: var(--header-height);
     }
 
 .header__container {
@@ -200,6 +204,15 @@ ol li {
     display: none;
 }
 
+@media (max-width: 768px) {
+    .header__container {
+        padding: 0 20px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
 
 /********************************
     ✅ Footer
@@ -207,27 +220,16 @@ ol li {
 
 .footer {
     height: 100px;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    left: 0;
 }
 
 /********************************
     🟡 Home
 ********************************/
 
-.section-header {
-    margin: 2rem 0;
-}
-
-.home-header {
-    margin: 0;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    color: var(--gen);
-    text-align: center;
-    padding: 0; 
-}
 
 /********************************
     🟡 Post List
