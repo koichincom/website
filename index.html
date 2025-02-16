@@ -11,18 +11,14 @@ title: Koichi Nakayamada
     <p>
         I'm a Cognitive Science student with a strong interest in <b>BCI, HCI, and Machine Learning</b>.
         Originally from Japan, I'm currently an international student at De Anza College, CA.
-        Learn more on my <a href="/vision" class="home__intro-link">Vision</a> and <a href="/about"
-            class="home__intro-link">About</a> pages.
-        Keep up with me on <a href="https://twitter.com/koichincom">Twitter</a>,
-        <a href="https://linkedin.com/in/koichincom">LinkedIn</a>, or
-        <a href="https://youtube.com/@koichincom">YouTube</a>.
+        Follow me on <a href="https://twitter.com/koichincom"><b>Twitter</b></a> and
+        learn more <a href="/about"><b>about me</b></a>.
     </p>
 </section>
 
 <section class="home__posts">
     <h1 class="home__posts-title">Latest Blogs</h1>
-    <p>I write about new technologies, work, personal-improvement, productivity, etc.
-        You can also <a href="/blog"><b>view all blogs</b></a>.</p>
+    <p>Click to view <a href="/blog"><b>all my blogs</b></a>.</p>
     <ul class="home__posts-list">
         {% assign all_blogs = site.posts | where: "categories", "blog" | sort: "date" | reverse %}
         {% for post in all_blogs %}
@@ -40,8 +36,7 @@ title: Koichi Nakayamada
 
 <section class="home__posts">
     <h1 class="home__posts-title">Latest Projects</h1>
-    <p>I document the projects I have worked on and those I am currently working on.
-        You can also <a href="/projects"><b>view all projects</b></a>.</p>
+    <p>Click to view <a href="/project"><b>all my projects</b></a>.</p>
     <ul class="home__posts-list">
         {% assign all_projects = site.posts | where: "categories", "project" | sort: "date" | reverse %}
         {% for post in all_projects %}
@@ -57,7 +52,7 @@ title: Koichi Nakayamada
     </ul>
 </section>
 
-<section class="home__updates">
+<!-- <section class="home__updates">
     <h1>Updates in your Inbox</h1>
     <p>
         I send out updates on new blogs, projects, and other interesting things I'm working on,
@@ -65,24 +60,25 @@ title: Koichi Nakayamada
         No spam, unsubscribe anytime.
         <a href="https://koichin.substack.com"><b>Get updates in your inbox</b></a>.
     </p>
-</section>
+</section> -->
 
 <section class="home__clubs">
     <h1>To De Anza Students</h1>
     <p>
-        To De Anza students: I'm leading two unofficial clubs. If you're interested in technology
-        —whether you're a beginner or experienced—feel free to join us.
+        I'm leading two unofficial clubs at De Anza College.
+        If you're interested in technology—whether you're a beginner or not—
+        feel free to join us. <b>Open to De Anza students only.</b>
     </p>
     <ul>
         <li>
             <a href="https://koichin.com/dahci" class="home__clubs-link"><b>DAHCI</b></a>
-            (De Anza Human-Computer Interface)<br>We explore Human-Computer Interaction within Cognitive Science,
+            <br>(De Anza Human-Computer Interaction) We explore Human-Computer Interaction within Cognitive Science,
             utilizing techniques
             like heart rate monitoring, eye tracking, and EEG.
         </li>
         <li>
             <a href="https://koichin.com/mlcl" class="home__clubs-link"><b>MLCL</b></a>
-            (Machine Learning for College Life)<br>Our goal is to bridge the gap between Machine Learning and everyday
+            <br>(Machine Learning for College Life) Our goal is to bridge the gap between Machine Learning and everyday
             college life, making
             technology more accessible and beneficial to students.
         </li>

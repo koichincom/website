@@ -152,7 +152,7 @@ ol li {
 }
 
 /********************************
-    🟡 Header
+    Header & Mobile Menu
 ********************************/
 
 .header {
@@ -228,7 +228,7 @@ ol li {
     height: calc(100vh - var(--header-height));
     background-color: var(--back);
     transform: translateY(-100%);
-    transition: transform 1s ease;
+    transition: transform 0.8s ease;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -311,6 +311,7 @@ ol li {
 .post {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .post .title h1,
@@ -321,6 +322,7 @@ ol li {
     padding: 0;
     border: 0;
     line-height: var(--line-height);
+    text-align: center;
 }
 
 .post .title h1 {
@@ -328,7 +330,7 @@ ol li {
 }
 
 .date p{
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .subtitle p{
@@ -343,21 +345,14 @@ ol li {
     
     .post .title {
         max-width: 90%;
-        margin: 0 auto;
+        margin: 0;
     }
 
     .post .subtitle {
         max-width: 75%;
-        margin: 0 auto;
-    }
-
-    .post .date p {
-        font-size: 0.8rem;
+        margin: 0;
     }
     .post .title h1 {
-        font-size: 2.2rem;
-    }
-    .post .subtitle p {
-        font-size: 0.9rem;
+        font-size: 3rem;
     }
 }
