@@ -238,27 +238,26 @@ ol li {
         height: 100%;
     }
 
-    .header.open .menu-toggle,
-    .header.open .main-link {
-        display: none;
-    }
-
-    .header.open .page-links{
+    .header.open .page-links {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
         font-size: 2rem;
+        overflow-y: auto;
     }
-
-    .page-links,
-    .social-links,
-    .header-open .menu-toggle {
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .header.open .main-link {
         display: none;
     }
 
-    .menu-toggle {
-        display: block;
+    .page-links,
+    .social-links {
+        display: none;
     }
 }
 

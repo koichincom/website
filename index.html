@@ -17,33 +17,8 @@ title: Koichi Nakayamada
     </p>
 </section>
 
-<section class="home__projects">
-    <h2>Latest Projects</h2>
-    <div class="home__post-list">
-        {% assign all_projects = site.posts
-        | where: "categories", "project"
-        | sort: "date"
-        | reverse
-        %}
-
-        {% for post in all_projects %}
-        {% if forloop.index0 < 3 %}
-        <div class="post-item">
-            <p class="post-title">
-                <a href="{{ post.url | relative_url }}" class="post-link" data-index="{{ forloop.index0 }}">
-                    {{ post.title }}
-                </a>
-            </p>
-            <p class="post-info">{{ post.subtitle }}</p>
-        </div>
-        {% endif %}
-        {% endfor %} 
-    </div>
-    <p><a href="/blog">View all</a></p>
-</section>
-
 <section class="home__blogs">
-    <h2>Latest Blogs</h2>
+    <h1>Latest Blogs</h1>
     <div class="home__post-list">
         {% assign all_blogs = site.posts
         | where: "categories", "blog"
@@ -67,10 +42,34 @@ title: Koichi Nakayamada
     <p><a href="/project">View all</a></p>
 </section>
 
+<section class="home__projects">
+    <h1>Featured Projects</h1>
+    <div class="home__post-list">
+        {% assign all_projects = site.posts
+        | where: "categories", "project"
+        | sort: "date"
+        | reverse
+        %}
+
+        {% for post in all_projects %}
+        {% if forloop.index0 < 3 %} <div class="post-item">
+            <p class="post-title">
+                <a href="{{ post.url | relative_url }}" class="post-link" data-index="{{ forloop.index0 }}">
+                    {{ post.title }}
+                </a>
+            </p>
+            <p class="post-info">{{ post.subtitle }}</p>
+    </div>
+    {% endif %}
+    {% endfor %}
+    </div>
+    <p><a href="/blog">View all</a></p>
+</section>
+
 <section class="home__clubs">
-    <h2>To De Anza Students</h2>
+    <h1>Clubs</h1>
     <p>
-        I'm leading two clubs, unofficial yet. If you're interested in technology,
+        I'm leading two clubs, unofficial yet. If you're a De Anza student, and interested in technology,
         even if you're a beginner, feel free to join us!
         <ul>
             <li>
