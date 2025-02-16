@@ -29,7 +29,6 @@ body {
 
 :root {
     --line-height: 1.75;
-    --transition: 0.3s;
     --header-height: 60px;
 }
 
@@ -94,7 +93,7 @@ a {
     text-decoration: underline;
     text-decoration-color: var(--under);
     text-decoration-thickness: 0.125rem;
-    transition: text-decoration-color var(--transition) ease;
+    transition: text-decoration-color 0.3s ease;
     line-height: inherit;
 }
 
@@ -163,7 +162,6 @@ ol li {
     left: 0;
     background-color: var(--back);
     height: var(--header-height);
-    transition: transform var(--transition) ease;
     z-index: 1100;
     padding: 0;
     }
@@ -230,11 +228,13 @@ ol li {
     height: calc(100vh - var(--header-height));
     background-color: var(--back);
     transform: translateY(-100%);
-    transition: transform var(--transition) ease;
+    transition: transform 1s ease;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: 0;
+    padding-top: 2rem;
+    margin: 0;
 }
 
 .mobile-menu.open {
@@ -256,7 +256,7 @@ ol li {
     display: flex;
     font-size: 1.5rem;
     gap: 20px;
-    align-items: center;
+    justify-content: center;
 }
 
 /********************************
