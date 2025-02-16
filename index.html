@@ -22,7 +22,7 @@ title: Koichi Nakayamada
 <section class="home__posts">
     <h1 class="home__posts-title">Latest Blogs</h1>
     <p>I write about new technologies, work, personal-improvement, productivity, etc.
-        Here are the latest three. You can also <a href="/blog"><b>view all blogs</b></a>.</p>
+        You can also <a href="/blog"><b>view all blogs</b></a>.</p>
     <ul class="home__posts-list">
         {% assign all_blogs = site.posts | where: "categories", "blog" | sort: "date" | reverse %}
         {% for post in all_blogs %}
@@ -41,7 +41,7 @@ title: Koichi Nakayamada
 <section class="home__posts">
     <h1 class="home__posts-title">Latest Projects</h1>
     <p>I document the projects I have worked on and those I am currently working on.
-        Here are the latest three. You can also <a href="/projects"><b>view all projects</b></a>.</p>
+        You can also <a href="/projects"><b>view all projects</b></a>.</p>
     <ul class="home__posts-list">
         {% assign all_projects = site.posts | where: "categories", "project" | sort: "date" | reverse %}
         {% for post in all_projects %}
