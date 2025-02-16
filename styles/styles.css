@@ -31,24 +31,22 @@ body {
     --transition: 0.3s;
     --header-height: 60px;
 
-    --text: #080808;
-    --text-sub: #555;
+    --gen: #080808;
+    --gen-sub: #555;
     --back: #f9f9f9;
     --black: #000;
     --white: #fff;
-    --gray: #b4b4b4;
-    --trans: rgba(249, 249, 249, 0.8);
+    --under: #b4b4b4;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --text: #f9f9f9;
-        --text-sub: #aaa;
+        --gen: #f9f9f9;
+        --gen-sub: #aaa;
         --back: #121212;
         --black: #fff;
         --white: #000;
-        --gray: #777;
-        --trans: rgba(18, 18, 18, 0.5);
+        --under: #777;
     }
 }
 
@@ -66,7 +64,7 @@ body {
     padding: 0.5rem 0;
     text-align: left;
     font-weight: normal;
-    color: var(--text);
+    color: var(--gen);
     line-height: var(--line-height);
     transition: text-decoration-color var(--transition) ease;
 }
@@ -89,12 +87,12 @@ b {
 
 a {
     text-decoration: underline;
-    text-decoration-color: var(--gray);
+    text-decoration-color: var(--under);
     text-decoration-thickness: 0.125rem;
 }
 
 a:hover {
-    text-decoration-color: var(--text);
+    text-decoration-color: var(--gen);
 }
 
 blockquote {
@@ -128,14 +126,14 @@ ol li {
     margin: 3rem 0;
     border: 0;
     border-radius: 2rem;
-    background-color: var(--text);
+    background-color: var(--gen);
     color: var(--white);
     cursor: pointer;
     text-decoration: none;
 }
 
 .btn:hover {
-    background-color: var(--text-sub);
+    background-color: var(--gen-sub);
 }
 
 .page-title h1 {
@@ -185,7 +183,7 @@ ol li {
 .page-links,
 .social-links,
 .menu-toggle {
-    color: var(--text);
+    color: var(--gen);
     display: flex;
     font-size: 1rem;
 }
@@ -274,7 +272,7 @@ ol li {
     margin-top: 3rem;
     margin-bottom: 1rem;
     font-size: 2rem;
-    color: var(--text);
+    color: var(--gen);
     text-align: center;
     padding: 0; 
 }

@@ -13,42 +13,36 @@ body {
     padding: 0;
 }
 
-.container {
+.body-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 20px;
+    padding-top: var(--header-height);
     box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-    .container {
-        max-width: 720px;
-    }
+:root {
+    --transition: 0.3s;
+    --header-height: 60px;
 }
 
 :root {
-    --line-height: 1.75;
-    --transition: 0.3s;
-    --header-height: 60px;
-
-    --text: #080808;
-    --text-sub: #555;
+    --gen: #080808;
+    --gen-sub: #555;
     --back: #f9f9f9;
     --black: #000;
     --white: #fff;
-    --gray: #b4b4b4;
-    --trans: rgba(249, 249, 249, 0.8);
+    --under: #b4b4b4;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --text: #f9f9f9;
-        --text-sub: #aaa;
+        --gen: #f9f9f9;
+        --gen-sub: #aaa;
         --back: #121212;
         --black: #fff;
         --white: #000;
-        --gray: #777;
-        --trans: rgba(18, 18, 18, 0.5);
+        --under: #777;
     }
 }
 
@@ -66,9 +60,8 @@ body {
     padding: 0.5rem 0;
     text-align: left;
     font-weight: normal;
-    color: var(--text);
-    line-height: var(--line-height);
-    transition: text-decoration-color var(--transition) ease;
+    color: var(--gen);
+    line-height: 1.75;
 }
 
 p {
@@ -77,10 +70,12 @@ p {
 
 h1 {
     font-size: 2.5rem;
+    line-height: 1.3;
 }
 
 h2 {
     font-size: 1.8rem;
+    line-height: 1.35;
 }
 
 b {
@@ -89,12 +84,13 @@ b {
 
 a {
     text-decoration: underline;
-    text-decoration-color: var(--gray);
+    text-decoration-color: var(--under);
     text-decoration-thickness: 0.125rem;
+    transition: text-decoration-color var(--transition) ease;
 }
 
 a:hover {
-    text-decoration-color: var(--text);
+    text-decoration-color: var(--gen);
 }
 
 blockquote {
@@ -109,6 +105,7 @@ ul,
 ol {
     list-style-position: outside;
     padding: 0.5rem 1rem;
+
 }
 
 ul li,
@@ -128,20 +125,27 @@ ol li {
     margin: 3rem 0;
     border: 0;
     border-radius: 2rem;
-    background-color: var(--text);
+    background-color: var(--gen);
     color: var(--white);
     cursor: pointer;
     text-decoration: none;
 }
 
 .btn:hover {
-    background-color: var(--text-sub);
+    background-color: var(--gen-sub);
 }
 
 .page-title h1 {
     font-size: 3.5rem;
     text-align: center;
     padding: 1.5rem 0;
+    line-height: 1.2;
+}
+
+.page-title h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    padding: 3rem 0;
 }
 
 /********************************
@@ -149,24 +153,15 @@ ol li {
 ********************************/
 
 .header {
-        position: fixed;
-        width: 100%;
-        height: var(--header-height);
-        background-color: var(--trans);
-        backdrop-filter: blur(5px);
-        transition: transform var(--transition) ease;
-        z-index: 1000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: var(--header-height);
+    background-color: var(--back);
     }
 
-.spacer {
-    height: var(--header-height);
-}
-
-.header.hide {
-    transform: translateY(-100%);
-}
-
-.header .container {
+.header__container {
     margin: 0 auto;
     padding: 0 30px;
     display: flex;
@@ -177,7 +172,7 @@ ol li {
     max-width: 1150px;
 }
 
-.header .container a {
+.header__container a {
     text-decoration: none;
 }
 
@@ -185,13 +180,9 @@ ol li {
 .page-links,
 .social-links,
 .menu-toggle {
-    color: var(--text);
+    color: var(--gen);
     display: flex;
     font-size: 1rem;
-}
-
-.main-link {
-    flex-shrink: 0;
 }
 
 .page-links {
@@ -209,47 +200,6 @@ ol li {
     display: none;
 }
 
-@media (max-width: 768px) {
-
-    .header.open {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--trans);
-        z-index: 1001;
-    }
-
-    .header.open .container {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
-
-    .header.open .page-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        font-size: 2rem;
-        overflow-y: auto;
-    }
-    
-    .menu-toggle {
-        display: block;
-    }
-    
-    .header.open .main-link {
-        display: none;
-    }
-
-    .page-links,
-    .social-links {
-        display: none;
-    }
-}
 
 /********************************
     ✅ Footer
@@ -274,7 +224,7 @@ ol li {
     margin-top: 3rem;
     margin-bottom: 1rem;
     font-size: 2rem;
-    color: var(--text);
+    color: var(--gen);
     text-align: center;
     padding: 0; 
 }

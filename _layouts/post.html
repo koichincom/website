@@ -11,7 +11,7 @@
 </head>
 <body>
     {% include header.html %}
-    <main class="container">
+    <main class="body-container">
         <post class="post">
             <div class="date">
                 <p>{{ page.date | date: "%B %d, %Y" }}</p>
@@ -34,7 +34,6 @@
     </main>
     {% include footer.html %}
     <script src="/scripts/sidebar.js"></script>
-    <script src="/scripts/header.js"></script>
     <script src="/scripts/target-blank.js"></script>
 </body>
 </html>

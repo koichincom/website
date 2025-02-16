@@ -13,16 +13,16 @@ title: Koichi Nakayamada
         Originally from Japan, I'm currently an international student at De Anza College, CA.
         Learn more on my <a href="/vision" class="home__intro-link">Vision</a> and <a href="/about"
             class="home__intro-link">About</a> pages.
-        You can find me on <a href="https://twitter.com/koichincom" class="home__intro-social">Twitter</a> and
-        <a href="https://linkedin.com/in/koichincom" class="home__intro-social">LinkedIn</a> if you'd like to follow my
-        work.
+        Keep up with me on <a href="https://twitter.com/koichincom">Twitter</a>,
+        <a href="https://linkedin.com/in/koichincom">LinkedIn</a>, or
+        <a href="https://youtube.com/@koichincom">YouTube</a>.
     </p>
 </section>
 
 <section class="home__posts">
-    <h1 class="home__posts-title">Blogs</h1>
+    <h1 class="home__posts-title">Latest Blogs</h1>
     <p>I write about new technologies, work, personal-improvement, productivity, etc.
-        <a href="/blog">View all blogs</a></p>
+        Here are the latest three. You can also <a href="/blog"><b>view all blogs</b></a>.</p>
     <ul class="home__posts-list">
         {% assign all_blogs = site.posts | where: "categories", "blog" | sort: "date" | reverse %}
         {% for post in all_blogs %}
@@ -41,7 +41,7 @@ title: Koichi Nakayamada
 <section class="home__posts">
     <h1 class="home__posts-title">Latest Projects</h1>
     <p>I document the projects I have worked on and those I am currently working on.
-        <a href="/projects">View all projects</a></p>
+        Here are the latest three. You can also <a href="/projects"><b>view all projects</b></a>.</p>
     <ul class="home__posts-list">
         {% assign all_projects = site.posts | where: "categories", "project" | sort: "date" | reverse %}
         {% for post in all_projects %}
@@ -58,7 +58,7 @@ title: Koichi Nakayamada
 </section>
 
 <section class="home__clubs">
-    <h1>To De Anza students</h1>
+    <h1>To DA Students</h1>
     <p>
         To De Anza students: I'm leading two unofficial clubs. If you're interested in technology
         —whether you're a beginner or experienced—feel free to join us.
