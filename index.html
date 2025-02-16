@@ -9,79 +9,72 @@ title: Koichi Nakayamada
 
 <section class="home__intro">
     <p>
-        I'm a Cognitive Science student with a strong interest in <b>BCI, HCI and Machine Learning</b>.
+        I'm a Cognitive Science student with a strong interest in <b>BCI, HCI, and Machine Learning</b>.
         Originally from Japan, I'm currently an international student at De Anza College, CA.
-        Learn more on my <a href="/vision">Vision</a> and <a href="/about">About</a> pages.
-        You can find me on <a href="https://twitter.com/koichincom">Twitter</a> and
-        <a href="https://linkedin.com/in/koichincom">LinkedIn</a> if you'd like to follow my work.
+        Learn more on my <a href="/vision" class="home__intro-link">Vision</a> and <a href="/about"
+            class="home__intro-link">About</a> pages.
+        You can find me on <a href="https://twitter.com/koichincom" class="home__intro-social">Twitter</a> and
+        <a href="https://linkedin.com/in/koichincom" class="home__intro-social">LinkedIn</a> if you'd like to follow my
+        work.
     </p>
 </section>
 
-<section class="home__blogs">
-    <h1>Latest Blogs</h1>
-    <div class="home__post-list">
-        {% assign all_blogs = site.posts
-        | where: "categories", "blog"
-        | sort: "date"
-        | reverse
-        %}
-    
+<section class="home__posts">
+    <h1 class="home__posts-title">Blogs</h1>
+    <p>I write about new technologies, work, personal-improvement, productivity, etc.
+        <a href="/blog">View all blogs</a></p>
+    <ul class="home__posts-list">
+        {% assign all_blogs = site.posts | where: "categories", "blog" | sort: "date" | reverse %}
         {% for post in all_blogs %}
-        {% if forloop.index0 < 3 %}
-        <div class="post-item">
-            <p class="post-title">
-                <a href="{{ post.url | relative_url }}" class="post-link" data-index="{{ forloop.index0 }}">
-                    {{ post.title }}
-                </a>
-            </p>
-            <p class="post-info">{{ post.date | date: "%B %d, %Y" }} / {{ post.subtitle }}</p>
-        </div>
+        {% if forloop.index0 < 3 %} 
+        <li class="home__posts-item">
+            <a href="{{ post.url | relative_url }}" data-index="{{ forloop.index0 }}"><b>
+                {{ post.title }}
+            </b></a>
+            <br>{{ post.date | date: "%B %d, %Y" }} / {{ post.subtitle }}
+        </li>
         {% endif %}
         {% endfor %}
-    </div>
-    <p><a href="/project">View all</a></p>
+    </ul>
 </section>
 
-<section class="home__projects">
-    <h1>Featured Projects</h1>
-    <div class="home__post-list">
-        {% assign all_projects = site.posts
-        | where: "categories", "project"
-        | sort: "date"
-        | reverse
-        %}
-
+<section class="home__posts">
+    <h1 class="home__posts-title">Latest Projects</h1>
+    <p>I document the projects I have worked on and those I am currently working on.
+        <a href="/projects">View all projects</a></p>
+    <ul class="home__posts-list">
+        {% assign all_projects = site.posts | where: "categories", "project" | sort: "date" | reverse %}
         {% for post in all_projects %}
-        {% if forloop.index0 < 3 %} <div class="post-item">
-            <p class="post-title">
-                <a href="{{ post.url | relative_url }}" class="post-link" data-index="{{ forloop.index0 }}">
+        {% if forloop.index0 < 3 %}
+        <li class="home__posts-item">
+            <a href="{{ post.url | relative_url }}" data-index="{{ forloop.index0 }}"><b>
                     {{ post.title }}
-                </a>
-            </p>
-            <p class="post-info">{{ post.subtitle }}</p>
-    </div>
-    {% endif %}
-    {% endfor %}
-    </div>
-    <p><a href="/blog">View all</a></p>
+            </b></a>
+            <br>{{ post.subtitle }}
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
 </section>
 
 <section class="home__clubs">
-    <h1>Clubs</h1>
+    <h1>To De Anza students</h1>
     <p>
-        I'm leading two clubs, unofficial yet. If you're a De Anza student, and interested in technology,
-        even if you're a beginner, feel free to join us!
-        <ul>
-            <li>
-            <a href="https://koichin.com/dahci"><b>DAHCI</b></a>
-            (De Anza Human-Computer Interface): We explore Human-Computer Interaction within Cognitive Science, utilizing techniques
-            like heart rate monitoring, eye tracking, and EEG.
-            </li>
-            <li>
-            <a href="https://koichin.com/mlcl"><b>MLCL</b></a>
-            (Machine Learning for College Life): Our goal is to bridge gap between Machine Learning and everyday college life, making
-            technology more accessible and beneficial to students.
-            </li>
-        </ul>
+        To De Anza students: I'm leading two unofficial clubs. If you're interested in technology
+        —whether you're a beginner or experienced—feel free to join us.
     </p>
+    <ul>
+        <li>
+            <a href="https://koichin.com/dahci" class="home__clubs-link"><b>DAHCI</b></a>
+            (De Anza Human-Computer Interface)<br>We explore Human-Computer Interaction within Cognitive Science,
+            utilizing techniques
+            like heart rate monitoring, eye tracking, and EEG.
+        </li>
+        <li>
+            <a href="https://koichin.com/mlcl" class="home__clubs-link"><b>MLCL</b></a>
+            (Machine Learning for College Life)<br>Our goal is to bridge the gap between Machine Learning and everyday
+            college life, making
+            technology more accessible and beneficial to students.
+        </li>
+    </ul>
 </section>

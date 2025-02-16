@@ -1,3 +1,5 @@
+// Load more posts on the home page
+
 document.addEventListener("DOMContentLoaded", function () {
     const posts = Array.from(document.querySelectorAll(".post-card"));
     const loadMoreButton = document.getElementById("load-more");

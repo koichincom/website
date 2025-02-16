@@ -1,3 +1,5 @@
+// Hide header on scroll down, show on scroll up
+
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector(".header");
     let lastScrollY = window.scrollY;
