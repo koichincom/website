@@ -163,6 +163,7 @@ ol li {
     left: 0;
     background-color: var(--back);
     height: var(--header-height);
+    transition: transform var(--transition) ease;
     }
 
 .header__container {
@@ -180,27 +181,27 @@ ol li {
     text-decoration: none;
 }
 
-.main-link,
-.page-links,
-.social-links,
-.menu-toggle {
+.header__main-link,
+.header__page-links,
+.header__social-links,
+.header__menu-toggle {
     color: var(--gen);
     display: flex;
     font-size: 1rem;
 }
 
-.page-links {
+.header__page-links {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     gap: 35px;
 }
 
-.social-links {
+.header__social-links {
     gap: 20px;
 }
 
-.menu-toggle {
+.header__menu-toggle {
     display: none;
 }
 
@@ -209,13 +210,19 @@ ol li {
         padding: 0 20px;
     }
 
-    .menu-toggle {
+    .header__menu-toggle {
         display: block;
     }
+
+    /* Tentaive */
+        .header__page-links,
+        .header__social-links {
+            display: none;
+        }
 }
 
 /********************************
-    ✅ Footer
+    Footer
 ********************************/
 
 .footer {
@@ -227,12 +234,7 @@ ol li {
 }
 
 /********************************
-    🟡 Home
-********************************/
-
-
-/********************************
-    🟡 Post List
+    Post List
 ********************************/
 
 .post-list {
@@ -265,7 +267,7 @@ ol li {
 }
 
 /********************************
-    ✅ Individual Post
+    Individual Post
 ********************************/
 
 .post {
