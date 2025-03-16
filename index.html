@@ -22,15 +22,14 @@ title: Koichi Nakayamada
     <ul class="home__posts-list">
         {% assign all_blogs = site.posts | where: "categories", "blog" | sort: "date" | reverse %}
         {% for post in all_blogs %}
-        {% if forloop.index0 < 3 %} 
-        <li class="home__posts-item">
+        {% if forloop.index0 < 3 %} <li class="home__posts-item">
             <a href="{{ post.url | relative_url }}" data-index="{{ forloop.index0 }}"><b>
-                {{ post.title }}
-            </b></a>
+                    {{ post.title }}
+                </b></a>
             <br>{{ post.date | date: "%B %d, %Y" }} / {{ post.subtitle }}
-        </li>
-        {% endif %}
-        {% endfor %}
+            </li>
+            {% endif %}
+            {% endfor %}
     </ul>
 </section>
 
@@ -40,37 +39,39 @@ title: Koichi Nakayamada
     <ul class="home__posts-list">
         {% assign all_projects = site.posts | where: "categories", "project" | sort: "date" | reverse %}
         {% for post in all_projects %}
-        {% if forloop.index0 < 3 %}
-        <li class="home__posts-item">
+        {% if forloop.index0 < 3 %} <li class="home__posts-item">
             <a href="{{ post.url | relative_url }}" data-index="{{ forloop.index0 }}"><b>
                     {{ post.title }}
-            </b></a>
+                </b></a>
             <br>{{ post.subtitle }}
-        </li>
-        {% endif %}
-        {% endfor %}
+            </li>
+            {% endif %}
+            {% endfor %}
     </ul>
 </section>
 
 <section class="home__clubs">
     <h1>To De Anza Students</h1>
     <p>
-        I'm leading two unofficial clubs at De Anza College.
-        If you're interested in technology—whether you're a beginner or not—
-        feel free to join us. <b>Open to De Anza students only.</b>
+        I'm leading two clubs at De Anza College.
+        If you're interested, feel free to join us.
+        <b>Open to De Anza students only.</b>
     </p>
     <ul>
         <li>
             <a href="https://koichin.com/dahci" class="home__clubs-link"><b>DAHCI</b></a>
-            <br>(De Anza Human-Computer Interaction) We explore Human-Computer Interaction within Cognitive Science,
-            utilizing techniques
-            like heart rate monitoring, eye tracking, and EEG.
+            <br>
+            (De Anza Human-Computer Interaction)
+            We explore Human-Computer Interaction within Cognitive Science,
+            utilizing techniques like heart rate monitoring, eye tracking, and EEG.
+            We're currently a club on trial.
         </li>
         <li>
             <a href="https://koichin.com/mlcl" class="home__clubs-link"><b>MLCL</b></a>
-            <br>(Machine Learning for College Life) Our goal is to bridge the gap between Machine Learning and everyday
-            college life, making
-            technology more accessible and beneficial to students.
+            <br>(Machine Learning for College Life)
+            Our goal is to bridge the gap between Machine Learning and everyday college life,
+            making technology more accessible and beneficial to students.
+            Our club application is currently pending.
         </li>
     </ul>
 </section>
