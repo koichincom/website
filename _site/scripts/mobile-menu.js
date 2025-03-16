@@ -6,12 +6,12 @@ const menuIcon = menuToggle.querySelector('i'); // Select the icon inside menuTo
 menuToggle.addEventListener('click', () => {
     mobileMenu.classList.toggle('open');
 
-    // Toggle the icon class
-    if (mobileMenu.classList.contains('open')) {
-        menuIcon.classList.replace('fa-grip-lines', 'fa-xmark');
-    } else {
-        menuIcon.classList.replace('fa-xmark', 'fa-grip-lines');
-    }
+    // // Toggle the icon class
+    // if (mobileMenu.classList.contains('open')) {
+    //     menuIcon.classList.replace('fa-grip-lines', 'fa-xmark');
+    // } else {
+    //     menuIcon.classList.replace('fa-xmark', 'fa-grip-lines');
+    // }
 });
 
 mobileMenu.addEventListener('click', (e) => {
