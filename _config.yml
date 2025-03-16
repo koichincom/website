@@ -20,3 +20,5 @@ markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: true
+
+include: ["_pages", "404.html"]
