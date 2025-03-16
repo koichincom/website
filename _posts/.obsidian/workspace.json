@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/2024-09-08-7-lessons.md",
+                "file": "blog/2024-03-30-from-pain.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2024-09-08-7-lessons"
+              "title": "2024-03-30-from-pain"
             }
           }
         ],
@@ -157,8 +157,11 @@
   },
   "active": "ec5024c4a2545fa4",
   "lastOpenFiles": [
-    "blog/2025-01-01-2025.md",
+    "blog/2024-08-15-phone-addiction.md",
     "blog/2025-01-16-vision-1-0-0.md",
+    "blog/2025-01-01-2025.md",
+    "blog/2024-09-08-7-lessons.md",
+    "template/template.md",
     "blog/2025-03-16-do-more.md",
     "blog/Untitled 2.md",
     "blog/Untitled 1.md",
@@ -181,9 +184,6 @@
     "De Anza Machine Learning Club.md",
     "Well-Used Non-ML EEG Processing Algorithms.md",
     "Untitled.canvas",
-    "markdown.code-workspace",
-    "koichin.com.md",
-    "Scratch Pad.md",
-    "vision.md"
+    "markdown.code-workspace"
   ]
 }
