@@ -1,3 +1,12 @@
 {
-  "theme": "system"
+  "showRibbon": false,
+  "showViewHeader": true,
+  "textFontFamily": "",
+  "monospaceFontFamily": "Fira Code",
+  "baseFontSize": 17,
+  "baseFontSizeAction": false,
+  "nativeMenus": true,
+  "interfaceFontFamily": "",
+  "cssTheme": "",
+  "accentColor": "#007aff"
 }

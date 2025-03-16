@@ -1,53 +1,71 @@
 {
   "main": {
-    "id": "7f8349360b302d66",
+    "id": "4dc1331aa5e30b98",
     "type": "split",
     "children": [
       {
-        "id": "f44597aaa6ed03b6",
+        "id": "23fb4e3c6fc23fa2",
         "type": "tabs",
         "children": [
           {
-            "id": "9274cd3be689cf63",
+            "id": "828ce5c36708153f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "project/2025-01-25-my-website.md",
+                "file": "blog/2025-01-01-2025.md",
                 "mode": "source",
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2025-01-25-my-website"
+              "title": "2025-01-01-2025"
+            }
+          },
+          {
+            "id": "ec5024c4a2545fa4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "blog/2025-01-16-vision-1-0-0.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "2025-01-16-vision-1-0-0"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "4a1427bfb5522503",
+    "id": "086507be44a02e29",
     "type": "split",
     "children": [
       {
-        "id": "506920723105d234",
+        "id": "3e4aa0b8d7ec2b78",
         "type": "tabs",
         "children": [
           {
-            "id": "91a18ca24f966d33",
+            "id": "3b8066d2e938b16e",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
             }
           },
           {
-            "id": "8a502cf9c965afcc",
+            "id": "51a85de92a2e6e22",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -62,90 +80,67 @@
               "icon": "lucide-search",
               "title": "Search"
             }
-          },
-          {
-            "id": "543d5de3ed33b763",
-            "type": "leaf",
-            "state": {
-              "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
-            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 268.5
   },
   "right": {
-    "id": "7d232f2c6cef6433",
+    "id": "78578e8abc7f1080",
     "type": "split",
     "children": [
       {
-        "id": "07178356e687fbc4",
+        "id": "eacf9bdad5718319",
         "type": "tabs",
         "children": [
           {
-            "id": "ed16b74ef9c73408",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "blog/2024-03-30-from-pain.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for 2024-03-30-from-pain"
-            }
-          },
-          {
-            "id": "75fd996f4984ae3a",
+            "id": "fd180a340b970cf2",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "blog/2024-03-30-from-pain.md",
+                "file": "Scratchpad.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2024-03-30-from-pain"
+              "title": "Outgoing links from Scratchpad"
             }
           },
           {
-            "id": "33e0c4582b7d82a2",
+            "id": "9947e81a4c746612",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Tags"
             }
           },
           {
-            "id": "67cd8d8bd2559a41",
+            "id": "ec917ef3c1e3eb7b",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "blog/2024-03-30-from-pain.md"
+                "file": "Scratchpad.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2024-03-30-from-pain"
+              "title": "Outline of Scratchpad"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -155,22 +150,39 @@
   "left-ribbon": {
     "hiddenItems": {
       "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "9274cd3be689cf63",
+  "active": "ec5024c4a2545fa4",
   "lastOpenFiles": [
-    "blog/2024-08-15-phone-addiction.md",
-    "blog/2024-03-30-from-pain.md",
-    "project/2025-01-25-my-website.md",
-    "template/template.md",
     "blog/2025-01-01-2025.md",
-    "blog/2024-09-08-7-lessons.md",
+    "blog/2025-01-16-vision-1-0-0.md",
+    "blog/Untitled 2.md",
+    "blog/Untitled 1.md",
+    "blog/2024-03-30-from-pain.md",
+    "template/Template.md",
+    "Untitled 1.md",
     "Untitled.md",
-    "template"
+    "Untitled 2.md",
+    "project/2025-01-25-my-website.md",
+    "Inthelang.md",
+    "Scratchpad.md",
+    "燃え上がった.md",
+    "How to read and catch up with the resources.md",
+    "Obsidian.md",
+    "Value Assumptions.md",
+    "motivation/Thriving Under Pressure - Hiroshi Ishii.md",
+    "What to Study for BCI.md",
+    "資金.md",
+    "だだ.md",
+    "De Anza Machine Learning Club.md",
+    "Well-Used Non-ML EEG Processing Algorithms.md",
+    "Untitled.canvas",
+    "markdown.code-workspace",
+    "koichin.com.md",
+    "Scratch Pad.md",
+    "vision.md"
   ]
 }
