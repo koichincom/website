@@ -36,9 +36,24 @@
               "icon": "lucide-file",
               "title": "2025-01-16-vision-1-0-0"
             }
+          },
+          {
+            "id": "062f6df3199e955a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "blog/2025-03-16-do-more.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "2025-03-16-do-more"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -155,10 +170,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "ec5024c4a2545fa4",
+  "active": "062f6df3199e955a",
   "lastOpenFiles": [
-    "blog/2025-01-01-2025.md",
     "blog/2025-01-16-vision-1-0-0.md",
+    "blog/2025-03-16-do-more.md",
+    "blog/2025-01-01-2025.md",
     "blog/Untitled 2.md",
     "blog/Untitled 1.md",
     "blog/2024-03-30-from-pain.md",
