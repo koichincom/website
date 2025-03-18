@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: blog
+categories: 
 title: From Nihilism to the Übermensch
 subtitle: Personal Retrospection and My Path to Becoming an "Overman"
 date: 2025-03-17

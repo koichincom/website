@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "draft/2025-03-17-from-nihilism-to-the-ubermensch.md",
+                "file": "blog/2025-03-17-from-nihilism-to-the-ubermensch.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -139,13 +139,13 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "7a9c31e5128e6894",
+  "active": "3b8066d2e938b16e",
   "lastOpenFiles": [
     "draft",
     "template/Template.md",
     "project/2025-01-25-my-website.md",
     "blog/2025-01-01-2025.md",
-    "draft/2025-03-17-from-nihilism-to-the-ubermensch.md",
+    "blog/2025-03-17-from-nihilism-to-the-ubermensch.md",
     "blog/2024-03-30-running-away-from-pain.md",
     "blog/2024-09-08-7-lessons.md",
     "blog/2024-08-15-phone-addiction.md",
