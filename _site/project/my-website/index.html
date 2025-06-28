@@ -17,18 +17,15 @@
             <a href="/">Koichi Nakayamada</a>
         </div>
         <div class="header__page-links">
-            <a href="/blog/">Blogs</a>
             <a href="/project/">Projects</a>
-            <a href="/vision/">Vision</a>
+            <a href="/blog/">Blogs</a>
             <a href="/about/">About</a>
         </div>
         <div class="header__social-links">
-            <a href="https://twitter.com/koichincom" >
+            <a href="https://twitter.com/koichincom" target="_blank" rel="noopener">
                 <i class="fa-brands fa-twitter"></i></a>
-            <a href="https://linkedin.com/in/koichincom" >
+            <a href="https://linkedin.com/in/koichincom" target="_blank" rel="noopener">
                 <i class="fab fa-linkedin"></i></a>
-            <a href="https://youtube.com/@koichincom" >
-                <i class="fab fa-youtube"></i></a>
         </div>
         <div class="header__menu-toggle">
             <i class="fa-solid fa-grip-lines"></i>
@@ -39,33 +36,35 @@
 <div class="mobile-menu">
     <nav class="mobile-menu__content">
         <div class="mobile-menu__page">
-            <a href="/blog/">Blogs</a>
             <a href="/project/">Projects</a>
-            <a href="/vision/">Vision</a>
+            <a href="/blog/">Blogs</a>
             <a href="/about/">About</a>
         </div>
         <div class="mobile-menu__social">
-            <a href="https://twitter.com/koichincom">
+            <a href="https://twitter.com/koichincom" target="_blank" rel="noopener">
                 <i class="fa-brands fa-twitter"></i></a>
-            <a href="https://linkedin.com/in/koichincom">
+            <a href="https://linkedin.com/in/koichincom" target="_blank" rel="noopener">
                 <i class="fab fa-linkedin"></i></a>
-            <a href="https://youtube.com/@koichincom">
-                <i class="fab fa-youtube"></i></a>
         </div>
     </nav>
 </div>
     <main class="body-container">
         <post class="post">
-            <div class="date">
-                <p>January 25, 2025</p>
-            </div>
-            <div class="title">
+            <div class="post__title">
                 <h1>My Website</h1>
             </div>
-            <div class="subtitle">
-                <p>The ultimate simple site to showcase my blogs and projects</p>
+            <div class="post__meta">
+                
+                <p class="post__subtitle">The ultimate simple site to showcase my blogs and projects</p>
+                
+                <p class="post__date">January 25, 2025</p>
             </div>
-            <div class="content">
+            
+            <div class="post__hero-image">
+                <img src="/images/lukas-blazek-optimized.jpg" alt="My Website">
+            </div>
+            
+            <div class="post__content">
                 <p>This website is designed to be <strong>as simple as possible</strong> while providing an effective platform to showcase my blogs, projects, and personal interests. It’s for anyone who wants to learn more about me and explore my work.</p>
 
 <h1 id="goals">Goals</h1>
@@ -95,14 +94,8 @@
 
             </div>
         </post>
-        <div class="btn-container">
-            <a href="https://koichin.substack.com" class="btn">
-                Get updates in your inbox
-            </a>
-        </div>
     </main>
     <div class="footer"></div>
-    <script src="/scripts/mobile-menu.js"></script>
-    <script src="/scripts/target-blank.js"></script>
+    <script src="/src/navigation.js"></script>
 </body>
 </html>

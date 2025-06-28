@@ -7,38 +7,28 @@ title: Blogs
     <h1>Blogs</h1>
 </div>
 
-<div class="post-list">
-    {% assign all_blogs = site.posts
-    | where: "categories", "blog"
-    | sort: "date"
-    | reverse
-    %}
+<section class="home__projects">
+    <div class="card-grid">
+        {% assign all_blogs = site.posts
+        | where: "categories", "blog"
+        | sort: "date"
+        | reverse
+        %}
 
-    {% for post in all_blogs %}
-    {% if forloop.index0 < 30 %}
-        <li class="post-item">
-            <h2 class="post-title">
-                <a href="{{ post.url | relative_url }}" class="post-link" data-index="{{ forloop.index0 }}">
-                    {{ post.title }}
-                </a>
-            </h2>
-            <p class="post-info">{{ post.date | date: "%B %d, %Y" }} / {{ post.subtitle }}</p>
-        </li>
-        {% else %}
-        <li class="post-item hidden">
-            <h2 class="post-title">
-                <a href="{{ post.url | relative_url }}" class="post-link" data-index="{{ forloop.index0 }}">
-                    {{ post.title }}
-                </a>
-            </h2>
-            <p class="post-info">{{ post.date | date: "%B %d, %Y" }} / {{ post.subtitle }}</p>
-        </li>
-        {% endif %}
+        {% for post in all_blogs %}
+        <a href="{{ post.url | relative_url }}" class="card">
+            <div class="card__image">
+                {% if post.hero_image %}
+                <img src="{{ post.hero_image }}" alt="{{ post.title }}">
+                {% else %}
+                <img src="/images/alina-grubnyak-optimized.jpg" alt="{{ post.title }}">
+                {% endif %}
+            </div>
+            <div class="card__info">
+                <div class="card__title">{{ post.title }}</div>
+                <div class="card__desc">{{ post.subtitle }}</div>
+            </div>
+        </a>
         {% endfor %}
-</div>
-
-{% if all_blogs.size > 30 %}
-<div class="load-more-container">
-    <button id="load-more" class="load-more-button">Load more</button>
-</div>
-{% endif %}
+    </div>
+</section>

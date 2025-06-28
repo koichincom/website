@@ -4,6 +4,7 @@ subtitle: The ultimate simple site to showcase my blogs and projects
 date: 2025-01-25
 layout: post
 categories: project
+hero_image: /images/lukas-blazek-optimized.jpg
 ---
 
 This website is designed to be **as simple as possible** while providing an effective platform to showcase my blogs, projects, and personal interests. It's for anyone who wants to learn more about me and explore my work.

@@ -5,68 +5,37 @@ title: Koichi Nakayamada
 
 <div class="page-title">
     <h1>Hi, I'm Koichi.</h1>
+</div> 
+
+<div class="page-lead">
+    <p>I'm a Data Science student passionate about <b>Machine Learning</b> and <b>Brain-Computer Interface</b>.
+    From Japan, currently at De Anza College, California.You can know more about me on <a href="/about/">the about page</a>.
+    </p>
 </div>
 
-<section class="home__intro">
-    <p>
-        I'm a Cognitive Science student with a strong interest in <b>BCI, HCI, and Machine Learning</b>.
-        Originally from Japan, I'm currently an international student at De Anza College, CA.
-        Follow me on <a href="https://twitter.com/koichincom"><b>Twitter</b></a> and
-        learn more <a href="/about"><b>about me</b></a>.
-    </p>
-</section>
+<section class="home__projects">
+    <div class="card-grid">
+        {% assign featured_projects = site.posts
+        | where: "categories", "project"
+        | sort: "date"
+        | reverse
+        | limit: 6
+        %}
 
-<section class="home__posts">
-    <h1 class="home__posts-title">Latest Blogs</h1>
-    <p>Click to view <a href="/blog"><b>all my blogs</b></a>.</p>
-    <ul class="home__posts-list">
-        {% assign all_blogs = site.posts | where: "categories", "blog" | sort: "date" | reverse %}
-        {% for post in all_blogs %}
-        {% if forloop.index0 < 3 %} <li class="home__posts-item">
-            <a href="{{ post.url | relative_url }}" data-index="{{ forloop.index0 }}"><b>
-                    {{ post.title }}
-                </b></a>
-            <br>{{ post.date | date: "%B %d, %Y" }} / {{ post.subtitle }}
-            </li>
-            {% endif %}
-            {% endfor %}
-    </ul>
-</section>
-
-<section class="home__posts">
-    <h1 class="home__posts-title">Latest Projects</h1>
-    <p>Click to view <a href="/project"><b>all my projects</b></a>.</p>
-    <ul class="home__posts-list">
-        {% assign all_projects = site.posts | where: "categories", "project" | sort: "date" | reverse %}
-        {% for post in all_projects %}
-        {% if forloop.index0 < 3 %} <li class="home__posts-item">
-            <a href="{{ post.url | relative_url }}" data-index="{{ forloop.index0 }}"><b>
-                    {{ post.title }}
-                </b></a>
-            <br>{{ post.subtitle }}
-            </li>
-            {% endif %}
-            {% endfor %}
-    </ul>
-</section>
-
-<section class="home__clubs">
-    <h1>Clubs I'm leading</h1>
-    <p>
-        I'm leading two official clubs at De Anza College.
-        Feel free to join from the link if you're interested
-    </p>
-    <ul>
-        <li>
-            <a href="https://koichin.com/hci" class="home__clubs-link"><b>Human-Computer Interaction</b></a>
-            <br>
-            We explore Human-Computer Interaction within Cognitive Science,
-            utilizing techniques like EEG and BCI (Brain-Computer Interface)
-        </li>
-        <li>
-            <a href="https://koichin.com/ada" class="home__clubs-link"><b>Applied Data Analytics</b></a>
-            <br>
-            
-        </li>
-    </ul>
+        {% for post in featured_projects %}
+        <a href="{{ post.url | relative_url }}" class="card">
+            <div class="card__image">
+                {% if post.hero_image %}
+                <img src="{{ post.hero_image }}" alt="{{ post.title }}">
+                {% else %}
+                <img src="/images/lukas-blazek-optimized.jpg" alt="{{ post.title }}">
+                {% endif %}
+            </div>
+            <div class="card__info">
+                <div class="card__title">{{ post.title }}</div>
+                <div class="card__desc">{{ post.subtitle | default: "Project description" }}</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
 </section>

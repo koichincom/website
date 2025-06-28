@@ -1,9 +1,10 @@
 ---
 layout: post
 title: Running Away from Pain
-subtitle: What My Depression, Truant Days, and Recovery Taught Me
+subtitle: Finding purpose and the courage to escape what hurts us
 date: 2024-03-30
 categories: blog
+hero_image: /images/marek-piwnicki-optimized.jpg
 ---
 I became a proactive truant and got depressed in my first year of high school because of the intimidating and closed environment and teachers. While at home, I was thinking about my purpose of attending school, studying, and living all the time. Eventually, I got a straightforward and obvious but essential purpose for living.
 

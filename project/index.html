@@ -7,37 +7,30 @@ title: Projects
     <h1>Projects</h1>
 </div>
 
-<div class="post-list">
-    {% assign all_projects = site.posts
-    | where: "categories", "project"
-    | sort: "title"
-    | reverse
-    %}
+<section class="home__projects">
+    <div class="card-grid">
+        {% assign all_projects = site.posts
+        | where: "categories", "project"
+        | sort: "date"
+        | reverse
+        %}
 
-    {% for post in all_projects %}
-    {% if forloop.index0 < 30 %} <li class="post-item">
-        <h2 class="post-title">
-            <a href="{{ post.url | relative_url }}" class="post-link" data-index="{{ forloop.index0 }}">
-                {{ post.title }}
-            </a>
-        </h2>
-        <p class="post-info">{{ post.subtitle }}
-        </li>
-        {% else %}
-        <li class="post-item hidden">
-            <h2 class="post-title">
-                <a href="{{ post.url | relative_url }}" class="post-link" data-index="{{ forloop.index0 }}">
-                    {{ post.title }}
-                </a>
-            </h2>
-            <p class="post-info">{{ post.subtitle }}
-        </li>
-        {% endif %}
+        {% for post in all_projects %}
+        <a href="{{ post.url | relative_url }}" class="card">
+            <div class="card__image">
+                {% if post.hero_image %}
+                <img src="{{ post.hero_image }}" alt="{{ post.title }}">
+                {% else %}
+                <img src="/images/lukas-blazek-optimized.jpg" alt="{{ post.title }}">
+                {% endif %}
+            </div>
+            <div class="card__info">
+                <div class="card__title">{{ post.title }}</div>
+                {% if post.subtitle %}
+                <div class="card__desc">{{ post.subtitle }}</div>
+                {% endif %}
+            </div>
+        </a>
         {% endfor %}
-</div>
-
-{% if all_projects.size > 30 %}
-<div class="load-more-container">
-    <button id="load-more-projects" class="load-more-button">Load more</button>
-</div>
-{% endif %}
+    </div>
+</section>

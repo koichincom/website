@@ -4,6 +4,7 @@ categories: project
 title: "DAHCI: Dino Run Blink"
 subtitle: Play Dino Run only with your Eye Blinks
 date: 2025-04-02
+hero_image: /images/marek-piwnicki-optimized.jpg
 ---
 This is the first project of DAHCI (De Anza Human-Computer Interaction), where we do projects about HCI involving EEG, BCI, ML, and more, which I'm in charge of as president. 
 

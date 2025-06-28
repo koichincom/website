@@ -14,27 +14,26 @@
     {% include header.html %}
     <main class="body-container">
         <post class="post">
-            <div class="date">
-                <p>{{ page.date | date: "%B %d, %Y" }}</p>
-            </div>
-            <div class="title">
+            <div class="post__title">
                 <h1>{{ page.title }}</h1>
             </div>
-            <div class="subtitle">
-                <p>{{ page.subtitle }}</p>
+            <div class="post__meta">
+                {% if page.subtitle %}
+                <p class="post__subtitle">{{ page.subtitle }}</p>
+                {% endif %}
+                <p class="post__date">{{ page.date | date: "%B %d, %Y" }}</p>
             </div>
-            <div class="content">
+            {% if page.hero_image %}
+            <div class="post__hero-image">
+                <img src="{{ page.hero_image }}" alt="{{ page.title }}">
+            </div>
+            {% endif %}
+            <div class="post__content">
                 {{ content }}
             </div>
         </post>
-        <div class="btn-container">
-            <a href="https://koichin.substack.com" class="btn">
-                Get updates in your inbox
-            </a>
-        </div>
     </main>
     {% include footer.html %}
-    <script src="/scripts/mobile-menu.js"></script>
-    <script src="/scripts/target-blank.js"></script>
+    <script src="/src/navigation.js"></script>
 </body>
 </html>

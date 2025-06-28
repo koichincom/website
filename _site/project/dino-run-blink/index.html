@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="subtitle" content="Blog post by Koichi Nakayamada">
-    <title>The Crossroads of Phone Addiction</title>
+    <title>DAHCI: Dino Run Blink</title>
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" 
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -51,25 +51,30 @@
     <main class="body-container">
         <post class="post">
             <div class="post__title">
-                <h1>The Crossroads of Phone Addiction</h1>
+                <h1>DAHCI: Dino Run Blink</h1>
             </div>
             <div class="post__meta">
                 
-                <p class="post__subtitle">Breaking free from YouTube and social media dependency</p>
+                <p class="post__subtitle">Play Dino Run only with your Eye Blinks</p>
                 
-                <p class="post__date">August 15, 2024</p>
+                <p class="post__date">April 02, 2025</p>
             </div>
             
             <div class="post__hero-image">
-                <img src="/images/lukas-blazek-optimized.jpg" alt="The Crossroads of Phone Addiction">
+                <img src="/images/marek-piwnicki-optimized.jpg" alt="DAHCI: Dino Run Blink">
             </div>
             
             <div class="post__content">
-                <p>It should be because of your phone if you feel you aren’t doing well. It consumes your time and is known as life. But you’ve already known this and don’t need to understand why you should do that anymore. I’ve recognized it for a long time, too. I deleted all social media apps on my phone, turned the gray color filter on, left only four apps on my home screen, and so on. But my screen time is still around 6 hours a day, and it gets 10 hours or more on a terrible day. It’s ridiculous that I spend a quarter of my life on my phone, but how does it happen? For me, it was because of YouTube addiction. It was my bestie and, simultaneously, my Arch-enemy.</p>
+                <p>This is the first project of DAHCI (De Anza Human-Computer Interaction), where we do projects about HCI involving EEG, BCI, ML, and more, which I’m in charge of as president.</p>
 
-<p>I made three rules, but they’re pretty simple. They should only watch YouTube videos if they are for learning, search videos only from the search box, not from the recommendations, and meditate for 10 seconds when I’m dying to watch YouTube. I installed ScreenZen on my iPhone to forbid watching YouTube on my smartphone. Additionally, I installed an extension called Unhook on my Mac browser to restrict the YouTube feature to only searching videos. I made this decision the day before last night and did pretty well yesterday. I did pretty simple things, but I started taking specific actions.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aH-ho_wtZcI?si=CgdugHRHukbv3Wr6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
 
-<p>By this process, I specified the main problem, set a clear-cut rule, and created an environment that forced me to follow it. You can make your own rules following these steps. Then, we should admit that we’re addicted to our phones to escape from tasks that we don’t want to think about. I’m on my way to overcoming addiction, and I’ve tried it many times, but I can do that now. This is a question of our honors and determinations. If we can say goodbye to our phones and their addictions, we’ll get everything: a lot of time, concentration, life satisfaction, and so on. This is a fork in the road.</p>
+<p>How this project works is pretty simple; it utilizes RMS (Root Mean Square) and threshold method to detect whether the user blinked or not in real-time, and if the blink is detected, the program virtually presses the space key to jump in Dino Run.</p>
+
+<p>What I’ve learned, especially through threshold calibration for each test participant, was the EEG level differs significantly depending on people. The best threshold value could be 40 for some people and even 800 for some people. If we use it in real life, it’s better not to have calibration before starting to use it, so taking time with no blink to automatically adjust to the best threshold might be better. However, it’ll be more useful to use ML or the derivative method, so we don’t even need to use a threshold to detect.</p>
+
+<p>You can check the source code from the GitHub link below<br />
+https://github.com/deanzahci/dino-run-blink</p>
 
             </div>
         </post>
