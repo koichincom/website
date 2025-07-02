@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="subtitle" content="Blog post by Koichi Nakayamada">
-    <title>DAHCI: Dino Run Blink</title>
+    <title>EEG Visualization</title>
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" 
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -53,30 +53,54 @@
     <main class="body-container">
         <post class="post">
             <div class="post__title">
-                <h1>DAHCI: Dino Run Blink</h1>
+                <h1>EEG Visualization</h1>
             </div>
             <div class="post__meta">
                 
-                <p class="post__subtitle">Play Dino Run only with your Eye Blinks</p>
+                <p class="post__subtitle">Real-time EEG data visualization tool for brain-computer interface research</p>
                 
-                <p class="post__date">April 02, 2025</p>
-            </div>
-            
-            <div class="post__hero-image">
-                <img src="/images/marek-piwnicki-optimized.jpg" alt="DAHCI: Dino Run Blink">
+                <p class="post__date">January 26, 2025</p>
             </div>
             
             <div class="post__content">
-                <p>This is the first project of DAHCI (De Anza Human-Computer Interaction), where we do projects about HCI involving EEG, BCI, ML, and more, which I’m in charge of as president.</p>
+                <p>A comprehensive tool for visualizing EEG (Electroencephalogram) data in real-time, designed to assist researchers and practitioners in brain-computer interface development and neuroscience research.</p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/aH-ho_wtZcI?si=CgdugHRHukbv3Wr6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h2 id="overview">Overview</h2>
 
-<p>How this project works is pretty simple; it utilizes RMS (Root Mean Square) and threshold method to detect whether the user blinked or not in real-time, and if the blink is detected, the program virtually presses the space key to jump in Dino Run.</p>
+<p>This project provides an intuitive interface for visualizing EEG signals, enabling researchers to observe brain activity patterns in real-time. The tool supports multiple visualization modes and can process data from various EEG devices.</p>
 
-<p>What I’ve learned, especially through threshold calibration for each test participant, was the EEG level differs significantly depending on people. The best threshold value could be 40 for some people and even 800 for some people. If we use it in real life, it’s better not to have calibration before starting to use it, so taking time with no blink to automatically adjust to the best threshold might be better. However, it’ll be more useful to use ML or the derivative method, so we don’t even need to use a threshold to detect.</p>
+<h2 id="key-features">Key Features</h2>
 
-<p>You can check the source code from the GitHub link below<br />
-https://github.com/deanzahci/dino-run-blink</p>
+<ul>
+  <li><strong>Real-time Data Processing</strong>: Visualize EEG signals as they are recorded</li>
+  <li><strong>Multiple Visualization Modes</strong>: Time series, frequency analysis, and topographical maps</li>
+  <li><strong>Signal Filtering</strong>: Built-in filters for noise reduction and signal enhancement</li>
+  <li><strong>Export Capabilities</strong>: Save visualizations and processed data for further analysis</li>
+  <li><strong>Device Compatibility</strong>: Works with popular EEG hardware</li>
+</ul>
+
+<h2 id="technologies-used">Technologies Used</h2>
+
+<ul>
+  <li><strong>Python</strong>: Core programming language</li>
+  <li><strong>NumPy &amp; SciPy</strong>: Signal processing and mathematical computations</li>
+  <li><strong>Matplotlib</strong>: Data visualization and plotting</li>
+  <li><strong>PyQt/Tkinter</strong>: User interface development</li>
+  <li><strong>MNE-Python</strong>: EEG data handling and processing</li>
+</ul>
+
+<h2 id="applications">Applications</h2>
+
+<p>This tool is particularly useful for:</p>
+<ul>
+  <li>Brain-computer interface research</li>
+  <li>Neurofeedback applications</li>
+  <li>Educational purposes in neuroscience</li>
+  <li>Clinical EEG monitoring</li>
+  <li>Real-time brain state analysis</li>
+</ul>
+
+<p>Check out the source code on <a href="https://github.com/koichincom/eeg-visualization">GitHub</a></p>
 
             </div>
         </post>

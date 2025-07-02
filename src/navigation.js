@@ -1,4 +1,4 @@
-/**
+/*
  * Navigation Menu Controller
  * Handles mobile menu toggle functionality
  */
