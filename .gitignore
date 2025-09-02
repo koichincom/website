@@ -1,2 +1,13 @@
+# Jekyll build
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler
+.bundle/
+vendor/
+
+# OS / Editor
 .DS_Store
-.obsidian
+Thumbs.db
+*.log
