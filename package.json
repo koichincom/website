@@ -1,0 +1,14 @@
+{
+  "name": "my-website-image-tools",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "images:build": "node scripts/process-images.js",
+    "images:watch": "node scripts/process-images.js --watch"
+  },
+  "dependencies": {
+    "sharp": "^0.32.4",
+    "chokidar": "^3.5.3",
+    "fast-glob": "^3.2.12"
+  }
+}

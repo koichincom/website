@@ -4,7 +4,7 @@ title: 7 Lessons, 19 Years
 subtitle: Reflections on life, freedom, and finding meaning
 date: 2024-09-08
 categories: blog
-hero_image: /images/alina-grubnyak-optimized.jpg
+hero_image: 
 ---
 1. You were born to be free. Take others’ advice with a grain of salt. Every action should ultimately connect to your happiness, and its process can bring pleasure to others.
 2. There is no inherent meaning in everyone’s life. Everything you care about can feel meaningless. So, it's better to do what we find and define as meaningful. (≈ Active Nihilism)

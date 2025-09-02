@@ -3,7 +3,7 @@ layout: default
 title: Blogs
 ---
 
-<div class="page-title">
+<div class="layout-page-title">
     <h1>Blogs</h1>
 </div>
 
@@ -19,9 +19,21 @@ title: Blogs
         <a href="{{ post.url | relative_url }}" class="card">
             <div class="card__image">
                 {% if post.hero_image %}
-                <img src="{{ post.hero_image }}" alt="{{ post.title }}">
+                    {% assign hero_path_clean = post.hero_image | remove: '/images/' %}
+                    {% if hero_path_clean contains 'originals/' %}
+                      {% assign hero_path_clean = hero_path_clean | remove: 'originals/' %}
+                    {% endif %}
+                    {% assign hero_path_parts = hero_path_clean | split: '/' %}
+                    {% assign hero_filename = hero_path_parts | last | split: '.' | first %}
+                    {% assign hero_dir = hero_path_parts | pop | join: '/' %}
+                    {% if hero_dir != '' %}
+                      {% assign optimized_hero = '/images/optimized/' | append: hero_dir | append: '/' | append: hero_filename | append: '.webp' %}
+                    {% else %}
+                      {% assign optimized_hero = '/images/optimized/' | append: hero_filename | append: '.webp' %}
+                    {% endif %}
+                    <img src="{{ optimized_hero }}" alt="{{ post.title }}" loading="lazy">
                 {% else %}
-                <img src="/images/alina-grubnyak-optimized.jpg" alt="{{ post.title }}">
+                    <img src="/images/optimized/general/post-default.webp" alt="{{ post.title }}" loading="lazy">
                 {% endif %}
             </div>
             <div class="card__info">

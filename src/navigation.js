@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle menu when hamburger button is clicked
     menuToggle.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.contains('open');
-        mobileMenu.classList.toggle('open');
+        const isOpen = mobileMenu.classList.contains('mobile-menu--open');
+        mobileMenu.classList.toggle('mobile-menu--open');
         
         // Toggle hamburger icon
         if (menuIcon) {
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close menu when pressing Escape key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('mobile-menu--open')) {
             closeMenu();
         }
     });
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * Close the mobile menu and reset icon
      */
     function closeMenu() {
-        mobileMenu.classList.remove('open');
+        mobileMenu.classList.remove('mobile-menu--open');
         if (menuIcon) {
             menuIcon.classList.replace('fa-xmark', 'fa-grip-lines');
         }
