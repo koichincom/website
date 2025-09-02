@@ -254,8 +254,44 @@ ol li {
   max-width: var(--container-max-width-wide);
 }
 
+/* Keep header spacing controlled per-section to avoid flex centering artifacts. */
+
 .header__container a {
   text-decoration: none;
+}
+
+/* Fix: header social icons spacing and vertical alignment
+   The universal selector adds vertical padding site-wide; constrain
+   safe overrides here so icons sit neatly without changing globals. */
+.header__container a {
+  padding: 0; /* prevent inherited vertical padding inside header */
+}
+
+.header__social-links,
+.mobile-menu__social {
+  align-items: center;
+}
+
+.header__social-links a,
+.mobile-menu__social a {
+  padding: 0;              /* remove vertical padding from universal selector */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  color: inherit;
+}
+
+/* Keep desktop icons matching header text size; mobile menu keeps its own font-size */
+.header__social-links a {
+  font-size: inherit;
+}
+
+.header__social-links i,
+.mobile-menu__social i {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
 }
 
 .header__main-link,
@@ -268,13 +304,13 @@ ol li {
 }
 
 .header__page-links {
-  position: absolute;
-  right: 120px;
   gap: 35px;
+  margin-left: auto;    /* push page links toward the right side */
+  margin-right: 35px;   /* keep consistent space between page links and social icons */
 }
 
 .header__social-links {
-  gap: 20px;
+  gap: 24px; /* slightly larger gap for visual breathing room */
 }
 
 .header__menu-toggle {
