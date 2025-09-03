@@ -7,7 +7,7 @@ title: Blogs
     <h1>Blogs</h1>
 </div>
 
-<section class="home__projects">
+<section class="home__blogs">
     <div class="card-grid">
         {% assign all_blogs = site.posts
         | where: "categories", "blog"
@@ -19,26 +19,16 @@ title: Blogs
         <a href="{{ post.url | relative_url }}" class="card">
             <div class="card__image">
                 {% if post.hero_image %}
-                    {% assign hero_path_clean = post.hero_image | remove: '/images/' %}
-                    {% if hero_path_clean contains 'originals/' %}
-                      {% assign hero_path_clean = hero_path_clean | remove: 'originals/' %}
-                    {% endif %}
-                    {% assign hero_path_parts = hero_path_clean | split: '/' %}
-                    {% assign hero_filename = hero_path_parts | last | split: '.' | first %}
-                    {% assign hero_dir = hero_path_parts | pop | join: '/' %}
-                    {% if hero_dir != '' %}
-                      {% assign optimized_hero = '/images/optimized/' | append: hero_dir | append: '/' | append: hero_filename | append: '.webp' %}
-                    {% else %}
-                      {% assign optimized_hero = '/images/optimized/' | append: hero_filename | append: '.webp' %}
-                    {% endif %}
-                    <img src="{{ optimized_hero }}" alt="{{ post.title }}" loading="lazy">
+                <img src="{{ post.hero_image }}" alt="{{ post.title }}" loading="lazy">
                 {% else %}
-                    <img src="/images/optimized/general/post-default.webp" alt="{{ post.title }}" loading="lazy">
+                <img src="/images/optimized/general/post-default.webp" alt="{{ post.title }}" loading="lazy">
                 {% endif %}
             </div>
             <div class="card__info">
                 <div class="card__title">{{ post.title }}</div>
+                {% if post.subtitle %}
                 <div class="card__desc">{{ post.subtitle }}</div>
+                {% endif %}
             </div>
         </a>
         {% endfor %}

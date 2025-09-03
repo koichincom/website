@@ -4,7 +4,7 @@ title: Koichi Nakayamada
 ---
 
 <div class="layout-page-title">
-    <h1>Hi, I'm Koichi.</h1>
+    <h1>Hi, I'm Koichi</h1>
 </div> 
 
 <div class="page-lead">
@@ -15,41 +15,31 @@ title: Koichi Nakayamada
 
 <section class="home__projects">
     <div class="card-grid">
-    {% assign featured_projects = site.posts
-    | where_exp: "post", "post.categories contains 'project'"
-    | sort: "date"
-    | reverse
-    %}
-
-    {% for post in featured_projects limit:6 %}
-        <a href="{{ post.url | relative_url }}" class="card">
+        {% assign homepage_posts = site.posts
+        | where_exp: "p", "p.homepage != nil"
+        | sort: "homepage"
+        %}
+        
+        {% for p in homepage_posts limit:9 %}
+        <a href="{{ p.url | relative_url }}" class="card">
             <div class="card__image">
-                {% if post.hero_image %}
-                    {% assign hero_path_clean = post.hero_image | remove: '/images/' %}
-                    {% if hero_path_clean contains 'originals/' %}
-                      {% assign hero_path_clean = hero_path_clean | remove: 'originals/' %}
-                    {% endif %}
-                    {% assign hero_path_parts = hero_path_clean | split: '/' %}
-                    {% assign hero_filename = hero_path_parts | last | split: '.' | first %}
-                    {% assign hero_dir = hero_path_parts | pop | join: '/' %}
-                    {% if hero_dir != '' %}
-                      {% assign optimized_hero = '/images/optimized/' | append: hero_dir | append: '/' | append: hero_filename | append: '.webp' %}
-                    {% else %}
-                      {% assign optimized_hero = '/images/optimized/' | append: hero_filename | append: '.webp' %}
-                    {% endif %}
-                    <img src="{{ optimized_hero }}" alt="{{ post.title }}" loading="lazy">
+                {% if p.hero_image %}
+                <img src="{{ p.hero_image }}" alt="{{ p.title }}" loading="lazy">
                 {% else %}
-                    <img src="/images/optimized/general/post-default.webp" alt="{{ post.title }}" loading="lazy">
+                <img src="/images/optimized/general/post-default.webp" alt="{{ p.title }}" loading="lazy">
                 {% endif %}
             </div>
             <div class="card__info">
-                <div class="card__title">{{ post.title }}</div>
-                <div class="card__desc">{{ post.subtitle | default: "Project description" }}</div>
+                <div class="card__title">{{ p.title }}</div>
+                {% if p.subtitle %}
+                <div class="card__desc">{{ p.subtitle }}</div>
+                {% endif %}
             </div>
         </a>
         {% endfor %}
     </div>
 </section>
+
 
 <div class="club-intro">
     <p>I'm leading two official clubs at De Anza College. If you're a De Anza or Foothill student, feel free to join us!
