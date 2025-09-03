@@ -280,6 +280,7 @@ ol li {
   justify-content: center;
   line-height: 1;
   color: inherit;
+  text-decoration: none; /* ensure icon links do not get underlines */
 }
 
 /* Keep desktop icons matching header text size; mobile menu keeps its own font-size */
@@ -493,21 +494,11 @@ ol li {
 /* Projects Grid Component - Home Layout */
 .projects-grid--home {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* Explicit breakpoints: base 1 column, allow 2 columns from 560px, 3 columns from 980px.
+     This keeps control over when 2/3 columns are allowed and extends their ranges. */
+  grid-template-columns: 1fr;
   gap: 24px;
   margin: var(--container-padding) 0;
-}
-
-@media (max-width: 900px) {
-  .projects-grid--home {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .projects-grid--home {
-    grid-template-columns: 1fr;
-  }
 }
 
 .project-card--home {
@@ -541,8 +532,8 @@ ol li {
 /* Card Grid Component */
 .card-grid {
   display: grid;
-  /* Use a fixed 3-column baseline so lists with <3 items keep empty columns on the right */
-  grid-template-columns: repeat(3, 1fr);
+  /* Explicit breakpoints: base 1 column, allow 2 columns from 560px, 3 columns from 980px. */
+  grid-template-columns: 1fr;
   gap: 28px;
   margin: var(--container-padding) 0;
   align-items: start;
@@ -597,19 +588,22 @@ ol li {
   padding: 0;
 }
 
-@media (max-width: 600px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  .card__image {
-    aspect-ratio: 3/2;
+/* Explicit media queries to control column counts and extend 2/3-column ranges.
+   - 1 column: base (mobile)
+   - 2 columns: from 560px up
+   - 3 columns: from 980px up
+   Adjust these breakpoints if you want 2/3 columns to start earlier or later. */
+@media (min-width: 400px) {
+  .card-grid,
+  .projects-grid--home {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 900px) {
-  .card-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (min-width: 800px) {
+  .card-grid,
+  .projects-grid--home {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -622,7 +616,7 @@ ol li {
   position: relative;
   width: 100%;
   max-width: var(--content-max-width-wide);
-  margin: var(--spacing-lg) 0;
+  margin: var(--spacing-lg) auto;
   aspect-ratio: 16/9;
 }
 
