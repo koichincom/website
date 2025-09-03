@@ -193,6 +193,7 @@ ol li {
   text-align: center;
   padding: var(--spacing-2xl) 0;
   line-height: var(--line-height-tight);
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .layout-page-title h1 {
