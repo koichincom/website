@@ -15,14 +15,13 @@ title: Koichi Nakayamada
 
 <section class="home__projects">
     <div class="card-grid">
-        {% assign featured_projects = site.posts
-        | where: "categories", "project"
-        | sort: "date"
-        | reverse
-        | limit: 6
-        %}
+    {% assign featured_projects = site.posts
+    | where_exp: "post", "post.categories contains 'project'"
+    | sort: "date"
+    | reverse
+    %}
 
-        {% for post in featured_projects %}
+    {% for post in featured_projects limit:6 %}
         <a href="{{ post.url | relative_url }}" class="card">
             <div class="card__image">
                 {% if post.hero_image %}
