@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="subtitle" content="Blog post by Koichi Nakayamada">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/styles/styles.css">
-    <link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="icon" href="{{ site.baseurl }}/images/favicon.ico">
 </head>
+
 <body>
     {% include header.html %}
     <main class="layout-container">
@@ -23,54 +24,55 @@
                 {% endif %}
                 <p class="post__date">{{ page.date | date: "%B %d, %Y" }}</p>
             </div>
-                {% if page.hero_image %}
-                    <div class="post__hero-image">
-                        {% assign hero = page.hero_image %}
+            {% if page.hero_image %}
+            <div class="post__hero-image">
+                {% assign hero = page.hero_image %}
 
-                        {%- comment -%}
-                        If the front-matter already points to an optimized file (contains "optimized" or is a .webp),
-                        use it as-is. Otherwise, build the optimized path the existing way.
-                        {%- endcomment -%}
+                {%- comment -%}
+                If the front-matter already points to an optimized file (contains "optimized" or is a .webp),
+                use it as-is. Otherwise, build the optimized path the existing way.
+                {%- endcomment -%}
 
-                        {% if hero contains 'optimized' %}
-                            {% if hero contains '/images' %}
-                                {% assign optimized_hero = hero %}
-                            {% else %}
-                                {% assign optimized_hero = '/images/' | append: hero %}
-                            {% endif %}
-                        {% elsif hero contains '.webp' %}
-                            {%- comment -%}
-                            If the hero is a .webp filename but doesn't include /images or optimized,
-                            normalize by ensuring it points to /images/optimized/<path>
-                            {%- endcomment -%}
-                            {% if hero contains '/images' %}
-                                {% assign optimized_hero = hero %}
-                            {% else %}
-                                {% assign hero_trim = hero %}
-                                {% assign hero_first = hero_trim | slice: 0, 1 %}
-                                {% if hero_first == '/' %}
-                                    {% assign hero_trim = hero_trim | slice: 1, 1000 %}
-                                {% endif %}
-                                {% assign optimized_hero = '/images/optimized/' | append: hero_trim %}
-                            {% endif %}
-                        {% else %}
-                            {% assign hero_path_clean = hero | remove: '/images/' %}
-                            {% if hero_path_clean contains 'originals/' %}
-                                {% assign hero_path_clean = hero_path_clean | remove: 'originals/' %}
-                            {% endif %}
-                            {% assign hero_path_parts = hero_path_clean | split: '/' %}
-                            {% assign hero_filename = hero_path_parts | last | split: '.' | first %}
-                            {% assign hero_dir = hero_path_parts | pop | join: '/' %}
-                            {% if hero_dir != '' %}
-                                {% assign optimized_hero = '/images/optimized/' | append: hero_dir | append: '/' | append: hero_filename | append: '.webp' %}
-                            {% else %}
-                                {% assign optimized_hero = '/images/optimized/' | append: hero_filename | append: '.webp' %}
-                            {% endif %}
-                        {% endif %}
-
-                        <img src="{{ optimized_hero }}" alt="{{ page.title }}" loading="lazy">
-                    </div>
+                {% if hero contains 'optimized' %}
+                {% if hero contains '/images' %}
+                {% assign optimized_hero = hero %}
+                {% else %}
+                {% assign optimized_hero = '/images/' | append: hero %}
                 {% endif %}
+                {% elsif hero contains '.webp' %}
+                {%- comment -%}
+                If the hero is a .webp filename but doesn't include /images or optimized,
+                normalize by ensuring it points to /images/optimized/<path>
+                    {%- endcomment -%}
+                    {% if hero contains '/images' %}
+                    {% assign optimized_hero = hero %}
+                    {% else %}
+                    {% assign hero_trim = hero %}
+                    {% assign hero_first = hero_trim | slice: 0, 1 %}
+                    {% if hero_first == '/' %}
+                    {% assign hero_trim = hero_trim | slice: 1, 1000 %}
+                    {% endif %}
+                    {% assign optimized_hero = '/images/optimized/' | append: hero_trim %}
+                    {% endif %}
+                    {% else %}
+                    {% assign hero_path_clean = hero | remove: '/images/' %}
+                    {% if hero_path_clean contains 'originals/' %}
+                    {% assign hero_path_clean = hero_path_clean | remove: 'originals/' %}
+                    {% endif %}
+                    {% assign hero_path_parts = hero_path_clean | split: '/' %}
+                    {% assign hero_filename = hero_path_parts | last | split: '.' | first %}
+                    {% assign hero_dir = hero_path_parts | pop | join: '/' %}
+                    {% if hero_dir != '' %}
+                    {% assign optimized_hero = '/images/optimized/' | append: hero_dir | append: '/' | append:
+                    hero_filename | append: '.webp' %}
+                    {% else %}
+                    {% assign optimized_hero = '/images/optimized/' | append: hero_filename | append: '.webp' %}
+                    {% endif %}
+                    {% endif %}
+
+                    <img src="{{ optimized_hero }}" alt="{{ page.title }}" loading="lazy">
+            </div>
+            {% endif %}
             <div class="post__content">
                 {{ content }}
             </div>
@@ -79,4 +81,5 @@
     {% include footer.html %}
     <script src="/src/navigation.js"></script>
 </body>
+
 </html>
