@@ -1,0 +1,22 @@
+{
+    "name": "Still Waiting Discord",
+    "url": "https://github.com/koichincom/still-waiting-discord",
+    "role": [
+        [
+            "Creator and Maintainer",
+            "June 2025 - Present"
+        ]
+    ],
+    "description": "A Discord bot to remind users to reply within 24 hours of being mentioned",
+    "achievements": [
+        "Used by over 237 users, and processed more than 2,700 messages since launch",
+        "Implemented asynchronous programming with Asyncio to handle multiple reminders efficiently",
+        "Integrated Google Firestore for reliable and scalable data storage of user reminders"
+    ],
+    "technologies": [
+        "Python",
+        "Discord.py",
+        "Firestore",
+        "Asyncio"
+    ]
+}

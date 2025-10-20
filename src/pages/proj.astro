@@ -1,8 +1,24 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/base.astro";
 const title = "Koichi's Projects";
+const projects = await getCollection("projects");
 ---
 
 <BaseLayout title={title}>
     <h1>Projects</h1>
+    <ul>
+        {
+            projects.map((item) => (
+                <li>
+                    <a href={item.data.url} target="_blank" rel="noopener noreferrer">
+                        {item.data.name}
+                    </a>
+                    <p>
+                        {item.data.description} 
+                    </p>
+                </li>
+            ))
+        }
+    </ul>
 </BaseLayout>

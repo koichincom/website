@@ -1,43 +1,67 @@
-// Listen to global key events for Vim-like navigation
+/**
+ * Vim-like keyboard navigation system
+ * Provides familiar keybindings for users comfortable with Vim
+ */
 
 import { navigate } from 'astro:transitions/client';
 
+/**
+ * Initialize Vim key bindings
+ * Listens for global keyboard events and triggers navigation or scroll actions
+ */
 export function initVimBindings() {
     document.addEventListener('keydown', (event) => {
-        // Prevent key bindings when focused on input or textarea
         const target = event.target as HTMLElement;
+
+        // Skip key bindings when user is typing in input/textarea
         if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
             return;
         }
 
-        // Prevent key bindings when modifier keys are pressed
+        // Skip key bindings when modifier keys are held
         if (event.ctrlKey || event.metaKey || event.altKey) {
             return;
         }
 
-        // Execute global key bindings
         const currentPath = window.location.pathname;
-        let isGlobalBlindingExecuted = handleGlobalBindings(event);
-        if (isGlobalBlindingExecuted) {
+
+        // Try global bindings first (navigation, scroll, etc.)
+        const isGlobalBindingExecuted = handleGlobalBindings(event);
+        if (isGlobalBindingExecuted) {
             return;
         }
-        if ((currentPath === '/blog') || (currentPath === '/proj')) {
+
+        // Apply page-specific bindings for list pages
+        if (currentPath === '/blog' || currentPath === '/proj') {
             handleListPageBindings(event);
         }
     });
 }
 
+/**
+ * State for multi-key sequences (e.g., 'gg' for go to top)
+ */
 let lastKey = '';
 let lastKeyTime = 0;
-const keyTimeout = 500; // milliseconds
-function handleGlobalBindings(event: KeyboardEvent) {
+const KEY_TIMEOUT = 500; // milliseconds
+
+/**
+ * Handle global Vim key bindings
+ * Navigation: h/p/b/m
+ * Scrolling: gg/G/u/d
+ * 
+ * @param event The keyboard event
+ * @returns true if a binding was executed, false otherwise
+ */
+function handleGlobalBindings(event: KeyboardEvent): boolean {
     const key = event.key;
 
+    // Navigation bindings
     const navigationMap: Record<string, string> = {
-        'h': '/',
-        'p': '/proj',
-        'b': '/blog',
-        'm': '/me',
+        h: '/',        // Home
+        p: '/proj',    // Projects
+        b: '/blog',    // Blog
+        m: '/me',      // Me/About
     };
 
     if (key in navigationMap) {
@@ -45,51 +69,69 @@ function handleGlobalBindings(event: KeyboardEvent) {
         return true;
     }
 
+    // Scroll and other bindings
     switch (key) {
         case 'g':
+            // 'gg' jumps to top (Vim-style double-key)
             if (lastKey !== 'g') {
                 lastKey = 'g';
                 lastKeyTime = Date.now();
                 return false;
-            } else if (Date.now() - lastKeyTime > keyTimeout) {
+            } else if (Date.now() - lastKeyTime > KEY_TIMEOUT) {
+                // Timeout reset
                 lastKey = 'g';
                 lastKeyTime = Date.now();
                 return false;
             } else {
+                // Execute 'gg' command
                 lastKey = '';
                 lastKeyTime = 0;
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 return true;
             }
+
         case 'G':
+            // 'G' jumps to bottom
             window.scrollTo({
                 top: document.documentElement.scrollHeight,
-                behavior: 'smooth'
+                behavior: 'smooth',
             });
             return true;
+
         case 'u':
+            // 'u' scrolls up half page (Ctrl+u in Vim)
             window.scrollBy({
                 top: -window.innerHeight / 2,
-                behavior: 'smooth'
+                behavior: 'smooth',
             });
             return true;
+
         case 'd':
+            // 'd' scrolls down half page (Ctrl+d in Vim)
             window.scrollBy({
                 top: window.innerHeight / 2,
-                behavior: 'smooth'
+                behavior: 'smooth',
             });
             return true;
-        // case '{':
-        //     console.log('Global key bindings for {');
-        //     return true;
-        // case '}':
-        //     console.log('Global key bindings for }');
-        //     return true;
+
+        // TODO: Future bindings
+        // case '{': // Jump to previous section
+        // case '}': // Jump to next section
+        // case '/': // Search
+        // case '?': // Help
+
         default:
             return false;
     }
 }
 
-function handleListPageBindings(event: KeyboardEvent) {
-    console.log('List page key bindings');
+/**
+ * Handle page-specific Vim bindings
+ * Currently only logs for future implementation
+ * 
+ * @param event The keyboard event
+ */
+function handleListPageBindings(event: KeyboardEvent): void {
+    // TODO: Implement list-specific bindings (e.g., j/k for item navigation)
+    console.log('List page key bindings:', event.key);
 }
