@@ -1,0 +1,1 @@
+- I wanna add Vim bindings on this website. (h, b, p to navigate to home, blog, profile pages, and j, k, gg, G, {, }, Ctrl+u, Ctrl+d (or u, d) to scroll, t for toggle light/dark mode, and s to system theme, / to search, ? to show help, esc to close help and search)

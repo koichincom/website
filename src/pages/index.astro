@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/base.astro";
+const title = "Koichi";
+
+// Calculate age
+const birthDate = new Date(2004, 11, 9); // December 9, 2004
+const today = new Date();
+const age =
+    today.getFullYear() -
+    birthDate.getFullYear() -
+    (today <
+    new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate())
+        ? 1
+        : 0);
+---
+
+<BaseLayout title={title}>
+    <h1>Hi, I'm Koichi.</h1>
+    <p>California, The United States</p>
+    <p>
+        I'm a {age}-year-old Data Science undergraduate student at De Anza
+        College. I love coding and solving problems, and I live on the terminal.
+    </p>
+    <h2>Blog</h2>
+    <a href="/blog">All posts </a>
+    <h2>Projects</h2>
+    <a href="/proj">All projects</a>
+</BaseLayout>
