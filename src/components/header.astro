@@ -9,4 +9,9 @@ const currentPath = Astro.url.pathname;
     {currentPath !== "/blog" && <a href="/blog">[b] Blog</a>}
     {currentPath !== "/proj" && <a href="/proj">[p] Projects</a>}
     {currentPath !== "/me" && <a href="/me">[m] Me</a>}
+    <select name="theme">
+        <option value="auto">Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
 </nav>

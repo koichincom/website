@@ -20,5 +20,9 @@ const { title = "Default Title" } = Astro.props;
         <Header />
         <slot />
         <Footer />
+        <script type="module">
+            import { initVimBindings } from "/src/scripts/vim";
+            initVimBindings();
+        </script>
     </body>
 </html>
