@@ -62,6 +62,7 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
         p: '/proj',    // Projects
         b: '/blog',    // Blog
         m: '/me',      // Me/About
+        c: '/club',    // Club
     };
 
     if (key in navigationMap) {
@@ -101,7 +102,7 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
         case 'u':
             // 'u' scrolls up half page (Ctrl+u in Vim)
             window.scrollBy({
-                top: -window.innerHeight / 2,
+                top: -1 * (window.innerHeight / 2),
                 behavior: 'smooth',
             });
             return true;
@@ -118,7 +119,6 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
         // case '{': // Jump to previous section
         // case '}': // Jump to next section
         // case '/': // Search
-        // case '?': // Help
 
         default:
             return false;

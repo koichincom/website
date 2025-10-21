@@ -1,8 +1,14 @@
 ---
 import BaseLayout from "../layouts/base.astro";
+
+export interface Props {
+    title?: string;
+    h1?: string;
+}
+const { title, h1 } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout title={title} h1={h1}>
     <slot />
     <script
         src="https://giscus.app/client.js"
@@ -18,6 +24,5 @@ import BaseLayout from "../layouts/base.astro";
         data-theme="preferred_color_scheme"
         data-lang="en"
         crossorigin="anonymous"
-        async
-    ></script>
+        async></script>
 </BaseLayout>

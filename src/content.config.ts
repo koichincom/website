@@ -36,6 +36,7 @@ const projects = defineCollection({
         technologies: z
             .array(z.string())
             .describe('Technologies and tools used'),
+        order: z.number().optional().describe('Display order'),
     }),
 });
 

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/base.astro";
 const title = "Koichi";
+const h1 = "Koichi Nakayamada"
 
 // Calculate age
 const birthDate = new Date(2004, 11, 9); // December 9, 2004
@@ -12,11 +13,28 @@ const age =
     new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate())
         ? 1
         : 0);
+
+// Fetch specific blog posts and projects
+import { getEntry } from "astro:content";
+import { getCollection } from "astro:content";
+const blogEntryNum = 4;
+const blogPosts = (await getCollection("blog"))
+    .sort(
+        (a, b) =>
+            new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+    )
+    .slice(0, blogEntryNum);
+const projectsEntryIDs = [
+    "aura",
+    "recurring-tasks-gas",
+    "still-waiting",
+];
+const projects = await Promise.all(
+    projectsEntryIDs.map((id) => getEntry("projects", id)),
+);
 ---
 
-<BaseLayout title={title}>
-    <h1>Hi, I'm Koichi.</h1>
-    <p>California, The United States</p>
+<BaseLayout title={title} h1={h1}>
     <p>
         I'm a {age}-year-old Data Science undergraduate student at De Anza
         College. I love coding and solving problems, and I live on the terminal.
@@ -24,16 +42,48 @@ const age =
 
     <h2>Blog</h2>
     <ul>
-        <li>
-            <a href="/blog/initial-blog">Initial Blog Post</a>
-        </li>
+        {
+            blogPosts.map((post) => (
+                <li>
+                    <a href={`/blog/${post.data.id}`} class="flex justify-between">
+                        <span>
+                            {post.data.title}
+                        </span>
+                        <time datetime={post.data.date}>
+                            {new Date(post.data.date).toLocaleDateString(undefined, {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                            })}
+                        </time>
+                    </a>
+                </li>
+            ))
+        }
     </ul>
     <a href="/blog">All posts </a>
-
     <h2>Projects</h2>
     <ul>
-        <li>
-        </li>
+        {
+            projects.map((project) => (
+                <li class="border rounded p-4 mb-2">
+                    <a
+                        href={project.data.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block"
+                    >
+                        <h3>{project.data.name}</h3>
+                        <span>
+                            {project.data.role
+                                .map(([role, period]) => `${role}`)
+                                .join(", ")}
+                        </span>
+                        <p>{project.data.description}</p>
+                    </a>
+                </li>
+            ))
+        }
     </ul>
     <a href="/proj">All projects</a>
 </BaseLayout>

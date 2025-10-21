@@ -1,0 +1,2 @@
+- Add Tailwind CSS
+- Additional Vim bindings

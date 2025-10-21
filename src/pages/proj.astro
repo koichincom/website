@@ -2,21 +2,48 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/base.astro";
 const title = "Koichi's Projects";
-const projects = await getCollection("projects");
+const h1 = "Projects";
+
+const projects = (await getCollection("projects")).sort(
+    (a, b) => (a.data.order ?? Infinity) - (b.data.order ?? Infinity),
+);
 ---
 
-<BaseLayout title={title}>
-    <h1>Projects</h1>
+<BaseLayout title={title} h1={h1}>
+    <p>
+        Here are some of the projects I've worked on. I love make things with
+        data, and make our life easier.
+    </p>
     <ul>
         {
-            projects.map((item) => (
-                <li>
-                    <a href={item.data.url} target="_blank" rel="noopener noreferrer">
-                        {item.data.name}
+            projects.map((project) => (
+                <li class="border rounded p-4 mb-2">
+                    <a
+                        href={project.data.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block"
+                    >
+                        <h2>{project.data.name}</h2>
+                        <p>
+                            {project.data.role
+                                .map(([role, period]) => `${role} (${period})`)
+                                .join(", ")}
+                        </p>
+                        <p>{project.data.description}</p>
+                        <h3>Achievements</h3>
+                        <ul>
+                            {project.data.achievements.map((achievement) => (
+                                <li>- {achievement}</li>
+                            ))}
+                        </ul>
+                        <h3>Technologies</h3>
+                        <ul>
+                            {project.data.technologies.map((tech) => (
+                                <li>{tech}</li>
+                            ))}
+                        </ul>
                     </a>
-                    <p>
-                        {item.data.description} 
-                    </p>
                 </li>
             ))
         }
