@@ -18,7 +18,6 @@ export default defineConfig({
         "/projects": "/proj",
         "/blogs": "/blog",
         "/clubs": "/club",
-        "/about": "/me",
 
         // Redirects for social media
         "/github": "https://github.com/koichincom",

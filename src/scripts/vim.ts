@@ -19,12 +19,10 @@ export function initVimBindings() {
             return;
         }
 
-        // Skip key bindings when Alt key is pressed (to avoid conflicts)
-        if (event.altKey) {
+        // Skip key bindings when modifier keys are pressed
+        if (event.ctrlKey || event.metaKey || event.shiftKey) {
             return;
         }
-
-        const currentPath = window.location.pathname;
 
         // Try global bindings first (navigation, scroll, etc.)
         const isGlobalBindingExecuted = handleGlobalBindings(event);
@@ -57,7 +55,7 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
         h: '/',        // Home
         p: '/proj',    // Projects
         b: '/blog',    // Blog
-        m: '/me',      // Me/About
+        a: '/about',      // Me/About
         c: '/club',    // Club
     };
 
@@ -118,6 +116,9 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
             navigator.clipboard.writeText(window.location.href);
             toast.success('Link Copied');
             return true;
+        case '?':
+            // '?' shows modal with Vim help
+            // TODO: Implement help modal
         default:
             return false;
     }
