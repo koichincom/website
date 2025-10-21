@@ -4,6 +4,7 @@
  */
 
 import { navigate } from 'astro:transitions/client';
+import { toast } from 'sonner';
 
 /**
  * Initialize Vim key bindings
@@ -18,8 +19,8 @@ export function initVimBindings() {
             return;
         }
 
-        // Skip key bindings when modifier keys are held
-        if (event.ctrlKey || event.metaKey || event.altKey) {
+        // Skip key bindings when Alt key is pressed (to avoid conflicts)
+        if (event.altKey) {
             return;
         }
 
@@ -32,8 +33,10 @@ export function initVimBindings() {
         }
 
         // Apply page-specific bindings for list pages
-        if (currentPath === '/blog' || currentPath === '/proj') {
-            handleListPageBindings(event);
+        if (currentPath === '/blog' ) {
+            handleBlogBindings(event);
+        } else if (currentPath === '/proj') {
+            handleProjecsBindings(event);
         }
     });
 }
@@ -66,6 +69,9 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
     };
 
     if (key in navigationMap) {
+        if (window.location.pathname === navigationMap[key]) {
+            return false; // Already on target page
+        }
         navigate(navigationMap[key]);
         return true;
     }
@@ -114,12 +120,11 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
                 behavior: 'smooth',
             });
             return true;
-
-        // TODO: Future bindings
-        // case '{': // Jump to previous section
-        // case '}': // Jump to next section
-        // case '/': // Search
-
+        case 'y':
+            // 'y' copies current URL to clipboard
+            navigator.clipboard.writeText(window.location.href);
+            toast.success('Link Copied');
+            return true;
         default:
             return false;
     }
@@ -131,7 +136,15 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
  * 
  * @param event The keyboard event
  */
-function handleListPageBindings(event: KeyboardEvent): void {
-    // TODO: Implement list-specific bindings (e.g., j/k for item navigation)
-    console.log('List page key bindings:', event.key);
+function handleBlogBindings(event: KeyboardEvent): void {
+    const key = event.key;
+    if (key === '/') {
+        return
+    };
+
+    // if it's in search mode proceed
+    // j, k, down, up to navigate, enter to open, command enter to open in new tab
+}
+
+function handleProjecsBindings(event: KeyboardEvent): void {
 }
