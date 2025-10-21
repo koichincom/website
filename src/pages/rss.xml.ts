@@ -5,7 +5,7 @@ export async function GET(context: any) {
     const blog = await getCollection('blog');
     return rss({
         title: "Koichi's Blog",
-        description: 'Thoughts, experiences, and insights from Koichi',
+        description: 'Latest posts from Koichi Nakayamada',
         site: context.site,
         items: blog.map((post) => ({
             title: post.data.title,

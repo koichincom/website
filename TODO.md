@@ -1,2 +1,3 @@
 - Add Tailwind CSS
-- Additional Vim bindings
+- Sitemap generation (I once did, but do it again)
+- Make sure the RSS is working

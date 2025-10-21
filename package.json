@@ -1,22 +1,21 @@
 {
-  "name": "my-website",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/react": "^4.4.0",
-    "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.6.0",
-    "@tailwindcss/vite": "^4.1.15",
-    "astro": "^5.14.6",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "sonner": "^2.0.7",
-    "tailwindcss": "^4.1.15"
-  }
+    "name": "my-website",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@astrojs/react": "^4.4.0",
+        "@astrojs/rss": "^4.0.12",
+        "@tailwindcss/vite": "^4.1.15",
+        "astro": "^5.14.6",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0",
+        "sonner": "^2.0.7",
+        "tailwindcss": "^4.1.15"
+    }
 }
