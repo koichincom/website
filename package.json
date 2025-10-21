@@ -1,5 +1,5 @@
 {
-    "name": "my-website",
+    "name": "koichin-com",
     "type": "module",
     "version": "0.0.1",
     "scripts": {
@@ -11,6 +11,7 @@
     "dependencies": {
         "@astrojs/react": "^4.4.0",
         "@astrojs/rss": "^4.0.12",
+        "@astrojs/sitemap": "^3.6.0",
         "@tailwindcss/vite": "^4.1.15",
         "astro": "^5.14.6",
         "react": "^19.2.0",

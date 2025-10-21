@@ -11,7 +11,7 @@ export interface Props {
 const { title = "Koichi's Website" } = Astro.props;
 const { h1 = "Welcome" } = Astro.props;
 const { description = "Koichi Nakayamada's personal website and blog" } = Astro.props;
-const siteUrl = "https://koichi.dev";
+const siteUrl = "https://koichin.com" + Astro.url.pathname;
 ---
 
 <html lang="en">
