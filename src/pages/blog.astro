@@ -14,7 +14,7 @@ const blogPosts = (await getCollection("blog")).sort(
         {
             blogPosts.map((post) => (
                 <li>
-                    <a href={`/blog/${post.data.id}`} class="flex justify-between">
+                    <a href={`/blog/${post.id}`} class="flex justify-between">
                         <span>
                             {post.data.title}
                         </span>
