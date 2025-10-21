@@ -13,4 +13,4 @@
 		Keep project-specific overrides below those imports (currently present).
 	- [x] Run `npm run dev` and verify Tailwind base styles load (preflight/reset CSS confirmed)
 	- [x] Tailwind utilities generation verified after switching to CSS-first approach (H1 smoke test confirmed `text-red-500` works).
-- [ ] Bug: "G" vim command not working, not prioritized
+- [x] Bug: "G" vim command not working, not prioritized

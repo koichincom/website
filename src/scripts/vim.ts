@@ -20,7 +20,7 @@ export function initVimBindings() {
         }
 
         // Skip key bindings when modifier keys are pressed
-        if (event.ctrlKey || event.metaKey || event.shiftKey) {
+        if (event.ctrlKey || event.metaKey || event.altKey) {
             return;
         }
 
