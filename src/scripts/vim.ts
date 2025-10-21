@@ -31,13 +31,6 @@ export function initVimBindings() {
         if (isGlobalBindingExecuted) {
             return;
         }
-
-        // Apply page-specific bindings for list pages
-        if (currentPath === '/blog' ) {
-            handleBlogBindings(event);
-        } else if (currentPath === '/proj') {
-            handleProjecsBindings(event);
-        }
     });
 }
 
@@ -128,23 +121,4 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
         default:
             return false;
     }
-}
-
-/**
- * Handle page-specific Vim bindings
- * Currently only logs for future implementation
- * 
- * @param event The keyboard event
- */
-function handleBlogBindings(event: KeyboardEvent): void {
-    const key = event.key;
-    if (key === '/') {
-        return
-    };
-
-    // if it's in search mode proceed
-    // j, k, down, up to navigate, enter to open, command enter to open in new tab
-}
-
-function handleProjecsBindings(event: KeyboardEvent): void {
 }
