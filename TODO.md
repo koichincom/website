@@ -1,3 +1,2 @@
-- Add Tailwind CSS
 - Sitemap generation (I once did, but do it again)
-- Make sure the RSS is working
+- Tailwind CSS integration (final step)
