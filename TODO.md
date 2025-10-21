@@ -1,16 +1,16 @@
-- Tailwind CSS integration (final step)
+- [x] Tailwind CSS setup checklist for Astro project:
 	- [x] Verify packages installed: `tailwindcss`, `@tailwindcss/vite` (confirmed in `package.json`)
-	- [ ] Create `tailwind.config.cjs` (or `tailwind.config.js` / `tailwind.config.mjs`) and set `content` globs to scan project files (`src/**/*.{astro,html,js,ts,jsx,tsx}`)
+	- [x] Use CSS-first Tailwind v4 setup (no JS config). `@source` in `src/styles/global.css` is used to declare scan paths for `.astro` and other files.
 	- [x] Configure `astro.config.mjs` to use the `@tailwindcss/vite` plugin (already configured)
 	- [x] Ensure `src/layouts/base.astro` imports `src/styles/global.css` (already imports)
-	- [ ] Update `src/styles/global.css` to include Tailwind directives near the top:
+	- [x] Update `src/styles/global.css` to include Tailwind directives near the top:
 
 		```css
-		@import "tailwindcss/base";
-		@import "tailwindcss/components";
+		@import "tailwindcss/preflight";
 		@import "tailwindcss/utilities";
 		```
 
 		Keep project-specific overrides below those imports (currently present).
-	- [ ] Run `npm run dev` and verify Tailwind utilities render on pages (smoke test)
-	- [ ] (Optional) Add Tailwind plugins/UI kits (daisyUI, Flowbite) if needed and document usage
+	- [x] Run `npm run dev` and verify Tailwind base styles load (preflight/reset CSS confirmed)
+	- [x] Tailwind utilities generation verified after switching to CSS-first approach (H1 smoke test confirmed `text-red-500` works).
+- [ ] Bug: "G" vim command not working, not prioritized

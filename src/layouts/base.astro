@@ -10,7 +10,8 @@ export interface Props {
 }
 const { title = "Koichi's Website" } = Astro.props;
 const { h1 = "Welcome" } = Astro.props;
-const { description = "Koichi Nakayamada's personal website and blog" } = Astro.props;
+const { description = "Koichi Nakayamada's personal website and blog" } =
+    Astro.props;
 const siteUrl = "https://koichin.com" + Astro.url.pathname;
 ---
 
@@ -21,29 +22,34 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content={description} />
         <title>{title}</title>
-        
+
         <!-- Open Graph Tags -->
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={siteUrl} />
         <meta property="og:type" content="website" />
-        
+
         <!-- Twitter Card Tags -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:creator" content="@koichincom" />
-        
+
         <!-- Canonical URL -->
         <link rel="canonical" href={siteUrl} />
-        
+
         <!-- RSS Feed -->
-        <link rel="alternate" type="application/rss+xml" title="Koichi's Blog" href="/rss.xml" />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Koichi's Blog"
+            href="/rss.xml"
+        />
     </head>
     <body>
         <Toaster client:load position="top-right" />
         <Header />
-        <h1>{h1}</h1>
+        <h1 class="text-red-500">{h1}</h1>
         <slot />
         <Footer />
         <script type="module">
