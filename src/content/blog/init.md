@@ -1,7 +1,7 @@
 ---
-title: "Welcome to My Blog"
+title: "Introduction to My Journey"
 date: 2024-05-31T00:00:00Z
-tags: ["blog", "welcome"]
+tags: ["blog", "journey"]
 ---
 
-This is the inaugural post on my new blog! I'm excited to share my thoughts, experiences, and insights with you. Stay tuned for more content coming soon!
+Welcome to my blog! In this first post, I want to introduce myself and share the purpose of starting this blog. Stay tuned for more updates as I embark on this journey.

@@ -1,8 +1,26 @@
 @import "tailwindcss";
 @source "../**/*.{astro,html,js,ts,jsx,tsx}";
 
+:root {
+    --color-background: #ffffff;
+    --color-text-first: #000000;
+    --color-text-second: #555555;
+    --color-text-third: #999999;
+    --color-accent: #FF8C00;
+
+    --color-background-dark: #1a1a1a;
+    --color-text-first-dark: #ffffff;
+    --color-text-second-dark: #cccccc;
+    --color-text-third-dark: #888888;
+    --color-accent-dark: #FFA500;
+}
+
 @layer base {
     body {
-        font-family: 'Arial', sans-serif;
+        font-family: "JetBrains Mono", monospace;
+        line-height: 1.6;
+        letter-spacing: 0.01em;
+        background-color: var(--color-background);
+        color: var(--color-text-first);
     }
 }

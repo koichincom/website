@@ -23,6 +23,14 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
         <meta name="description" content={description} />
         <title>{title}</title>
 
+        <!-- JetBrains Mono Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+
         <!-- Open Graph Tags -->
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
@@ -46,12 +54,22 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
             href="/rss.xml"
         />
     </head>
-    <body>
+    <body
+        class="bg-(--color-background) dark:bg-(--color-background-dark) text-(--color-text-first) dark:text-(--color-text-first-dark)"
+    >
         <Toaster client:load position="top-right" />
-        <Header />
-        <h1 class="text-red-500">{h1}</h1>
-        <slot />
-        <Footer />
+        <div
+            class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8"
+        >
+            <Header />
+            <h1
+                class="mt-0 text-3xl font-bold mb-8 text-(--color-text-first) dark:text-(--color-text-first-dark)"
+            >
+                {h1}
+            </h1>
+            <slot />
+            <Footer />
+        </div>
         <script type="module">
             import { initVimBindings } from "/src/scripts/vim";
             initVimBindings();

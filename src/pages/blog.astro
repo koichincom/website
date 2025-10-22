@@ -10,15 +10,15 @@ const blogPosts = (await getCollection("blog")).sort(
 ---
 
 <BaseLayout title={title} h1={h1}>
-    <ul>
+    <ul class="mb-4">
         {
             blogPosts.map((post) => (
-                <li>
+                <li class="py-2">
                     <a href={`/blog/${post.id}`} class="flex justify-between">
-                        <span>
+                        <span class="text-(--color-text-second) dark:text-(--color-text-second-dark)">
                             {post.data.title}
                         </span>
-                        <time datetime={post.data.date}>
+                        <time class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)" datetime={post.data.date}>
                             {new Date(post.data.date).toLocaleDateString(undefined, {
                                 year: "numeric",
                                 month: "long",

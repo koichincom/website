@@ -1,23 +1,19 @@
 {
-    "name": "Recurring Tasks GAS",
-    "url": "https://github.com/koichincom/recurring-tasks-gas",
-    "role": [
-        [
-            "Creator and Maintainer",
-            "2023 - Present"
-        ]
-    ],
-    "description": "A Google Apps Script solution for automating recurring tasks in Google Sheets and Calendar. It helps users schedule and track repetitive tasks like bill payments, maintenance reminders, and project deadlines.",
-    "achievements": [
-        "Automated task creation and notifications via Google Calendar API",
-        "Integrated with Google Sheets for easy data management",
-        "Reduced manual task tracking by 80% for users"
-    ],
-    "technologies": [
-        "Google Apps Script",
-        "JavaScript",
-        "Google Sheets API",
-        "Google Calendar API"
-    ],
-    "order": 3
+  "name": "Recurring Tasks GAS",
+  "url": "https://github.com/koichincom/recurring-tasks-gas",
+  "role": [["Creator and Maintainer", "2023 - Present"]],
+  "description": "Automates task management primarily for a shared house",
+  "achievements": [
+    "Automated task creation and notifications via Google Calendar API",
+    "Integrated with Google Sheets for easy data management",
+    "Reduced manual task tracking by 80% for users"
+  ],
+  "technologies": [
+    "Google Apps Script",
+    "JavaScript",
+    "Google Sheets API",
+    "Google Calendar API"
+  ],
+  "order": 3
 }
+

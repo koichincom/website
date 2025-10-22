@@ -3,10 +3,48 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<nav>
+<nav
+    class="mb-8 flex gap-6 text-sm text-(--color-text-second) dark:text-(--color-text-second-dark) transition-colors duration-200"
+>
     <!-- Only show links to other pages, not the current page -->
-    {currentPath !== "/" && <a href="/">[h] Home</a>}
-    {currentPath !== "/blog" && <a href="/blog">[b] Blog</a>}
-    {currentPath !== "/proj" && <a href="/proj">[p] Projects</a>}
-    {currentPath !== "/about" && <a href="/about">[a] About</a>}
+    {
+        currentPath !== "/" && (
+            <a
+                href="/"
+                class="hover:text-(--color-accent) dark:hover:text-(--color-accent-dark)"
+            >
+                [h] Home
+            </a>
+        )
+    }
+    {
+        currentPath !== "/blog" && (
+            <a
+                href="/blog"
+                class="hover:text-(--color-accent) dark:hover:text-(--color-accent-dark)"
+            >
+                [b] Blog
+            </a>
+        )
+    }
+    {
+        currentPath !== "/proj" && (
+            <a
+                href="/proj"
+                class="hover:text-(--color-accent) dark:hover:text-(--color-accent-dark)"
+            >
+                [p] Projects
+            </a>
+        )
+    }
+    {
+        currentPath !== "/about" && (
+            <a
+                href="/about"
+                class="hover:text-(--color-accent) dark:hover:text-(--color-accent-dark)"
+            >
+                [a] About
+            </a>
+        )
+    }
 </nav>
