@@ -4,14 +4,14 @@ const currentPath = Astro.url.pathname;
 ---
 
 <nav
-    class="mb-8 flex gap-6 text-sm text-(--color-text-second) dark:text-(--color-text-second-dark) transition-colors duration-200"
+    class="mb-8 flex flex-wrap gap-4 sm:gap-6 text-xs sm:text-sm text-(--color-text-second) dark:text-(--color-text-second-dark) transition-colors duration-200"
 >
     <!-- Only show links to other pages, not the current page -->
     {
         currentPath !== "/" && (
             <a
                 href="/"
-                class="hover:text-(--color-accent) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
             >
                 [h] Home
             </a>
@@ -21,7 +21,7 @@ const currentPath = Astro.url.pathname;
         currentPath !== "/blog" && (
             <a
                 href="/blog"
-                class="hover:text-(--color-accent) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
             >
                 [b] Blog
             </a>
@@ -31,7 +31,7 @@ const currentPath = Astro.url.pathname;
         currentPath !== "/proj" && (
             <a
                 href="/proj"
-                class="hover:text-(--color-accent) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
             >
                 [p] Projects
             </a>
@@ -41,7 +41,7 @@ const currentPath = Astro.url.pathname;
         currentPath !== "/about" && (
             <a
                 href="/about"
-                class="hover:text-(--color-accent) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
             >
                 [a] About
             </a>

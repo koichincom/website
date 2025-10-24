@@ -14,11 +14,11 @@ const blogPosts = (await getCollection("blog")).sort(
         {
             blogPosts.map((post) => (
                 <li class="py-2">
-                    <a href={`/blog/${post.id}`} class="flex justify-between">
+                    <a href={`/blog/${post.id}`} class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                         <span class="text-(--color-text-second) dark:text-(--color-text-second-dark)">
                             {post.data.title}
                         </span>
-                        <time class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)" datetime={post.data.date}>
+                        <time class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-1 sm:mt-0" datetime={post.data.date}>
                             {new Date(post.data.date).toLocaleDateString(undefined, {
                                 year: "numeric",
                                 month: "long",

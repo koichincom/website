@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal website built with Astro 5, featuring a blog, projects showcase, and Vim-style keyboard navigation. Previously powered by Jekyll, now upgraded for better performance and TypeScript support. Deployed on Cloudflare Pages.
+Personal website built with Astro 5, featuring a blog, projects showcase, and Vim-style keyboard navigation. Previously powered by Jekyll, now upgraded for better performance and TypeScript support.
 
 **Site URL**: https://koichin.com
 

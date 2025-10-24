@@ -31,32 +31,32 @@ const projects = (
 ---
 
 <BaseLayout title={title} h1={h1}>
-    <p class="mb-4 text-sm text-(--color-text-third)">Cupertino, California</p>
+    <p class="mb-2 text-xs sm:text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">Cupertino, California</p>
     <p
-        class="mb-12 text-(--color-text-second) dark:text-(--color-text-second-dark)"
+        class="mb-8 sm:mb-12 text-sm sm:text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
     >
         I'm a {age}-year-old Data Science undergraduate student at De Anza
         College. I love coding and solving problems, and I live on the terminal.
-        <a href="/about" class="underline hover:text-(--color-accent) dark:hover:text-(--color-accent-dark) transition-colors duration-200">More about me</a>
+        <a href="/about" class="underline hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">More about me</a>
     </p>
 
-    <section class="mb-12">
-        <h2 class="mb-4 text-2xl font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)">
+    <section class="mb-8 sm:mb-12">
+        <h2 class="mb-4 text-xl sm:text-2xl font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)">
             Blog
         </h2>
-        <ul class="mb-4">
+        <ul class="mb-3 sm:mb-4">
             {
                 blogPosts.map((post) => (
                     <li class="py-2">
                         <a
                             href={`/blog/${post.id}`}
-                            class="flex justify-between"
+                            class="flex flex-col sm:flex-row sm:justify-between sm:items-center"
                         >
-                        <span class="text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-accent) dark:hover:text-(--color-accent-dark) transition-colors duration-200">
+                        <span class="text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">
                                 {post.data.title}
                             </span>
                             <time
-                                class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)"
+                                class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-1 sm:mt-0"
                                 datetime={post.data.date.toISOString()}
                             >
                                 {new Date(post.data.date).toLocaleDateString(
@@ -75,16 +75,16 @@ const projects = (
         </ul>
         <a
             href="/blog"
-            class="mb-4 text-(--color-accent) dark:text-(--color-accent-dark) hover:underline transition-colors duration-200"
+            class="mb-4 text-(--color-accent-light) dark:text-(--color-accent-dark) hover:underline transition-colors duration-200"
             >All posts
         </a>
     </section>
 
-    <section class="mb-12">
-        <h2 class="mb-4 text-2xl font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)">
+    <section class="mb-8 sm:mb-12">
+        <h2 class="mb-4 text-xl sm:text-2xl font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)">
             Projects
         </h2>
-        <ul class="mb-4">
+        <ul class="mb-3 sm:mb-4">
             {
                 projects.map((project) => (
                     <li class="mb-6">
@@ -94,7 +94,7 @@ const projects = (
                             rel="noopener noreferrer"
                             class="block group"
                         >
-                            <h3 class="text-xl font-semibold mb-2 group-hover:text-(--color-accent) transition-colors duration-200 text-(--color-text-first) dark:text-(--color-text-first-dark)">
+                            <h3 class="text-lg sm:text-xl font-semibold mb-2 group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) transition-colors duration-200 text-(--color-text-first) dark:text-(--color-text-first-dark)">
                                 {project.data.name}
                             </h3>
                             <span class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">
@@ -112,7 +112,7 @@ const projects = (
         </ul>
         <a
             href="/proj"
-            class="mb-4 text-(--color-accent) hover:underline transition-colors duration-200"
+            class="mb-4 text-(--color-accent-light) dark:text-(--color-accent-dark) hover:underline transition-colors duration-200"
             >All projects</a
         >
     </section>

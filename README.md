@@ -1,6 +1,6 @@
 # koichin.com
 
-A personal website showcasing projects and blog posts. Built with Astro for performance and TypeScript support.
+A personal website showcasing projects and blog posts, built with mainly Astro 5, Tailwind CSS, and TypeScript.
 
 ## Vim Navigation
 
