@@ -1,4 +1,3 @@
-<!-- Modal to show Vim help of this website -->
 ---
 interface Props {
     id: string;
@@ -6,9 +5,14 @@ interface Props {
 const { id } = Astro.props;
 ---
 
+<!-- Modal to show Vim help of this website -->
 <dialog id={id}>
     <div>
-    <h2 class="text-(--color-text-first) dark:text-(--color-text-first-dark)">Vim Key Bindings Help</h2>
+        <h2
+            class="text-(--color-text-first) dark:text-(--color-text-first-dark)"
+        >
+            Vim Key Bindings Help
+        </h2>
         <p>"h": Go to home page</p>
         <p>"b": Go to blog page</p>
         <p>"p": Go to projects page</p>
@@ -29,11 +33,11 @@ const { id } = Astro.props;
     const dialog = document.getElementById(id);
     const closeButton = document.getElementById(`${id}-close`);
 
-    button.addEventListener('click', () => {
-    dialog.showModal();
+    button.addEventListener("click", () => {
+        dialog.showModal();
     });
 
-    closeButton.addEventListener('click', () => {
-    dialog.close();
+    closeButton.addEventListener("click", () => {
+        dialog.close();
     });
 </script>

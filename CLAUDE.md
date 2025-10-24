@@ -153,5 +153,4 @@ All pages use `base.astro` layout which includes:
 
 ## Known Issues
 
-- "G" vim command has a known bug (not prioritized per TODO.md)
 - Help modal for vim bindings (`?` key) not yet implemented

@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/base.astro";
+const title = "Koichi's Blog";
+const h1 = "Vision";
+
+const blogPosts = (await getCollection("blog")).sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+);
+---
+
+<BaseLayout title={title} h1={h1}>
+    {blogPosts.length !== 0 ? <h2>Logs</h2> : null}
+    <ul class="mb-4">
+        {
+            blogPosts.map((post) => (
+                <li class="py-2">
+                    <a href={`/blog/${post.id}`} class="flex justify-between">
+                        <span class="text-(--color-text-second) dark:text-(--color-text-second-dark)">
+                            {post.data.title}
+                        </span>
+                        <time
+                            class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)"
+                            datetime={post.data.date.toISOString()}
+                        >
+                            {new Date(post.data.date).toLocaleDateString(
+                                undefined,
+                                {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                },
+                            )}
+                        </time>
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</BaseLayout>

@@ -37,7 +37,7 @@ const projects = (
     >
         I'm a {age}-year-old Data Science undergraduate student at De Anza
         College. I love coding and solving problems, and I live on the terminal.
-        <a href="/about">More about me</a>
+        <a href="/about" class="underline hover:text-(--color-accent) dark:hover:text-(--color-accent-dark) transition-colors duration-200">More about me</a>
     </p>
 
     <section class="mb-12">
@@ -52,7 +52,7 @@ const projects = (
                             href={`/blog/${post.id}`}
                             class="flex justify-between"
                         >
-                        <span class="text-(--color-text-second) dark:text-(--color-text-second-dark)">
+                        <span class="text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-accent) dark:hover:text-(--color-accent-dark) transition-colors duration-200">
                                 {post.data.title}
                             </span>
                             <time
@@ -75,8 +75,8 @@ const projects = (
         </ul>
         <a
             href="/blog"
-            class="mb-4 text-(--color-accent) hover:underline transition-colors duration-200"
-            >All posts [b]
+            class="mb-4 text-(--color-accent) dark:text-(--color-accent-dark) hover:underline transition-colors duration-200"
+            >All posts
         </a>
     </section>
 
@@ -94,7 +94,7 @@ const projects = (
                             rel="noopener noreferrer"
                             class="block group"
                         >
-                            <h3 class="text-xl font-medium mb-2 group-hover:text-(--color-accent) transition-colors duration-200 text-(--color-text-first) dark:text-(--color-text-first-dark)">
+                            <h3 class="text-xl font-semibold mb-2 group-hover:text-(--color-accent) transition-colors duration-200 text-(--color-text-first) dark:text-(--color-text-first-dark)">
                                 {project.data.name}
                             </h3>
                             <span class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">
@@ -113,7 +113,7 @@ const projects = (
         <a
             href="/proj"
             class="mb-4 text-(--color-accent) hover:underline transition-colors duration-200"
-            >All projects [p]</a
+            >All projects</a
         >
     </section>
 </BaseLayout>

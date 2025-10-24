@@ -6,6 +6,26 @@
 import { navigate } from "astro:transitions/client";
 import { toast } from "sonner";
 
+const HELP_MODAL_ID = "vim-help-modal";
+
+/**
+ * Show the Vim help modal
+ */
+export function showHelpModal() {
+  const dialog = document.getElementById(HELP_MODAL_ID) as HTMLDialogElement;
+  if (dialog) {
+    dialog.showModal();
+  }
+}
+
+/**
+ * Check if the help modal is currently open
+ */
+function isHelpModalOpen(): boolean {
+  const dialog = document.getElementById(HELP_MODAL_ID) as HTMLDialogElement;
+  return dialog?.open ?? false;
+}
+
 /**
  * Initialize Vim key bindings
  * Listens for global keyboard events and triggers navigation or scroll actions
@@ -21,6 +41,16 @@ export function initVimBindings() {
 
     // Skip key bindings when modifier keys are pressed
     if (event.ctrlKey || event.metaKey || event.altKey) {
+      return;
+    }
+
+    // Skip most key bindings when modal is open (except q and Esc, handled in modal)
+    if (
+      isHelpModalOpen() &&
+      event.key !== "?" &&
+      event.key !== "q" &&
+      event.key !== "Escape"
+    ) {
       return;
     }
 
@@ -117,8 +147,9 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
       toast.success("Link Copied");
       return true;
     case "?":
-    // '?' shows modal with Vim help
-    // TODO: Implement help modal
+      // '?' shows modal with Vim help
+      showHelpModal();
+      return true;
     default:
       return false;
   }

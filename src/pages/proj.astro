@@ -10,37 +10,39 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <BaseLayout title={title} h1={h1}>
-    <p class="mb-8 text-(--color-text-second) dark:text-(--color-text-second-dark)">
+    <p>
         Here are some of the projects I've worked on. I love make things with
         data, and make our life easier.
     </p>
-    <ul class="mb-4">
+    <ul>
         {
             projects.map((project) => (
-                <li class="border rounded p-4 mb-6">
+                <li class="border rounded p-4 mb-2">
                     <a
                         href={project.data.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         class="block"
                     >
-                        <h2 class="mb-3 text-xl font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)">{project.data.name}</h2>
-                        <p class="mb-2 text-(--color-text-second) dark:text-(--color-text-second-dark)">
+                        <h2 class="text-(--color-text-first) dark:text-(--color-text-first-dark)">
+                            {project.data.name}
+                        </h2>
+                        <p>
                             {project.data.role
                                 .map(([role, period]) => `${role} (${period})`)
                                 .join(", ")}
                         </p>
-                        <p class="mb-3 text-(--color-text-second) dark:text-(--color-text-second-dark)">{project.data.description}</p>
-                        <h3 class="mb-2 font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)">Achievements</h3>
-                        <ul class="mb-3 ml-4">
+                        <p>{project.data.description}</p>
+                        <h3>Achievements</h3>
+                        <ul>
                             {project.data.achievements.map((achievement) => (
-                                <li class="text-(--color-text-second) dark:text-(--color-text-second-dark)">- {achievement}</li>
+                                <li>- {achievement}</li>
                             ))}
                         </ul>
-                        <h3 class="mb-2 font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)">Technologies</h3>
-                        <ul class="ml-4">
+                        <h3>Technologies</h3>
+                        <ul>
                             {project.data.technologies.map((tech) => (
-                                <li class="text-(--color-text-second) dark:text-(--color-text-second-dark)">{tech}</li>
+                                <li>{tech}</li>
                             ))}
                         </ul>
                     </a>

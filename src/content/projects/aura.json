@@ -1,7 +1,7 @@
 {
   "name": "Aura",
   "url": "https://github.com/koichincom/aura",
-  "role": [["Lead Developer", "2023 - Present"]],
+  "role": [["Initiator and Project Lead", "2023 - Present"]],
   "description": "Move an object using Brain-Computer Interface and a robotic arm.",
   "achievements": [
     "Built with React and Node.js for seamless audio streaming",
@@ -17,4 +17,3 @@
   ],
   "order": 2
 }
-

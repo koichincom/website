@@ -1,6 +1,7 @@
 ---
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
+import VimHelp from "../components/vim-help.astro";
 import "../styles/global.css";
 import { Toaster } from "sonner";
 export interface Props {
@@ -58,6 +59,7 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
         class="bg-(--color-background) dark:bg-(--color-background-dark) text-(--color-text-first) dark:text-(--color-text-first-dark)"
     >
         <Toaster client:load position="top-right" />
+        <VimHelp id="vim-help-modal" />
         <div
             class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8"
         >
