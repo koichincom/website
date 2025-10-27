@@ -1,0 +1,119 @@
+---
+import BaseLayout from "../layouts/base.astro";
+const title = "Koichi";
+const h1 = "Koichi Nakayamada";
+
+// Calculate age
+const birthDate = new Date(2004, 11, 9); // December 9, 2004
+const today = new Date();
+const age =
+    today.getFullYear() -
+    birthDate.getFullYear() -
+    (today <
+    new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate())
+        ? 1
+        : 0);
+
+// Fetch specific blog posts and projects
+import { getEntry } from "astro:content";
+import { getCollection } from "astro:content";
+const blogEntryNum = 4;
+const blogPosts = (await getCollection("blog"))
+    .sort(
+        (a, b) =>
+            new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+    )
+    .slice(0, blogEntryNum);
+const projectsEntryIDs = ["aura", "recurring-tasks-gas", "still-waiting"];
+const projects = (
+    await Promise.all(projectsEntryIDs.map((id) => getEntry("projects", id)))
+).filter((project) => project !== undefined);
+---
+
+<BaseLayout title={title} h1={h1}>
+    <p class="mb-2 text-xs sm:text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">Cupertino, California</p>
+    <p
+        class="mb-8 sm:mb-12 text-sm sm:text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
+    >
+        I'm a {age}-year-old Data Science undergraduate student at De Anza
+        College. I love coding and solving problems, and I live on the terminal.
+        <a href="/about" class="underline hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">More about me</a>
+    </p>
+
+    <section class="mb-8 sm:mb-12">
+        <h2 class="mb-4 text-xl sm:text-2xl font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)">
+            Blog
+        </h2>
+        <ul class="mb-3 sm:mb-4">
+            {
+                blogPosts.map((post) => (
+                    <li class="py-2">
+                        <a
+                            href={`/blog/${post.id}`}
+                            class="flex flex-col sm:flex-row sm:justify-between sm:items-center"
+                        >
+                        <span class="text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">
+                                {post.data.title}
+                            </span>
+                            <time
+                                class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-1 sm:mt-0"
+                                datetime={post.data.date.toISOString()}
+                            >
+                                {new Date(post.data.date).toLocaleDateString(
+                                    undefined,
+                                    {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                    },
+                                )}
+                            </time>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+        <a
+            href="/blog"
+            class="mb-4 text-(--color-accent-light) dark:text-(--color-accent-dark) hover:underline transition-colors duration-200"
+            >All posts
+        </a>
+    </section>
+
+    <section class="mb-8 sm:mb-12">
+        <h2 class="mb-4 text-xl sm:text-2xl font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)">
+            Projects
+        </h2>
+        <ul class="mb-3 sm:mb-4">
+            {
+                projects.map((project) => (
+                    <li class="mb-6">
+                        <a
+                            href={project.data.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="block group"
+                        >
+                            <h3 class="text-lg sm:text-xl font-semibold mb-2 group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) transition-colors duration-200 text-(--color-text-first) dark:text-(--color-text-first-dark)">
+                                {project.data.name}
+                            </h3>
+                            <span class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">
+                                {project.data.role
+                                    .map(([role, period]) => `${role}`)
+                                    .join(", ")}
+                            </span>
+                            <p class="text-(--color-text-second) dark:text-(--color-text-second-dark)">
+                                {project.data.description}
+                            </p>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+        <a
+            href="/proj"
+            class="mb-4 text-(--color-accent-light) dark:text-(--color-accent-dark) hover:underline transition-colors duration-200"
+            >All projects</a
+        >
+    </section>
+</BaseLayout>
