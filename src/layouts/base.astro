@@ -72,8 +72,8 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
             <slot />
             <Footer />
         </div>
-        <script type="module">
-            import { initVimBindings } from "/src/scripts/vim";
+        <script>
+            import { initVimBindings } from "../scripts/vim";
             initVimBindings();
         </script>
     </body>
