@@ -1,0 +1,43 @@
+---
+interface Props {
+    id: string;
+}
+const { id } = Astro.props;
+---
+
+<!-- Modal to show Vim help of this website -->
+<dialog id={id}>
+    <div>
+        <h2
+            class="text-(--color-text-first) dark:text-(--color-text-first-dark)"
+        >
+            Vim Key Bindings Help
+        </h2>
+        <p>"h": Go to home page</p>
+        <p>"b": Go to blog page</p>
+        <p>"p": Go to projects page</p>
+        <p>"m": Go to my profile page</p>
+        <p>"gg": Scroll to top</p>
+        <p>"G": Scroll to bottom</p>
+        <p>"d": Scroll down half page</p>
+        <p>"u": Scroll up half page</p>
+        <p>"y": Copy(yank) the current URL to clipboard</p>
+        <br />
+        <p>"?": Show this help dialog</p>
+        <p>"q" or "Esc": Close this help dialog</p>
+    </div>
+</dialog>
+
+<script define:vars={{ id }}>
+    const button = document.getElementById(`${id}-button`);
+    const dialog = document.getElementById(id);
+    const closeButton = document.getElementById(`${id}-close`);
+
+    button.addEventListener("click", () => {
+        dialog.showModal();
+    });
+
+    closeButton.addEventListener("click", () => {
+        dialog.close();
+    });
+</script>

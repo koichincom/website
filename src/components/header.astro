@@ -1,0 +1,50 @@
+---
+// filepath: /Users/koichi/Projects/my-website/src/components/header.astro
+const currentPath = Astro.url.pathname;
+---
+
+<nav
+    class="mb-8 flex flex-wrap gap-4 sm:gap-6 text-xs sm:text-sm text-(--color-text-second) dark:text-(--color-text-second-dark) transition-colors duration-200"
+>
+    <!-- Only show links to other pages, not the current page -->
+    {
+        currentPath !== "/" && (
+            <a
+                href="/"
+                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            >
+                [h] Home
+            </a>
+        )
+    }
+    {
+        currentPath !== "/blog" && (
+            <a
+                href="/blog"
+                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            >
+                [b] Blog
+            </a>
+        )
+    }
+    {
+        currentPath !== "/proj" && (
+            <a
+                href="/proj"
+                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            >
+                [p] Projects
+            </a>
+        )
+    }
+    {
+        currentPath !== "/about" && (
+            <a
+                href="/about"
+                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            >
+                [a] About
+            </a>
+        )
+    }
+</nav>
