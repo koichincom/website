@@ -1,5 +1,4 @@
 ---
-// filepath: /Users/koichi/Projects/my-website/src/components/header.astro
 const currentPath = Astro.url.pathname;
 ---
 
@@ -8,7 +7,7 @@ const currentPath = Astro.url.pathname;
 >
     <!-- Only show links to other pages, not the current page -->
     {
-        currentPath !== "/" && (
+        currentPath !== ("/") && (
             <a
                 href="/"
                 class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
@@ -18,7 +17,7 @@ const currentPath = Astro.url.pathname;
         )
     }
     {
-        currentPath !== "/blog" && (
+        !currentPath.startsWith("/blog") && (
             <a
                 href="/blog"
                 class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
@@ -28,7 +27,7 @@ const currentPath = Astro.url.pathname;
         )
     }
     {
-        currentPath !== "/proj" && (
+        !currentPath.startsWith("/proj") && (
             <a
                 href="/proj"
                 class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
@@ -38,7 +37,7 @@ const currentPath = Astro.url.pathname;
         )
     }
     {
-        currentPath !== "/about" && (
+        !currentPath.startsWith("/about") && (
             <a
                 href="/about"
                 class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
