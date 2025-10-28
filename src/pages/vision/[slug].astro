@@ -1,10 +1,9 @@
 ---
 import { getCollection, render } from "astro:content";
 import PostLayout from "../../layouts/post.astro";
-import { getReadingTime } from "../../utils/readingTime";
 
 export async function getStaticPaths() {
-    const posts = await getCollection("blog");
+    const posts = await getCollection("vision");
     return posts.map((post) => ({
         params: { slug: post.id },
         props: { post },
@@ -13,16 +12,13 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const readingTime = getReadingTime(post.body);
 
-const title = post.data.title;
+const title = `Vision ${post.data.title}`;
 const h1 = post.data.title;
 const date = post.data.date;
-const update = post.data.update;
-
 ---
 
-<PostLayout title={title} h1={h1} date={date} update={update} readingTime={readingTime}>
+<PostLayout title={title} h1={h1} date={date} showComments={false}>
     <article class="prose prose-base max-w-none dark:prose-invert">
         <Content />
     </article>

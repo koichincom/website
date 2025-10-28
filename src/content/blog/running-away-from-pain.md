@@ -1,7 +1,7 @@
 ---
 title: "Running Away from Pain"
 date: 2024-06-15T00:00:00Z
-update: 2024-06-15T00:00:00Z
+update:
 tags: ["life", "happiness", "mental health"]
 ---
 

@@ -17,6 +17,7 @@ const age =
 // Fetch specific blog posts and projects
 import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
+import { getReadingTime, formatReadingTime } from "../utils/readingTime";
 const blogEntryNum = 4;
 const blogPosts = (await getCollection("blog"))
     .sort(
@@ -24,6 +25,12 @@ const blogPosts = (await getCollection("blog"))
             new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
     )
     .slice(0, blogEntryNum);
+
+// Calculate reading times from markdown body
+const postsWithReadingTime = blogPosts.map((post) => {
+    const readingTime = getReadingTime(post.body);
+    return { post, readingTime };
+});
 const projectsEntryIDs = ["aura", "recurring-tasks-gas", "still-waiting"];
 const projects = (
     await Promise.all(projectsEntryIDs.map((id) => getEntry("projects", id)))
@@ -31,13 +38,12 @@ const projects = (
 ---
 
 <BaseLayout title={title} h1={h1}>
-    <p class="mb-2 text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">Cupertino, California</p>
-    <p
-        class="mb-8 sm:mb-12 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
-    >
-        I'm a {age}-year-old Japanese Data Science undergraduate student at De Anza
-        College in California. I love coding and solving problems,
-        and I live on the terminal.
+    <p class="mb-2 text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">
+        Cupertino, California
+    </p>
+    <p class="mb-8 sm:mb-12 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)">
+    I'm a {age}-year-old Japanese Data Science undergraduate student. I love coding, solving problems, and I live on the terminal.
+    My vision is to <a href="/vision">advance humanity through technology with purpose and passion</a>.
     </p>
 
     <section class="mb-8 sm:mb-12">
@@ -46,7 +52,7 @@ const projects = (
         </h2>
         <ul class="mb-3 sm:mb-4">
             {
-                blogPosts.map((post) => (
+                postsWithReadingTime.map(({ post, readingTime }) => (
                     <li class="py-2">
                         <a
                             href={`/blog/${post.id}`}
@@ -55,19 +61,20 @@ const projects = (
                         <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">
                                 {post.data.title}
                             </span>
-                            <time
-                                class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-1 sm:mt-0"
-                                datetime={post.data.date.toISOString()}
-                            >
-                                {new Date(post.data.date).toLocaleDateString(
-                                    undefined,
-                                    {
-                                        year: "numeric",
-                                        month: "long",
-                                        day: "numeric",
-                                    },
-                                )}
-                            </time>
+                            <span class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-1 sm:mt-0 flex items-center gap-2">
+                                <span>{formatReadingTime(readingTime)}</span>
+                                <span>•</span>
+                                <time datetime={post.data.date.toISOString()}>
+                                    {new Date(post.data.date).toLocaleDateString(
+                                        undefined,
+                                        {
+                                            year: "numeric",
+                                            month: "long",
+                                            day: "numeric",
+                                        },
+                                    )}
+                                </time>
+                            </span>
                         </a>
                     </li>
                 ))

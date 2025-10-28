@@ -14,21 +14,32 @@ const isVision = currentPath.startsWith("/vision");
     {
         isHome ? (
             <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
-                <span class="hidden sm:inline">[h] </span>Home
+                Home
             </span>
         ) : (
+            <span class="relative group hidden sm:inline-block">
+                <a
+                    href="/"
+                    class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                >
+                    Home
+                </a>
+                <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                    Press h
+                </span>
+            </span>
             <a
                 href="/"
-                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:hidden"
             >
-                <span class="hidden sm:inline">[h] </span>Home
+                Home
             </a>
         )
     }
     {
         isBlog ? (
             <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
-                <span class="hidden sm:inline">[b] </span>Blog
+                Blog
             </span>
         ) : (
             isBlogPost ? (
@@ -36,43 +47,69 @@ const isVision = currentPath.startsWith("/vision");
                     href="/blog"
                     class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
                 >
-                    <span class="hidden sm:inline">[b] </span>Blog
+                    Blog
                 </a>
             ) : (
-            <a
-                href="/blog"
-                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-            >
-                <span class="hidden sm:inline">[b] </span>Blog
-            </a>
-        )
+                <>
+                    <span class="relative group hidden sm:inline-block">
+                        <a
+                            href="/blog"
+                            class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                        >
+                            Blog
+                        </a>
+                        <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                            Press b
+                        </span>
+                    </span>
+                    <a
+                        href="/blog"
+                        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:hidden"
+                    >
+                        Blog
+                    </a>
+                </>
+            )
         )
     }
     {
         isProjects ? (
             <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
-                <span class="hidden sm:inline">[p] </span>Projects
+                Projects
             </span>
         ) : (
-            <a
-                href="/proj"
-                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-            >
-                <span class="hidden sm:inline">[p] </span>Projects
-            </a>
+            <>
+                <span class="relative group hidden sm:inline-block">
+                    <a
+                        href="/proj"
+                        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                    >
+                        Projects
+                    </a>
+                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                        Press p
+                    </span>
+                </span>
+                <a
+                    href="/proj"
+                    class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:hidden"
+                >
+                    Projects
+                </a>
+            </>
         )
     }
     {
         isClub && (
             <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
-                <span class="hidden sm:inline">[c] </span>Club
+                Club
             </span>
         )
     }
     {
         isVision && (
             <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
-                <span class="hidden sm:inline">[v] </span>Vision
+                Vision
             </span>
         )
     }

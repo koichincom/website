@@ -15,6 +15,7 @@ export function showHelpModal() {
   const dialog = document.getElementById(HELP_MODAL_ID) as HTMLDialogElement;
   if (dialog) {
     dialog.showModal();
+    dialog.focus(); // Focus the dialog itself, not the close button
   }
 }
 
@@ -43,16 +44,6 @@ export function initVimBindings() {
     if (event.ctrlKey || event.metaKey || event.altKey) {
       return;
     }
-
-    // // Skip most key bindings when modal is open (except q and Esc, handled in modal)
-    // if (
-    //   isHelpModalOpen() &&
-    //   event.key !== "?" &&
-    //   event.key !== "q" &&
-    //   event.key !== "Escape"
-    // ) {
-    //   return;
-    // }
 
     // Try global bindings first (navigation, scroll, etc.)
     const isGlobalBindingExecuted = handleGlobalBindings(event);
@@ -146,10 +137,10 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
       navigator.clipboard.writeText(window.location.href);
       toast.success("Link Copied");
       return true;
-    // case "?":
-    //   // '?' shows modal with Vim help
-    //   showHelpModal();
-    //   return true;
+    case "?":
+      // '?' shows modal with Vim help
+      showHelpModal();
+      return true;
     default:
       return false;
   }
