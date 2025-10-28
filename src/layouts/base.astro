@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
 import VimHelp from "../components/vim-help.astro";
@@ -54,23 +55,43 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
             title="Koichi's Blog"
             href="/rss.xml"
         />
+
+        <!-- View Transitions -->
+        <ViewTransitions />
+
+        <!-- Custom transition styles -->
+        <style is:global>
+            /* Smooth fade transition */
+            ::view-transition-old(root),
+            ::view-transition-new(root) {
+                animation-duration: 0.2s;
+            }
+
+            /* Reduce motion for accessibility */
+            @media (prefers-reduced-motion: reduce) {
+                ::view-transition-old(root),
+                ::view-transition-new(root) {
+                    animation-duration: 0.01s;
+                }
+            }
+        </style>
     </head>
     <body
         class="bg-(--color-background) dark:bg-(--color-background-dark) text-(--color-text-first) dark:text-(--color-text-first-dark) font-sans"
     >
-        <Toaster client:load position="top-right" />
-        <VimHelp id="vim-help-modal" />
+        <Toaster client:load position="top-right" transition:persist />
+        <VimHelp id="vim-help-modal" transition:persist />
         <div
             class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8"
         >
-            <Header />
+            <Header transition:persist />
             <h1
                 class="mt-0 text-2xl sm:text-3xl font-bold mb-8 text-(--color-text-first) dark:text-(--color-text-first-dark)"
             >
                 {h1}
             </h1>
             <slot />
-            <Footer />
+            <Footer transition:persist />
         </div>
         <script>
             import { initVimBindings } from "../scripts/vim";

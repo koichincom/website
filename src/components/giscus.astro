@@ -1,0 +1,40 @@
+---
+// Giscus comments component with View Transitions support
+---
+
+<div id="giscus-container"></div>
+
+<script is:inline>
+  function loadGiscus() {
+    const container = document.getElementById('giscus-container');
+    if (!container) return;
+
+    // Remove existing Giscus iframe/script if present
+    container.innerHTML = '';
+
+    // Create and inject Giscus script
+    const script = document.createElement('script');
+    script.src = 'https://giscus.app/client.js';
+    script.setAttribute('data-repo', 'koichincom/website');
+    script.setAttribute('data-repo-id', 'R_kgDOMrXeww');
+    script.setAttribute('data-category', 'Announcements');
+    script.setAttribute('data-category-id', 'DIC_kwDOMrXew84Cw21L');
+    script.setAttribute('data-mapping', 'pathname');
+    script.setAttribute('data-strict', '0');
+    script.setAttribute('data-reactions-enabled', '1');
+    script.setAttribute('data-emit-metadata', '0');
+    script.setAttribute('data-input-position', 'bottom');
+    script.setAttribute('data-theme', 'preferred_color_scheme');
+    script.setAttribute('data-lang', 'en');
+    script.setAttribute('crossorigin', 'anonymous');
+    script.async = true;
+
+    container.appendChild(script);
+  }
+
+  // Load Giscus on initial page load
+  loadGiscus();
+
+  // Reload Giscus after View Transitions navigation
+  document.addEventListener('astro:page-load', loadGiscus);
+</script>

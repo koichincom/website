@@ -1,11 +1,16 @@
 <nav
     class="mt-8 flex flex-wrap gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
 >
-    <a
-        href="mailto:hi@koichin.com"
-        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-        >Email</a
-    >
+    <span class="relative group">
+        <button
+            id="copy-email"
+            class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 cursor-pointer"
+            >Email</button
+        >
+        <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+            Copy Email
+        </span>
+    </span>
     <a
         href="https://github.com/koichincom"
         target="_blank"
@@ -27,4 +32,31 @@
         class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
         >LinkedIn</a
     >
+    <span class="hidden sm:inline ml-auto text-(--color-text-third) dark:text-(--color-text-third-dark)">
+        Press <kbd class="px-1.5 py-0.5 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs font-mono">?</kbd> for shortcuts
+    </span>
 </nav>
+
+<script>
+    import { toast } from "sonner";
+
+    function handleEmailCopy() {
+        navigator.clipboard.writeText("hello@koichin.com");
+        toast.success("Email Copied");
+    }
+
+    function initEmailCopy() {
+        const emailButton = document.getElementById("copy-email");
+        if (emailButton) {
+            // Remove old listener if exists to prevent duplicates
+            emailButton.removeEventListener("click", handleEmailCopy);
+            emailButton.addEventListener("click", handleEmailCopy);
+        }
+    }
+
+    // Initialize on page load
+    initEmailCopy();
+
+    // Re-initialize after View Transitions
+    document.addEventListener("astro:page-load", initEmailCopy);
+</script>

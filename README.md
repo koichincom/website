@@ -1,18 +1,25 @@
-# koichin.com
+# Website
 
-A personal website showcasing projects and blog posts, built with mainly Astro 5, Tailwind CSS, and TypeScript.
+My personal website and blog, designed to be fast, simple, and accessible.
 
-## Vim Navigation
+To achieve this, I built it with:
 
-Power users can navigate with Vim-style keyboard shortcuts:
+- **Astro** as the core framework
+- **View Transitions API** for smooth page transitions
+- **Vim-style keyboard navigation** for power users
+- **Auto dark mode** for comfortable reading
+
+Visit at [koichin.com](https://koichin.com).
+
+## Keyboard Navigation
 
 | Key | Action                |
 | --- | --------------------- |
-| h   | Go to Home            |
-| b   | Go to Blog            |
-| p   | Go to Projects        |
-| a   | Go to About           |
-| c   | Go to Club            |
+| h   | Home                  |
+| b   | Blog                  |
+| p   | Projects              |
+| v   | Vision                |
+| c   | Club                  |
 | gg  | Scroll to top         |
 | G   | Scroll to bottom      |
 | u   | Scroll up half page   |

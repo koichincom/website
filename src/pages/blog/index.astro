@@ -1,30 +1,41 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/base.astro";
+import { getReadingTime, formatReadingTime } from "../../utils/readingTime";
 const title = "Koichi's Blog";
 const h1 = "Blog";
 
 const blogPosts = (await getCollection("blog")).sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
 );
+
+// Calculate reading times from markdown body
+const postsWithReadingTime = blogPosts.map((post) => {
+    const readingTime = getReadingTime(post.body);
+    return { post, readingTime };
+});
 ---
 
 <BaseLayout title={title} h1={h1}>
     <ul class="mb-4">
         {
-            blogPosts.map((post) => (
+            postsWithReadingTime.map(({ post, readingTime }) => (
                 <li class="py-2">
                     <a href={`/blog/${post.id}`} class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                         <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">
                             {post.data.title}
                         </span>
-                        <time class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-1 sm:mt-0" datetime={post.data.date}>
-                            {new Date(post.data.date).toLocaleDateString(undefined, {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric",
-                            })}
-                        </time>
+                        <span class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-1 sm:mt-0 flex items-center gap-2">
+                            <span>{formatReadingTime(readingTime)}</span>
+                            <span>•</span>
+                            <time datetime={post.data.date}>
+                                {new Date(post.data.date).toLocaleDateString(undefined, {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                            </time>
+                        </span>
                     </a>
                 </li>
             ))

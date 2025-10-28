@@ -6,38 +6,108 @@ const { id } = Astro.props;
 ---
 
 <!-- Modal to show Vim help of this website -->
-<dialog id={id}>
-    <div>
-        <h2
-            class="text-(--color-text-first) dark:text-(--color-text-first-dark)"
-        >
-            Vim Key Bindings Help
+<dialog id={id} tabindex="-1" class="rounded-lg bg-(--color-background) dark:bg-(--color-background-dark) p-8 max-w-md w-full backdrop:bg-black backdrop:opacity-50 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 outline-none">
+    <div class="relative">
+        <span class="absolute top-0 right-0 group">
+            <button
+                id={`${id}-close-button`}
+                class="text-(--color-text-third) dark:text-(--color-text-third-dark) hover:text-(--color-text-first) dark:hover:text-(--color-text-first-dark) text-2xl leading-none"
+                aria-label="Close"
+            >
+                ×
+            </button>
+            <span class="absolute bottom-full right-0 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                q or Esc to close
+            </span>
+        </span>
+
+        <h2 class="text-xl font-bold mb-4 text-(--color-text-first) dark:text-(--color-text-first-dark)">
+            Keyboard Shortcuts
         </h2>
-        <p>"h": Go to home page</p>
-        <p>"b": Go to blog page</p>
-        <p>"p": Go to projects page</p>
-        <p>"m": Go to my profile page</p>
-        <p>"gg": Scroll to top</p>
-        <p>"G": Scroll to bottom</p>
-        <p>"d": Scroll down half page</p>
-        <p>"u": Scroll up half page</p>
-        <p>"y": Copy(yank) the current URL to clipboard</p>
-        <br />
-        <p>"?": Show this help dialog</p>
-        <p>"q" or "Esc": Close this help dialog</p>
+
+        <div class="space-y-4 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)">
+            <div>
+                <h3 class="font-semibold mb-2 text-(--color-text-first) dark:text-(--color-text-first-dark)">Navigation</h3>
+                <ul class="space-y-1">
+                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">h</kbd> Home</li>
+                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">b</kbd> Blog</li>
+                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">p</kbd> Projects</li>
+                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">v</kbd> Vision</li>
+                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">c</kbd> Club</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold mb-2 text-(--color-text-first) dark:text-(--color-text-first-dark)">Scrolling</h3>
+                <ul class="space-y-1">
+                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">gg</kbd> Scroll to top</li>
+                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">G</kbd> Scroll to bottom</li>
+                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">u</kbd> Scroll up half page</li>
+                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">d</kbd> Scroll down half page</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold mb-2 text-(--color-text-first) dark:text-(--color-text-first-dark)">Other</h3>
+                <ul class="space-y-1">
+                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">y</kbd> Copy current URL</li>
+                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">?</kbd> Show this help</li>
+                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">q</kbd> or <kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">Esc</kbd> Close this help</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </dialog>
 
 <script define:vars={{ id }}>
-    const button = document.getElementById(`${id}-button`);
-    const dialog = document.getElementById(id);
-    const closeButton = document.getElementById(`${id}-close`);
+    function initHelpModal() {
+        const dialog = document.getElementById(id);
+        const closeButton = document.getElementById(`${id}-close-button`);
 
-    button.addEventListener("click", () => {
-        dialog.showModal();
-    });
+        if (!dialog || !closeButton) return;
 
-    closeButton.addEventListener("click", () => {
-        dialog.close();
-    });
+        // Close button click handler
+        function closeModal() {
+            dialog.close();
+        }
+
+        // Remove old listeners to prevent duplicates
+        closeButton.removeEventListener("click", closeModal);
+        closeButton.addEventListener("click", closeModal);
+
+        // Click outside (backdrop) to close
+        dialog.removeEventListener("click", handleBackdropClick);
+        dialog.addEventListener("click", handleBackdropClick);
+
+        function handleBackdropClick(event) {
+            const rect = dialog.getBoundingClientRect();
+            const isInDialog = (
+                rect.top <= event.clientY &&
+                event.clientY <= rect.top + rect.height &&
+                rect.left <= event.clientX &&
+                event.clientX <= rect.left + rect.width
+            );
+
+            if (!isInDialog) {
+                dialog.close();
+            }
+        }
+
+        // Keyboard handler for q and Esc
+        document.removeEventListener("keydown", handleKeydown);
+        document.addEventListener("keydown", handleKeydown);
+
+        function handleKeydown(event) {
+            if (dialog.open && (event.key === "q" || event.key === "Escape")) {
+                event.preventDefault();
+                dialog.close();
+            }
+        }
+    }
+
+    // Initialize on page load
+    initHelpModal();
+
+    // Re-initialize after View Transitions
+    document.addEventListener("astro:page-load", initHelpModal);
 </script>
