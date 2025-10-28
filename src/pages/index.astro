@@ -31,9 +31,9 @@ const projects = (
 ---
 
 <BaseLayout title={title} h1={h1}>
-    <p class="mb-2 text-xs sm:text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">Cupertino, California</p>
+    <p class="mb-2 text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">Cupertino, California</p>
     <p
-        class="mb-8 sm:mb-12 text-sm sm:text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
+        class="mb-8 sm:mb-12 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
     >
         I'm a {age}-year-old Japanese Data Science undergraduate student at De Anza
         College in California. I love coding and solving problems,
@@ -52,7 +52,7 @@ const projects = (
                             href={`/blog/${post.id}`}
                             class="flex flex-col sm:flex-row sm:justify-between sm:items-center"
                         >
-                        <span class="text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">
+                        <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">
                                 {post.data.title}
                             </span>
                             <time
@@ -102,7 +102,7 @@ const projects = (
                                     .map(([role, period]) => `${role}`)
                                     .join(", ")}
                             </span>
-                            <p class="text-(--color-text-second) dark:text-(--color-text-second-dark)">
+                            <p class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark)">
                                 {project.data.description}
                             </p>
                         </a>
