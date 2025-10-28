@@ -15,7 +15,8 @@
   --color-text-third-dark: #888888;
   --color-accent-dark: #ffa500;
 
-  --font-family-sans: Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-family-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+
   --font-family-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
