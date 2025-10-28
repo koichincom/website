@@ -28,9 +28,7 @@ const formatDate = (date: Date) => {
             <time datetime={date.toISOString()}>{formatDate(date)}</time>
         </p>
     ) : null}
-    <article class="prose prose-lg max-w-none dark:prose-invert">
-        <slot />
-    </article>
+    <slot />
     <script
         src="https://giscus.app/client.js"
         data-repo="koichincom/website"
