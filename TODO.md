@@ -12,13 +12,12 @@ My personal website built with Astro and Tailwind CSS.
 
 ### P2
 
-- [ ] Popup to show the vim bindings help (vim-help.astro) Currently Disabled since not prioritized
-  - [x] Modal implemented with styling and keyboard shortcuts (? to open, q/Esc to close)
-  - [ ] Fix: click-outside backdrop to close doesn't work
-  - [ ] Fix: 'q' to close doesn't work
-
 ## Done
 
+- [x] Popup to show the vim bindings help (vim-help.astro) Currently Disabled since not prioritized
+  - [x] Modal implemented with styling and keyboard shortcuts (? to open, q/Esc to close)
+  - [x] Fix: click-outside backdrop to close doesn't work
+  - [x] Fix: 'q' to close doesn't work
 - [x] Feature: Vim page navigation chips
 - [x] Feature: Email copy chip
 - [x] Feature: Vision page
