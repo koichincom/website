@@ -37,7 +37,6 @@ const projects = (
     >
         I'm a {age}-year-old Data Science undergraduate student at De Anza
         College. I love coding and solving problems, and I live on the terminal.
-        <a href="/about" class="underline hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">More about me</a>
     </p>
 
     <section class="mb-8 sm:mb-12">
@@ -87,7 +86,7 @@ const projects = (
         <ul class="mb-3 sm:mb-4">
             {
                 projects.map((project) => (
-                    <li class="mb-6">
+                    <li class="mb-8">
                         <a
                             href={project.data.url}
                             target="_blank"

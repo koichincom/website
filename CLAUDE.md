@@ -41,7 +41,7 @@ Access collections via `getCollection("blog")` or `getCollection("projects")`.
 ### Routing & Pages
 
 - **Dynamic routes**: `/blog/[slug].astro` uses content collection IDs as slugs
-- **Static pages**: `index.astro`, `blog.astro`, `proj.astro`, `about.astro`, `club.astro`
+- **Static pages**: `index.astro`, `blog.astro`, `proj.astro`, `club.astro`
 - **Redirects**: Defined in `astro.config.mjs` for shortlinks (`/gh` → GitHub, `/in` → LinkedIn, etc.)
 
 ### Layouts
@@ -55,7 +55,7 @@ All layouts import `src/styles/global.css` for Tailwind v4 styles.
 
 Global keyboard navigation implemented in `src/scripts/vim.ts`:
 
-- **Navigation**: `h` (home), `b` (blog), `p` (projects), `a` (about), `c` (club)
+- **Navigation**: `h` (home), `b` (blog), `p` (projects), `c` (club)
 - **Scrolling**: `gg` (top), `G` (bottom), `u` (up half page), `d` (down half page)
 - **Utilities**: `y` (copy URL to clipboard via Sonner toast)
 - **Multi-key sequences**: 500ms timeout for `gg` command

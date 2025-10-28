@@ -17,7 +17,7 @@ const projects = (await getCollection("projects")).sort(
     <ul>
         {
             projects.map((project) => (
-                <li class="border border-(--color-text-third) dark:border-(--color-text-third-dark) rounded p-4 sm:p-6 mb-6">
+                <li class="border border-(--color-text-third) dark:border-(--color-text-third-dark) rounded p-4 sm:p-6 mb-8">
                     <a
                         href={project.data.url}
                         target="_blank"

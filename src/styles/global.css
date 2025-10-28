@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@source "../**/*.{astro,html,js,ts,jsx,tsx}";
+@source "../**/*.astro";
 
 @theme {
   --color-background: #ffffff;
@@ -14,76 +14,28 @@
   --color-text-second-dark: #e5e5e5;
   --color-text-third-dark: #888888;
   --color-accent-dark: #ffa500;
+
+  --font-family-sans: Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-family-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 @layer base {
-  body {
-    font-family: "JetBrains Mono", monospace;
-    line-height: 1.6;
-    letter-spacing: 0.01em;
-    background-color: theme(--color-background);
-    color: theme(--color-text-first);
+  /* Global smooth scrolling behavior */
+  html {
     scroll-behavior: smooth;
   }
 
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: theme(--color-background-dark);
-      color: theme(--color-text-first-dark);
-    }
-  }
-
-  /* Focus states for keyboard navigation */
-  a:focus-visible {
-    outline: 2px solid theme(--color-accent-light);
-    outline-offset: 2px;
-  }
-
+  /* Focus states for keyboard navigation accessibility */
+  a:focus-visible,
   button:focus-visible {
-    outline: 2px solid theme(--color-accent-light);
+    outline: 2px solid var(--color-accent-light, #ff8c00);
     outline-offset: 2px;
   }
 
   @media (prefers-color-scheme: dark) {
     a:focus-visible,
     button:focus-visible {
-      outline-color: theme(--color-accent-dark);
+      outline-color: var(--color-accent-dark, #ffa500);
     }
   }
 }
-
-@layer components {
-  .prose {
-    --tw-prose-body: theme(--color-text-second);
-    --tw-prose-headings: theme(--color-text-first);
-    --tw-prose-links: theme(--color-accent-light);
-    --tw-prose-code: theme(--color-text-second);
-    --tw-prose-pre-bg: rgb(0 0 0 / 0.05);
-    --tw-prose-pre-code: theme(--color-text-second);
-    --tw-prose-quotes: theme(--color-text-third);
-    --tw-prose-quote-borders: theme(--color-accent-light);
-  }
-
-  .prose p {
-    font-family: Arial, sans-serif;
-    color: theme(--color-text-second);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .prose {
-      --tw-prose-body: theme(--color-text-second-dark);
-      --tw-prose-headings: theme(--color-text-first-dark);
-      --tw-prose-links: theme(--color-accent-light);
-      --tw-prose-code: theme(--color-text-second-dark);
-      --tw-prose-pre-bg: rgb(255 255 255 / 0.05);
-      --tw-prose-pre-code: theme(--color-text-second-dark);
-      --tw-prose-quotes: theme(--color-text-second-dark);
-      --tw-prose-quote-borders: theme(--color-accent-dark);
-    }
-
-    .prose p {
-      color: theme(--color-text-second-dark);
-    }
-  }
-}
-

@@ -71,7 +71,7 @@ const KEY_TIMEOUT = 500; // milliseconds
 
 /**
  * Handle global Vim key bindings
- * Navigation: h/p/b/m
+ * Navigation: h/p/b/c
  * Scrolling: gg/G/u/d
  *
  * @param event The keyboard event
@@ -85,7 +85,6 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
     h: "/", // Home
     p: "/proj", // Projects
     b: "/blog", // Blog
-    a: "/about", // Me/About
     c: "/club", // Club
   };
 
