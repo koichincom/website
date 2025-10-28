@@ -16,8 +16,6 @@
   --color-accent-dark: #ffa500;
 
   --font-family-sans: Inter, ui-sans-serif, system-ui, sans-serif;
-
-  --font-family-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 @layer base {
