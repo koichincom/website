@@ -1,12 +1,13 @@
 ---
 title: "Running Away from Pain"
 date: 2024-06-15T00:00:00Z
+update: 2024-06-15T00:00:00Z
 tags: ["life", "happiness", "mental health"]
 ---
 
 I became a proactive truant and got depressed in my first year of high school because of the intimidating and closed environment and teachers. While at home, I was thinking about my purpose of attending school, studying, and living all the time. Eventually, I got a straightforward and obvious but essential purpose for living.
 
-The reason why I am living is just to be happy. And if something bothers me, I can and should run away from it to be satisfied.
+> The reason why I am living is just to be happy. And if something bothers me, I can and should run away from it to be satisfied.
 
 After I got this value, my depression almost recovered, and I felt free. I transferred to a famous online high school in Japan in my second year. It was a great decision. I could make great friends and meet great teachers. More than anything else, because I had more free time, I was inspired by a classmate to participate in extracurricular activities such as organizing events and joining presentation competitions, which allowed me to learn about a new world that I had never known before. Also, it is a high school known as an advanced education system; there was an academic path support division of universities overseas, which kind of opportunity is rare in Japan. Because there was such support, I could join the online Oxford summer program and learn about the system of foreign universities to grasp and think about them deeply and rethink my life goals. As a result, I am now in a U.S. community college and aiming to transfer to a four-year university. I wish I had recognized myself sooner and escaped sooner before I became depressed.
 

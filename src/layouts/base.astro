@@ -56,16 +56,16 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
         />
     </head>
     <body
-        class="bg-(--color-background) dark:bg-(--color-background-dark) text-(--color-text-first) dark:text-(--color-text-first-dark)"
+        class="bg-(--color-background) dark:bg-(--color-background-dark) text-(--color-text-first) dark:text-(--color-text-first-dark) font-sans"
     >
         <Toaster client:load position="top-right" />
         <VimHelp id="vim-help-modal" />
         <div
-            class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8"
+            class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8"
         >
             <Header />
             <h1
-                class="mt-0 text-2xl sm:text-3xl font-bold mb-8 text-(--color-text-first) dark:text-(--color-text-first-dark)"
+                class="mt-0 text-2xl sm:text-3xl font-bold mb-8 text-(--color-text-first) dark:text-(--color-text-first-dark) font-mono"
             >
                 {h1}
             </h1>

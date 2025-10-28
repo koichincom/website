@@ -5,7 +5,9 @@
       "Read(//Users/koichi/Projects/**)",
       "Bash(git -C /Users/koichi/Projects/website ls-files:*)",
       "Bash(git -C /Users/koichi/Projects/website status --short)",
-      "Bash(git -C /Users/koichi/Projects/website branch -a)"
+      "Bash(git -C /Users/koichi/Projects/website branch -a)",
+      "Bash(npm run dev:*)",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []

@@ -1,13 +1,21 @@
 ---
 const currentPath = Astro.url.pathname;
+const isHome = currentPath === "/";
+const isBlog = currentPath === "/blog";
+const isBlogPost = currentPath.startsWith("/blog/");
+const isProjects = currentPath.startsWith("/proj");
+const isClub = currentPath.startsWith("/club");
 ---
 
 <nav
-    class="mb-8 flex flex-wrap gap-4 sm:gap-6 text-xs sm:text-sm text-(--color-text-second) dark:text-(--color-text-second-dark) transition-colors duration-200"
+    class="mb-8 flex flex-wrap gap-4 sm:gap-6 text-xs sm:text-sm text-(--color-text-second) dark:text-(--color-text-second-dark) font-mono"
 >
-    <!-- Only show links to other pages, not the current page -->
     {
-        currentPath !== ("/") && (
+        isHome ? (
+            <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
+                [h] Home
+            </span>
+        ) : (
             <a
                 href="/"
                 class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
@@ -17,7 +25,19 @@ const currentPath = Astro.url.pathname;
         )
     }
     {
-        !currentPath.startsWith("/blog") && (
+        isBlog ? (
+            <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
+                [b] Blog
+            </span>
+        ) : (
+            isBlogPost ? (
+                <a
+                    href="/blog"
+                    class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
+                >
+                    [b] Blog
+                </a>
+            ) : (
             <a
                 href="/blog"
                 class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
@@ -25,9 +45,14 @@ const currentPath = Astro.url.pathname;
                 [b] Blog
             </a>
         )
+        )
     }
     {
-        !currentPath.startsWith("/proj") && (
+        isProjects ? (
+            <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
+                [p] Projects
+            </span>
+        ) : (
             <a
                 href="/proj"
                 class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
@@ -37,13 +62,10 @@ const currentPath = Astro.url.pathname;
         )
     }
     {
-        !currentPath.startsWith("/about") && (
-            <a
-                href="/about"
-                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-            >
-                [a] About
-            </a>
+        isClub && (
+            <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
+                [c] Club
+            </span>
         )
     }
 </nav>

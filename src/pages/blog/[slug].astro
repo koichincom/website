@@ -15,11 +15,13 @@ const { Content } = await render(post);
 
 const title = post.data.title;
 const h1 = post.data.title;
+const date = post.data.date;
+const update = post.data.update;
 
 ---
 
-<PostLayout title={title} h1={h1}>
-    <article class="prose max-w-none">
+<PostLayout title={title} h1={h1} date={date} update={update}>
+    <article class="prose max-w-none dark:prose-invert">
         <Content />
     </article>
 </PostLayout>
