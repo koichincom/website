@@ -1,16 +1,16 @@
-# Website
-
-My personal website built with Astro and Tailwind CSS.
+# Todo
 
 ## Undone
 
 ### P0
 
+- [ ] Fix toast notification bug where toast appears on a left top without the UI
+
 ### P1
 
-- [ ] Add more to the project page and simplify the layout
-
 ### P2
+
+- [ ] Add more to the project page and simplify the layout
 
 ## Done
 
