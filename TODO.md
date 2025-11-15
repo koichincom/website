@@ -1,6 +1,4 @@
-# Website
-
-My personal website built with Astro and Tailwind CSS.
+# Todo
 
 ## Undone
 
@@ -8,11 +6,13 @@ My personal website built with Astro and Tailwind CSS.
 
 ### P1
 
-- [ ] Add more to the project page and simplify the layout
-
 ### P2
 
+- [ ] Add more to the project page and simplify the layout
+
 ## Done
+
+- [x] Fix toast notification bug where toast appears on a left top without the UI
 
 - [x] Popup to show the vim bindings help (vim-help.astro) Currently Disabled since not prioritized
   - [x] Modal implemented with styling and keyboard shortcuts (? to open, q/Esc to close)
