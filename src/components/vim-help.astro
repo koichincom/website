@@ -6,7 +6,13 @@ const { id } = Astro.props;
 ---
 
 <!-- Modal to show Vim help of this website -->
-<dialog id={id} tabindex="-1" class="rounded-lg bg-(--color-background) dark:bg-(--color-background-dark) p-8 max-w-md w-full backdrop:bg-black backdrop:opacity-50 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 outline-none">
+<dialog 
+  id={id} 
+  tabindex="-1" 
+  aria-modal="true"
+  aria-labelledby={`${id}-title`}
+  class="rounded-lg bg-(--color-background) dark:bg-(--color-background-dark) p-8 max-w-md w-full backdrop:bg-black backdrop:opacity-50 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 outline-none"
+>
     <div class="relative">
         <span class="absolute top-0 right-0 group">
             <button
@@ -21,7 +27,7 @@ const { id } = Astro.props;
             </span>
         </span>
 
-        <h2 class="text-xl font-bold mb-4 text-(--color-text-first) dark:text-(--color-text-first-dark)">
+        <h2 id={`${id}-title`} class="text-xl font-bold mb-4 text-(--color-text-first) dark:text-(--color-text-first-dark)">
             Keyboard Shortcuts
         </h2>
 
@@ -63,21 +69,83 @@ const { id } = Astro.props;
     function initHelpModal() {
         const dialog = document.getElementById(id);
         const closeButton = document.getElementById(`${id}-close-button`);
+        const helpButton = document.getElementById("help-button");
 
         if (!dialog || !closeButton) return;
+
+        // Focus trap implementation
+        let focusableElements = [];
+        
+        function getFocusableElements() {
+            const selector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+            return Array.from(dialog.querySelectorAll(selector));
+        }
+
+        function trapFocus(event) {
+            if (event.key !== 'Tab') return;
+            
+            focusableElements = getFocusableElements();
+            if (focusableElements.length === 0) return;
+
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            if (event.shiftKey) {
+                if (document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                }
+            } else {
+                if (document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        }
 
         // Close button click handler
         function closeModal() {
             dialog.close();
         }
 
+        // Handle dialog open
+        function handleDialogOpen() {
+            // Focus first focusable element or close button
+            focusableElements = getFocusableElements();
+            const firstFocusable = focusableElements[0] || closeButton;
+            if (firstFocusable) firstFocusable.focus();
+            
+            // Add focus trap listener
+            dialog.addEventListener('keydown', trapFocus);
+        }
+
+        // Handle dialog close
+        function handleDialogClose() {
+            // Remove focus trap listener
+            dialog.removeEventListener('keydown', trapFocus);
+            
+            // Restore focus to help button
+            if (helpButton) {
+                helpButton.focus();
+            }
+        }
+
         // Remove old listeners to prevent duplicates
         closeButton.removeEventListener("click", closeModal);
-        closeButton.addEventListener("click", closeModal);
-
-        // Click outside (backdrop) to close
         dialog.removeEventListener("click", handleBackdropClick);
+        dialog.removeEventListener("close", handleDialogClose);
+        dialog.removeEventListener("cancel", handleDialogClose);
+        document.removeEventListener("keydown", handleKeydown);
+
+        // Add fresh listeners
+        closeButton.addEventListener("click", closeModal);
         dialog.addEventListener("click", handleBackdropClick);
+        dialog.addEventListener("close", handleDialogClose);
+        dialog.addEventListener("cancel", handleDialogClose);
+        document.addEventListener("keydown", handleKeydown);
+
+        // Handle dialog open events
+        dialog.addEventListener('open', handleDialogOpen);
 
         function handleBackdropClick(event) {
             const rect = dialog.getBoundingClientRect();
@@ -94,9 +162,6 @@ const { id } = Astro.props;
         }
 
         // Keyboard handler for q and Esc
-        document.removeEventListener("keydown", handleKeydown);
-        document.addEventListener("keydown", handleKeydown);
-
         function handleKeydown(event) {
             if (dialog.open && (event.key === "q" || event.key === "Escape")) {
                 event.preventDefault();
@@ -110,4 +175,13 @@ const { id } = Astro.props;
 
     // Re-initialize after View Transitions
     document.addEventListener("astro:page-load", initHelpModal);
+
+    // Listen for programmatic open events
+    document.addEventListener('open-vim-help', () => {
+        const dialog = document.getElementById(id);
+            if (dialog && typeof dialog.showModal === 'function') {
+            dialog['showModal']();
+            dialog.focus();
+        }
+    });
 </script>

@@ -91,7 +91,9 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
                 {h1}
             </h1>
             <slot />
-            <Footer transition:persist />
+            <div class="relative">
+                <Footer transition:persist />
+            </div>
         </div>
         <script>
             import { initVimBindings } from "../scripts/vim";

@@ -1,5 +1,5 @@
 <nav
-    class="mt-8 flex flex-wrap gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
+    class="mt-8 flex flex-wrap items-center gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
 >
     <span class="relative group">
         <button
@@ -32,9 +32,12 @@
         class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
         >LinkedIn</a
     >
-    <span class="hidden sm:inline ml-auto text-(--color-text-third) dark:text-(--color-text-third-dark)">
-        Press <kbd class="px-1.5 py-0.5 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs font-mono">?</kbd> for shortcuts
-    </span>
+    <button
+        id="shortcuts-button"
+        class="ml-auto hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+    >
+        Type ? for Shortcuts
+    </button>
 </nav>
 
 <script>
@@ -59,4 +62,21 @@
 
     // Re-initialize after View Transitions
     document.addEventListener("astro:page-load", initEmailCopy);
+
+    function handleShortcutsClick() {
+        // Dispatch a custom event that the Vim help modal listens for
+        document.dispatchEvent(new Event('open-vim-help'));
+    }
+
+    function initShortcuts() {
+        const shortcutsButton = document.getElementById("shortcuts-button");
+        if (shortcutsButton) {
+            shortcutsButton.removeEventListener("click", handleShortcutsClick);
+            shortcutsButton.addEventListener("click", handleShortcutsClick);
+        }
+    }
+
+    initShortcuts();
+
+    document.addEventListener("astro:page-load", initShortcuts);
 </script>

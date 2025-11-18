@@ -22,7 +22,7 @@ export function showHelpModal() {
 /**
  * Check if the help modal is currently open
  */
-function isHelpModalOpen(): boolean {
+export function isHelpModalOpen(): boolean {
   const dialog = document.getElementById(HELP_MODAL_ID) as HTMLDialogElement;
   return dialog?.open ?? false;
 }
@@ -42,6 +42,11 @@ export function initVimBindings() {
 
     // Skip key bindings when modifier keys are pressed
     if (event.ctrlKey || event.metaKey || event.altKey) {
+      return;
+    }
+
+    // Skip global bindings when help modal is open (except ? and q/Esc)
+    if (isHelpModalOpen() && event.key !== "?" && event.key !== "q" && event.key !== "Escape") {
       return;
     }
 
