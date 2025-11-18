@@ -4,8 +4,6 @@
 
 ### P0
 
-- [ ] Toast is inconsistent, when it's in other than the home page.
-
 ### P1
 
 ### P2
@@ -14,6 +12,7 @@
 
 ## Done
 
+- [x] Toast is inconsistent, when it's in other than the home page.
 - [x] Fix toast notification bug where toast appears on a left top without the UI
 - [x] Popup to show the vim bindings help (vim-help.astro) Currently Disabled since not prioritized
   - [x] Modal implemented with styling and keyboard shortcuts (? to open, q/Esc to close)

@@ -46,7 +46,12 @@ export function initVimBindings() {
     }
 
     // Skip global bindings when help modal is open (except ? and q/Esc)
-    if (isHelpModalOpen() && event.key !== "?" && event.key !== "q" && event.key !== "Escape") {
+    if (
+      isHelpModalOpen() &&
+      event.key !== "?" &&
+      event.key !== "q" &&
+      event.key !== "Escape"
+    ) {
       return;
     }
 
