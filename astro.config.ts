@@ -30,6 +30,6 @@ export default defineConfig({
 
     // Others
     "/hci": "https://discord.gg/TF38g4AGtk",
-    "/ada": "https://discord.gg/Vk4adpwa5w",
+    "/ada": "https://discord.gg/KP297tkq3X",
   },
 });
