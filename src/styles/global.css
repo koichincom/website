@@ -4,16 +4,16 @@
 @source "../**/*.astro";
 
 @theme {
-  --color-background: #ffffff;
+  --color-background: #f0f0f0;
   --color-text-first: #000000;
   --color-text-second: #333333;
-  --color-text-third: #999999;
+  --color-text-third: #666666;
   --color-accent-light: #ff8c00;
 
   --color-background-dark: #1a1a1a;
   --color-text-first-dark: #ffffff;
   --color-text-second-dark: #e5e5e5;
-  --color-text-third-dark: #888888;
+  --color-text-third-dark: #9e9e9e;
   --color-accent-dark: #ffa500;
 
   --font-family-sans: Inter, ui-sans-serif, system-ui, sans-serif;
