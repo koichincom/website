@@ -4,6 +4,8 @@
 
 ### P0
 
+- [ ] Implement unified timeline feed on homepage: fullscreen welcome section → chronological blog+project feed, remove self-intro from /blog and /proj pages
+
 ### P1
 
 ### P2

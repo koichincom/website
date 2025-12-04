@@ -4,7 +4,7 @@
  */
 
 import { navigate } from "astro:transitions/client";
-import { toast } from "sonner";
+import { toast } from "../utils/toast";
 
 const HELP_MODAL_ID = "vim-help-modal";
 
