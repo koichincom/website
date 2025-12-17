@@ -42,11 +42,11 @@
 </nav>
 
 <script>
-    import { toast } from "sonner";
+    import { getNotyf } from "../utils/notyf";
 
     function handleEmailCopy() {
         navigator.clipboard.writeText("hello@koichin.com");
-        toast.success("Email Copied");
+        getNotyf().success("Email Copied");
     }
 
     function initEmailCopy() {
