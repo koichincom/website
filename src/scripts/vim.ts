@@ -73,7 +73,7 @@ const KEY_TIMEOUT = 500; // milliseconds
 /**
  * Handle global Vim key bindings
  * Navigation: h/p/b/c/v
- * Scrolling: gg/G/u/d
+ * Scrolling: j/k/gg/G/u/d
  *
  * @param event The keyboard event
  * @returns true if a binding was executed, false otherwise
@@ -115,7 +115,7 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
         // Execute 'gg' command
         lastKey = "";
         lastKeyTime = 0;
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: "auto" });
         return true;
       }
 
@@ -123,7 +123,7 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
       // 'G' jumps to bottom
       window.scrollTo({
         top: document.documentElement.scrollHeight,
-        behavior: "smooth",
+        behavior: "auto",
       });
       return true;
 
@@ -131,7 +131,7 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
       // 'u' scrolls up half page (Ctrl+u in Vim)
       window.scrollBy({
         top: -1 * (window.innerHeight / 2),
-        behavior: "smooth",
+        behavior: "auto",
       });
       return true;
 
@@ -139,9 +139,26 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
       // 'd' scrolls down half page (Ctrl+d in Vim)
       window.scrollBy({
         top: window.innerHeight / 2,
-        behavior: "smooth",
+        behavior: "auto",
       });
       return true;
+
+    case "j":
+      // 'j' scrolls down
+      window.scrollBy({
+        top: window.innerHeight / 20,
+        behavior: "auto",
+      });
+      return true;
+
+    case "k":
+      // 'k' scrolls up
+      window.scrollBy({
+        top: -1 * (window.innerHeight / 20),
+        behavior: "auto",
+      });
+      return true;
+
     case "y":
       // 'y' copies current URL to clipboard
       navigator.clipboard.writeText(window.location.href);

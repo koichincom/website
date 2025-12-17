@@ -6,61 +6,44 @@ const { id } = Astro.props;
 ---
 
 <!-- Modal to show Vim help of this website -->
-<dialog 
-  id={id} 
-  tabindex="-1" 
+<dialog
+  id={id}
+  tabindex="-1"
   aria-modal="true"
   aria-labelledby={`${id}-title`}
-  class="rounded-lg bg-(--color-background) dark:bg-(--color-background-dark) p-8 max-w-md w-full backdrop:bg-black backdrop:opacity-50 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 outline-none"
+  class="rounded-lg bg-(--color-background) dark:bg-(--color-background-dark) p-6 max-w-2xl w-full backdrop:bg-black backdrop:opacity-50 dark:backdrop:opacity-90 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 outline-none"
 >
     <div class="relative">
-        <span class="absolute top-0 right-0 group">
-            <button
-                id={`${id}-close-button`}
-                class="text-(--color-text-third) dark:text-(--color-text-third-dark) hover:text-(--color-text-first) dark:hover:text-(--color-text-first-dark) text-2xl leading-none"
-                aria-label="Close"
-            >
-                ×
-            </button>
-            <span class="absolute bottom-full right-0 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                q or Esc to close
-            </span>
-        </span>
+        <button
+            id={`${id}-close-button`}
+            class="absolute top-0 right-0 text-(--color-text-third) dark:text-(--color-text-third-dark) hover:text-(--color-text-first) dark:hover:text-(--color-text-first-dark) text-sm"
+            aria-label="Close"
+        >
+            Esc to close
+        </button>
 
         <h2 id={`${id}-title`} class="text-xl font-bold mb-4 text-(--color-text-first) dark:text-(--color-text-first-dark)">
-            Keyboard Shortcuts
+            Shortcuts
         </h2>
 
-        <div class="space-y-4 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)">
-            <div>
-                <h3 class="font-semibold mb-2 text-(--color-text-first) dark:text-(--color-text-first-dark)">Navigation</h3>
-                <ul class="space-y-1">
-                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">h</kbd> Home</li>
-                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">b</kbd> Blog</li>
-                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">p</kbd> Projects</li>
-                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">v</kbd> Vision</li>
-                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">c</kbd> Club</li>
-                </ul>
-            </div>
+        <div class="grid grid-cols-2 gap-8 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)">
+            <ul class="space-y-1">
+                <li>h — Home</li>
+                <li>b — Blog</li>
+                <li>p — Projects</li>
+                <li>v — Vision</li>
+                <li>c — Club</li>
+                <li>y — Copy URL</li>
+            </ul>
 
-            <div>
-                <h3 class="font-semibold mb-2 text-(--color-text-first) dark:text-(--color-text-first-dark)">Scrolling</h3>
-                <ul class="space-y-1">
-                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">gg</kbd> Scroll to top</li>
-                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">G</kbd> Scroll to bottom</li>
-                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">u</kbd> Scroll up half page</li>
-                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">d</kbd> Scroll down half page</li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="font-semibold mb-2 text-(--color-text-first) dark:text-(--color-text-first-dark)">Other</h3>
-                <ul class="space-y-1">
-                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">y</kbd> Copy current URL</li>
-                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">?</kbd> Show this help</li>
-                    <li><kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">q</kbd> or <kbd class="px-2 py-1 bg-(--color-text-third) dark:bg-(--color-text-third-dark) text-(--color-background) dark:text-(--color-background-dark) rounded text-xs">Esc</kbd> Close this help</li>
-                </ul>
-            </div>
+            <ul class="space-y-1">
+                <li>j — Scroll down</li>
+                <li>k — Scroll up</li>
+                <li>u — Scroll up half page</li>
+                <li>d — Scroll down half page</li>
+                <li>gg — Scroll to top</li>
+                <li>G — Scroll to bottom</li>
+            </ul>
         </div>
     </div>
 </dialog>
@@ -75,7 +58,7 @@ const { id } = Astro.props;
 
         // Focus trap implementation
         let focusableElements = [];
-        
+
         function getFocusableElements() {
             const selector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
             return Array.from(dialog.querySelectorAll(selector));
@@ -83,7 +66,7 @@ const { id } = Astro.props;
 
         function trapFocus(event) {
             if (event.key !== 'Tab') return;
-            
+
             focusableElements = getFocusableElements();
             if (focusableElements.length === 0) return;
 
@@ -114,7 +97,7 @@ const { id } = Astro.props;
             focusableElements = getFocusableElements();
             const firstFocusable = focusableElements[0] || closeButton;
             if (firstFocusable) firstFocusable.focus();
-            
+
             // Add focus trap listener
             dialog.addEventListener('keydown', trapFocus);
         }
@@ -123,7 +106,7 @@ const { id } = Astro.props;
         function handleDialogClose() {
             // Remove focus trap listener
             dialog.removeEventListener('keydown', trapFocus);
-            
+
             // Restore focus to help button
             if (helpButton) {
                 helpButton.focus();

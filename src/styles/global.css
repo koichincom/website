@@ -4,7 +4,7 @@
 @source "../**/*.astro";
 
 @theme {
-  --color-background: #f0f0f0;
+  --color-background: #f1f1f1;
   --color-text-first: #000000;
   --color-text-second: #333333;
   --color-text-third: #666666;
@@ -20,11 +20,6 @@
 }
 
 @layer base {
-  /* Global smooth scrolling behavior */
-  html {
-    scroll-behavior: smooth;
-  }
-
   /* Focus states for keyboard navigation accessibility */
   a:focus-visible,
   button:focus-visible {
