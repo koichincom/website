@@ -4,7 +4,7 @@
  */
 
 import { navigate } from "astro:transitions/client";
-import { getNotyf } from "../utils/notyf";
+import { toast } from "../utils/toast";
 
 const HELP_MODAL_ID = "vim-help-modal";
 
@@ -162,7 +162,7 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
         case "y":
             // 'y' copies current URL to clipboard
             navigator.clipboard.writeText(window.location.href);
-            getNotyf().success("URL Copied");
+            toast("URL Copied");
             return true;
         case "?":
             // '?' shows modal with Vim help

@@ -9,4 +9,4 @@ My personal website, designed to be simple and fast. Visit [koichin.com](https:/
 - **RSS feed + sitemap** for SEO and syndication
 - **Giscus comments** with GitHub Discussions integration
 - **Reading time estimates** for blog posts
-- **Sonner toasts** for user feedback
+- **Toastify-js toasts** for user feedback
