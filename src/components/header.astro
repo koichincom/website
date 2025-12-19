@@ -1,116 +1,105 @@
 ---
 const currentPath = Astro.url.pathname;
 const isHome = currentPath === "/";
-const isBlog = currentPath === "/blog";
-const isBlogPost = currentPath.startsWith("/blog/");
-const isProjects = currentPath.startsWith("/proj");
+const isBlog = currentPath === "/writing";
+const isBlogPost = currentPath.startsWith("/writing/");
+const isProjects = currentPath.startsWith("/project");
 const isClub = currentPath.startsWith("/club");
-const isVision = currentPath.startsWith("/vision");
 ---
 
 <nav
-    class="mb-8 flex flex-wrap gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
+    class="sticky top-0 z-10 bg-(--color-background) dark:bg-(--color-background-dark) pb-4 mb-4 flex flex-wrap justify-between gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
 >
-    {
-        isHome ? (
-            <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
-                Home
-            </span>
-        ) : (
-            <span class="relative group hidden sm:inline-block">
+    <div>
+        {
+            isHome ? (
+                <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
+                    Koichi Nakayamada
+                </span>
+            ) : (
+                <span class="relative group hidden sm:inline-block">
+                    <a
+                        href="/"
+                        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                    >
+                        Koichi Nakayamada
+                    </a>
+                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                        Press h
+                    </span>
+                </span>
                 <a
                     href="/"
-                    class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                    class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:hidden"
                 >
-                    Home
+                    Koichi Nakayamada
                 </a>
-                <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                    Press h
+            )
+        }
+    </div>
+    <div class="flex gap-4 sm:gap-6">
+        {
+            isBlog ? (
+                <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
+                    Writing
                 </span>
-            </span>
-            <a
-                href="/"
-                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:hidden"
-            >
-                Home
-            </a>
-        )
-    }
-    {
-        isBlog ? (
-            <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
-                Blog
-            </span>
-        ) : (
-            isBlogPost ? (
-                <a
-                    href="/blog"
-                    class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
-                >
-                    Blog
-                </a>
+            ) : (
+                isBlogPost ? (
+                    <a
+                        href="/writing"
+                        class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
+                    >
+                        Writing
+                    </a>
+                ) : (
+                    <>
+                        <span class="relative group hidden sm:inline-block">
+                            <a
+                                href="/writing"
+                                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                            >
+                                Writing
+                            </a>
+                            <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                                Press w
+                            </span>
+                        </span>
+                        <a
+                            href="/writing"
+                            class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:hidden"
+                        >
+                            Writing
+                        </a>
+                    </>
+                )
+            )
+        }
+        {
+            isProjects ? (
+                <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
+                    Project
+                </span>
             ) : (
                 <>
                     <span class="relative group hidden sm:inline-block">
                         <a
-                            href="/blog"
+                            href="/project"
                             class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
                         >
-                            Blog
+                            Project
                         </a>
                         <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                            Press b
+                            Press p
                         </span>
                     </span>
                     <a
-                        href="/blog"
+                        href="/project"
                         class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:hidden"
                     >
-                        Blog
+                        Project
                     </a>
                 </>
             )
-        )
-    }
-    {
-        isProjects ? (
-            <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
-                Projects
-            </span>
-        ) : (
-            <>
-                <span class="relative group hidden sm:inline-block">
-                    <a
-                        href="/proj"
-                        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-                    >
-                        Projects
-                    </a>
-                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                        Press p
-                    </span>
-                </span>
-                <a
-                    href="/proj"
-                    class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:hidden"
-                >
-                    Projects
-                </a>
-            </>
-        )
-    }
-    {
-        isClub && (
-            <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
-                Club
-            </span>
-        )
-    }
-    {
-        isVision && (
-            <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
-                Vision
-            </span>
-        )
-    }
+        }
+    </div>
 </nav>
