@@ -21,7 +21,8 @@ const formatDate = (date: Date) => {
 };
 ---
 
-<BaseLayout title={title} h1={h1} date={date} update={update}>
+<BaseLayout title={title} h1={h1}>
+    <div class="max-w-4xl mx-auto">
     {update ? (
         <div class="mb-4 text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2">
             <p>{readingTime && `${readingTime} min read •`} Published: <time datetime={date?.toISOString()}>{date && formatDate(date)}</time>• Last updated: <time datetime={update.toISOString()}>{formatDate(update)}</time></p>
@@ -33,4 +34,5 @@ const formatDate = (date: Date) => {
     ) : null}
     <slot />
     {showComments && <Giscus />}
+    </div>
 </BaseLayout>

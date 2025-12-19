@@ -10,7 +10,7 @@ export interface Props {
     description?: string;
 }
 const { title = "Koichi's Website" } = Astro.props;
-const { h1 = "Welcome" } = Astro.props;
+const { h1 } = Astro.props;
 const { description = "Koichi Nakayamada's personal website and blog" } =
     Astro.props;
 const siteUrl = "https://koichin.com" + Astro.url.pathname;
@@ -51,7 +51,7 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
         <link
             rel="alternate"
             type="application/rss+xml"
-            title="Koichi's Blog"
+            title="Koichi's Writing"
             href="/rss.xml"
         />
 
@@ -83,19 +83,28 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
             class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12"
         >
             <Header transition:persist />
-            <h1
-                class="mt-0 text-2xl sm:text-3xl font-bold mb-8 text-(--color-text-first) dark:text-(--color-text-first-dark)"
-            >
-                {h1}
-            </h1>
+            {
+                h1 && (
+                    <h1 class="mt-0 text-2xl sm:text-3xl font-bold mb-8 text-(--color-text-first) dark:text-(--color-text-first-dark)">
+                        {h1}
+                    </h1>
+                )
+            }
             <slot />
-            <div class="relative">
+            <!-- <div class="relative">
                 <Footer transition:persist />
-            </div>
+            </div> -->
         </div>
         <script>
             import { initVimBindings } from "../scripts/vim";
             initVimBindings();
+
+            document.addEventListener("astro:page-load", () => {
+                if (window.location.pathname !== "/") {
+                    // @ts-ignore
+                    window.hasVisitedInternal = true;
+                }
+            });
         </script>
     </body>
 </html>
