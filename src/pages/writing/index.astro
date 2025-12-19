@@ -2,8 +2,8 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/base.astro";
 import { getReadingTime, formatReadingTime } from "../../utils/readingTime";
-const title = "Koichi's Blog";
-const h1 = "Blog";
+const title = "Koichi's Writing";
+const h1 = "Writing";
 
 const blogPosts = (await getCollection("blog")).sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
@@ -17,11 +17,12 @@ const postsWithReadingTime = blogPosts.map((post) => {
 ---
 
 <BaseLayout title={title} h1={h1}>
+    <div class="max-w-4xl">
     <ul class="mb-4">
         {
             postsWithReadingTime.map(({ post, readingTime }) => (
                 <li class="py-2">
-                    <a href={`/blog/${post.id}`} class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                    <a href={`/writing/${post.id}`} class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                         <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">
                             {post.data.title}
                         </span>
@@ -41,4 +42,5 @@ const postsWithReadingTime = blogPosts.map((post) => {
             ))
         }
     </ul>
+    </div>
 </BaseLayout>

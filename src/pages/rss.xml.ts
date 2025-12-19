@@ -9,13 +9,13 @@ export async function GET(context: any) {
   );
 
   return rss({
-    title: "Koichi's Blog",
+    title: "Koichi's Writing",
     description: "Latest posts from Koichi Nakayamada",
     site: context.site,
     items: blog.map((post) => ({
       title: post.data.title,
       pubDate: post.data.date,
-      link: `/blog/${post.id}/`,
+      link: `/writing/${post.id}/`,
     })),
   });
 }

@@ -14,9 +14,10 @@ export default defineConfig({
 
   redirects: {
     // Redirects for closer URLs
-    "/project": "/proj",
-    "/projects": "/proj",
-    "/blogs": "/blog",
+    "/proj": "/project",
+    "/projects": "/project",
+    "/blog": "/writing",
+    "/blogs": "/writing",
     "/clubs": "/club",
 
     // Redirects for social media
