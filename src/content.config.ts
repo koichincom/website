@@ -16,18 +16,6 @@ const blog = defineCollection({
 });
 
 /**
- * Vision collection schema
- * Markdown files in src/content/vision/
- */
-const vision = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/vision" }),
-  schema: z.object({
-    title: z.string().describe("Vision title (versioning)"),
-    date: z.date().describe("Publication date"),
-  }),
-});
-
-/**
  * Projects collection schema
  * JSON files in src/content/projects/
  */
@@ -48,4 +36,4 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { blog, vision, projects };
+export const collections = { blog, projects };
