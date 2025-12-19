@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/base.astro";
-const title = "Koichi's Projects";
-const h1 = "Projects";
+const title = "Koichi's Project";
+const h1 = "Project";
 
 const projects = (await getCollection("projects")).sort(
     (a, b) => (a.data.order ?? Infinity) - (b.data.order ?? Infinity),
@@ -10,6 +10,7 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <BaseLayout title={title} h1={h1}>
+    <div class="max-w-4xl">
     <p class="mb-8 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)">
 
     </p>
@@ -51,4 +52,5 @@ const projects = (await getCollection("projects")).sort(
             ))
         }
     </ul>
+    </div>
 </BaseLayout>
