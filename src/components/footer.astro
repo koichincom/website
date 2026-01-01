@@ -1,17 +1,18 @@
 <nav
     class="mt-8 flex flex-wrap items-center gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
 >
-    <span class="relative group">
-        <button
-            id="copy-email"
-            class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 cursor-pointer"
-            aria-label="Copy email address to clipboard"
-            >Email</button
-        >
-        <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-            Copy Email
-        </span>
-    </span>
+    <a
+        href="mailto:hello@koichin.com"
+        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+        >Email</a
+    >
+    <a
+        href="https://signal.me/#eu/hFxJqhdUe_9zSwQs01xjuf6sz9n5Zag3yfHQzxGwPZPL-X863I9DF5QXch7gCsUv"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+        >Signal</a
+    >
     <a
         href="https://github.com/koichincom"
         target="_blank"
@@ -42,27 +43,27 @@
 </nav>
 
 <script>
-    import { toast } from "../utils/toast";
+    // import { toast } from "../utils/toast";
 
-    function handleEmailCopy() {
-        navigator.clipboard.writeText("hello@koichin.com");
-        toast("Email Copied");
-    }
+    // function handleEmailCopy() {
+    //     navigator.clipboard.writeText("hello@koichin.com");
+    //     toast("Email Copied");
+    // }
 
-    function initEmailCopy() {
-        const emailButton = document.getElementById("copy-email");
-        if (emailButton) {
-            // Remove old listener if exists to prevent duplicates
-            emailButton.removeEventListener("click", handleEmailCopy);
-            emailButton.addEventListener("click", handleEmailCopy);
-        }
-    }
+    // function initEmailCopy() {
+    //     const emailButton = document.getElementById("copy-email");
+    //     if (emailButton) {
+    //         // Remove old listener if exists to prevent duplicates
+    //         emailButton.removeEventListener("click", handleEmailCopy);
+    //         emailButton.addEventListener("click", handleEmailCopy);
+    //     }
+    // }
 
-    // Initialize on page load
-    initEmailCopy();
+    // // Initialize on page load
+    // initEmailCopy();
 
-    // Re-initialize after View Transitions
-    document.addEventListener("astro:page-load", initEmailCopy);
+    // // Re-initialize after View Transitions
+    // document.addEventListener("astro:page-load", initEmailCopy);
 
     function handleShortcutsClick() {
         // Dispatch a custom event that the Vim help modal listens for
