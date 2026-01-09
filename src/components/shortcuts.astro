@@ -159,7 +159,7 @@ const { id } = Astro.props;
     document.addEventListener("astro:page-load", initHelpModal);
 
     // Listen for programmatic open events
-    document.addEventListener('open-vim-help', () => {
+    document.addEventListener('open-shortcuts', () => {
         const dialog = document.getElementById(id);
             if (dialog && typeof dialog.showModal === 'function') {
             dialog['showModal']();

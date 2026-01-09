@@ -6,10 +6,10 @@
 import { navigate } from "astro:transitions/client";
 import { toast } from "../utils/toast";
 
-const HELP_MODAL_ID = "vim-help-modal";
+const HELP_MODAL_ID = "shortcuts-modal";
 
 /**
- * Show the Vim help modal
+ * Show the shortcuts modal
  */
 export function showHelpModal() {
     const dialog = document.getElementById(HELP_MODAL_ID) as HTMLDialogElement;
@@ -20,7 +20,7 @@ export function showHelpModal() {
 }
 
 /**
- * Check if the help modal is currently open
+ * Check if the shortcuts modal is currently open
  */
 export function isHelpModalOpen(): boolean {
     const dialog = document.getElementById(HELP_MODAL_ID) as HTMLDialogElement;
@@ -45,7 +45,7 @@ export function initVimBindings() {
             return;
         }
 
-        // Skip global bindings when help modal is open (except ? and q/Esc)
+        // Skip global bindings when shortcuts modal is open (except ? and q/Esc)
         if (
             isHelpModalOpen() &&
             event.key !== "?" &&
@@ -164,7 +164,7 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
             toast("URL Copied");
             return true;
         case "?":
-            // '?' shows modal with Vim help
+            // '?' shows modal with shortcuts
             showHelpModal();
             return true;
         default:
