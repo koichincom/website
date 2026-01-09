@@ -1,41 +1,86 @@
 # AGENTS.md
 
-Purpose: Guidance for agentic coding agents working in this repository. See `CLAUDE.md` for full project context.
+Purpose: Guidance for agentic coding agents working in this repository.
 
-Build & Dev
+## Build, Dev & Validation
 
-- Dev server: `npm run dev`
-- Build: `npm run build`
-- Preview: `npm run preview`
-- Astro CLI: `npm run astro`
+### Commands
+- **Dev server:** `npm run dev` (Runs on port 4321 by default)
+- **Build:** `npm run build` (Production build, outputs to `dist/`)
+- **Preview:** `npm run preview` (Preview the production build locally)
+- **Astro CLI:** `npm run astro` (Run any astro command)
 
-Lint & Format
+### CRITICAL: Testing & Validation Workflow
+**Do NOT run `npm run dev` or `npm run preview` to validate your changes.**
+- These are **CONTINUOUS watch processes** that run indefinitely.
+- Executing them will cause your environment to hang until timeout, providing no feedback.
+- **To validate code changes:** Always run `npm run build`. This catches TypeScript errors, CSS issues, missing imports, and broken routes.
+- **To check types quickly:** Run `npx tsc --noEmit` if you only modified `.ts` files.
 
-- ESLint (manual): `npx eslint "src/**/*.{ts,tsx,astro}" --fix`
-- Prettier: `npx prettier --write .`
+## Testing
+- No test suite currently exists in the project.
+- If adding tests, use **Vitest**.
+- **Run all tests:** `npx vitest`
+- **Run single file:** `npx vitest path/to/test.ts`
+- **Run single test:** `npx vitest -t "test name"`
 
-Tests
+## Project Structure
+- `src/assets/`: Static assets and placeholders.
+- `src/components/`: Reusable Astro components (flat structure).
+- `src/content/`: Content collections (TOML for projects, Markdown for writing).
+- `src/layouts/`: Base page templates and wrapper components.
+- `src/pages/`: File-based routing (including dynamic routes like `[slug].astro`).
+- `src/scripts/`: Client-side TypeScript logic.
+- `src/styles/`: Global CSS and Tailwind configurations.
+- `src/utils/`: Pure utility functions and helpers.
 
-- No test script in `package.json`; tooling may use Vitest.
-- Run all tests (if installed): `npx vitest`
-- Run a single file: `npx vitest path/to/test.file.ts`
-- Run a single test by name: `npx vitest -t "test name"`
+## Code Style & Conventions
 
-Code Style (high level)
+### 1. Naming Conventions
+- **Files:** `kebab-case.astro` or `kebab-case.ts`.
+- **Components:** `PascalCase` (e.g., `BaseLayout.astro`, `PostHeader.astro`).
+- **Functions/Variables:** `camelCase` (e.g., `getReadingTime`, `isPublished`).
+- **Constants:** `UPPER_SNAKE_CASE` (e.g., `WORDS_PER_MINUTE`).
+- **Types/Interfaces:** `PascalCase` with descriptive suffixes like `Props` or `Data`.
 
-- TypeScript: prefer strict types; avoid `any`; use `strictNullChecks` patterns.
-- Formatting: 2-space indentation; keep Prettier compatible.
-- Imports: External → internal (absolute) → styles/assets; prefer named imports.
-- Naming: `camelCase` for variables/functions; `PascalCase` for components/types (use `Props`/`Data` suffixes).
-- Components: React components PascalCase; Astro components match file names.
-- CSS: favor Tailwind utilities; extract shared styles to `src/styles/global.css`.
-- Error handling: validate inputs early; return early; throw contextual errors; do not swallow errors.
+### 2. TypeScript Patterns
+- **Strictness:** Use strict types; avoid `any`. `strictNullChecks` is enabled.
+- **Interfaces:** Define component props using `export interface Props`.
+- **Return Types:** Always specify explicit return types for exported functions.
+- **Validation:** Use Zod schemas for data validation (see `src/content.config.ts`).
 
-Cursor / Copilot
+### 3. Import Organization
+Order imports logically:
+1. External packages (e.g., `astro:content`, `@astrojs/rss`).
+2. Internal modules/components using relative paths (e.g., `../components/...`).
+3. Styles and assets (e.g., `../styles/global.css`).
 
-- No `.cursor/rules/` or `.github/copilot-instructions.md` detected; if added, agents must respect those rules.
+### 4. Astro Components
+- Use the frontmatter (`---`) for logic and data fetching.
+- Prefer `getCollection()` for content-driven pages.
+- Use `export async function getStaticPaths()` for dynamic route generation.
+- Use the `<slot />` component for layouts.
 
-Commits
+### 5. CSS & Styling
+- Favor **Tailwind CSS** utility classes directly in templates.
+- Extract shared/complex styles to `src/styles/global.css` sparingly.
+- Use the `@tailwindcss/typography` plugin (`prose` class) for Markdown content.
 
-- Make small, focused commits; do not commit secrets or build artifacts.
+### 6. Formatting
+- **Indentation:** 2 spaces.
+- **Semicolons:** Use sparingly/Prettier default (consistency is key).
+- **Strings:** Double quotes preferred.
 
+### 7. Error Handling & Logic
+- **Validate Early:** Check inputs and content schemas at the boundaries.
+- **Return Early:** Avoid deep nesting of `if/else` blocks.
+- **Null Safety:** Use optional chaining (`?.`) and nullish coalescing (`??`).
+
+## Content Collections
+- **Writing:** Markdown files in `src/content/writing/`. Requires `title`, `published`, and `description`.
+- **Projects:** TOML files in `src/content/projects/`.
+- Schema definitions are centralized in `src/content.config.ts`.
+
+## Tooling Configuration
+- **Cursor/Copilot:** No specific `.cursorrules` or `.github/copilot-instructions.md` detected. Respect these guidelines as the source of truth.
+- **Commits:** Make small, atomic commits. Focus on the "why" in commit messages. Never commit secrets or the `dist/` directory.

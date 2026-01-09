@@ -1,0 +1,7 @@
+name = "Still Waiting Discord"
+primaryUrl = "https://github.com/koichincom/still-waiting-discord"
+published = 2025-06-01T00:00:00Z
+description = "Discord bot that automatically reminds mentioned users who haven't replied or reacted within 24 hours, keeping conversations active across servers."
+roles = ["Creator and Maintainer"]
+tags = ["Python", "Discord.py", "Google Cloud Firestore", "GCP Compute Engine", "OAuth2", "Discord", "Bot"]
+image = "/assets/projects/placeholder.svg"

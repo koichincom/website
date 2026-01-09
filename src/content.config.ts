@@ -9,30 +9,37 @@ const writing = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/writing" }),
   schema: z.object({
     title: z.string().describe("Post title"),
-    date: z.date().describe("Publication date"),
-    update: z.date().nullable().optional().describe("Last update date"),
+    published: z.date().describe("Initial publication date"),
+    updates: z.array(z.date()).default([]).describe("List of all update dates"),
+    updated: z.date().optional().describe("Last updated date"),
     tags: z.array(z.string()).optional().describe("Tags for categorization"),
+    image: z.string().optional().describe("Optional image path for the post"),
   }),
 });
 
 /**
  * Projects collection schema
- * JSON files in src/content/projects/
+ * TOML files in src/content/projects/
  */
 const projects = defineCollection({
-  loader: glob({ pattern: "**/*.json", base: "./src/content/projects" }),
+  loader: glob({ pattern: "**/*.toml", base: "./src/content/projects" }),
   schema: z.object({
     name: z.string().describe("Project name"),
-    url: z.string().url().describe("Project URL or repository"),
-    role: z
-      .array(z.tuple([z.string(), z.string()]))
-      .describe("Roles and periods: [[title, period], ...]"),
+    primaryUrl: z.string().url().describe("Main project destination"),
+    published: z.date().describe("Publication/start date for sorting"),
+    urls: z
+      .array(
+        z.object({
+          label: z.string(),
+          url: z.string().url(),
+        }),
+      )
+      .optional()
+      .describe("Additional links (repo, demo, docs)"),
+    roles: z.array(z.string()).optional().describe("Current roles"),
     description: z.string().describe("Project description"),
-    achievements: z
-      .array(z.string())
-      .describe("Key achievements or highlights"),
-    technologies: z.array(z.string()).describe("Technologies and tools used"),
-    order: z.number().optional().describe("Display order"),
+    tags: z.array(z.string()).optional().describe("Tech stack and domain tags"),
+    image: z.string().optional().describe("Project image path"),
   }),
 });
 

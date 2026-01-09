@@ -5,7 +5,7 @@ const title = "Koichi's Project";
 const h1 = "Project";
 
 const projects = (await getCollection("projects")).sort(
-    (a, b) => (a.data.order ?? Infinity) - (b.data.order ?? Infinity),
+    (a, b) => new Date(b.data.published).getTime() - new Date(a.data.published).getTime(),
 );
 ---
 
@@ -19,7 +19,7 @@ const projects = (await getCollection("projects")).sort(
             projects.map((project) => (
                 <li class="border border-(--color-text-third) dark:border-(--color-text-third-dark) rounded p-4 sm:p-6 mb-8">
                     <a
-                        href={project.data.url}
+                        href={project.data.primaryUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         class="block"
@@ -27,26 +27,25 @@ const projects = (await getCollection("projects")).sort(
                         <h2 class="text-lg sm:text-xl font-semibold mb-2 text-(--color-text-first) dark:text-(--color-text-first-dark)">
                             {project.data.name}
                         </h2>
-                        <p class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mb-3">
-                            {project.data.role
-                                .map(([role, period]) => `${role} (${period})`)
-                                .join(", ")}
-                        </p>
+
+                        {project.data.roles && project.data.roles.length > 0 && (
+                            <p class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mb-3">
+                                {project.data.roles.join(", ")}
+                            </p>
+                        )}
                         <p class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) mb-4">
                             {project.data.description}
                         </p>
-                        <h3 class="text-base font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark) mb-2">Achievements</h3>
-                        <ul class="mb-4 pl-4">
-                            {project.data.achievements.map((achievement) => (
-                                <li class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) mb-1">- {achievement}</li>
-                            ))}
-                        </ul>
-                        <h3 class="text-base font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark) mb-2">Technologies</h3>
-                        <ul class="pl-4">
-                            {project.data.technologies.map((tech) => (
-                                <li class="text-base text-(--color-text-second) dark:text-(--color-text-third-dark)">{tech}</li>
-                            ))}
-                        </ul>
+                        {project.data.tags && project.data.tags.length > 0 && (
+                            <>
+                                <h3 class="text-base font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark) mb-2">Tags</h3>
+                                <ul class="flex flex-wrap gap-x-4 gap-y-1 p-0 list-none">
+                                    {project.data.tags.map((tag) => (
+                                        <li class="text-base text-(--color-text-second) dark:text-(--color-text-third-dark)">{tag}</li>
+                                    ))}
+                                </ul>
+                            </>
+                        )}
                     </a>
                 </li>
             ))
