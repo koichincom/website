@@ -4,12 +4,10 @@ const isHome = currentPath === "/";
 const isWriting = currentPath === "/writing";
 const isWritingPost = currentPath.startsWith("/writing/");
 const isProjects = currentPath.startsWith("/project");
-const isClub = currentPath.startsWith("/club");
 ---
 
-<nav
-    class="sticky top-0 z-10 bg-(--color-background) dark:bg-(--color-background-dark) pb-4 mb-4 flex flex-wrap justify-between gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
->
+<header class="fixed inset-x-0 top-0 z-50 bg-(--color-background)/95 dark:bg-(--color-background-dark)/95 backdrop-blur-sm h-14 sm:h-16">
+  <nav class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap">
     <div>
         {
             isHome ? (
@@ -24,7 +22,7 @@ const isClub = currentPath.startsWith("/club");
                     >
                         Koichi Nakayamada
                     </a>
-                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                        <span class="absolute top-full left-1/2 -translate-x-1/2 mt-1 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
                         Press h
                     </span>
                 </span>
@@ -60,7 +58,7 @@ const isClub = currentPath.startsWith("/club");
                             >
                                 Writing
                             </a>
-                            <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                    <span class="absolute top-full left-1/2 -translate-x-1/2 mt-1 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
                                 Press w
                             </span>
                         </span>
@@ -88,7 +86,7 @@ const isClub = currentPath.startsWith("/club");
                         >
                             Project
                         </a>
-                        <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                            <span class="absolute top-full left-1/2 -translate-x-1/2 mt-1 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
                             Press p
                         </span>
                     </span>
@@ -102,4 +100,5 @@ const isClub = currentPath.startsWith("/club");
             )
         }
     </div>
-</nav>
+  </nav>
+</header>
