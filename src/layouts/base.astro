@@ -80,9 +80,10 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
     >
         <Shortcuts id="shortcuts-modal" transition:persist />
         <div
-            class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12"
+            class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-6 lg:py-5"
         >
             <Header transition:persist />
+            <div class="h-14 sm:h-16" aria-hidden="true"></div>
             {
                 h1 && (
                     <h1 class="mt-0 text-2xl sm:text-3xl font-bold mb-8 text-(--color-text-first) dark:text-(--color-text-first-dark)">
