@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/base.astro";
+import BaseLayout from "../../layouts/base.astro";
 const title = "Koichi's Project";
 const h1 = "Project";
 
@@ -44,7 +44,7 @@ const projects = (await getCollection("projects")).sort(
                         <h3 class="text-base font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark) mb-2">Technologies</h3>
                         <ul class="pl-4">
                             {project.data.technologies.map((tech) => (
-                                <li class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark)">{tech}</li>
+                                <li class="text-base text-(--color-text-second) dark:text-(--color-text-third-dark)">{tech}</li>
                             ))}
                         </ul>
                     </a>
