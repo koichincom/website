@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import { Font } from "astro:assets";
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
 import Shortcuts from "../components/shortcuts.astro";
@@ -24,13 +25,10 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
         <meta name="description" content={description} />
         <title>{title}</title>
 
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
-            rel="stylesheet"
-        />
+        <!-- Fonts API -->
+        <Font cssVariable="--font-sans" preload />
+        <Font cssVariable="--font-serif" />
+        <Font cssVariable="--font-mono" />
 
         <!-- Open Graph Tags -->
         <meta property="og:title" content={title} />
