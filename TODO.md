@@ -14,14 +14,14 @@
 
 - [x] Toast is inconsistent, when it's in other than the home page.
 - [x] Fix toast notification bug where toast appears on a left top without the UI
-- [x] Popup to show the vim bindings help (vim-help.astro) Currently Disabled since not prioritized
+- [x] Popup to show the vim bindings help (shortcuts.astro) Currently Disabled since not prioritized
   - [x] Modal implemented with styling and keyboard shortcuts (? to open, q/Esc to close)
   - [x] Fix: click-outside backdrop to close doesn't work
   - [x] Fix: 'q' to close doesn't work
 - [x] Feature: Vim page navigation chips
 - [x] Feature: Email copy chip
 - [x] Feature: Vision page
-- [x] Feature: Reading time estimates for blog posts
+- [x] Feature: Reading time estimates for writing
 - [x] Implement Tailwind CSS for all components and pages
   - [x] Basics
   - [x] Responsive design considerations

@@ -8,5 +8,5 @@ My personal website, designed to be simple and fast. Visit [koichin.com](https:/
 - **Auto OS-theme detection**
 - **RSS feed + sitemap** for SEO and syndication
 - **Giscus comments** with GitHub Discussions integration
-- **Reading time estimates** for blog posts
+- **Reading time estimates** for writing
 - **Toastify-js toasts** for user feedback

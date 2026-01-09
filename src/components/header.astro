@@ -1,8 +1,8 @@
 ---
 const currentPath = Astro.url.pathname;
 const isHome = currentPath === "/";
-const isBlog = currentPath === "/writing";
-const isBlogPost = currentPath.startsWith("/writing/");
+const isWriting = currentPath === "/writing";
+const isWritingPost = currentPath.startsWith("/writing/");
 const isProjects = currentPath.startsWith("/project");
 const isClub = currentPath.startsWith("/club");
 ---
@@ -39,12 +39,12 @@ const isClub = currentPath.startsWith("/club");
     </div>
     <div class="flex gap-4 sm:gap-6">
         {
-            isBlog ? (
+            isWriting ? (
                 <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
                     Writing
                 </span>
             ) : (
-                isBlogPost ? (
+                isWritingPost ? (
                     <a
                         href="/writing"
                         class="text-(--color-accent-light) dark:text-(--color-accent-dark)"

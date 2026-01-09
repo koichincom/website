@@ -5,12 +5,12 @@ import { getReadingTime, formatReadingTime } from "../../utils/readingTime";
 const title = "Koichi's Writing";
 const h1 = "Writing";
 
-const blogPosts = (await getCollection("blog")).sort(
+const writingPosts = (await getCollection("writing")).sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
 );
 
 // Calculate reading times from markdown body
-const postsWithReadingTime = blogPosts.map((post) => {
+const postsWithReadingTime = writingPosts.map((post) => {
     const readingTime = getReadingTime(post.body);
     return { post, readingTime };
 });
