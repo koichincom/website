@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/base.astro";
-import Giscus from "../components/giscus.astro";
 
 export interface Props {
     title?: string;
@@ -8,10 +7,9 @@ export interface Props {
     published?: Date;
     updated?: Date;
     readingTime?: number;
-    showComments?: boolean;
     image?: string;
 }
-const { title, h1, published, updated, readingTime, showComments = true, image } = Astro.props;
+const { title, h1, published, updated, readingTime, image } = Astro.props;
 
 const formatDate = (date: Date) => {
     return new Date(date).toLocaleDateString(undefined, {
@@ -34,7 +32,15 @@ const formatDate = (date: Date) => {
             {readingTime && `${readingTime} min read • `}<time datetime={published.toISOString()}>{formatDate(published)}</time>
         </p>
     ) : null}
+    {image && (
+        <div class="mb-8 overflow-hidden rounded-lg">
+            <img 
+                src={image} 
+                alt={title || ""} 
+                class="w-full h-auto object-cover max-h-[400px]"
+            />
+        </div>
+    )}
     <slot />
-    {showComments && <Giscus />}
     </div>
 </BaseLayout>

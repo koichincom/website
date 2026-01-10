@@ -3,7 +3,6 @@ title: "Running Away from Pain"
 published: 2024-06-15T00:00:00Z
 updates: []
 tags: ["life", "happiness", "mental health"]
-image: "/assets/writing/placeholder.svg"
 ---
 
 I became a proactive truant and got depressed in my first year of high school because of the intimidating and closed environment and teachers. While at home, I was thinking about my purpose of attending school, studying, and living all the time. Eventually, I got a straightforward and obvious but essential purpose for living.
