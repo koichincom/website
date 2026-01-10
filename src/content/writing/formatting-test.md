@@ -1,0 +1,88 @@
+---
+title: "Markdown & Typography Test"
+published: 2026-01-09T00:00:00Z
+description: "A comprehensive test post to verify all Markdown styling, syntax highlighting, and vertical rhythm."
+tags: ["test", "typography", "design"]
+image: "/assets/writing/placeholder.svg"
+---
+
+This is a comprehensive test post designed to exercise every Markdown feature supported by this website. We use Astro for processing and Tailwind CSS's Typography plugin for styling.
+
+Each section below includes enough text to ensure the vertical rhythm and spacing between elements are correctly rendered in both light and dark modes.
+
+## 1. Headings & Hierarchy
+A three-line paragraph follows to test the spacing between a heading and the subsequent text. This should look balanced and not feel too cramped. The font choice here is Lora for the body and Inter for headings.
+
+### Nested Sub-headings
+Another short paragraph here. We want to ensure that as headings get smaller, they still retain their hierarchy. This text helps us visualize the relationship between nested headings and their children.
+
+#### H4 Heading
+This is an H4 heading. It should be distinct but clearly subordinate to the H3 above. We are testing the standard vertical rhythm of the `@tailwindcss/typography` plugin.
+
+---
+
+## 2. Text Formatting
+**Bold text** should stand out with a heavier weight. *Italicized text* should use the italic variant of the Lora font. ~~Strikethrough text~~ should have a clear line through it. `This is inline code` should use the Iosevka font with a subtle background color.
+
+Links should have a clear hover state: [This is an internal link to the home](/) and [this is an external link](https://google.com). We should also check for consistency in accent colors between light and dark modes.
+
+---
+
+## 3. Lists & Nesting
+- Unordered item one.
+- Unordered item two with a sub-list:
+    - Nested sub-item A.
+    - Nested sub-item B.
+- Unordered item three.
+
+1. Ordered step one.
+2. Ordered step two with a sub-list:
+    1. Sub-step 1.
+    2. Sub-step 2.
+3. Ordered step three.
+
+---
+
+## 4. Code & Syntax Highlighting
+The following block uses Shiki for syntax highlighting. It should use the Iosevka font and have a background that fits the dark/light theme (or a consistent dark theme if preferred).
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+  isHappy: boolean;
+}
+
+function checkHappiness(user: User): string {
+  if (user.isHappy) {
+    return `User ${user.name} is happy!`;
+  }
+  return "Keep moving forward.";
+}
+
+const me: User = { id: 1, name: "Koichi", isHappy: true };
+console.log(checkHappiness(me));
+```
+
+---
+
+## 5. Blockquotes & Tables
+> "Running away from the pain is the opposite of running away from life. It entails happiness, dreams, and real life. The mindset we need to have is not a binary choice of whether to run away. It’s moving forward toward your objects to be happy."
+>
+> — Koichi Nakayamada
+
+| Feature | Support | Note |
+| :--- | :--- | :--- |
+| Markdown | Native | Astro handles this. |
+| Tables | GFM | Supported by default. |
+| Syntax | Shiki | High-quality highlighting. |
+
+---
+
+## 6. Media & Horizontal Rules
+Horizontal rules should be subtle. Below is an image test using the placeholder asset.
+
+![Placeholder Image](/assets/writing/placeholder.svg)
+*Figure 1: A placeholder image to test caption styling and alignment.*
+
+This concludes the formatting test. If all elements above look correct, the typography system is stable.
