@@ -161,7 +161,7 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
         case "y":
             // 'y' copies current URL to clipboard
             navigator.clipboard.writeText(window.location.href);
-            toast("URL Copied");
+            toast("Link Copied");
             return true;
         case "?":
             // '?' shows modal with shortcuts

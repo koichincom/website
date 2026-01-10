@@ -11,38 +11,50 @@ const { id } = Astro.props;
   tabindex="-1"
   aria-modal="true"
   aria-labelledby={`${id}-title`}
-  class="rounded-lg bg-(--color-background) dark:bg-(--color-background-dark) p-6 max-w-2xl w-full backdrop:bg-black backdrop:opacity-50 dark:backdrop:opacity-90 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 outline-none"
+  class="rounded-lg bg-(--color-background) dark:bg-(--color-background-dark) p-6 max-w-2xl w-full backdrop:bg-black backdrop:opacity-30 dark:backdrop:opacity-80 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 outline-none shadow-xl"
 >
-    <div class="relative">
-        <button
-            id={`${id}-close-button`}
-            class="absolute top-0 right-0 text-(--color-text-third) dark:text-(--color-text-third-dark) hover:text-(--color-text-first) dark:hover:text-(--color-text-first-dark) text-sm"
-            aria-label="Close"
-        >
-            Esc to close
-        </button>
+    <div class="relative font-sans">
+        <div class="flex justify-between items-center mb-6">
+            <h2 id={`${id}-title`} class="text-lg font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">
+                Shortcuts
+            </h2>
+            <button
+                id={`${id}-close-button`}
+                class="text-(--color-text-third) dark:text-(--color-text-third-dark) hover:text-(--color-text-first) dark:hover:text-(--color-text-first-dark) text-xs"
+                aria-label="Close"
+            >
+                Esc to Close
+            </button>
+        </div>
 
-        <h2 id={`${id}-title`} class="text-xl font-bold mb-4 text-(--color-text-first) dark:text-(--color-text-first-dark)">
-            Shortcuts
-        </h2>
+        <div class="grid grid-cols-2 gap-x-12 text-sm text-(--color-text-second) dark:text-(--color-text-second-dark)">
+            <div class="grid grid-cols-[2rem_1fr] gap-y-2 items-baseline">
+                <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">h</span>
+                <span>Home</span>
+                <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">w</span>
+                <span>Writing</span>
+                <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">p</span>
+                <span>Projects</span>
+                <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">c</span>
+                <span>Clubs</span>
+                <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">y</span>
+                <span>Copy Link</span>
+            </div>
 
-        <div class="grid grid-cols-2 gap-8 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)">
-            <ul class="space-y-1">
-                <li>h — Home</li>
-                <li>w — Writing</li>
-                <li>p — Project</li>
-                <li>c — Club</li>
-                <li>y — Copy URL</li>
-            </ul>
-
-            <ul class="space-y-1">
-                <li>j — Scroll down</li>
-                <li>k — Scroll up</li>
-                <li>u — Scroll up half page</li>
-                <li>d — Scroll down half page</li>
-                <li>gg — Scroll to top</li>
-                <li>G — Scroll to bottom</li>
-            </ul>
+            <div class="grid grid-cols-[2rem_1fr] gap-y-2 items-baseline">
+                <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">j</span>
+                <span>Scroll down</span>
+                <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">k</span>
+                <span>Scroll up</span>
+                <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">u</span>
+                <span>Scroll up half page</span>
+                <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">d</span>
+                <span>Scroll down half page</span>
+                <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">gg</span>
+                <span>Scroll to top</span>
+                <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">G</span>
+                <span>Scroll to bottom</span>
+            </div>
         </div>
     </div>
 </dialog>

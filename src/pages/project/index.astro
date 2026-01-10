@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/base.astro";
-const title = "Koichi's Project";
-const h1 = "Project";
+const title = "Koichi's Projects";
+const h1 = "Projects";
 
 const projects = (await getCollection("projects")).sort(
     (a, b) => new Date(b.data.published).getTime() - new Date(a.data.published).getTime(),
