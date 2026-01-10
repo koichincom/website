@@ -21,7 +21,7 @@ const postsWithReadingTime = writingPosts.map((post) => {
     <ul class="mb-4">
         {
             postsWithReadingTime.map(({ post, readingTime }) => (
-                <li class="py-4 border-b border-(--color-text-third) dark:border-(--color-text-third-dark) last:border-0">
+                <li class="py-2">
                     <a href={`/writing/${post.id}`} class="flex flex-col gap-4">
 
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
