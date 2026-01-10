@@ -2,16 +2,11 @@
     class="mt-8 flex flex-wrap items-center gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
 >
     <a
-        href="mailto:hello@koichin.com"
-        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-        >Email</a
-    >
-    <a
-        href="https://signal.me/#eu/hFxJqhdUe_9zSwQs01xjuf6sz9n5Zag3yfHQzxGwPZPL-X863I9DF5QXch7gCsUv"
+        href="https://x.com/koichincom"
         target="_blank"
         rel="noopener noreferrer"
         class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-        >Signal</a
+        >X (Twitter)</a
     >
     <a
         href="https://github.com/koichincom"
@@ -21,18 +16,24 @@
         >GitHub</a
     >
     <a
-        href="https://x.com/koichincom"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-        >Twitter</a
-    >
-    <a
         href="https://linkedin.com/in/koichincom/"
         target="_blank"
         rel="noopener noreferrer"
         class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
         >LinkedIn</a
+    >
+    <button
+        id="copy-email"
+        type="button"
+        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+        >Email</button
+    >
+    <a
+        href="https://signal.me/#eu/hFxJqhdUe_9zSwQs01xjuf6sz9n5Zag3yfHQzxGwPZPL-X863I9DF5QXch7gCsUv"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+        >Signal</a
     >
     <button
         id="shortcuts-button"
@@ -43,30 +44,35 @@
 </nav>
 
 <script>
-    // import { toast } from "../utils/toast";
+    let copyTimeout: ReturnType<typeof setTimeout>;
 
-    // function handleEmailCopy() {
-    //     navigator.clipboard.writeText("hello@koichin.com");
-    //     toast("Email Copied");
-    // }
+    function handleEmailCopy(event: MouseEvent) {
+        const emailButton = event.currentTarget as HTMLButtonElement;
+        const originalText = "Email";
+        const accentClasses = ["text-(--color-accent-light)", "dark:text-(--color-accent-dark)"];
 
-    // function initEmailCopy() {
-    //     const emailButton = document.getElementById("copy-email");
-    //     if (emailButton) {
-    //         // Remove old listener if exists to prevent duplicates
-    //         emailButton.removeEventListener("click", handleEmailCopy);
-    //         emailButton.addEventListener("click", handleEmailCopy);
-    //     }
-    // }
+        navigator.clipboard.writeText("k@koichin.com");
 
-    // // Initialize on page load
-    // initEmailCopy();
+        if (copyTimeout) clearTimeout(copyTimeout);
 
-    // // Re-initialize after View Transitions
-    // document.addEventListener("astro:page-load", initEmailCopy);
+        emailButton.textContent = "Copied!";
+        emailButton.classList.add(...accentClasses);
+
+        copyTimeout = setTimeout(() => {
+            emailButton.textContent = originalText;
+            emailButton.classList.remove(...accentClasses);
+        }, 3000);
+    }
+
+    function initEmailCopy() {
+        const emailButton = document.getElementById("copy-email");
+        if (emailButton) {
+            emailButton.removeEventListener("click", handleEmailCopy);
+            emailButton.addEventListener("click", handleEmailCopy);
+        }
+    }
 
     function handleShortcutsClick() {
-        // Dispatch a custom event that the shortcuts modal listens for
         document.dispatchEvent(new Event('open-shortcuts'));
     }
 
@@ -78,7 +84,11 @@
         }
     }
 
+    initEmailCopy();
     initShortcuts();
 
-    document.addEventListener("astro:page-load", initShortcuts);
+    document.addEventListener("astro:page-load", () => {
+        initEmailCopy();
+        initShortcuts();
+    });
 </script>
