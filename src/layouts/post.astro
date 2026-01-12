@@ -34,11 +34,11 @@ const formatDate = (date: Date) => {
     ) : null}
     {image && (
         <div class="mb-8 overflow-hidden rounded-lg">
-            <img 
-                src={image} 
-                alt={title || ""} 
-                class="w-full h-auto object-cover max-h-[400px]"
-            />
+                <img 
+                    src={image} 
+                    alt={title ? `${title} hero image` : "Post image"} 
+                    class="w-full h-auto object-cover max-h-[400px]"
+                />
         </div>
     )}
     <slot />

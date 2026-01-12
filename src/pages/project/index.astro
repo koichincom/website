@@ -11,9 +11,6 @@ const projects = (await getCollection("projects")).sort(
 
 <BaseLayout title={title} h1={h1}>
     <div class="max-w-4xl">
-    <p class="mb-8 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)">
-
-    </p>
     <ul>
         {
             projects.map((project) => (
