@@ -5,7 +5,6 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<!-- Modal to show Vim help of this website -->
 <dialog
   id={id}
   tabindex="-1"
@@ -39,6 +38,8 @@ const { id } = Astro.props;
                 <span>Clubs</span>
                 <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">y</span>
                 <span>Copy Link</span>
+                <span class="font-medium text-(--color-text-first) dark:text-(--color-text-first-dark)">?</span>
+                <span>Shortcuts</span>
             </div>
 
             <div class="grid grid-cols-[2rem_1fr] gap-y-2 items-baseline">
@@ -67,7 +68,6 @@ const { id } = Astro.props;
 
         if (!dialog || !closeButton) return;
 
-        // Focus trap implementation
         let focusableElements = [];
 
         function getFocusableElements() {
@@ -97,48 +97,35 @@ const { id } = Astro.props;
             }
         }
 
-        // Close button click handler
         function closeModal() {
             dialog.close();
         }
 
-        // Handle dialog open
         function handleDialogOpen() {
-            // Focus first focusable element or close button
             focusableElements = getFocusableElements();
             const firstFocusable = focusableElements[0] || closeButton;
             if (firstFocusable) firstFocusable.focus();
-
-            // Add focus trap listener
             dialog.addEventListener('keydown', trapFocus);
         }
 
-        // Handle dialog close
         function handleDialogClose() {
-            // Remove focus trap listener
             dialog.removeEventListener('keydown', trapFocus);
-
-            // Restore focus to help button
             if (helpButton) {
                 helpButton.focus();
             }
         }
 
-        // Remove old listeners to prevent duplicates
         closeButton.removeEventListener("click", closeModal);
         dialog.removeEventListener("click", handleBackdropClick);
         dialog.removeEventListener("close", handleDialogClose);
         dialog.removeEventListener("cancel", handleDialogClose);
         document.removeEventListener("keydown", handleKeydown);
 
-        // Add fresh listeners
         closeButton.addEventListener("click", closeModal);
         dialog.addEventListener("click", handleBackdropClick);
         dialog.addEventListener("close", handleDialogClose);
         dialog.addEventListener("cancel", handleDialogClose);
         document.addEventListener("keydown", handleKeydown);
-
-        // Handle dialog open events
         dialog.addEventListener('open', handleDialogOpen);
 
         function handleBackdropClick(event) {
@@ -155,7 +142,6 @@ const { id } = Astro.props;
             }
         }
 
-        // Keyboard handler for q and Esc
         function handleKeydown(event) {
             if (dialog.open && (event.key === "q" || event.key === "Escape")) {
                 event.preventDefault();
@@ -164,13 +150,8 @@ const { id } = Astro.props;
         }
     }
 
-    // Initialize on page load
     initHelpModal();
-
-    // Re-initialize after View Transitions
     document.addEventListener("astro:page-load", initHelpModal);
-
-    // Listen for programmatic open events
     document.addEventListener('open-shortcuts', () => {
         const dialog = document.getElementById(id);
             if (dialog && typeof dialog.showModal === 'function') {

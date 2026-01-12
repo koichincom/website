@@ -1,104 +1,74 @@
 ---
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const isHome = currentPath === "/";
-const isWriting = currentPath === "/writing";
-const isWritingPost = currentPath.startsWith("/writing/");
-const isProjects = currentPath.startsWith("/project");
+const isWritingHome = currentPath === "/writing";
+const isWritingSub = currentPath.startsWith("/writing/");
+const isProjectsHome = currentPath === "/project";
+const isProjectsSub = currentPath.startsWith("/project/");
 ---
 
 <header class="fixed inset-x-0 top-0 z-50 bg-(--color-background) dark:bg-(--color-background-dark) h-14 sm:h-16">
-  <nav class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap">
-    <div>
+  <nav class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap border-b border-(--color-border) dark:border-(--color-border-dark) sm:border-none">
+    <div 
+        class="py-2"
+        data-tooltip={isHome ? "Already in Home" : "Press h"}
+    >
         {
             isHome ? (
                 <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
                     Koichi Nakayamada
                 </span>
             ) : (
-                <span class="relative group hidden sm:inline-block">
-                    <a
-                        href="/"
-                        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-                    >
-                        Koichi Nakayamada
-                    </a>
-                        <span class="absolute top-full left-1/2 -translate-x-1/2 mt-1 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                        Press h
-                    </span>
-                </span>
                 <a
                     href="/"
-                    class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:hidden"
+                    class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
                 >
                     Koichi Nakayamada
                 </a>
             )
         }
     </div>
+    
     <div class="flex gap-4 sm:gap-6">
-        {
-            isWriting ? (
-                <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
-                    Writing
-                </span>
-            ) : (
-                isWritingPost ? (
+        <div 
+            class="py-2"
+            data-tooltip={isWritingHome ? "Already in Writing" : isWritingSub ? "Go to Writing Home" : "Press w"}
+        >
+            {
+                isWritingHome ? (
+                    <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
+                        Writing
+                    </span>
+                ) : (
                     <a
                         href="/writing"
-                        class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
+                        class={isWritingSub ? "text-(--color-accent-light) dark:text-(--color-accent-dark)" : "hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"}
                     >
                         Writing
                     </a>
-                ) : (
-                    <>
-                        <span class="relative group hidden sm:inline-block">
-                            <a
-                                href="/writing"
-                                class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-                            >
-                                Writing
-                            </a>
-                    <span class="absolute top-full left-1/2 -translate-x-1/2 mt-1 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                                Press w
-                            </span>
-                        </span>
-                        <a
-                            href="/writing"
-                            class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:hidden"
-                        >
-                            Writing
-                        </a>
-                    </>
                 )
-            )
-        }
-        {
-            isProjects ? (
-                <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
-                    Projects
-                </span>
-            ) : (
-                <>
-                    <span class="relative group hidden sm:inline-block">
-                        <a
-                            href="/project"
-                            class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-                        >
-                            Projects
-                        </a>
-                            <span class="absolute top-full left-1/2 -translate-x-1/2 mt-1 px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                            Press p
-                        </span>
+            }
+        </div>
+
+        <div 
+            class="py-2"
+            data-tooltip={isProjectsHome ? "Already in Project Home" : isProjectsSub ? "Go to Project Home" : "Press p"}
+        >
+            {
+                isProjectsHome ? (
+                    <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
+                        Projects
                     </span>
+                ) : (
                     <a
                         href="/project"
-                        class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:hidden"
+                        class={isProjectsSub ? "text-(--color-accent-light) dark:text-(--color-accent-dark)" : "hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"}
                     >
                         Projects
                     </a>
-                </>
-            )
-        }
+                )
+            }
+        </div>
     </div>
   </nav>
 </header>

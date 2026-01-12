@@ -25,6 +25,8 @@
     <button
         id="copy-email"
         type="button"
+        data-tooltip="Click to Copy"
+        data-tooltip-offset="4"
         class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
         >Email</button
     >
@@ -37,9 +39,11 @@
     >
     <button
         id="shortcuts-button"
+        data-tooltip="Press ?"
+        data-tooltip-offset="4"
         class="ml-auto hidden sm:block hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
     >
-        ? for Shortcuts
+        Shortcuts
     </button>
 </nav>
 
@@ -48,20 +52,24 @@
 
     function handleEmailCopy(event: MouseEvent) {
         const emailButton = event.currentTarget as HTMLButtonElement;
-        const originalText = "Email";
-        const accentClasses = ["text-(--color-accent-light)", "dark:text-(--color-accent-dark)"];
+        const globalTooltip = document.getElementById("global-tooltip");
+        const originalTooltipText = "Click to Copy";
 
         navigator.clipboard.writeText("k@koichin.com");
 
         if (copyTimeout) clearTimeout(copyTimeout);
 
-        emailButton.textContent = "Copied!";
-        emailButton.classList.add(...accentClasses);
+        emailButton.setAttribute("data-tooltip", "Copied!");
+        if (globalTooltip && globalTooltip.getAttribute("aria-hidden") === "false") {
+            globalTooltip.textContent = "Copied!";
+        }
 
         copyTimeout = setTimeout(() => {
-            emailButton.textContent = originalText;
-            emailButton.classList.remove(...accentClasses);
-        }, 3000);
+            emailButton.setAttribute("data-tooltip", originalTooltipText);
+            if (globalTooltip && globalTooltip.getAttribute("aria-hidden") === "false" && globalTooltip.textContent === "Copied!") {
+                globalTooltip.textContent = originalTooltipText;
+            }
+        }, 2000);
     }
 
     function initEmailCopy() {

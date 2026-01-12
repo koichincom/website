@@ -25,27 +25,22 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
         <meta name="description" content={description} />
         <title>{title}</title>
 
-        <!-- Fonts API -->
         <Font cssVariable="--font-family-inter" preload />
         <Font cssVariable="--font-family-lora" />
         <Font cssVariable="--font-family-iosevka" />
 
-        <!-- Open Graph Tags -->
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={siteUrl} />
         <meta property="og:type" content="website" />
 
-        <!-- X Card Tags -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:creator" content="@koichincom" />
 
-        <!-- Canonical URL -->
         <link rel="canonical" href={siteUrl} />
 
-        <!-- RSS Feed -->
         <link
             rel="alternate"
             type="application/rss+xml"
@@ -53,18 +48,14 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
             href="/rss.xml"
         />
 
-        <!-- View Transitions -->
         <ViewTransitions />
 
-        <!-- Custom transition styles -->
         <style is:global>
-            /* Smooth fade transition */
             ::view-transition-old(root),
             ::view-transition-new(root) {
                 animation-duration: 0.2s;
             }
 
-            /* Reduce motion for accessibility */
             @media (prefers-reduced-motion: reduce) {
                 ::view-transition-old(root),
                 ::view-transition-new(root) {
@@ -78,7 +69,7 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
     >
         <Shortcuts id="shortcuts-modal" transition:persist />
         <div
-            class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-6 lg:py-5"
+            class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-6 lg:pt-5 pb-32"
         >
             <Header transition:persist />
             <div class="h-14 sm:h-16" aria-hidden="true"></div>
@@ -94,11 +85,23 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
                 <Footer transition:persist />
             </div>
         </div>
+
+        <div
+          id="global-tooltip"
+          role="tooltip"
+          aria-hidden="true"
+          class="fixed z-[100] px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 transition-opacity duration-150 pointer-events-none whitespace-nowrap will-change-transform top-0 left-0 hidden sm:block"
+        >
+        </div>
+
         <script>
             import { initVimBindings } from "../scripts/vim";
+            import { initGlobalTooltips } from "../scripts/tooltip";
             initVimBindings();
+            initGlobalTooltips();
 
             document.addEventListener("astro:page-load", () => {
+                initGlobalTooltips();
                 if (window.location.pathname !== "/") {
                     // @ts-ignore
                     window.hasVisitedInternal = true;
