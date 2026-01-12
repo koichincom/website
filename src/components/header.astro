@@ -14,7 +14,6 @@ const isProjectsSub = currentPath.startsWith("/project/");
             isHome ? (
                 <span 
                     class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
-                    data-tooltip="Already in Home"
                 >
                     Koichi Nakayamada
                 </span>
@@ -36,7 +35,6 @@ const isProjectsSub = currentPath.startsWith("/project/");
                 isWritingHome ? (
                     <span 
                         class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
-                        data-tooltip="Already in Writing"
                     >
                         Writing
                     </span>
@@ -44,7 +42,7 @@ const isProjectsSub = currentPath.startsWith("/project/");
                     <a
                         href="/writing"
                         class={isWritingSub ? "text-(--color-accent-light) dark:text-(--color-accent-dark)" : "hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"}
-                        data-tooltip={isWritingSub ? "Go to Writing Home" : "Press w"}
+                        data-tooltip="Press w"
                     >
                         Writing
                     </a>
@@ -57,7 +55,6 @@ const isProjectsSub = currentPath.startsWith("/project/");
                 isProjectsHome ? (
                     <span 
                         class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
-                        data-tooltip="Already in Project Home"
                     >
                         Projects
                     </span>
@@ -65,7 +62,7 @@ const isProjectsSub = currentPath.startsWith("/project/");
                     <a
                         href="/project"
                         class={isProjectsSub ? "text-(--color-accent-light) dark:text-(--color-accent-dark)" : "hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"}
-                        data-tooltip={isProjectsSub ? "Go to Project Home" : "Press p"}
+                        data-tooltip="Press p"
                     >
                         Projects
                     </a>
