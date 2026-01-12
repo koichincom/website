@@ -7,21 +7,22 @@ const isProjectsHome = currentPath === "/project";
 const isProjectsSub = currentPath.startsWith("/project/");
 ---
 
-<header class="fixed inset-x-0 top-0 z-50 bg-(--color-background) dark:bg-(--color-background-dark) h-14 sm:h-16">
-  <nav class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap border-b border-(--color-border) dark:border-(--color-border-dark) sm:border-none">
-    <div 
-        class="py-2"
-        data-tooltip={isHome ? "Already in Home" : "Press h"}
-    >
+<header class="fixed inset-x-0 top-0 z-50 h-14 sm:h-16 bg-(--color-background) dark:bg-(--color-background-dark)">
+  <nav class="h-full flex items-center justify-between gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="py-2">
         {
             isHome ? (
-                <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
+                <span 
+                    class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
+                    data-tooltip="Already in Home"
+                >
                     Koichi Nakayamada
                 </span>
             ) : (
                 <a
                     href="/"
                     class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                    data-tooltip="Press h"
                 >
                     Koichi Nakayamada
                 </a>
@@ -30,19 +31,20 @@ const isProjectsSub = currentPath.startsWith("/project/");
     </div>
     
     <div class="flex gap-4 sm:gap-6">
-        <div 
-            class="py-2"
-            data-tooltip={isWritingHome ? "Already in Writing" : isWritingSub ? "Go to Writing Home" : "Press w"}
-        >
+        <div class="py-2">
             {
                 isWritingHome ? (
-                    <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
+                    <span 
+                        class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
+                        data-tooltip="Already in Writing"
+                    >
                         Writing
                     </span>
                 ) : (
                     <a
                         href="/writing"
                         class={isWritingSub ? "text-(--color-accent-light) dark:text-(--color-accent-dark)" : "hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"}
+                        data-tooltip={isWritingSub ? "Go to Writing Home" : "Press w"}
                     >
                         Writing
                     </a>
@@ -50,19 +52,20 @@ const isProjectsSub = currentPath.startsWith("/project/");
             }
         </div>
 
-        <div 
-            class="py-2"
-            data-tooltip={isProjectsHome ? "Already in Project Home" : isProjectsSub ? "Go to Project Home" : "Press p"}
-        >
+        <div class="py-2">
             {
                 isProjectsHome ? (
-                    <span class="text-(--color-accent-light) dark:text-(--color-accent-dark)">
+                    <span 
+                        class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
+                        data-tooltip="Already in Project Home"
+                    >
                         Projects
                     </span>
                 ) : (
                     <a
                         href="/project"
                         class={isProjectsSub ? "text-(--color-accent-light) dark:text-(--color-accent-dark)" : "hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"}
+                        data-tooltip={isProjectsSub ? "Go to Project Home" : "Press p"}
                     >
                         Projects
                     </a>

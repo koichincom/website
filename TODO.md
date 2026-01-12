@@ -37,7 +37,7 @@
     - [x] Updated all components to use correct accent colors for light/dark modes
 - [x] Have a basic content in contents/
 - [x] Basic Astro project structure
-- [x] Basic vim navigation system (vim.ts)
+- [x] Basic keyboard shortcuts system (shortcuts.ts)
 - [x] Tailwind CSS setup checklist for Astro project:
   - [x] Verify packages installed: `tailwindcss`, `@tailwindcss/vite` (confirmed in `package.json`)
   - [x] Use CSS-first Tailwind v4 setup (no JS config). `@source` in `src/styles/global.css` is used to declare scan paths for `.astro` and other files.

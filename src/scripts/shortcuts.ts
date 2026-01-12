@@ -16,7 +16,7 @@ export function isHelpModalOpen(): boolean {
     return dialog?.open ?? false;
 }
 
-export function initVimBindings() {
+export function initShortcuts() {
     document.addEventListener("keydown", (event) => {
         const target = event.target as HTMLElement;
 
@@ -37,7 +37,7 @@ export function initVimBindings() {
             return;
         }
 
-        const isGlobalBindingExecuted = handleGlobalBindings(event);
+        const isGlobalBindingExecuted = handleGlobalShortcuts(event);
         if (isGlobalBindingExecuted) {
             return;
         }
@@ -48,7 +48,7 @@ let lastKey = "";
 let lastKeyTime = 0;
 const KEY_TIMEOUT = 500;
 
-function handleGlobalBindings(event: KeyboardEvent): boolean {
+function handleGlobalShortcuts(event: KeyboardEvent): boolean {
     const key = event.key;
 
     const navigationMap: Record<string, string> = {
@@ -119,8 +119,14 @@ function handleGlobalBindings(event: KeyboardEvent): boolean {
             return true;
 
         case "y":
-            navigator.clipboard.writeText(window.location.href);
-            toast("Link Copied");
+            navigator.clipboard
+                .writeText(window.location.href)
+                .then(() => {
+                    toast("Link Copied");
+                })
+                .catch(() => {
+                    toast("Copy failed", "error");
+                });
             return true;
         case "?":
             showHelpModal();

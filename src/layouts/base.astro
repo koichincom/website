@@ -15,6 +15,7 @@ const { h1 } = Astro.props;
 const { description = "Koichi Nakayamada's personal website and writing" } =
     Astro.props;
 const siteUrl = "https://koichin.com" + Astro.url.pathname;
+const containerClass = "max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8";
 ---
 
 <html lang="en">
@@ -65,25 +66,34 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
         </style>
     </head>
     <body
-        class="bg-(--color-background) dark:bg-(--color-background-dark) text-(--color-text-first) dark:text-(--color-text-first-dark) font-sans"
+        class="bg-(--color-background) dark:bg-(--color-background-dark) text-(--color-text-first) dark:text-(--color-text-first-dark) font-sans flex flex-col min-h-screen"
     >
-        <Shortcuts id="shortcuts-modal" transition:persist />
-        <div
-            class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-6 lg:pt-5 pb-32"
+        <a
+            href="#main-content"
+            class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-(--color-background) dark:focus:bg-(--color-background-dark) focus:text-(--color-text-first) dark:focus:text-(--color-text-first-dark) focus:px-4 focus:py-2 focus:rounded focus:shadow"
         >
+            Skip to content
+        </a>
+        <Shortcuts id="shortcuts-modal" transition:persist />
+
+        <div class={`flex-1 flex flex-col ${containerClass}`}>
             <Header transition:persist />
-            <div class="h-14 sm:h-16" aria-hidden="true"></div>
-            {
-                h1 && (
-                    <h1 class="mt-0 text-2xl sm:text-3xl font-bold mb-8 text-(--color-text-first) dark:text-(--color-text-first-dark)">
-                        {h1}
-                    </h1>
-                )
-            }
-            <slot />
-            <div class="relative">
+
+            <main id="main-content" class="flex-1 pt-6 sm:pt-6 lg:pt-5 pb-8">
+                <div class="h-14 sm:h-16" aria-hidden="true"></div>
+                {
+                    h1 && (
+                        <h1 class="mt-0 text-2xl sm:text-3xl font-bold mb-8 text-(--color-text-first) dark:text-(--color-text-first-dark)">
+                            {h1}
+                        </h1>
+                    )
+                }
+                <slot />
+            </main>
+
+            <footer class="pb-12">
                 <Footer transition:persist />
-            </div>
+            </footer>
         </div>
 
         <div
@@ -95,16 +105,16 @@ const siteUrl = "https://koichin.com" + Astro.url.pathname;
         </div>
 
         <script>
-            import { initVimBindings } from "../scripts/vim";
+            import { initShortcuts } from "../scripts/shortcuts";
             import { initGlobalTooltips } from "../scripts/tooltip";
-            initVimBindings();
+            initShortcuts();
             initGlobalTooltips();
 
             document.addEventListener("astro:page-load", () => {
                 initGlobalTooltips();
                 if (window.location.pathname !== "/") {
-                    // @ts-ignore
-                    window.hasVisitedInternal = true;
+                    (window as Window & { hasVisitedInternal?: boolean })
+                        .hasVisitedInternal = true;
                 }
             });
         </script>
