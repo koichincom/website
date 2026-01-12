@@ -114,5 +114,5 @@ Order imports logically to maintain a clean frontmatter:
 
 ## Common Patterns
 - Redirects: Managed in astro.config.mjs. Add new aliases there rather than creating empty pages.
-- View Transitions: Enabled via <ViewTransitions /> in BaseLayout. Ensure scripts use astro:page-load event.
+- View Transitions: Enabled via <ClientRouter /> in BaseLayout. Ensure scripts use astro:page-load event.
 - Metadata: SEO meta tags are handled in BaseLayout.astro. Pass title, description, and image props as needed.

@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import { Font } from "astro:assets";
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
@@ -10,6 +10,7 @@ export interface Props {
     h1?: string;
     description?: string;
 }
+
 const { title = "Koichi's Website" } = Astro.props;
 const { h1 } = Astro.props;
 const { description = "Koichi Nakayamada's personal website and writing" } =
@@ -49,7 +50,7 @@ const containerClass = "max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8";
             href="/rss.xml"
         />
 
-        <ViewTransitions />
+        <ClientRouter />
 
         <style is:global>
             ::view-transition-old(root),
