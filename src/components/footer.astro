@@ -26,7 +26,6 @@
         id="copy-email"
         type="button"
         data-tooltip="Click to Copy"
-        data-tooltip-offset="4"
         class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
         >Email</button
     >
@@ -40,7 +39,6 @@
     <button
         id="shortcuts-button"
         data-tooltip="Press ?"
-        data-tooltip-offset="4"
         class="ml-auto hidden sm:block hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
     >
         Shortcuts
@@ -50,23 +48,28 @@
 <script>
     let copyTimeout: ReturnType<typeof setTimeout>;
 
-    function handleEmailCopy(event: MouseEvent) {
+    async function handleEmailCopy(event: MouseEvent) {
         const emailButton = event.currentTarget as HTMLButtonElement;
         const globalTooltip = document.getElementById("global-tooltip");
         const originalTooltipText = "Click to Copy";
+        let tooltipText = "Copied!";
 
-        navigator.clipboard.writeText("k@koichin.com");
+        try {
+            await navigator.clipboard.writeText("k@koichin.com");
+        } catch {
+            tooltipText = "Copy failed";
+        }
 
         if (copyTimeout) clearTimeout(copyTimeout);
 
-        emailButton.setAttribute("data-tooltip", "Copied!");
+        emailButton.setAttribute("data-tooltip", tooltipText);
         if (globalTooltip && globalTooltip.getAttribute("aria-hidden") === "false") {
-            globalTooltip.textContent = "Copied!";
+            globalTooltip.textContent = tooltipText;
         }
 
         copyTimeout = setTimeout(() => {
             emailButton.setAttribute("data-tooltip", originalTooltipText);
-            if (globalTooltip && globalTooltip.getAttribute("aria-hidden") === "false" && globalTooltip.textContent === "Copied!") {
+            if (globalTooltip && globalTooltip.getAttribute("aria-hidden") === "false" && globalTooltip.textContent === tooltipText) {
                 globalTooltip.textContent = originalTooltipText;
             }
         }, 2000);

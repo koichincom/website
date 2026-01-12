@@ -1,5 +1,6 @@
 const TOOLTIP_ID = "global-tooltip";
 const TRIGGER_SELECTOR = "[data-tooltip]";
+const PADDING = 30;
 
 export function initGlobalTooltips() {
     const tooltip = document.getElementById(TOOLTIP_ID);
@@ -41,15 +42,20 @@ export function initGlobalTooltips() {
         let left = rect.left + rect.width / 2 - tooltipRect.width / 2;
 
         const spaceBelow = window.innerHeight - rect.bottom;
-        const needsFlip = spaceBelow < tooltipRect.height + 20;
+        const needsFlip = spaceBelow < tooltipRect.height + PADDING;
 
         let top = needsFlip
             ? rect.top - tooltipRect.height - offset
             : rect.bottom + offset;
 
-        if (left < 8) left = 8;
-        if (left + tooltipRect.width > window.innerWidth - 8) {
-            left = window.innerWidth - tooltipRect.width - 8;
+        if (left < PADDING) left = PADDING;
+        if (left + tooltipRect.width > window.innerWidth - PADDING) {
+            left = window.innerWidth - tooltipRect.width - PADDING;
+        }
+
+        if (top < PADDING) top = PADDING;
+        if (top + tooltipRect.height > window.innerHeight - PADDING) {
+            top = window.innerHeight - tooltipRect.height - PADDING;
         }
 
         tooltip.style.transform = `translate(${left}px, ${top}px)`;
@@ -68,30 +74,30 @@ export function initGlobalTooltips() {
     };
 
     document.addEventListener("mouseover", (e) => {
-        const trigger = (e.target as HTMLElement).closest(
-            TRIGGER_SELECTOR,
-        ) as HTMLElement;
+        const target = e.target instanceof Element ? e.target : (e.target as Node).parentElement;
+        if (!target) return;
+        const trigger = target.closest(TRIGGER_SELECTOR) as HTMLElement;
         if (trigger) show(trigger);
     });
 
     document.addEventListener("mouseout", (e) => {
-        const trigger = (e.target as HTMLElement).closest(
-            TRIGGER_SELECTOR,
-        ) as HTMLElement;
+        const target = e.target instanceof Element ? e.target : (e.target as Node).parentElement;
+        if (!target) return;
+        const trigger = target.closest(TRIGGER_SELECTOR) as HTMLElement;
         if (trigger) hide();
     });
 
     document.addEventListener("focusin", (e) => {
-        const trigger = (e.target as HTMLElement).closest(
-            TRIGGER_SELECTOR,
-        ) as HTMLElement;
+        const target = e.target instanceof Element ? e.target : (e.target as Node).parentElement;
+        if (!target) return;
+        const trigger = target.closest(TRIGGER_SELECTOR) as HTMLElement;
         if (trigger) show(trigger);
     });
 
     document.addEventListener("focusout", (e) => {
-        const trigger = (e.target as HTMLElement).closest(
-            TRIGGER_SELECTOR,
-        ) as HTMLElement;
+        const target = e.target instanceof Element ? e.target : (e.target as Node).parentElement;
+        if (!target) return;
+        const trigger = target.closest(TRIGGER_SELECTOR) as HTMLElement;
         if (trigger) hide();
     });
 }
