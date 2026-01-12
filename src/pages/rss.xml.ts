@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 
 export async function GET(context: any) {
   const writing = await getCollection("writing");
-  // Sort by date descending (newest first)
   writing.sort(
     (a, b) => Number(new Date(b.data.published)) - Number(new Date(a.data.published)),
   );

@@ -1,10 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
-/**
- * Writing collection schema
- * Markdown files in src/content/writing/
- */
 const writing = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/writing" }),
   schema: z.object({
@@ -17,10 +13,6 @@ const writing = defineCollection({
   }),
 });
 
-/**
- * Projects collection schema
- * TOML files in src/content/projects/
- */
 const projects = defineCollection({
   loader: glob({ pattern: "**/*.toml", base: "./src/content/projects" }),
   schema: z.object({
