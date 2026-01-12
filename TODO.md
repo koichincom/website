@@ -4,7 +4,14 @@
 
 ### P0
 
+- [ ] Add `description` to writing schema (`src/content.config.ts`) and update existing posts to include frontmatter `description`.
+- [ ] Propagate per-post metadata: pass `description` and `image` from `src/pages/writing/[slug].astro` → `PostLayout` → `BaseLayout` and use them in head meta (`og:description`, `og:image`, `twitter:description`, `twitter:image`).
+- [ ] Enrich RSS feed (`src/pages/rss.xml.ts`) to include `description`, optional image, and updated timestamps for items.
+- [ ] Add article Open Graph metadata (`article:published_time`, `article:modified_time`) and set `og:type` appropriately for post pages.
+- [ ] Tidy `PostLayout` metadata rendering to avoid stray punctuation when `readingTime` is missing.
+
 ### P1
+
 
 ### P2
 
