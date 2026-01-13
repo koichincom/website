@@ -39,6 +39,7 @@ export default defineConfig({
         "/projects": "/project",
         "/blog": "/writing",
         "/blogs": "/writing",
+        "/writings": "/writing",
         "/clubs": "/club",
 
         "/github": "https://github.com/koichincom",
