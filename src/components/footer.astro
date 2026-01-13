@@ -36,13 +36,6 @@
         class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
         >Signal</a
     >
-    <!-- <button -->
-    <!--     id="shortcuts-button" -->
-    <!--     data-tooltip="Press ?" -->
-    <!--     class="ml-auto hidden sm:block hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200" -->
-    <!-- > -->
-    <!--     Shortcuts -->
-    <!-- </button> -->
 </nav>
 
 <script>
@@ -83,23 +76,9 @@
         }
     }
 
-    function handleShortcutsClick() {
-        document.dispatchEvent(new Event('open-shortcuts'));
-    }
-
-    function initShortcuts() {
-        const shortcutsButton = document.getElementById("shortcuts-button");
-        if (shortcutsButton) {
-            shortcutsButton.removeEventListener("click", handleShortcutsClick);
-            shortcutsButton.addEventListener("click", handleShortcutsClick);
-        }
-    }
-
     initEmailCopy();
-    initShortcuts();
 
     document.addEventListener("astro:page-load", () => {
         initEmailCopy();
-        initShortcuts();
     });
 </script>

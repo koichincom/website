@@ -1,26 +1,10 @@
 import { navigate } from "astro:transitions/client";
-import { toast } from "../utils/toast";
-
-const HELP_MODAL_ID = "shortcuts-modal";
-
-export function showHelpModal() {
-    const dialog = document.getElementById(HELP_MODAL_ID) as HTMLDialogElement;
-    if (dialog) {
-        dialog.showModal();
-        dialog.focus();
-    }
-}
-
-export function isHelpModalOpen(): boolean {
-    const dialog = document.getElementById(HELP_MODAL_ID) as HTMLDialogElement;
-    return dialog?.open ?? false;
-}
 
 export function initShortcuts() {
     document.addEventListener("keydown", (event) => {
         const target = event.target as HTMLElement;
 
-        if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") {
+        if (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable) {
             return;
         }
 
@@ -28,110 +12,19 @@ export function initShortcuts() {
             return;
         }
 
-        if (
-            isHelpModalOpen() &&
-            event.key !== "?" &&
-            event.key !== "q" &&
-            event.key !== "Escape"
-        ) {
-            return;
-        }
+        const key = event.key;
+        const navigationMap: Record<string, string> = {
+            h: "/",
+            w: "/writing",
+            p: "/project",
+            c: "/club",
+        };
 
-        const isGlobalBindingExecuted = handleGlobalShortcuts(event);
-        if (isGlobalBindingExecuted) {
-            return;
+        if (key in navigationMap) {
+            if (window.location.pathname === navigationMap[key]) {
+                return;
+            }
+            navigate(navigationMap[key]);
         }
     });
-}
-
-let lastKey = "";
-let lastKeyTime = 0;
-const KEY_TIMEOUT = 500;
-
-function handleGlobalShortcuts(event: KeyboardEvent): boolean {
-    const key = event.key;
-
-    const navigationMap: Record<string, string> = {
-        h: "/",
-        w: "/writing",
-        p: "/project",
-        c: "/club",
-    };
-
-    if (key in navigationMap) {
-        if (window.location.pathname === navigationMap[key]) {
-            return false;
-        }
-        navigate(navigationMap[key]);
-        return true;
-    }
-
-    switch (key) {
-        case "g":
-            if (lastKey !== "g") {
-                lastKey = "g";
-                lastKeyTime = Date.now();
-                return false;
-            } else if (Date.now() - lastKeyTime > KEY_TIMEOUT) {
-                lastKey = "g";
-                lastKeyTime = Date.now();
-                return false;
-            } else {
-                lastKey = "";
-                lastKeyTime = 0;
-                window.scrollTo({ top: 0, behavior: "auto" });
-                return true;
-            }
-
-        case "G":
-            window.scrollTo({
-                top: document.documentElement.scrollHeight,
-                behavior: "auto",
-            });
-            return true;
-
-        case "u":
-            window.scrollBy({
-                top: -1 * (window.innerHeight / 2),
-                behavior: "auto",
-            });
-            return true;
-
-        case "d":
-            window.scrollBy({
-                top: window.innerHeight / 2,
-                behavior: "auto",
-            });
-            return true;
-
-        case "j":
-            window.scrollBy({
-                top: window.innerHeight / 20,
-                behavior: "auto",
-            });
-            return true;
-
-        case "k":
-            window.scrollBy({
-                top: -1 * (window.innerHeight / 20),
-                behavior: "auto",
-            });
-            return true;
-
-        case "y":
-            navigator.clipboard
-                .writeText(window.location.href)
-                .then(() => {
-                    toast("Link Copied");
-                })
-                .catch(() => {
-                    toast("Copy failed", "error");
-                });
-            return true;
-        case "?":
-            showHelpModal();
-            return true;
-        default:
-            return false;
-    }
 }
