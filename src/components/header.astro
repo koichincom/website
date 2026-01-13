@@ -1,73 +1,34 @@
----
-const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
-const isHome = currentPath === "/";
-const isWritingHome = currentPath === "/writing";
-const isWritingSub = currentPath.startsWith("/writing/");
-const isProjectsHome = currentPath === "/project";
-const isProjectsSub = currentPath.startsWith("/project/");
----
-
 <header class="fixed inset-x-0 top-0 z-50 h-14 sm:h-16 bg-(--color-background) dark:bg-(--color-background-dark)">
   <nav class="h-full flex items-center justify-between gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8">
     <div class="py-2">
-        {
-            isHome ? (
-                <span
-                    class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
-                >
-                    Koichi Nakayamada
-                </span>
-            ) : (
-                <a
-                    href="/"
-                    class="hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-                    data-tooltip="Press h"
-                >
-                    Koichi Nakayamada
-                </a>
-            )
-        }
+        <a
+            href="/"
+            class="hover:underline hover:underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            data-tooltip="Press h"
+        >
+            Koichi Nakayamada
+        </a>
     </div>
 
     <div class="flex gap-4 sm:gap-6">
         <div class="py-2">
-            {
-                isWritingHome ? (
-                    <span
-                        class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
-                    >
-                        Writing
-                    </span>
-                ) : (
-                    <a
-                        href="/writing"
-                        class={isWritingSub ? "text-(--color-accent-light) dark:text-(--color-accent-dark)" : "hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"}
-                        data-tooltip="Press w"
-                    >
-                        Writing
-                    </a>
-                )
-            }
+            <a
+                href="/writing"
+                class="hover:underline hover:underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                data-tooltip="Press w"
+            >
+                Writing
+            </a>
         </div>
 
         <div class="py-2">
-            {
-                isProjectsHome ? (
-                    <span
-                        class="text-(--color-accent-light) dark:text-(--color-accent-dark)"
-                    >
-                        Projects
-                    </span>
-                ) : (
-                    <a
-                        href="/project"
-                        class={isProjectsSub ? "text-(--color-accent-light) dark:text-(--color-accent-dark)" : "hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"}
-                        data-tooltip="Press p"
-                    >
-                        Projects
-                    </a>
-                )
-            }
+            <a
+                href="/project"
+                class="hover:underline hover:underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+                data-tooltip="Press p"
+            >
+                Projects
+            </a>
         </div>
     </div>
   </nav>

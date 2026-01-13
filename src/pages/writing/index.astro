@@ -24,7 +24,7 @@ const postsWithReadingTime = writingPosts.map((post) => {
                     <a href={`/writing/${post.id}`} class="flex flex-col gap-4">
 
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                            <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">
+                            <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) hover:underline hover:underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">
                                 {post.data.title}
                             </span>
                             <span class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-1 sm:mt-0 flex items-center gap-2">
