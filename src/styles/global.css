@@ -30,18 +30,3 @@
         text-decoration: var(--shiki-dark-text-decoration) !important;
     }
 }
-
-@layer base {
-    a:focus-visible,
-    button:focus-visible {
-        outline: 2px solid var(--color-accent-light, #ff8c00);
-        outline-offset: 2px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        a:focus-visible,
-        button:focus-visible {
-            outline-color: var(--color-accent-dark, #ffa500);
-        }
-    }
-}
