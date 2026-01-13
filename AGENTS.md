@@ -76,6 +76,7 @@ Order imports logically to maintain a clean frontmatter:
 - Client Scripts: Put DOM-heavy logic in src/scripts/ and import it into the <script> block.
 
 ### 5. CSS and Styling
+- **Tailwind First**: Always follow Tailwind standards and conventions as much as possible. Prefer utility classes over custom CSS in all cases. Only write custom CSS when Tailwind utilities genuinely cannot achieve the desired result.
 - Tailwind CSS 4: Use utility classes directly in templates. Tailwind 4 is integrated via @tailwindcss/vite.
 - Custom Variables: Use the (--variable-name) syntax for theme variables (e.g., bg-(--color-background)).
 - Typography: Use the @tailwindcss/typography (prose) class for Markdown/content-heavy areas.
