@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
@@ -7,29 +7,6 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
     site: "https://koichin.com",
     integrations: [sitemap()],
-    experimental: {
-        fonts: [
-            {
-                provider: fontProviders.fontsource(),
-                name: "Inter",
-                cssVariable: "--font-family-inter",
-                weights: ["100 900"],
-            },
-            {
-                provider: fontProviders.fontsource(),
-                name: "Lora",
-                cssVariable: "--font-family-lora",
-                weights: ["100 900"],
-                styles: ["normal", "italic"],
-            },
-            {
-                provider: fontProviders.fontsource(),
-                name: "Iosevka",
-                cssVariable: "--font-family-iosevka",
-                weights: [400, 700],
-            },
-        ],
-    },
     vite: {
         plugins: [tailwindcss()],
     },

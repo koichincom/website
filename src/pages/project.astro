@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../../layouts/base.astro";
+import BaseLayout from "../layouts/base.astro";
 const title = "Koichi's Projects";
 const h1 = "Projects";
 
@@ -21,7 +21,7 @@ const projects = (await getCollection("projects")).sort(
                         rel="noopener noreferrer"
                         class="block group"
                     >
-                        <h2 class="text-lg sm:text-xl font-semibold mb-2 text-(--color-text-first) dark:text-(--color-text-first-dark) group-hover:underline group-hover:underline-offset-4 group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) transition-colors duration-200">
+                        <h2 class="text-lg sm:text-xl font-semibold mb-2 text-(--color-text-first) dark:text-(--color-text-first-dark) underline decoration-transparent underline-offset-4 group-hover:decoration-current group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) transition-colors duration-200">
                             {project.data.name}
                         </h2>
 
