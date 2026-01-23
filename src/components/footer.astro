@@ -6,84 +6,39 @@
             href="https://x.com/koichincom"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:underline hover:underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
             >X</a
         >
         <a
             href="https://github.com/koichincom"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:underline hover:underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
             >GitHub</a
         >
         <a
             href="https://linkedin.com/in/koichincom/"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:underline hover:underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
             >LinkedIn</a
         >
     </div>
 
     <div class="flex gap-4 sm:gap-6">
-        <button
-            id="copy-email"
-            type="button"
-            data-tooltip="Click to Copy"
-            class="hover:underline hover:underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-            >Email</button
+        <a
+            href="mailto:k@koichin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            >Email</a
         >
         <a
             href="https://signal.me/#eu/hFxJqhdUe_9zSwQs01xjuf6sz9n5Zag3yfHQzxGwPZPL-X863I9DF5QXch7gCsUv"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:underline hover:underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
             >Signal</a
         >
     </div>
 </nav>
-
-<script>
-    let copyTimeout: ReturnType<typeof setTimeout>;
-
-    async function handleEmailCopy(event: MouseEvent) {
-        const emailButton = event.currentTarget as HTMLButtonElement;
-        const globalTooltip = document.getElementById("global-tooltip");
-        const originalTooltipText = "Click to Copy";
-        let tooltipText = "Copied!";
-
-        try {
-            await navigator.clipboard.writeText("k@koichin.com");
-        } catch {
-            tooltipText = "Copy failed";
-        }
-
-        if (copyTimeout) clearTimeout(copyTimeout);
-
-        emailButton.setAttribute("data-tooltip", tooltipText);
-        if (globalTooltip && globalTooltip.getAttribute("aria-hidden") === "false") {
-            globalTooltip.textContent = tooltipText;
-        }
-
-        copyTimeout = setTimeout(() => {
-            emailButton.setAttribute("data-tooltip", originalTooltipText);
-            if (globalTooltip && globalTooltip.getAttribute("aria-hidden") === "false" && globalTooltip.textContent === tooltipText) {
-                globalTooltip.textContent = originalTooltipText;
-            }
-        }, 2000);
-    }
-
-    function initEmailCopy() {
-        const emailButton = document.getElementById("copy-email");
-        if (emailButton) {
-            emailButton.removeEventListener("click", handleEmailCopy);
-            emailButton.addEventListener("click", handleEmailCopy);
-        }
-    }
-
-    initEmailCopy();
-
-    document.addEventListener("astro:page-load", () => {
-        initEmailCopy();
-    });
-</script>
