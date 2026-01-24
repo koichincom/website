@@ -1,12 +1,12 @@
-// @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
-import tailwindcss from "@tailwindcss/vite";
+import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
     site: "https://koichin.com",
-    integrations: [sitemap()],
+    integrations: [sitemap(), mdx()],
     vite: {
         plugins: [tailwindcss()],
     },
@@ -17,6 +17,15 @@ export default defineConfig({
                 dark: "github-dark",
             },
         },
+    },
+    experimental: {
+        fonts: [
+            {
+                provider: fontProviders.fontsource(),
+                name: "Iosevka Aile",
+                cssVariable: "--font-iosevka-aile",
+            },
+        ],
     },
 
     redirects: {
@@ -30,6 +39,7 @@ export default defineConfig({
         "/github": "https://github.com/koichincom",
         "/gh": "https://github.com/koichincom",
         "/linkedin": "https://linkedin.com/in/koichincom/",
+        "/li": "https://linkedin.com/in/koichincom/",
         "/in": "https://linkedin.com/in/koichincom/",
         "/x": "https://x.com/koichincom",
         "/twitter": "https://x.com/koichincom",
