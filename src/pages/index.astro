@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/base.astro";
 const title = "Koichi Nakayamada";
-const h1 = "Hello, I'm Koichi";
+const h1 = "Koichi Nakayamada";
 
 const birthDate = new Date(2004, 11, 9); // December 9, 2004
 const today = new Date();
@@ -16,20 +16,8 @@ const age =
 
 <BaseLayout title={title} h1={h1}>
     <p class="mb-8 sm:mb-12 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed">
-        I'm a {age}-year-old Japanese Data Science undergraduate student who finds beauty in the intersection of numbers and code.
-        Currently, I'm exploring the vast landscapes of machine learning while keeping my roots firmly planted in the terminal.
-        My journey into the world of software began with a simple curiosity that has since evolved into a full-blown passion for building meaningful tools.
-        I'm particularly interested in how we can make data more accessible and intuitive through thoughtful design and robust engineering.
-        Lately, I've been experimenting with generative art and procedural generation, finding it a fascinating way to visualize complex mathematical concepts.
-        When I'm not training models or refactoring scripts, you can usually find me documenting my latest discoveries.
-        Feel free to <a href="/writing" class="underline underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">check out my writing</a> where I share technical deep-dives and personal reflections.
-        I believe that every problem is an opportunity to learn something new and every bug is a puzzle waiting to be solved.
-        My digital garden is a work in progress, much like my understanding of the complex algorithms I study daily.
-        Beyond the screen, I'm an avid reader of classic literature and a fan of minimalist aesthetics in both physical and digital spaces.
-        I find that stepping away from the keyboard often provides the clearest insights into the most stubborn coding challenges.
-        You can also catch me sharing quick updates and tech snippets over on <a href="https://twitter.com/koichincom" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">Twitter</a>.
-        Whether it's optimizing a SQL query or tweaking a CSS animation, I strive for elegance and efficiency in everything I create.
-        I'm always open to interesting conversations, whether they're about data architecture or the best terminal themes.
-        Thanks for stopping by my little corner of the internet; let's build something incredible together.
+        I'm a {age}-years old Data Science student, hacker, and positive-nihilist, born and raised in Japan and currently studying in the States.
+        I aim "technical philantropy," which to contribute to humanity through technological works based on the love to the human kind.
+        You can find me on <a href="https://x.com/koichincom" class="underline underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200">X (Twitter).</a>
     </p>
 </BaseLayout>
