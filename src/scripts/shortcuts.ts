@@ -4,7 +4,11 @@ export function initShortcuts() {
     document.addEventListener("keydown", (event) => {
         const target = event.target as HTMLElement;
 
-        if (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable) {
+        if (
+            target.tagName === "INPUT" ||
+            target.tagName === "TEXTAREA" ||
+            target.isContentEditable
+        ) {
             return;
         }
 
@@ -18,6 +22,7 @@ export function initShortcuts() {
             w: "/writing",
             p: "/project",
             c: "/club",
+            a: "/about",
         };
 
         if (key in navigationMap) {

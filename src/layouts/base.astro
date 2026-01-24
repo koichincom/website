@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
 import "../styles/global.css";
@@ -42,19 +43,20 @@ const containerClass = "max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8";
         <style is:global>
             ::view-transition-old(root),
             ::view-transition-new(root) {
-                animation-duration: 0.1s;
+                animation-duration: 0s;
             }
 
-            @media (prefers-reduced-motion: reduce) {
-                ::view-transition-old(root),
-                ::view-transition-new(root) {
-                    animation-duration: 0s;
-                }
-            }
+            /* @media (prefers-reduced-motion: reduce) { */
+            /*     ::view-transition-old(root), */
+            /*     ::view-transition-new(root) { */
+            /*         animation-duration: 0s; */
+            /*     } */
+            /* } */
         </style>
+        <Font cssVariable="--font-iosevka-aile" preload />
     </head>
     <body
-        class="bg-(--color-background) dark:bg-(--color-background-dark) text-(--color-text-first) dark:text-(--color-text-first-dark) font-sans text-base flex flex-col min-h-screen"
+        class="bg-(--color-background) dark:bg-(--color-background-dark) text-(--color-text-first) dark:text-(--color-text-first-dark) text-base flex flex-col min-h-screen"
     >
         <a
             href="#main-content"
