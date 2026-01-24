@@ -21,8 +21,6 @@ const formatDate = (date: Date) => {
 ---
 
 <BaseLayout title={title} h1={h1}>
-    <div class="max-w-4xl mx-auto">
-
     {updated ? (
         <div class="mb-4 text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2">
             <p>{readingTime && `${readingTime} min read •`} Published: <time datetime={published?.toISOString()}>{published && formatDate(published)}</time>• Last updated: <time datetime={updated.toISOString()}>{formatDate(updated)}</time></p>
@@ -42,5 +40,4 @@ const formatDate = (date: Date) => {
         </div>
     )}
     <slot />
-    </div>
 </BaseLayout>
