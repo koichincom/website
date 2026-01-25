@@ -15,6 +15,8 @@ const { h1 } = Astro.props;
 const { description = "Koichi Nakayamada's personal website and writing" } =
     Astro.props;
 const siteUrl = "https://koichin.com" + Astro.url.pathname;
+const rssUrl = Astro.site ? new URL("/rss.xml", Astro.site).toString() : "/rss.xml";
+const atomUrl = Astro.site ? new URL("/atom.xml", Astro.site).toString() : "/atom.xml";
 const containerClass = "max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8";
 ---
 
@@ -37,6 +39,8 @@ const containerClass = "max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8";
         <meta name="x:creator" content="@koichincom" />
 
         <link rel="canonical" href={siteUrl} />
+        <link rel="alternate" type="application/rss+xml" title="Koichi Nakayamada RSS" href={rssUrl} />
+        <link rel="alternate" type="application/atom+xml" title="Koichi Nakayamada Atom" href={atomUrl} />
 
         <ClientRouter />
 
