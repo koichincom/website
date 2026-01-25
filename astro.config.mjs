@@ -29,12 +29,14 @@ export default defineConfig({
     },
 
     redirects: {
+        // Main redirects
         "/proj": "/project",
         "/projects": "/project",
         "/blog": "/writing",
         "/blogs": "/writing",
         "/writings": "/writing",
 
+        // Social redirects
         "/github": "https://github.com/koichincom",
         "/gh": "https://github.com/koichincom",
         "/linkedin": "https://linkedin.com/in/koichincom/",
@@ -42,8 +44,5 @@ export default defineConfig({
         "/in": "https://linkedin.com/in/koichincom/",
         "/x": "https://x.com/koichincom",
         "/twitter": "https://x.com/koichincom",
-
-        "/hci": "https://discord.gg/TF38g4AGtk",
-        "/ada": "https://discord.gg/KP297tkq3X",
     },
 });
