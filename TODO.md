@@ -5,8 +5,33 @@
 - [x] RSS and Atom feed integration
     - https://gsong.dev/articles/astro-feed-unified/
     - https://jenxi.com/atom-feed-for-astro
-- [ ] Site map
-- [ ] Content structure and display improvements
+- [x] Two site maps are generated
+- [ ] Content structure and display refactoring: What to display on the home, writing, and project pages
+- [ ] Design decisions, where to put what
 - [ ] Add Japanese language support
-- [ ] Overall design decisions, but later, not now!!
-- [ ] CSS stuff
+
+## Entries
+
+**Collections**
+
+- Source: `src/content.config.ts`
+
+**Writing**
+
+- `title` — string — Post title
+- `published` — date — Initial publication date
+- `updates` — date[] (default []) — List of all update dates
+- `updated` — date (optional) — Last updated date
+- `tags` — string[] (optional) — Tags for categorization
+- `image` — string (optional) — Optional image path for the post
+
+**Projects**
+
+- `name` — string — Project name
+- `primaryUrl` — string (url) — Main project destination
+- `published` — date — Publication/start date for sorting
+- `urls` — array of { `label`: string, `url`: string (url) } (optional) — Additional links (repo, demo, docs)
+- `roles` — string[] (optional) — Current roles
+- `description` — string — Project description
+- `tags` — string[] (optional) — Tech stack and domain tags
+- `image` — string (optional) — Project image path

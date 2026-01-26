@@ -7,6 +7,7 @@ Purpose: Essential guidance for agentic coding agents operating in this reposito
 - **CRITICAL Validation**: `bun run build` (Catches TS, CSS, and routing errors)
 - Type Check Only: `bunx tsc --noEmit`
 - Test Suite: `bunx vitest` (Run single: `bunx vitest path/to/test.ts`)
+- Docs MCP: `astro-docs` is available via MCP (use `astro-docs_search_astro_docs`)
 
 ## Build, Dev and Validation
 
@@ -103,6 +104,9 @@ Do NOT run `bun run dev` to validate your changes; it is a continuous process.
 - Commits: Make small, atomic commits. Focus the message on "why" the change was made.
 - Build Output: Never commit the `dist/` directory.
 - Accessibility: Ensure images have `alt` text and interactive elements have `aria-label` or `data-tooltip`.
+
+## MCP and Docs
+- Astro docs are connected via MCP: use `astro-docs_search_astro_docs` to search official docs.
 
 ## Proactive Actions
 - Testing: If you add a utility in `src/utils/`, add a corresponding `.test.ts` file.
