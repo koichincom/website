@@ -1,12 +1,16 @@
+---
+import Logo from "./logo.astro";
+---
+
 <header class="fixed inset-x-0 top-0 z-50 h-14 sm:h-16 bg-(--color-background) dark:bg-(--color-background-dark)">
   <nav class="h-full flex items-center justify-between gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="py-2">
+      <div class="py-2">
         <a
             href="/"
-            class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-            data-tooltip="Press h"
+            class="flex items-center text-(--color-text-light) dark:text-(--color-text-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            data-tooltip="Go home (press h)"
         >
-            Koichi Nakayamada
+            <Logo className="h-6 w-auto" />
         </a>
     </div>
 
