@@ -10,6 +10,9 @@
 - [ ] Design decisions, where to put what
 - [ ] Add Japanese language support
 
+Writing: Title min date
+Projects:
+
 ## Entries
 
 **Collections**
