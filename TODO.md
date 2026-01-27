@@ -11,24 +11,7 @@
 - [ ] Add Japanese language support
 
 Writing: Title min date
-Projects:
-
-## Entries
-
-**Collections**
-
-- Source: `src/content.config.ts`
-
-**Writing**
-
-- `title` — string — Post title
-- `published` — date — Initial publication date
-- `updates` — date[] (default []) — List of all update dates
-- `updated` — date (optional) — Last updated date
-- `tags` — string[] (optional) — Tags for categorization
-- `image` — string (optional) — Optional image path for the post
-
-**Projects**
+Projects: Title description date
 
 - `name` — string — Project name
 - `primaryUrl` — string (url) — Main project destination

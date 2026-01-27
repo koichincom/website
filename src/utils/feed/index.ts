@@ -61,8 +61,8 @@ function createFeedInstance(site: string, author: SiteAuthor): Feed {
         favicon: createUrl("/favicon.ico", site),
         copyright: `Copyright ${new Date().getFullYear()} Koichi Nakayamada`,
         feedLinks: {
-            rss: createUrl("/rss.xml", site),
-            atom: createUrl("/atom.xml", site),
+            rss: createUrl("/rss/", site),
+            atom: createUrl("/atom/", site),
         },
         author,
     };
