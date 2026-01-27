@@ -29,12 +29,18 @@ export default defineConfig({
     },
 
     redirects: {
-        // Main redirects
-        "/proj": "/project",
-        "/projects": "/project",
+        // Writing redirects
+        "/w": "/writing",
+        "/writings": "/writing",
         "/blog": "/writing",
         "/blogs": "/writing",
-        "/writings": "/writing",
+
+        // Project redirects
+        "/p": "/project",
+        "/pj": "/project",
+        "/pjt": "/project",
+        "/proj": "/project",
+        "/projects": "/project",
 
         // Social redirects
         "/github": "https://github.com/koichincom",
