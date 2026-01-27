@@ -83,22 +83,8 @@ const containerClass = "max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8";
             </footer>
         </div>
 
-        <div
-          id="global-tooltip"
-          role="tooltip"
-          aria-hidden="true"
-          class="fixed z-[100] px-2 py-1 text-xs bg-(--color-text-first) dark:bg-(--color-text-first-dark) text-(--color-background) dark:text-(--color-background-dark) rounded opacity-0 transition-opacity duration-150 pointer-events-none whitespace-nowrap will-change-transform top-0 left-0 hidden sm:block"
-        >
-        </div>
-
         <script>
-            import { initShortcuts } from "../scripts/shortcuts";
-            import { initGlobalTooltips } from "../scripts/tooltip";
-            initShortcuts();
-            initGlobalTooltips();
-
             document.addEventListener("astro:page-load", () => {
-                initGlobalTooltips();
                 if (window.location.pathname !== "/") {
                     (window as Window & { hasVisitedInternal?: boolean })
                         .hasVisitedInternal = true;
