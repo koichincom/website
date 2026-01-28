@@ -2,7 +2,6 @@ name = "Still Waiting"
 primaryUrl = "https://example.com"
 published = 2025-06-01T00:00:00Z
 description = "24h reply reminder bot for Discord"
-roles = []
 tags = []
 subUrls = [
     { label = "Repository", url = "https://github.com/koichincom/still-waiting" },

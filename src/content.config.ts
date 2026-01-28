@@ -4,8 +4,8 @@ import { glob } from "astro/loaders";
 const writing = defineCollection({
     loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/writing" }),
     schema: z.object({
-        title: z.string().describe("Post title"),
-        published: z.date().describe("Initial publication date"),
+        title: z.string().describe("The title of the writing piece"),
+        published: z.date().describe("Publication date"),
         updates: z
             .array(z.date())
             .default([])
