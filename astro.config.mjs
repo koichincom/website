@@ -19,6 +19,7 @@ export default defineConfig({
         },
     },
     experimental: {
+        contentIntellisense: true,
         fonts: [
             {
                 provider: fontProviders.fontsource(),
@@ -32,6 +33,7 @@ export default defineConfig({
         // Writing redirects
         "/w": "/writing",
         "/writings": "/writing",
+        "/b": "/writing",
         "/blog": "/writing",
         "/blogs": "/writing",
 
