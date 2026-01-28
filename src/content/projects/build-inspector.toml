@@ -7,4 +7,3 @@ tags = ["Go", "Docker", "GitHub Actions", "PostgreSQL", "Observability"]
 subUrls = [
     { label = "Docs", url = "https://example.com/build-inspector/docs" }
 ]
-image = "/assets/projects/placeholder.svg"

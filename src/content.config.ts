@@ -10,15 +10,11 @@ const writing = defineCollection({
             .array(z.date())
             .default([])
             .describe("List of all update dates"),
-        updated: z.date().optional().describe("Last updated date"),
+        lastUpdated: z.date().optional().describe("Last updated date"),
         tags: z
             .array(z.string())
             .optional()
             .describe("Tags for categorization"),
-        image: z
-            .string()
-            .optional()
-            .describe("Optional image path for the post"),
     }),
 });
 
@@ -42,7 +38,6 @@ const projects = defineCollection({
             .array(z.string())
             .optional()
             .describe("Tech stack and domain tags"),
-        image: z.string().optional().describe("Project image path"),
     }),
 });
 

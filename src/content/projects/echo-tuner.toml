@@ -4,4 +4,3 @@ published = 2025-01-12T00:00:00Z
 description = "A small app for musicians that applies real-time equalization and adaptive echo cancellation during practice sessions."
 roles = ["DSP Engineer"]
 tags = ["C", "JUCE", "DSP", "Low-latency Audio"]
-image = "/assets/projects/placeholder.svg"

@@ -7,4 +7,3 @@ tags = ["C++", "Storage", "LevelDB", "CLI"]
 subUrls = [
     { label = "Benchmarks", url = "https://example.com/ember-db/benchmarks" }
 ]
-image = "/assets/projects/placeholder.svg"

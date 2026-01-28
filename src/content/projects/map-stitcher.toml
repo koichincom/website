@@ -8,4 +8,3 @@ subUrls = [
     { label = "CLI Guide", url = "https://example.com/map-stitcher/cli" },
     { label = "Samples", url = "https://example.com/map-stitcher/samples" }
 ]
-image = "/assets/projects/placeholder.svg"

@@ -8,4 +8,3 @@ subUrls = [
     { label = "Demo", url = "https://example.com/chrono-tracker/demo" },
     { label = "Case Study", url = "https://example.com/chrono-tracker/case-study" }
 ]
-image = "/assets/projects/placeholder.svg"

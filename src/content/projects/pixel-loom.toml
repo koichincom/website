@@ -4,4 +4,3 @@ published = 2024-02-14T00:00:00Z
 description = "Generative art tool that converts images and parametric patterns into repeatable textile weave designs and exports loom-ready instructions."
 roles = ["Algorithm Engineer"]
 tags = ["Rust", "WASM", "SVG", "Image Processing", "Generative Art"]
-image = "/assets/projects/placeholder.svg"

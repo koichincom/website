@@ -4,4 +4,3 @@ published = 2024-11-10T00:00:00Z
 description = "An IoT system that monitors soil moisture, light and nutrients and automatically waters and fertilizes potted plants using a rule-based scheduler and ML-based anomaly detection."
 roles = ["Architect", "Embedded Developer"]
 tags = ["TypeScript", "ESP32", "MQTT", "React", "TensorFlow Lite", "IoT"]
-image = "/assets/projects/placeholder.svg"

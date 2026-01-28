@@ -7,4 +7,3 @@ tags = ["Electron", "SQLite", "Svelte", "Markdown"]
 subUrls = [
     { label = "Roadmap", url = "https://example.com/fluxnote/roadmap" }
 ]
-image = "/assets/projects/placeholder.svg"

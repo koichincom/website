@@ -4,4 +4,3 @@ published = 2024-01-20T00:00:00Z
 description = "Desktop app that records short voice notes, auto-transcribes them locally, and organizes searchable snippets for quick retrieval."
 roles = ["ML Engineer", "Frontend"]
 tags = ["Python", "PyTorch", "WebRTC", "Electron", "ASR"]
-image = "/assets/projects/placeholder.svg"

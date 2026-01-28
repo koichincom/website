@@ -1,7 +1,9 @@
-name = "Still Waiting Discord"
-primaryUrl = "https://github.com/koichincom/still-waiting-discord"
+name = "Still Waiting"
+primaryUrl = "https://example.com"
 published = 2025-06-01T00:00:00Z
-description = "Discord bot that automatically reminds mentioned users who haven't replied or reacted within 24 hours, keeping conversations active across servers."
-roles = ["Creator and Maintainer"]
-tags = ["Python", "Discord.py", "Google Cloud Firestore", "GCP Compute Engine", "OAuth2", "Discord", "Bot"]
-image = "/assets/projects/placeholder.svg"
+description = "24h reply reminder bot for Discord"
+roles = []
+tags = []
+subUrls = [
+    { label = "Repository", url = "https://github.com/koichincom/still-waiting" },
+]
