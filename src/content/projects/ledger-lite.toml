@@ -1,6 +1,0 @@
-name = "Ledger Lite"
-primaryUrl = "https://github.com/koichincom/ledger-lite"
-published = 2023-04-18T00:00:00Z
-description = "Minimal double-entry ledger with CSV import/export, budget reports, and CLI-first workflows for power users who prefer plain text."
-roles = ["Author", "Maintainer"]
-tags = ["Haskell", "CLI", "Finance", "CSV"]
