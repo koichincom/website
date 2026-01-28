@@ -94,10 +94,7 @@ async function getWritingItems(
         writingPosts.map(async (post) => {
             const link = createUrl(`/writing/${post.id}`, site);
             const content = await mdxToHtml(post.body || "", site);
-            const image = post.data.image
-                ? createUrl(post.data.image, site)
-                : undefined;
-            const date = post.data.updated ?? post.data.published;
+            const date = post.data.lastUpdated ?? post.data.published;
             const baseItem = {
                 title: post.data.title,
                 id: link,
@@ -105,7 +102,6 @@ async function getWritingItems(
                 date,
                 published: post.data.published,
                 author: [author],
-                image,
             };
 
             if (variant === "rss") {
@@ -138,10 +134,6 @@ async function getProjectItems(
                 `${projectNotice}\n\n${project.data.description}`,
                 site,
             );
-            const image = project.data.image
-                ? createUrl(project.data.image, site)
-                : undefined;
-
             return {
                 title: project.data.name,
                 id: link,
@@ -150,7 +142,6 @@ async function getProjectItems(
                 date: project.data.published,
                 published: project.data.published,
                 author: [author],
-                image,
             };
         }),
     );
