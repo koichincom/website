@@ -2,11 +2,14 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/base.astro";
 import { getReadingTime, formatReadingTime } from "../../utils/readingTime";
+
 const title = "Writing - Koichi Nakayamada";
 const h1 = "Writing";
 
 const writingPosts = (await getCollection("writing")).sort(
-    (a, b) => new Date(b.data.published).getTime() - new Date(a.data.published).getTime(),
+    (a, b) =>
+        new Date(b.data.published).getTime() -
+        new Date(a.data.published).getTime(),
 );
 
 const postsWithReadingTime = writingPosts.map((post) => {
@@ -21,7 +24,6 @@ const postsWithReadingTime = writingPosts.map((post) => {
             postsWithReadingTime.map(({ post, readingTime }) => (
                 <li class="py-2">
                     <a href={`/writing/${post.id}`} class="flex flex-col gap-4">
-
                         <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,1fr)_12ch_18ch] sm:items-center sm:gap-x-2">
                             <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:min-w-0">
                                 {post.data.title}
@@ -30,8 +32,13 @@ const postsWithReadingTime = writingPosts.map((post) => {
                                 <span class="sm:text-right sm:whitespace-nowrap tabular-nums">
                                     {formatReadingTime(readingTime)}
                                 </span>
-                                <time class="sm:text-right sm:whitespace-nowrap" datetime={post.data.published.toISOString()}>
-                                    {new Date(post.data.published).toLocaleDateString(undefined, {
+                                <time
+                                    class="sm:text-right sm:whitespace-nowrap"
+                                    datetime={post.data.published.toISOString()}
+                                >
+                                    {new Date(
+                                        post.data.published,
+                                    ).toLocaleDateString(undefined, {
                                         year: "numeric",
                                         month: "long",
                                         day: "numeric",
