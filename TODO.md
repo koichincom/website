@@ -7,5 +7,6 @@
     - https://jenxi.com/atom-feed-for-astro
 - [x] Two site maps are generated
 - [ ] Content structure and display refactoring: What to display on the home, writing, and project pages
+- [ ] Dynamic header href link changing
 - [ ] Design decisions, where to put what
 - [ ] Add Japanese language support

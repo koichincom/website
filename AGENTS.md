@@ -3,6 +3,7 @@
 Purpose: Essential guidance for agentic coding agents operating in this repository.
 
 ## Quick Reference
+
 - Local Dev: `bun run dev` (Starts Astro on port 4321)
 - **CRITICAL Validation**: `bun run build` (Catches TS, CSS, and routing errors)
 - Type Check Only: `bunx tsc --noEmit`
@@ -12,22 +13,28 @@ Purpose: Essential guidance for agentic coding agents operating in this reposito
 ## Build, Dev and Validation
 
 ### Package Manager and Runtime
+
 This project supports both Bun and npm. Bun is the preferred runtime.
+
 - Primary Runtime: Bun
 - Fallback: npm
 
 ### Primary Commands
+
 - Dev Server: `bun run dev` (Uses Astro)
 - Production Build: `bun run build` (Outputs to `dist/`; triggers full validation)
 - Preview Build: `bun run preview` (Local server for `dist/` contents)
 - Astro CLI: `bunx astro <args>`
 
 ### Validation Workflow
+
 Do NOT run `bun run dev` to validate your changes; it is a continuous process.
+
 - To validate changes: Always run `bun run build`. This is the most reliable way to catch TypeScript errors, Tailwind 4 compilation issues, missing imports, and broken routes.
 - If you only modified `.ts` files and want speed, use `bunx tsc --noEmit`.
 
 ## Testing
+
 - Current Status: No comprehensive test suite is currently implemented.
 - Proposed Framework: Use Vitest for new tests.
 - Installation: `bun add -d vitest`
@@ -37,6 +44,7 @@ Do NOT run `bun run dev` to validate your changes; it is a continuous process.
     - Run single test: `bunx vitest -t "test name"`
 
 ## Project Structure
+
 - `src/assets/`: Static assets, images, and raw placeholders.
 - `src/components/`: Reusable Astro components. Keep this flat unless a clear sub-module emerges.
 - `src/content/`: Content collections (TOML for projects, Markdown for writing).
@@ -49,6 +57,7 @@ Do NOT run `bun run dev` to validate your changes; it is a continuous process.
 ## Code Style and Conventions
 
 ### 1. Naming Conventions
+
 - Directories/Files: `kebab-case.astro` or `kebab-case.ts`.
 - Components: `PascalCase.astro` (e.g., `BaseLayout.astro`, `Shortcuts.astro`).
 - Functions/Variables: `camelCase` (e.g., `getReadingTime`, `initGlobalTooltips`).
@@ -56,6 +65,7 @@ Do NOT run `bun run dev` to validate your changes; it is a continuous process.
 - Types/Interfaces: `PascalCase` with descriptive suffixes (e.g., `Props`, `PostData`).
 
 ### 2. TypeScript Patterns
+
 - Strictness: Use strict types; avoid `any`. `strictNullChecks` is enabled.
 - Props Definition: Export an `interface Props` in the Astro frontmatter.
 - Explicit Returns: Specify return types for all exported functions.
@@ -63,17 +73,20 @@ Do NOT run `bun run dev` to validate your changes; it is a continuous process.
 - Type Narrowing: Use `instanceof` or type guards for DOM elements in `src/scripts/`.
 
 ### 3. Import Organization
+
 1. External Packages: (e.g., `astro:content`, `@astrojs/rss`).
 2. Internal Modules/Components: Use relative paths (e.g., `../components/Header.astro`).
 3. Styles and Assets: (e.g., `../styles/global.css`, `../assets/logo.svg`).
 
 ### 4. Astro Components
+
 - Logic: Keep logic in the frontmatter (`---`). Avoid complex logic in the template.
 - Content: Prefer `getCollection()` for data-driven pages.
 - Dynamic Routes: Use `export async function getStaticPaths()` for generating pages.
 - View Transitions: Enabled via `<ClientRouter />`. Scripts must use `astro:page-load`.
 
 ### 5. CSS and Styling (Tailwind-First)
+
 - **CORE MANDATE**: Use Tailwind utility classes directly in templates for ALL styling.
 - **NO CUSTOM CSS**: Do not write custom CSS in components or `global.css` unless utility classes genuinely cannot achieve the result.
 - **Theme Variables**: Use the `(--variable-name)` syntax for theme variables:
@@ -84,37 +97,42 @@ Do NOT run `bun run dev` to validate your changes; it is a continuous process.
 - **Dark Mode**: Use the `dark:` prefix for all color-related utilities.
 
 ### 6. Formatting and Indentation
+
 - Indentation: 4 spaces (strictly enforced).
 - Strings: Use double quotes for strings and attributes.
 - Semicolons: Required.
 - Trailing Whitespace: Trim all trailing whitespace on save.
 
 ### 7. Error Handling and Logic
+
 - Validate Early: Check for missing props at the start of the frontmatter.
 - Early Returns: Use `if (!condition) return;` to avoid deeply nested blocks.
 - Null Safety: Use optional chaining (`?.`) and nullish coalescing (`??`) extensively.
 
 ## Content Collections
+
 - Writing: Markdown files in `src/content/writing/`. Required: `title`, `published`, `description`.
 - Projects: TOML files in `src/content/projects/`. Required: `name`, `primaryUrl`, `published`.
 - Schema: Definitions are centralized in `src/content.config.ts`. Update this file when adding fields.
 
 ## Tooling and Safety
+
 - Secrets: NEVER commit secrets, API keys, or `.env` files.
 - Commits: Make small, atomic commits. Focus the message on "why" the change was made.
 - Build Output: Never commit the `dist/` directory.
 - Accessibility: Ensure images have `alt` text and interactive elements have `aria-label` or `data-tooltip`.
 
 ## MCP and Docs
+
 - Astro docs are connected via MCP: use `astro-docs_search_astro_docs` to search official docs.
 
 ## Proactive Actions
+
 - Testing: If you add a utility in `src/utils/`, add a corresponding `.test.ts` file.
 - Linking: New pages must be linked in `header.astro` or `footer.astro` if appropriate.
 - Visuals: Always check both light and dark modes (using `dark:` prefix).
-- Tooltips: Use `data-tooltip="Label"` on interactive elements for global tooltips.
 
 ## Common Patterns
+
 - Redirects: Managed in `astro.config.mjs`. Add new aliases there.
-- Tooltips: Script in `src/scripts/tooltip.ts` handles all `[data-tooltip]` elements.
 - Reading Time: Use `getReadingTime` utility for post metadata.
