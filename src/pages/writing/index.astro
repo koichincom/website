@@ -19,21 +19,24 @@ const postsWithReadingTime = writingPosts.map((post) => {
 ---
 
 <BaseLayout title={title} h1={h1}>
-    <ul class="mb-4">
+    <ul class="mb-4 space-y-8">
         {
             postsWithReadingTime.map(({ post, readingTime }) => (
-                <li class="py-2">
-                    <a href={`/writing/${post.id}`} class="flex flex-col gap-4">
-                        <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,1fr)_12ch_18ch] sm:items-center sm:gap-x-2">
-                            <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:min-w-0">
+                <li>
+                    <a
+                        href={`/writing/${post.id}`}
+                        class="flex flex-col"
+                    >
+                        <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,0.5fr)_minmax(0,0.25fr)_minmax(0,0.25fr)] sm:items-center sm:gap-x-2">
+                            <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:min-w-0 break-words leading-snug">
                                 {post.data.title}
                             </span>
-                            <span class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-1 sm:mt-0 flex items-center gap-2 sm:contents">
-                                <span class="sm:text-right sm:whitespace-nowrap tabular-nums">
+                            <div class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-1 flex items-center gap-4 sm:mt-0 sm:contents">
+                                <span class="whitespace-nowrap tabular-nums sm:text-right">
                                     {formatReadingTime(readingTime)}
                                 </span>
                                 <time
-                                    class="sm:text-right sm:whitespace-nowrap"
+                                    class="whitespace-nowrap sm:text-right"
                                     datetime={post.data.published.toISOString()}
                                 >
                                     {new Date(
@@ -44,7 +47,7 @@ const postsWithReadingTime = writingPosts.map((post) => {
                                         day: "numeric",
                                     })}
                                 </time>
-                            </span>
+                            </div>
                         </div>
                     </a>
                 </li>

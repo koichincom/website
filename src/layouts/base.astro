@@ -20,8 +20,6 @@ const rssUrl = Astro.site ? new URL("/rss/", Astro.site).toString() : "/rss/";
 const atomUrl = Astro.site
     ? new URL("/atom/", Astro.site).toString()
     : "/atom/";
-
-const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
 ---
 
 <html lang="en">
@@ -44,7 +42,6 @@ const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
         <link rel="canonical" href={siteUrl} />
         <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
-        <!-- Atom first, RSS second -->
         <link
             rel="alternate"
             type="application/atom+xml"
@@ -78,10 +75,12 @@ const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
             Skip to content
         </a>
 
-        <div class={`flex-1 flex flex-col ${containerClass}`}>
+        <div
+            class="flex-1 flex flex-col max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8"
+        >
             <Header transition:persist />
 
-            <main id="main-content" class="flex-1 pt-6 sm:pt-6 lg:pt-5 pb-8">
+            <main id="main-content" class="flex-1 pt-8 sm:pt-6 lg:pt-5 pb-8">
                 {
                     h1 && (
                         <h1 class="mt-0 text-2xl sm:text-3xl font-bold mb-8 text-(--color-text-first) dark:text-(--color-text-first-dark)">
