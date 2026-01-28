@@ -1,7 +1,10 @@
-name = "Aura - Agentic Unified Robotics Architecture"
+name = "Aura"
 primaryUrl = "https://github.com/deanzahci/aura"
 published = 2025-06-01T00:00:00Z
 description = "Intent-based Brain-Computer Interface system enabling high-level robotic control through EEG signals—users select objects and destinations while the system handles low-level manipulation autonomously."
 roles = ["Initiator and Project Lead"]
 tags = ["Python", "OpenBCI Cyton", "Scikit-learn", "OpenCV", "IKPy", "Arduino", "Multiprocessing", "BCI", "Robotics"]
+subUrls = [
+    { label = "GitHub Repository", url = "https://github.com"}
+]
 image = "/assets/projects/placeholder.svg"

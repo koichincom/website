@@ -1,0 +1,10 @@
+name = "Build Inspector"
+primaryUrl = "https://github.com/koichincom/build-inspector"
+published = 2024-08-22T00:00:00Z
+description = "Command-line tool and web dashboard that analyzes CI failures across pipelines to surface root causes and flaky tests using heuristics and historical data."
+roles = ["Creator", "Maintainer"]
+tags = ["Go", "Docker", "GitHub Actions", "PostgreSQL", "Observability"]
+subUrls = [
+    { label = "Docs", url = "https://example.com/build-inspector/docs" }
+]
+image = "/assets/projects/placeholder.svg"

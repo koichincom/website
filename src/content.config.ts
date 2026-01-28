@@ -28,7 +28,7 @@ const projects = defineCollection({
         name: z.string().describe("Project name"),
         primaryUrl: z.string().url().describe("Main project destination"),
         published: z.date().describe("Publication/start date for sorting"),
-        urls: z
+        subUrls: z
             .array(
                 z.object({
                     label: z.string(),
@@ -36,8 +36,7 @@ const projects = defineCollection({
                 }),
             )
             .optional()
-            .describe("Additional links (repo, demo, docs)"),
-        roles: z.array(z.string()).optional().describe("Current roles"),
+            .describe("Additional project URLs other than the primary one"),
         description: z.string().describe("Project description"),
         tags: z
             .array(z.string())

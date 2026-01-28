@@ -1,0 +1,10 @@
+name = "FluxNote"
+primaryUrl = "https://github.com/koichincom/fluxnote"
+published = 2023-12-05T00:00:00Z
+description = "A lightweight note-taking app with plain-text storage, automatic backlinking, and a fast graph view for exploring connections between notes."
+roles = ["Design", "Full-stack"]
+tags = ["Electron", "SQLite", "Svelte", "Markdown"]
+subUrls = [
+    { label = "Roadmap", url = "https://example.com/fluxnote/roadmap" }
+]
+image = "/assets/projects/placeholder.svg"

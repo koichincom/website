@@ -1,0 +1,10 @@
+name = "EmberDB"
+primaryUrl = "https://github.com/koichincom/ember-db"
+published = 2022-10-30T00:00:00Z
+description = "Small, fast embeddable key-value store with snapshotting and a simple HTTP admin interface for inspection and lightweight analytics."
+roles = ["Systems Engineer"]
+tags = ["C++", "Storage", "LevelDB", "CLI"]
+subUrls = [
+    { label = "Benchmarks", url = "https://example.com/ember-db/benchmarks" }
+]
+image = "/assets/projects/placeholder.svg"
