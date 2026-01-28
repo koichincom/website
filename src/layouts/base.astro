@@ -17,7 +17,9 @@ const { description = "Koichi Nakayamada's personal website and writing" } =
 
 const siteUrl = "https://koichin.com" + Astro.url.pathname;
 const rssUrl = Astro.site ? new URL("/rss/", Astro.site).toString() : "/rss/";
-const atomUrl = Astro.site ? new URL("/atom/", Astro.site).toString() : "/atom/";
+const atomUrl = Astro.site
+    ? new URL("/atom/", Astro.site).toString()
+    : "/atom/";
 
 const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
 ---
@@ -43,8 +45,18 @@ const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
         <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
         <!-- Atom first, RSS second -->
-        <link rel="alternate" type="application/atom+xml" title="Koichi Nakayamada Atom" href={atomUrl} />
-        <link rel="alternate" type="application/rss+xml" title="Koichi Nakayamada RSS" href={rssUrl} />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="Koichi Nakayamada Atom"
+            href={atomUrl}
+        />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Koichi Nakayamada RSS"
+            href={rssUrl}
+        />
 
         <ClientRouter />
 

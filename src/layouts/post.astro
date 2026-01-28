@@ -21,23 +21,39 @@ const formatDate = (date: Date) => {
 ---
 
 <BaseLayout title={title} h1={h1}>
-    {updated ? (
-        <div class="mb-4 text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2">
-            <p>{readingTime && `${readingTime} min read •`} Published: <time datetime={published?.toISOString()}>{published && formatDate(published)}</time>• Last updated: <time datetime={updated.toISOString()}>{formatDate(updated)}</time></p>
-        </div>
-    ) : published ? (
-        <p class="mb-4 text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">
-            {readingTime && `${readingTime} min read • `}<time datetime={published.toISOString()}>{formatDate(published)}</time>
-        </p>
-    ) : null}
-    {image && (
-        <div class="mb-8 overflow-hidden rounded-lg">
-                <img 
-                    src={image} 
-                    alt={title ? `${title} hero image` : "Post image"} 
+    {
+        updated ? (
+            <div class="mb-4 text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2">
+                <p>
+                    {readingTime && `${readingTime} min read `} Published:{" "}
+                    <time datetime={published?.toISOString()}>
+                        {published && formatDate(published)}
+                    </time>
+                    Last updated:{" "}
+                    <time datetime={updated.toISOString()}>
+                        {formatDate(updated)}
+                    </time>
+                </p>
+            </div>
+        ) : published ? (
+            <p class="mb-4 text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">
+                {readingTime && `${readingTime} min read `}
+                <time datetime={published.toISOString()}>
+                    {formatDate(published)}
+                </time>
+            </p>
+        ) : null
+    }
+    {
+        image && (
+            <div class="mb-8 overflow-hidden rounded-lg">
+                <img
+                    src={image}
+                    alt={title ? `${title} hero image` : "Post image"}
                     class="w-full h-auto object-cover max-h-[400px]"
                 />
-        </div>
-    )}
+            </div>
+        )
+    }
     <slot />
 </BaseLayout>
