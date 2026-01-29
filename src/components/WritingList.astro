@@ -1,0 +1,49 @@
+---
+import List from "./List.astro";
+import ListRow from "./ListRow.astro";
+import { getReadingTime, formatReadingTime } from "../utils/readingTime";
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+    posts: CollectionEntry<"writing">[];
+}
+
+const { posts } = Astro.props;
+
+// Compute reading time for each post
+const postsWithReadingTime = posts.map((post) => {
+    const readingTime = getReadingTime(post.body || "");
+    return { post, readingTime };
+});
+---
+
+<List>
+    {
+        postsWithReadingTime.map(({ post, readingTime }) => (
+            <ListRow href={`/writing/${post.id}`}>
+                <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,0.5fr)_minmax(0,0.25fr)_minmax(0,0.25fr)] sm:items-start sm:gap-x-2">
+                    <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 group-hover:decoration-current group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) sm:min-w-0 break-words leading-snug">
+                        {post.data.title}
+                    </span>
+                    <div class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-2 flex items-center gap-4 sm:mt-0 sm:contents">
+                        <span class="whitespace-nowrap tabular-nums sm:text-right">
+                            {formatReadingTime(readingTime)}
+                        </span>
+                        <time
+                            class="whitespace-nowrap sm:text-right"
+                            datetime={post.data.published.toISOString()}
+                        >
+                            {new Date(
+                                post.data.published,
+                            ).toLocaleDateString(undefined, {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                            })}
+                        </time>
+                    </div>
+                </div>
+            </ListRow>
+        ))
+    }
+</List>

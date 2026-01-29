@@ -1,5 +1,8 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/base.astro";
+import WritingList from "../components/WritingList.astro";
+
 const title = "Koichi Nakayamada";
 const h1 = "Koichi Nakayamada";
 
@@ -12,6 +15,15 @@ const age =
     new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate())
         ? 1
         : 0);
+
+// Fetch writing posts sorted by published date (newest first), take latest 3
+const writingPosts = (await getCollection("writing"))
+    .sort(
+        (a, b) =>
+            new Date(b.data.published).getTime() -
+            new Date(a.data.published).getTime(),
+    )
+    .slice(0, 3);
 ---
 
 <BaseLayout title={title} h1={h1}>
@@ -24,4 +36,21 @@ const age =
         technological works based on the love to the human kind. You can follow
         me on X or through feed systems like RSS and Atom.
     </p>
+
+    <section class="mb-12">
+        <div class="flex items-center justify-between mb-6">
+            <h2
+                class="text-xl font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
+            >
+                Latest Writing
+            </h2>
+            <a
+                href="/writing"
+                class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            >
+                All writing →
+            </a>
+        </div>
+        <WritingList posts={writingPosts} />
+    </section>
 </BaseLayout>
