@@ -1,70 +1,90 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/base.astro";
+import List from "../components/List.astro";
+import ListRow from "../components/ListRow.astro";
 
 const title = "Projects - Koichi Nakayamada";
 const h1 = "Projects";
 
-const projects = (await getCollection("projects")).sort(
-    (a, b) =>
-        new Date(b.data.published).getTime() -
-        new Date(a.data.published).getTime(),
+const projectEntries = await getCollection("projects");
+const sortProjects = (
+    entries: typeof projectEntries,
+): typeof projectEntries =>
+    entries.sort((a, b) => {
+        const pinnedDelta = Number(b.data.pinned ?? false) -
+            Number(a.data.pinned ?? false);
+        if (pinnedDelta !== 0) {
+            return pinnedDelta;
+        }
+        return (
+            new Date(b.data.published).getTime() -
+            new Date(a.data.published).getTime()
+        );
+    });
+
+const standardProjects = sortProjects(
+    projectEntries.filter((project) => !project.data.research),
+);
+const researchProjects = sortProjects(
+    projectEntries.filter((project) => project.data.research),
 );
 ---
 
 <BaseLayout title={title} h1={h1}>
-    <ul class="mb-4 space-y-8">
+    <List>
         {
-            projects.map((project) => (
-                <li>
-                    <div class="flex flex-col">
-                        <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,1.0fr)_minmax(0,3.5fr)] sm:items-start sm:gap-x-2">
-                            <a
-                                href={project.data.primaryUrl}
-                                class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:min-w-0 break-words leading-snug"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={`Open ${project.data.name}`}
-                            >
-                                {project.data.name}
-                            </a>
-                            <span class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-2 sm:mt-0 sm:min-w-0">
-                                {project.data.description}
-                                {project.data.subUrls?.length ? (
-                                    <>
-                                        <span class="mx-2 text-(--color-text-third) dark:text-(--color-text-third-dark)">
-                                            /
-                                        </span>
-                                        {project.data.subUrls.map(
-                                            (link, index) => (
-                                                <>
-                                                    <a
-                                                        href={link.url}
-                                                        class="text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        aria-label={`${link.label} for ${project.data.name}`}
-                                                    >
-                                                        {link.label}
-                                                    </a>
-                                                    {index <
-                                                    (project.data.subUrls
-                                                        ?.length ?? 0) -
-                                                        1 ? (
-                                                        <span class="mx-2 text-(--color-text-third) dark:text-(--color-text-third-dark)">
-                                                            /
-                                                        </span>
-                                                    ) : null}
-                                                </>
-                                            ),
-                                        )}
-                                    </>
-                                ) : null}
-                            </span>
-                        </div>
+            standardProjects.map((project) => (
+                <ListRow
+                    href={project.data.mainUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ariaLabel={`Open ${project.data.name}`}
+                >
+                    <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,0.3fr)_minmax(0,0.7fr)] sm:items-start sm:gap-x-2">
+                        <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 group-hover:decoration-current group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) sm:min-w-0 break-words leading-snug">
+                            {project.data.name}
+                        </span>
+                        <span class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-2 sm:mt-0 sm:min-w-0">
+                            {project.data.description}
+                        </span>
                     </div>
-                </li>
+                </ListRow>
             ))
         }
-    </ul>
+    </List>
+    {
+        researchProjects.length ? (
+            <section class="mt-10">
+                <h2 class="text-base font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)">
+                    Research
+                </h2>
+                <p class="mt-2 text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">
+                    Requires dedicated hardware, hosting, or notebook-based
+                    workflows.
+                </p>
+                <List class="mt-6">
+                    {
+                        researchProjects.map((project) => (
+                            <ListRow
+                                href={project.data.mainUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                ariaLabel={`Open ${project.data.name}`}
+                            >
+                                <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,0.3fr)_minmax(0,0.7fr)] sm:items-start sm:gap-x-2">
+                                    <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 group-hover:decoration-current group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) sm:min-w-0 break-words leading-snug">
+                                        {project.data.name}
+                                    </span>
+                                    <span class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-2 sm:mt-0 sm:min-w-0">
+                                        {project.data.description}
+                                    </span>
+                                </div>
+                            </ListRow>
+                        ))
+                    }
+                </List>
+            </section>
+        ) : null
+    }
 </BaseLayout>

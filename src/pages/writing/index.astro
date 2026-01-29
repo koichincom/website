@@ -1,16 +1,24 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/base.astro";
+import List from "../../components/List.astro";
+import ListRow from "../../components/ListRow.astro";
 import { getReadingTime, formatReadingTime } from "../../utils/readingTime";
 
 const title = "Writing - Koichi Nakayamada";
 const h1 = "Writing";
 
-const writingPosts = (await getCollection("writing")).sort(
-    (a, b) =>
+const writingPosts = (await getCollection("writing")).sort((a, b) => {
+    const pinnedDelta =
+        Number(b.data.pinned ?? false) - Number(a.data.pinned ?? false);
+    if (pinnedDelta !== 0) {
+        return pinnedDelta;
+    }
+    return (
         new Date(b.data.published).getTime() -
-        new Date(a.data.published).getTime(),
-);
+        new Date(a.data.published).getTime()
+    );
+});
 
 const postsWithReadingTime = writingPosts.map((post) => {
     const readingTime = getReadingTime(post.body || "");
@@ -19,39 +27,34 @@ const postsWithReadingTime = writingPosts.map((post) => {
 ---
 
 <BaseLayout title={title} h1={h1}>
-    <ul class="mb-4 space-y-8">
+    <List>
         {
             postsWithReadingTime.map(({ post, readingTime }) => (
-                <li>
-                    <a
-                        href={`/writing/${post.id}`}
-                        class="flex flex-col"
-                    >
-                        <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,0.5fr)_minmax(0,0.25fr)_minmax(0,0.25fr)] sm:items-center sm:gap-x-2">
-                            <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200 sm:min-w-0 break-words leading-snug">
-                                {post.data.title}
+                <ListRow href={`/writing/${post.id}`}>
+                    <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,0.5fr)_minmax(0,0.25fr)_minmax(0,0.25fr)] sm:items-start sm:gap-x-2">
+                        <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 group-hover:decoration-current group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) sm:min-w-0 break-words leading-snug">
+                            {post.data.title}
+                        </span>
+                        <div class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-2 flex items-center gap-4 sm:mt-0 sm:contents">
+                            <span class="whitespace-nowrap tabular-nums sm:text-right">
+                                {formatReadingTime(readingTime)}
                             </span>
-                            <div class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-1 flex items-center gap-4 sm:mt-0 sm:contents">
-                                <span class="whitespace-nowrap tabular-nums sm:text-right">
-                                    {formatReadingTime(readingTime)}
-                                </span>
-                                <time
-                                    class="whitespace-nowrap sm:text-right"
-                                    datetime={post.data.published.toISOString()}
-                                >
-                                    {new Date(
-                                        post.data.published,
-                                    ).toLocaleDateString(undefined, {
-                                        year: "numeric",
-                                        month: "long",
-                                        day: "numeric",
-                                    })}
-                                </time>
-                            </div>
+                            <time
+                                class="whitespace-nowrap sm:text-right"
+                                datetime={post.data.published.toISOString()}
+                            >
+                                {new Date(
+                                    post.data.published,
+                                ).toLocaleDateString(undefined, {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                            </time>
                         </div>
-                    </a>
-                </li>
+                    </div>
+                </ListRow>
             ))
         }
-    </ul>
+    </List>
 </BaseLayout>
