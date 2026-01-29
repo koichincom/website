@@ -35,6 +35,10 @@ const projects = defineCollection({
             .default(false)
             .describe("Research or setup-dependent project"),
         pinned: z.boolean().optional().describe("Pin this item to the top"),
+        featured: z
+            .boolean()
+            .optional()
+            .describe("Feature this item on the home page"),
         tags: z
             .array(z.string())
             .optional()
