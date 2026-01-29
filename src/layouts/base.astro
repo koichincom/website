@@ -1,8 +1,8 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import { Font } from "astro:assets";
-import Header from "../components/header.astro";
-import Footer from "../components/footer.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 export interface Props {
@@ -22,7 +22,7 @@ const atomUrl = Astro.site
     : "/atom/";
 ---
 
-<html lang="en">
+<html lang="en" transition:animate="none">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
@@ -55,14 +55,7 @@ const atomUrl = Astro.site
             href={rssUrl}
         />
 
-        <ClientRouter />
-
-        <style is:global>
-            ::view-transition-old(root),
-            ::view-transition-new(root) {
-                animation-duration: 0s;
-            }
-        </style>
+        <ClientRouter fallback="swap" />
         <Font cssVariable="--font-iosevka-aile" preload />
     </head>
     <body
@@ -78,7 +71,7 @@ const atomUrl = Astro.site
         <div
             class="flex-1 flex flex-col max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8"
         >
-            <Header transition:persist />
+            <Header />
 
             <main id="main-content" class="flex-1 pt-8 sm:pt-6 lg:pt-5 pb-8">
                 {

@@ -83,7 +83,6 @@ Do NOT run `bun run dev` to validate your changes; it is a continuous process.
 - Logic: Keep logic in the frontmatter (`---`). Avoid complex logic in the template.
 - Content: Prefer `getCollection()` for data-driven pages.
 - Dynamic Routes: Use `export async function getStaticPaths()` for generating pages.
-- View Transitions: Enabled via `<ClientRouter />`. Scripts must use `astro:page-load`.
 
 ### 5. CSS and Styling (Tailwind-First)
 
@@ -96,14 +95,21 @@ Do NOT run `bun run dev` to validate your changes; it is a continuous process.
 - **Typography**: Use the `@tailwindcss/typography` (`prose`) class for Markdown/content areas.
 - **Dark Mode**: Use the `dark:` prefix for all color-related utilities.
 
-### 6. Formatting and Indentation
+### 6. Motion and Animation
+
+- **No Motion**: Do not add animations, transitions, or scripted motion effects anywhere in the codebase.
+- **Allowed Exception (View Transitions)**: View transitions are allowed only to reduce FOUC when configured with `<ClientRouter fallback="swap" />`, `transition:animate="none"` on the `<html>` element, and `transition:persist` only on shared layout elements that should not change per page (e.g., footer). Do not use any other `transition:*` directives.
+- **Tailwind**: Avoid `transition-*`, `duration-*`, and `animate-*` utilities.
+- **CSS/JS**: Avoid keyframes, animation properties, or animation libraries.
+
+### 7. Formatting and Indentation
 
 - Indentation: 4 spaces (strictly enforced).
 - Strings: Use double quotes for strings and attributes.
 - Semicolons: Required.
 - Trailing Whitespace: Trim all trailing whitespace on save.
 
-### 7. Error Handling and Logic
+### 8. Error Handling and Logic
 
 - Validate Early: Check for missing props at the start of the frontmatter.
 - Early Returns: Use `if (!condition) return;` to avoid deeply nested blocks.
@@ -112,7 +118,7 @@ Do NOT run `bun run dev` to validate your changes; it is a continuous process.
 ## Content Collections
 
 - Writing: Markdown files in `src/content/writing/`. Required: `title`, `published`, `description`.
-- Projects: TOML files in `src/content/projects/`. Required: `name`, `primaryUrl`, `published`.
+- Projects: TOML files in `src/content/projects/`. Required: `name`, `mainUrl`, `published`.
 - Schema: Definitions are centralized in `src/content.config.ts`. Update this file when adding fields.
 
 ## Tooling and Safety
