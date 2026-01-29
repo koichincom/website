@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/base.astro";
 import WritingList from "../components/WritingList.astro";
+import ProjectList from "../components/ProjectList.astro";
 
 const title = "Koichi Nakayamada";
 const h1 = "Koichi Nakayamada";
@@ -16,6 +17,19 @@ const age =
         ? 1
         : 0);
 
+// Fetch projects sorted by pinned and published date, take featured ones
+const projects = (await getCollection("projects"))
+    .filter((project) => project.data.featured)
+    .sort((a, b) => {
+        const pinnedDelta =
+            Number(b.data.pinned ?? false) - Number(a.data.pinned ?? false);
+        if (pinnedDelta !== 0) return pinnedDelta;
+        return (
+            new Date(b.data.published).getTime() -
+            new Date(a.data.published).getTime()
+        );
+    });
+
 // Fetch writing posts sorted by published date (newest first), take latest 3
 const writingPosts = (await getCollection("writing"))
     .sort(
@@ -27,28 +41,50 @@ const writingPosts = (await getCollection("writing"))
 ---
 
 <BaseLayout title={title} h1={h1}>
-    <p
-        class="mb-8 sm:mb-12 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
-    >
-        I'm a {age}-years old Japanese Data Science student, hacker, open-source
-        contributor, and positive-nihilist. currently studying in the States. I
-        aim "technical philantropy," which to contribute to humanity through
-        technological works based on the love to the human kind. You can follow
-        me on X or through feed systems like RSS and Atom.
-    </p>
+    <div class="flex flex-col sm:flex-row gap-6 mb-8 sm:mb-12">
+        <img
+            src="/assets/selfie.jpg"
+            alt="Koichi Nakayamada"
+            class="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-lg shrink-0"
+        />
+        <p
+            class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed flex-1"
+        >
+            I'm a {age}-years old Japanese Data Science student, hacker, open-source
+            contributor, and positive-nihilist. currently studying in the States. I
+            aim "technical philantropy," which to contribute to humanity through
+            technological works based on the love to the human kind. You can follow
+            me on X or through feed systems like RSS and Atom.
+        </p>
+    </div>
 
     <section class="mb-12">
         <div class="flex items-center justify-between mb-6">
             <h2
                 class="text-xl font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
             >
-                Latest Writing
+            </h2>
+            <a
+                href="/project"
+                class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
+            >
+                All projects
+            </a>
+        </div>
+        <ProjectList projects={projects} />
+    </section>
+
+    <section class="mb-12">
+        <div class="flex items-center justify-between mb-6">
+            <h2
+                class="text-xl font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
+            >
             </h2>
             <a
                 href="/writing"
                 class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) transition-colors duration-200"
             >
-                All writing →
+                All writing
             </a>
         </div>
         <WritingList posts={writingPosts} />

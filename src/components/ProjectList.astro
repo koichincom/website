@@ -1,0 +1,33 @@
+---
+import List from "./List.astro";
+import ListRow from "./ListRow.astro";
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+    projects: CollectionEntry<"projects">[];
+}
+
+const { projects } = Astro.props;
+---
+
+<List>
+    {
+        projects.map((project) => (
+            <ListRow
+                href={project.data.mainUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                ariaLabel={`Open ${project.data.name}`}
+            >
+                <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,0.3fr)_minmax(0,0.7fr)] sm:items-start sm:gap-x-2">
+                    <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 group-hover:decoration-current group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) sm:min-w-0 break-words leading-snug">
+                        {project.data.name}
+                    </span>
+                    <span class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) mt-2 sm:mt-0 sm:min-w-0">
+                        {project.data.description}
+                    </span>
+                </div>
+            </ListRow>
+        ))
+    }
+</List>
