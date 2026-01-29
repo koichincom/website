@@ -1,0 +1,5 @@
+[[rule]]
+include = ["src/content/projects/**/*.toml"]
+
+[rule.schema]
+path = "./.astro/collections/projects.schema.json"
