@@ -1,0 +1,38 @@
+---
+export interface Props {
+    href?: string;
+    target?: string;
+    rel?: string;
+    ariaLabel?: string;
+    class?: string;
+}
+
+const { href, target, rel, ariaLabel, class: className = "" } = Astro.props;
+const rowClass =
+    "group w-full rounded-md hover:bg-(--color-hover) dark:hover:bg-(--color-hover-dark) last:[&_.list-divider]:hidden [&:has(+li:hover)_.list-divider]:opacity-0";
+const baseClass = "flex flex-col w-full px-2 py-6";
+const linkClass = [baseClass, className].filter(Boolean).join(" ");
+---
+
+<li class={rowClass}>
+    {
+        href ? (
+            <a
+                href={href}
+                class={linkClass}
+                target={target}
+                rel={rel}
+                aria-label={ariaLabel}
+            >
+                <slot />
+            </a>
+        ) : (
+            <div class={linkClass}>
+                <slot />
+            </div>
+        )
+    }
+    <div
+        class="list-divider mx-0 h-px bg-(--color-divider) dark:bg-(--color-divider-dark) group-hover:opacity-0"
+    ></div>
+</li>

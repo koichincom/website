@@ -1,0 +1,13 @@
+---
+export interface Props {
+    class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+const baseClass = "mb-4";
+const listClass = [baseClass, className].filter(Boolean).join(" ");
+---
+
+<ul class={listClass}>
+    <slot />
+</ul>
