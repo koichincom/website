@@ -6,6 +6,7 @@ const writing = defineCollection({
     schema: z.object({
         title: z.string().describe("The title of the writing piece"),
         published: z.date().describe("Publication date"),
+        pinned: z.boolean().optional().describe("Pin this item to the top"),
         updates: z
             .array(z.date())
             .default([])
@@ -21,23 +22,23 @@ const writing = defineCollection({
 const projects = defineCollection({
     loader: glob({ pattern: "**/*.toml", base: "./src/content/projects" }),
     schema: z.object({
-        name: z.string().describe("Project name"),
-        primaryUrl: z.string().url().describe("Main project destination"),
-        published: z.date().describe("Publication/start date for sorting"),
-        subUrls: z
-            .array(
-                z.object({
-                    label: z.string(),
-                    url: z.string().url(),
-                }),
-            )
-            .optional()
-            .describe("Additional project URLs other than the primary one"),
-        description: z.string().describe("Project description"),
+        name: z.string().describe("The name of the project"),
+        description: z.string().describe("A brief description of the project"),
+        published: z
+            .date()
+            .describe(
+                "Publication date of the TOML entry (mainly for sorting)",
+            ),
+        mainUrl: z.string().url().describe("The primary URL of the project"),
+        research: z
+            .boolean()
+            .default(false)
+            .describe("Research or setup-dependent project"),
+        pinned: z.boolean().optional().describe("Pin this item to the top"),
         tags: z
             .array(z.string())
             .optional()
-            .describe("Tech stack and domain tags"),
+            .describe("Tags for categorization"),
     }),
 });
 

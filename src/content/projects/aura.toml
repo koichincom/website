@@ -1,16 +1,4 @@
-name = "AURA"
-primaryUrl = "https://github.com/deanzahci/aura"
-published = 2025-06-01T00:00:00Z
-description = "Intent-based Brain-Computer Interface system enabling high-level robotic control through EEG signals—users select objects and destinations while the system handles low-level manipulation autonomously."
-tags = [
-    "Python",
-    "OpenBCI Cyton",
-    "Scikit-learn",
-    "OpenCV",
-    "IKPy",
-    "Arduino",
-    "Multiprocessing",
-    "BCI",
-    "Robotics",
-]
-subUrls = [{ label = "GitHub Repository", url = "https://github.com" }]
+name = "Aura"
+mainUrl = "https://github.com/deanzahci/aura"
+published = 2026-06-01T00:00:00Z
+description = "Move an object just by thinking: BCI app to control a robotic arm for pick and place tasks"
