@@ -11,6 +11,7 @@
         "astro": "astro"
     },
     "dependencies": {
+        "@astrojs/check": "^0.9.6",
         "@astrojs/mdx": "^4.3.13",
         "@astrojs/sitemap": "^3.7.0",
         "@minify-html/node": "^0.16.4",
@@ -24,6 +25,7 @@
         "remark-rehype": "^11.1.0",
         "tailwindcss": "^4.1.15",
         "toastify-js": "^1.12.0",
+        "typescript": "^5.9.3",
         "unified": "^11.0.5"
     },
     "devDependencies": {
