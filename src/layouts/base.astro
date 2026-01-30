@@ -20,6 +20,9 @@ const rssUrl = Astro.site ? new URL("/rss/", Astro.site).toString() : "/rss/";
 const atomUrl = Astro.site
     ? new URL("/atom/", Astro.site).toString()
     : "/atom/";
+
+const containerClass =
+    "flex-1 flex flex-col max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
 ---
 
 <html lang="en" transition:animate="none">
@@ -68,9 +71,7 @@ const atomUrl = Astro.site
             Skip to content
         </a>
 
-        <div
-            class="flex-1 flex flex-col max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8"
-        >
+        <div class={containerClass}>
             <Header />
 
             <main id="main-content" class="flex-1 pt-8 sm:pt-6 lg:pt-5 pb-8">
