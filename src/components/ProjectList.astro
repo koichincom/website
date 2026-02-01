@@ -20,12 +20,12 @@ const { projects } = Astro.props;
                 ariaLabel={`Open ${project.data.name}`}
             >
                 <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,0.3fr)_minmax(0,0.7fr)] sm:items-center sm:gap-x-6">
-                    <div class="sm:min-w-0 sm:flex sm:items-center">
+                    <div class="sm:min-w-0 sm:flex sm:items-center sm:min-h-[2lh]">
                         <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 group-hover:decoration-current group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) sm:min-w-0 sm:break-words sm:leading-snug sm:line-clamp-2">
                             {project.data.name}
                         </span>
                     </div>
-                    <div class="sm:min-w-0 sm:flex sm:items-center mt-2 sm:mt-0">
+                    <div class="sm:min-w-0 sm:flex sm:items-center sm:min-h-[2lh] mt-2 sm:mt-0">
                         <span class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) sm:min-w-0 sm:break-words sm:leading-snug sm:line-clamp-2">
                             {project.data.description}
                         </span>
