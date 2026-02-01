@@ -11,7 +11,7 @@ const { href, target, rel, ariaLabel, class: className = "" } = Astro.props;
 const rowClass =
     "group w-full rounded-md hover:bg-(--color-hover) dark:hover:bg-(--color-hover-dark) last:[&>a]:after:hidden last:[&>div]:after:hidden [&:has(+li:hover)>a]:after:opacity-0 [&:has(+li:hover)>div]:after:opacity-0";
 const baseClass =
-    "relative flex flex-col w-full px-2 py-6 after:content-[''] after:absolute after:bottom-0 after:left-[var(--radius-md)] after:right-[var(--radius-md)] after:border-b after:border-(--color-divider) dark:after:border-(--color-divider-dark) hover:after:opacity-0";
+    "relative flex flex-col w-full px-2 py-4 after:content-[''] after:absolute after:bottom-0 after:left-[var(--radius-md)] after:right-[var(--radius-md)] after:border-b after:border-(--color-divider) dark:after:border-(--color-divider-dark) hover:after:opacity-0";
 const linkClass = [baseClass, className].filter(Boolean).join(" ");
 ---
 

@@ -22,17 +22,17 @@ const postsWithReadingTime = posts.map((post) => {
         postsWithReadingTime.map(({ post, readingTime }) => (
             <ListRow href={`/writing/${post.id}`}>
                 <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,0.5fr)_minmax(0,0.25fr)_minmax(0,0.25fr)] sm:items-center sm:gap-x-6">
-                    <div class="sm:min-w-0 sm:flex sm:items-center sm:min-h-[2.75em]">
-                        <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 group-hover:decoration-current group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) sm:min-w-0 sm:break-words sm:leading-snug sm:line-clamp-2">
+                    <div class="sm:min-w-0 sm:flex sm:items-center">
+                        <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 group-hover:decoration-current group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) sm:min-w-0 sm:break-words sm:leading-snug sm:line-clamp-1">
                             {post.data.title}
                         </span>
                     </div>
                     <div class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) mt-2 flex items-center gap-4 sm:mt-0 sm:contents">
-                        <span class="whitespace-nowrap tabular-nums sm:text-right">
+                        <span class="tabular-nums sm:text-right sm:line-clamp-1">
                             {formatReadingTime(readingTime)}
                         </span>
                         <time
-                            class="whitespace-nowrap sm:text-right"
+                            class="sm:text-right sm:line-clamp-1"
                             datetime={post.data.published.toISOString()}
                         >
                             {new Date(
