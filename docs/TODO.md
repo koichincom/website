@@ -6,6 +6,8 @@
     - https://gsong.dev/articles/astro-feed-unified/
     - https://jenxi.com/atom-feed-for-astro
 - [x] Two site maps are generated
+- [x] List clicked article's divider hidden problem
+- [x] Font flash prevention and learning about font loading display settings (swap, optional, etc)
 - [ ] Content structure and display refactoring: What to display on the home, writing, and project pages
 - [ ] Dynamic header href link changing
 - [ ] Design decisions, where to put what
