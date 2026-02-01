@@ -10,3 +10,9 @@
 - [ ] Dynamic header href link changing
 - [ ] Design decisions, where to put what
 - [ ] Add Japanese language support
+
+## Some of other ideas
+
+- Reading progress bar at the top
+- Reference feature for writing articles
+- View count for articles in the lists (dynamic rendering + database?)
