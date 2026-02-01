@@ -43,8 +43,11 @@ Key organizational rules:
 
 ### 1. Naming Conventions
 
-- Directories/Files: `kebab-case.astro` or `kebab-case.ts`.
-- Components: `PascalCase.astro` (e.g., `BaseLayout.astro`, `Shortcuts.astro`).
+**Astro Components and Layouts**: Use `PascalCase.astro` (e.g., `BaseLayout.astro`, `PostLayout.astro`, `Header.astro`, `WritingList.astro`). This follows Astro/React conventions where component names must start with an uppercase letter to distinguish them from HTML tags.
+
+- Components: `PascalCase.astro` (e.g., `Header.astro`, `WritingList.astro`).
+- Layouts: `PascalCase.astro` with "Layout" suffix (e.g., `BaseLayout.astro`, `PostLayout.astro`).
+- Utility/Script Files: `kebab-case.ts` (e.g., `reading-time.ts`, `date-formatter.ts`).
 - Functions/Variables: `camelCase` (e.g., `getReadingTime`, `initGlobalTooltips`).
 - Constants: `UPPER_SNAKE_CASE` (e.g., `TOOLTIP_ID`, `WORDS_PER_MINUTE`).
 - Types/Interfaces: `PascalCase` with descriptive suffixes (e.g., `Props`, `PostData`).

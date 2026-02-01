@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/base.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
 
@@ -62,7 +62,7 @@ const writingPosts = (await getCollection("writing"))
             </h2>
             <a
                 href="/project"
-                class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
+                class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
             >
                 All projects
             </a>
@@ -79,7 +79,7 @@ const writingPosts = (await getCollection("writing"))
             </h2>
             <a
                 href="/writing"
-                class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
+                class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
             >
                 All writing
             </a>
