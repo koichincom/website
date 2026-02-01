@@ -7,7 +7,7 @@ import ProjectList from "../components/ProjectList.astro";
 const title = "Koichi Nakayamada";
 const h1 = "Koichi Nakayamada";
 
-const birthDate = new Date(2004, 11, 9); // December 9, 2004
+const birthDate = new Date(2004, 12 - 1, 9); // December 9, 2004, JS months are 0-indexed
 const today = new Date();
 const age =
     today.getFullYear() -
@@ -46,11 +46,10 @@ const writingPosts = (await getCollection("writing"))
         <p
             class="mb-8 sm:mb-12 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
         >
-            I'm a {age}-years old Japanese Data Science student, hacker,
-            open-source contributor, and positive-nihilist. Currently studying
-            in the States. I aim for "technical philantropy," which is to
-            contribute to humanity through technological works based on the love
-            to the human kind.
+            I'm a {age}-year-old Japanese data science student and open-source
+            developer, currently studying in the United States. I aspire to
+            practice "technical philanthropy" which is to contribute to humanity
+            through technology, driven by a genuine love for humankind.
         </p>
     </section>
 
@@ -65,7 +64,7 @@ const writingPosts = (await getCollection("writing"))
                 href="/project"
                 class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
             >
-                All projects →
+                All projects
             </a>
         </div>
         <ProjectList projects={projects} />
@@ -82,7 +81,7 @@ const writingPosts = (await getCollection("writing"))
                 href="/writing"
                 class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
             >
-                All writing →
+                All writing
             </a>
         </div>
         <WritingList posts={writingPosts} />
