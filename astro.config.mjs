@@ -3,6 +3,17 @@ import { defineConfig, fontProviders } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import { visit } from "unist-util-visit";
+
+function remarkFlattenHeadings() {
+    return (tree) => {
+        visit(tree, "heading", (node) => {
+            if (node.depth > 2) {
+                node.depth = 2;
+            }
+        });
+    };
+}
 
 export default defineConfig({
     site: "https://koichin.com",
@@ -11,6 +22,7 @@ export default defineConfig({
         plugins: [tailwindcss()],
     },
     markdown: {
+        remarkPlugins: [remarkFlattenHeadings],
         shikiConfig: {
             themes: {
                 light: "github-light",

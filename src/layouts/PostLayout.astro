@@ -22,7 +22,7 @@ const formatDate = (date: Date) => {
 <BaseLayout title={title} h1={h1}>
     {
         lastUpdated ? (
-            <div class="mb-4 text-sm text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2">
+            <div class="mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2">
                 <p>
                     {readingTime && `${readingTime} min read `} Published:{" "}
                     <time datetime={published?.toISOString()}>
@@ -35,7 +35,7 @@ const formatDate = (date: Date) => {
                 </p>
             </div>
         ) : published ? (
-            <p class="mb-4 text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">
+            <p class="mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">
                 {readingTime && `${readingTime} min read `}
                 <time datetime={published.toISOString()}>
                     {formatDate(published)}

@@ -17,7 +17,7 @@ const age =
         ? 1
         : 0);
 
-// Fetch projects sorted by pinned and published date, take featured ones (max 5)
+// Fetch projects sorted by pinned and published date, take featured ones
 const projects = (await getCollection("projects"))
     .filter((project) => project.data.featured)
     .sort((a, b) => {
@@ -28,8 +28,7 @@ const projects = (await getCollection("projects"))
             new Date(b.data.published).getTime() -
             new Date(a.data.published).getTime()
         );
-    })
-    .slice(0, 5);
+    });
 
 // Fetch writing posts sorted by published date (newest first), take latest 5
 const writingPosts = (await getCollection("writing"))
@@ -38,7 +37,7 @@ const writingPosts = (await getCollection("writing"))
             new Date(b.data.published).getTime() -
             new Date(a.data.published).getTime(),
     )
-    .slice(0, 5);
+    .slice(0, 3);
 ---
 
 <BaseLayout title={title} h1={h1}>
@@ -56,7 +55,7 @@ const writingPosts = (await getCollection("writing"))
     <section class="mb-20">
         <div class="flex items-center justify-between mb-6">
             <h2
-                class="text-base font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
+                class="text-lg font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
             >
                 Featured Projects
             </h2>
@@ -73,7 +72,7 @@ const writingPosts = (await getCollection("writing"))
     <section class="mb-20">
         <div class="flex items-center justify-between mb-6">
             <h2
-                class="text-base font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
+                class="text-lg font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
             >
                 Latest Writing
             </h2>

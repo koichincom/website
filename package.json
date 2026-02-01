@@ -34,6 +34,7 @@
         "@types/mdast": "^4.0.4",
         "@types/toastify-js": "^1.12.4",
         "prettier": "^3.8.1",
-        "prettier-plugin-astro": "^0.14.1"
+        "prettier-plugin-astro": "^0.14.1",
+        "unist-util-visit": "^5.1.0"
     }
 }

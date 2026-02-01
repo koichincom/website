@@ -2,4 +2,3 @@ name = "Signify"
 mainUrl = "https://github.com/deanzahci/signify"
 published = 2027-06-01T00:00:00Z
 description = "Gamify sign language learning with fast and lightweight Computer Vision model, trained from scratch"
-featured = true
