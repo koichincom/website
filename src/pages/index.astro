@@ -37,7 +37,7 @@ const writingPosts = (await getCollection("writing"))
             new Date(b.data.published).getTime() -
             new Date(a.data.published).getTime(),
     )
-    .slice(0, 3);
+    .slice(0, 5);
 ---
 
 <BaseLayout title={title} h1={h1}>
