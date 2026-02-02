@@ -2,46 +2,49 @@
 import Logo from "./Logo.astro";
 ---
 
-<header class="sticky inset-x-0 top-0 z-50 h-14 sm:h-16 bg-(--color-background) dark:bg-(--color-background-dark)">
+<header
+    class="sticky inset-x-0 top-0 z-50 h-14 sm:h-16 bg-(--color-background) dark:bg-(--color-background-dark)"
+>
     <nav
-        class="h-full flex items-center justify-between gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap"
+        class="h-full flex items-center justify-between text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap"
     >
-      <div class="py-2">
-        <a
-            href="/"
-            class="flex items-center text-(--color-text-light) dark:text-(--color-text-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-        >
-            <Logo className="h-6 w-auto" />
-        </a>
-    </div>
-
-    <div class="flex gap-4 sm:gap-6">
-        <div class="py-2">
+        <div class="flex gap-4 sm:gap-6">
             <a
-                href="/writing"
-                class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
+                href="/"
+                class="flex items-center gap-2 sm:gap-3 py-2 text-(--color-text-light) dark:text-(--color-text-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
             >
-                Writing
+                <Logo className="h-4 w-auto sm:h-5" />
+                <span class="text-base sm:text-lg">Koichi Nakayamada</span>
             </a>
         </div>
 
-        <div class="py-2">
-            <a
-                href="/project"
-                class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-            >
-                Projects
-            </a>
-        </div>
+        <div class="flex gap-4 sm:gap-6">
+            <div class="py-2">
+                <a
+                    href="/writing"
+                    class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
+                >
+                    Writing
+                </a>
+            </div>
 
-        <div class="py-2">
-            <a
-                href="/about"
-                class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-            >
-                About
-            </a>
+            <div class="py-2">
+                <a
+                    href="/project"
+                    class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
+                >
+                    Projects
+                </a>
+            </div>
+
+            <div class="py-2">
+                <a
+                    href="/about"
+                    class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
+                >
+                    About
+                </a>
+            </div>
         </div>
-    </div>
-  </nav>
+    </nav>
 </header>
