@@ -1,0 +1,44 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+export interface Props {
+    frontmatter: {
+        title: string;
+        h1: string;
+        effectiveDate?: string;
+        website?: string;
+        owner?: string;
+    };
+}
+const { frontmatter } = Astro.props;
+const { title, h1, effectiveDate, website, owner } = frontmatter;
+---
+
+<BaseLayout title={title} h1={h1}>
+    {
+        (effectiveDate || website || owner) && (
+            <div class="mb-8 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)">
+                {effectiveDate && (
+                    <p>
+                        <strong>Effective date:</strong> {effectiveDate}
+                    </p>
+                )}
+                {website && (
+                    <p>
+                        <strong>Website:</strong> {website}
+                    </p>
+                )}
+                {owner && (
+                    <p>
+                        <strong>Owner:</strong> {owner} ("we", "us", "our")
+                    </p>
+                )}
+            </div>
+        )
+    }
+    <div
+        class="prose prose-base max-w-none dark:prose-invert prose-a:text-inherit prose-a:font-normal prose-a:underline prose-a:underline-offset-4 prose-a:hover:text-(--color-accent-light) dark:prose-a:hover:text-(--color-accent-dark)"
+    >
+        <slot />
+    </div>
+</BaseLayout>
