@@ -3,8 +3,8 @@ import { getCollection, render } from "astro:content";
 import SiteInfoLayout from "../layouts/SiteInfoLayout.astro";
 
 export async function getStaticPaths() {
-    const infoPages = await getCollection("info");
-    return infoPages.map((page) => ({
+    const siteInfoPages = await getCollection("siteInfo");
+    return siteInfoPages.map((page) => ({
         params: { slug: page.id },
         props: { page },
     }));
