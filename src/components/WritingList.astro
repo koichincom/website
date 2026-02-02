@@ -25,7 +25,7 @@ const postsWithReadingTime = posts.map((post) => {
 ---
 
 <List
-    class="grid w-full gap-x-6 grid-cols-[minmax(0,1fr)_max-content_max-content]"
+    class="grid w-full gap-x-12 grid-cols-[minmax(0,1fr)_max-content_max-content]"
 >
     {
         postsWithReadingTime.map(({ post, formattedDate, readingTime }) => (
@@ -45,7 +45,7 @@ const postsWithReadingTime = posts.map((post) => {
                 >
                     {formattedDate}
                 </time>
-                <span class="tabular-nums whitespace-nowrap text-right justify-self-end line-clamp-1 text-(--color-text-third) dark:text-(--color-text-third-dark) pl-6">
+                <span class="tabular-nums whitespace-nowrap text-right justify-self-end line-clamp-1 text-(--color-text-third) dark:text-(--color-text-third-dark)">
                     {readingTime}
                 </span>
             </ListRow>
