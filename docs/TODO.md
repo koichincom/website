@@ -12,20 +12,23 @@
 - [x] Content / Text part improvements
     - [x] Project posts
     - [x] Writing posts
+- [x] Footer
+    - [x] Rethink the purpose and make it more like a site map if needed
+    - [x] Is privacy policy and copyright needed?
+    - [x] Sitemap, license, legal, social media, contact
+- [x] Site info pages using MDX
+    - [x] Legal page
+    - [x] License page
+    - [x] Cookie Policy page
+    - [x] Review the made three pages
 - [ ] Header
     - [ ] Dynamic header href link (disable the link where the user is currently at)
     - [ ] Dupulicated name in the home page; do I need to hide it when in the home page?
     - [ ] Mobile
     - [ ] Reading progress bar at the top
-- [x] Footer
-    - [x] Rethink the purpose and make it more like a site map if needed
-    - [x] Is privacy policy and copyright needed?
-    - [x] Sitemap, license, legal, social media, contact
-- [ ] Legal page
-- [ ] License page
-- [ ] Add Japanese support
 - [ ] Reference feature for writing articles
-- [ ] CSS, Color, and Design improvements
 - [ ] Post page
     - [ ] Font size uniformity
     - [ ] Metadata design
+- [ ] CSS, Color, and Design improvements
+- [ ] Add Japanese support
