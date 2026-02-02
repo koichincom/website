@@ -14,18 +14,13 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const readingTime = getReadingTime(post.body || "");
-
-const title = post.data.title;
-const h1 = post.data.title;
-const published = post.data.published;
-const lastUpdated = post.data.lastUpdated;
 ---
 
 <PostLayout
-    title={title}
-    h1={h1}
-    published={published}
-    lastUpdated={lastUpdated}
+    title={post.data.title}
+    h1={post.data.title}
+    published={post.data.published}
+    lastUpdated={post.data.lastUpdated}
     readingTime={readingTime}
 >
     <article
