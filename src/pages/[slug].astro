@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from "astro:content";
+import SiteInfoLayout from "../layouts/SiteInfoLayout.astro";
+
+export async function getStaticPaths() {
+    const infoPages = await getCollection("info");
+    return infoPages.map((page) => ({
+        params: { slug: page.id },
+        props: { page },
+    }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+
+<SiteInfoLayout
+    title={page.data.title}
+    h1={page.data.h1}
+    effectiveDate={page.data.effectiveDate}
+    website={page.data.website}
+    owner={page.data.owner}
+>
+    <Content />
+</SiteInfoLayout>
