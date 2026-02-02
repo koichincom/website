@@ -3,12 +3,10 @@ export function getReadingTime(content: string): string {
     const words = content.trim().split(/\s+/).length;
     const minutes = Math.ceil(words / WORDS_PER_MINUTE);
     if (minutes > 60) {
-        const hours = Math.trunc(minutes / 60);
+        const hours = Math.floor(minutes / 60);
         const remainingMinutes = minutes % 60;
-        return remainingMinutes === 0
-            ? `${hours} hr${hours > 1 ? "s" : ""}`
-            : `${hours} hr${hours > 1 ? "s" : ""} ${remainingMinutes} min`;
+        return `${hours} h ${remainingMinutes} m`;
     } else {
-        return `${minutes} min`;
+        return `${minutes} m`;
     }
 }
