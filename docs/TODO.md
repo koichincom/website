@@ -9,7 +9,7 @@
 - [x] List clicked article's divider hidden problem
 - [x] Font flash prevention and learning about font loading display settings (swap, optional, etc)
 - [x] Content structure and display refactoring: What to display on the home, writing, and project pages
-- [x] Content / Text part improvements
+- [x] Content improvements and completion
     - [x] Project posts
     - [x] Writing posts
 - [x] Footer
@@ -22,13 +22,20 @@
     - [x] Cookie Policy page
     - [x] Review the made three pages
 - [ ] Header
-    - [ ] Dynamic header href link (disable the link where the user is currently at)
-    - [ ] Dupulicated name in the home page; do I need to hide it when in the home page?
+    - [x] Reading progress bar at the top
+    - [x] Dynamic header href link (disable the link where the user is currently at)
+    - [x] Dupulicated name in the home page; do I need to hide it when in the home page?
     - [ ] Mobile
-    - [ ] Reading progress bar at the top
-- [ ] Reference feature for writing articles
 - [ ] Post page
     - [ ] Font size uniformity
     - [ ] Metadata design
+    - [ ] Reference feature for writing articles
+- [ ] Add Japanese support; learn Astro i18n
 - [ ] CSS, Color, and Design improvements
-- [ ] Add Japanese support
+- [ ] Page finalization and review
+    - [ ] Home page
+        - [ ] Introduction
+        - [ ] Add a selfie
+    - [ ] Writing page
+    - [ ] Project page
+    - [ ] About page
