@@ -18,6 +18,17 @@ function remarkFlattenHeadings() {
 export default defineConfig({
     site: "https://koichin.com",
     integrations: [sitemap(), mdx()],
+    i18n: {
+        locales: ["en", "ja"],
+        defaultLocale: "en",
+        routing: {
+            prefixDefaultLocale: false,
+            fallbackType: "rewrite",
+        },
+        fallback: {
+            ja: "en",
+        },
+    },
     vite: {
         plugins: [tailwindcss()],
     },
