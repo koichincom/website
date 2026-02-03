@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
+import { filterByLang } from "../i18n/utils";
+import { DEFAULT_LANG } from "../i18n/config";
 
 const title = "Koichi Nakayamada";
 const h1 = "Koichi Nakayamada";
@@ -18,7 +20,8 @@ const age =
         : 0);
 
 // Fetch projects sorted by pinned and published date, take featured ones
-const projects = (await getCollection("projects"))
+const allProjects = await getCollection("projects");
+const projects = filterByLang(allProjects, DEFAULT_LANG)
     .filter((project) => project.data.featured)
     .sort((a, b) => {
         const pinnedDelta =
@@ -31,7 +34,8 @@ const projects = (await getCollection("projects"))
     });
 
 // Fetch writing posts sorted by published date (newest first), take latest 5
-const writingPosts = (await getCollection("writing"))
+const allPosts = await getCollection("writing");
+const writingPosts = filterByLang(allPosts, DEFAULT_LANG)
     .sort(
         (a, b) =>
             new Date(b.data.published).getTime() -
