@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import { getLocaleFromUrl } from "../i18n/utils";
+import { useTranslations } from "../i18n/ui";
+import { getLangFromUrl } from "../i18n/utils";
 
 export interface Props {
     title?: string;
@@ -10,8 +13,12 @@ export interface Props {
 }
 const { title, h1, published, lastUpdated, readingTime } = Astro.props;
 
+const lang = getLangFromUrl(Astro.url);
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const formatDate = (date: Date) => {
-    return new Date(date).toLocaleDateString(undefined, {
+    return new Date(date).toLocaleDateString(locale, {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -24,11 +31,12 @@ const formatDate = (date: Date) => {
         lastUpdated ? (
             <div class="mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2">
                 <p>
-                    {readingTime && `${readingTime} min read `} Published:{" "}
+                    {readingTime && `${readingTime} ${t("common.minRead")} `}
+                    {t("common.published")}:{" "}
                     <time datetime={published?.toISOString()}>
                         {published && formatDate(published)}
                     </time>
-                    Last updated:{" "}
+                    {" "}{t("common.lastUpdated")}:{" "}
                     <time datetime={lastUpdated.toISOString()}>
                         {formatDate(lastUpdated)}
                     </time>
@@ -36,7 +44,7 @@ const formatDate = (date: Date) => {
             </div>
         ) : published ? (
             <p class="mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">
-                {readingTime && `${readingTime} min read `}
+                {readingTime && `${readingTime} ${t("common.minRead")} `}
                 <time datetime={published.toISOString()}>
                     {formatDate(published)}
                 </time>

@@ -1,0 +1,44 @@
+---
+import { LANGUAGES, DEFAULT_LANG, type Lang } from "../i18n/config";
+import { getLangFromUrl } from "../i18n/utils";
+
+const currentLang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+
+// Helper to get the path for a different language
+function getPathForLang(lang: Lang): string {
+    if (lang === DEFAULT_LANG) {
+        // Remove /ja/ prefix if switching to default language
+        return currentPath.replace(/^\/ja\//, "/");
+    } else {
+        // Add /ja/ prefix if switching from default language
+        if (currentPath.startsWith("/ja/")) {
+            return currentPath;
+        }
+        return `/ja${currentPath}`;
+    }
+}
+---
+
+<div class="flex items-center gap-2 text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">
+    {Object.entries(LANGUAGES).map(([lang, label]) => {
+        const isActive = lang === currentLang;
+        const href = getPathForLang(lang as Lang);
+        return (
+            <>
+                {isActive ? (
+                    <span class="font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark)">
+                        {label}
+                    </span>
+                ) : (
+                    <a
+                        href={href}
+                        class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
+                    >
+                        {label}
+                    </a>
+                )}
+            </>
+        );
+    })}
+</div>
