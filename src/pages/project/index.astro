@@ -22,10 +22,10 @@ const sortProjects = (
     });
 
 const standardProjects = sortProjects(
-    projectEntries.filter((project) => !project.data.research),
+    projectEntries.filter((project) => !project.data.hardwareBound),
 );
-const researchProjects = sortProjects(
-    projectEntries.filter((project) => project.data.research),
+const hardwareBoundProjects = sortProjects(
+    projectEntries.filter((project) => project.data.hardwareBound),
 );
 ---
 
@@ -34,7 +34,7 @@ const researchProjects = sortProjects(
         <ProjectList projects={standardProjects} />
     </section>
     {
-        researchProjects.length ? (
+        hardwareBoundProjects.length ? (
             <section class="mb-20">
                 <!-- <h2 class="text-lg font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"> -->
                 <!--     Research -->
@@ -44,7 +44,7 @@ const researchProjects = sortProjects(
                 <!--     workflows. -->
                 <!-- </p> -->
                 <div class="mt-6">
-                    <ProjectList projects={researchProjects} />
+                    <ProjectList projects={hardwareBoundProjects} />
                 </div>
             </section>
         ) : null

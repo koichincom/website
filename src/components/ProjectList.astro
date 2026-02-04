@@ -14,7 +14,7 @@ const { projects } = Astro.props;
     {
         projects.map((project) => (
             <ListRow
-                href={project.data.mainUrl}
+                href={project.data.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 ariaLabel={`Open ${project.data.name}`}

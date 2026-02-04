@@ -1,5 +1,5 @@
 name = "Still Waiting"
-mainUrl = "https://github.com/koichincom/still-waiting"
+url = "https://github.com/koichincom/still-waiting"
 published = 2027-06-01T00:00:00Z
 description = "24h reply reminder bot for Discord. Free to add & self-hostable."
 pinned = true
