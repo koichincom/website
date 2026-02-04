@@ -9,6 +9,7 @@ export interface Props {
 const { title, effectiveDate } = Astro.props;
 const website = "https://koichin.com";
 const owner = "Koichi Nakayamada";
+const contactEmail = "k@koichin.com";
 const formattedEffectiveDate = effectiveDate
     ? formatDate(effectiveDate)
     : "";
@@ -17,8 +18,9 @@ const formattedEffectiveDate = effectiveDate
 <ProseLayout title={title}>
     <p>
         Effective date: {formattedEffectiveDate}<br />
-        Website: {website}<br />
-        Owner: {owner}
+        Website: <a href="{website}">{website}</a><br />
+        Owner: {owner}<br />
+        Contact: <a href="mailto:{contactEmail}">{contactEmail}</a>
     </p>
     <slot />
 </ProseLayout>
