@@ -21,17 +21,22 @@
     - [x] License page
     - [x] Cookie Policy page
     - [x] Review the made three pages
-- [ ] Header
+- [x] Header
     - [x] Reading progress bar at the top
     - [x] Dynamic header href link (disable the link where the user is currently at)
     - [x] Dupulicated name in the home page; do I need to hide it when in the home page?
-    - [ ] Mobile
-- [ ] Post page
-    - [ ] Font size uniformity
-    - [ ] Metadata design
-    - [ ] Reference feature for writing articles
-- [ ] Add Japanese support; learn Astro i18n
-- [ ] CSS, Color, and Design improvements
+- [ ] Post page/Legal page
+    - [x] Footnotes for writing articles: done by Astro's markdown built-in
+    - [x] Why the theme setting on the code block affect and make it monochrome: The dual theme is expected in that case, and it just doesn't fit and override with something. I don't need to think about the detail.
+    - [x] How does the CSS controlling work?: Shiki for codeblock is from Astro-side, and Tailwind Prose is controlling the rest. Shiki somehow has precedence.
+    - [x] The font related variables from Shiki is defined by what?: Seemingly from theme, and I don't think i need to know
+    - [x] Use the same font color for the post/legal page: overwridden the prose by tailwind
+    - [x] How big the font size are in prose default?: It's 16px, so same as the text-base
+    - [x] How can I make the font size for codeblocks bigger?: It's done by Tailwind prose control, since the default prose was applied, I learnd about the combination of <pre> and <code>
+    - [ ] Metadata design improvements
+- [x] Refactor the layouts/ and related files to clean up the structure
+- [x] Make a centralized date formatting utility
+- [ ] Clean up the content.config.ts: removing unnecessary element for making it easy to update in the future
 - [ ] Page finalization and review
     - [ ] Home page
         - [ ] Introduction
@@ -39,3 +44,6 @@
     - [ ] Writing page
     - [ ] Project page
     - [ ] About page
+- [ ] CSS, Color, and Design improvements
+- [ ] Add Japanese support; learn Astro i18n
+- [ ] Mobile
