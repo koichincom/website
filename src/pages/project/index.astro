@@ -2,14 +2,11 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectList from "../../components/ProjectList.astro";
-import { filterByLang } from "../../i18n/utils";
-import { DEFAULT_LANG } from "../../i18n/config";
 
 const title = "Projects - Koichi Nakayamada";
 const h1 = "Projects";
 
-const allProjects = await getCollection("projects");
-const projectEntries = filterByLang(allProjects, DEFAULT_LANG);
+const projectEntries = await getCollection("projects");
 const sortProjects = (
     entries: typeof projectEntries,
 ): typeof projectEntries =>

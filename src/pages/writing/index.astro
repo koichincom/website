@@ -2,14 +2,11 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import WritingList from "../../components/WritingList.astro";
-import { filterByLang } from "../../i18n/utils";
-import { DEFAULT_LANG } from "../../i18n/config";
 
 const title = "Writing - Koichi Nakayamada";
 const h1 = "Writing";
 
-const allPosts = await getCollection("writing");
-const writingPosts = filterByLang(allPosts, DEFAULT_LANG).sort((a, b) => {
+const writingPosts = (await getCollection("writing")).sort((a, b) => {
     const pinnedDelta =
         Number(b.data.pinned ?? false) - Number(a.data.pinned ?? false);
     if (pinnedDelta !== 0) {

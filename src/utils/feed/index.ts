@@ -5,8 +5,6 @@ import { getCollection } from "astro:content";
 import { Feed } from "feed";
 
 import { createUrl, mdxToHtml } from "./utils";
-import { filterByLang } from "../../i18n/utils";
-import { DEFAULT_LANG } from "../../i18n/config";
 
 type SiteAuthor = {
     name: string;
@@ -90,14 +88,11 @@ async function getWritingItems(
     author: SiteAuthor,
     variant: FeedVariant,
 ): Promise<FeedItemData[]> {
-    const allPosts = await getCollection("writing");
-    const writingPosts = filterByLang(allPosts, DEFAULT_LANG);
+    const writingPosts = await getCollection("writing");
 
     return Promise.all(
         writingPosts.map(async (post) => {
-            // Remove language prefix from ID for URL
-            const slug = post.id.replace(/^(en|ja)\//, "");
-            const link = createUrl(`/writing/${slug}`, site);
+            const link = createUrl(`/writing/${post.id}`, site);
             const content = await mdxToHtml(post.body || "", site);
             const date = post.data.lastUpdated ?? post.data.published;
             const baseItem = {
@@ -128,8 +123,7 @@ async function getProjectItems(
     site: string,
     author: SiteAuthor,
 ): Promise<FeedItemData[]> {
-    const allProjects = await getCollection("projects");
-    const projects = filterByLang(allProjects, DEFAULT_LANG);
+    const projects = await getCollection("projects");
     const projectNotice =
         "The URL might directly lead to the project website or the repository.";
 

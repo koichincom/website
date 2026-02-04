@@ -1,19 +1,13 @@
 ---
 import { getCollection, render } from "astro:content";
 import SiteInfoLayout from "../layouts/SiteInfoLayout.astro";
-import { filterByLang } from "../i18n/utils";
-import { DEFAULT_LANG } from "../i18n/config";
 
 export async function getStaticPaths() {
-    const allPages = await getCollection("siteInfo");
-    const siteInfoPages = filterByLang(allPages, DEFAULT_LANG);
-    return siteInfoPages.map((page) => {
-        const slug = page.id.replace(/^en\//, "");
-        return {
-            params: { slug },
-            props: { page },
-        };
-    });
+    const siteInfoPages = await getCollection("siteInfo");
+    return siteInfoPages.map((page) => ({
+        params: { slug: page.id },
+        props: { page },
+    }));
 }
 
 const { page } = Astro.props;
