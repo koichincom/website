@@ -4,10 +4,11 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { visit } from "unist-util-visit";
+import type { Root, Heading } from "mdast";
 
 function remarkFlattenHeadings() {
-    return (tree) => {
-        visit(tree, "heading", (node) => {
+    return (tree: Root) => {
+        visit(tree, "heading", (node: Heading) => {
             if (node.depth > 2) {
                 node.depth = 2;
             }
