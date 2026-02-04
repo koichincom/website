@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import WritingLayout from "../../layouts/WritingLayout.astro";
+import { getLastUpdatedFromUpdates } from "../../utils/last-updated";
 import { getReadingTime } from "../../utils/reading-time";
 
 export async function getStaticPaths() {
@@ -14,12 +15,13 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const readingTime = getReadingTime(post.body || "");
+const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
 ---
 
 <WritingLayout
     title={post.data.title}
     published={post.data.published}
-    lastUpdated={post.data.lastUpdated}
+    lastUpdated={lastUpdated}
     readingTime={readingTime}
 >
     <Content />
