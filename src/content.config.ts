@@ -22,7 +22,7 @@ const writing = defineCollection({
 const projects = defineCollection({
     loader: glob({ pattern: "**/*.toml", base: "./src/content/projects" }),
     schema: z.object({
-        name: z.string().describe("The name of the project"),
+        name: z.string(),
         description: z.string().describe("A brief description of the project"),
         published: z
             .date()
@@ -33,16 +33,13 @@ const projects = defineCollection({
         research: z
             .boolean()
             .default(false)
-            .describe("Research or setup-dependent project"),
+            .describe("Whether this project is research-oriented"),
         pinned: z.boolean().optional().describe("Pin this item to the top"),
         featured: z
             .boolean()
             .optional()
-            .describe("Feature this item on the home page"),
-        tags: z
-            .array(z.string())
-            .optional()
-            .describe("Tags for categorization"),
+            .describe("Whether to feature this item on the home page"),
+        tags: z.array(z.string()).optional(),
     }),
 });
 
@@ -50,10 +47,9 @@ const siteInfo = defineCollection({
     loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/site-info" }),
     schema: z.object({
         title: z.string(),
-        h1: z.string(),
-        effectiveDate: z.string().optional(),
-        website: z.string().url().optional(),
-        owner: z.string().optional(),
+        effectiveDate: z
+            .date()
+            .describe("The effective date of this information"),
     }),
 });
 
