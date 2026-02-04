@@ -1,41 +1,24 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import { formatDate } from "../utils/date-formatter";
+import ProseLayout from "./ProseLayout.astro";
 
 export interface Props {
     title: string;
-    h1: string;
-    effectiveDate?: string;
-    website?: string;
-    owner?: string;
+    effectiveDate?: Date;
 }
-const { title, h1, effectiveDate, website, owner } = Astro.props;
+const { title, effectiveDate } = Astro.props;
+const website = "https://koichin.com";
+const owner = "Koichi Nakayamada";
+const formattedEffectiveDate = effectiveDate
+    ? formatDate(effectiveDate)
+    : "";
 ---
 
-<BaseLayout title={title} h1={h1}>
-    {
-        (effectiveDate || website || owner) && (
-            <div class="mb-8 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)">
-                {effectiveDate && (
-                    <p>
-                        <strong>Effective date:</strong> {effectiveDate}
-                    </p>
-                )}
-                {website && (
-                    <p>
-                        <strong>Website:</strong> {website}
-                    </p>
-                )}
-                {owner && (
-                    <p>
-                        <strong>Owner:</strong> {owner}
-                    </p>
-                )}
-            </div>
-        )
-    }
-    <div
-        class="prose prose-base max-w-none dark:prose-invert prose-a:text-inherit prose-a:font-normal prose-a:underline prose-a:underline-offset-4 prose-a:hover:text-(--color-accent-light) dark:prose-a:hover:text-(--color-accent-dark)"
-    >
-        <slot />
-    </div>
-</BaseLayout>
+<ProseLayout title={title}>
+    <p>
+        Effective date: {formattedEffectiveDate}<br />
+        Website: {website}<br />
+        Owner: {owner}
+    </p>
+    <slot />
+</ProseLayout>

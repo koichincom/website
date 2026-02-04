@@ -1,28 +1,23 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import { formatDate } from "../utils/date-formatter";
+import ProseLayout from "./ProseLayout.astro";
 
 export interface Props {
-    title?: string;
-    h1?: string;
+    title: string;
     published?: Date;
     lastUpdated?: Date;
     readingTime?: string;
+    makeTitle?: boolean;
+    description?: string;
 }
-const { title, h1, published, lastUpdated, readingTime } = Astro.props;
-
-const formatDate = (date: Date) => {
-    return new Date(date).toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-    });
-};
+const { title, published, lastUpdated, readingTime, makeTitle, description } =
+    Astro.props;
 ---
 
-<BaseLayout title={title} h1={h1}>
+<ProseLayout title={title} makeTitle={makeTitle} description={description}>
     {
         lastUpdated ? (
-            <div class="mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2">
+            <div class="not-prose mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2">
                 <p>
                     {readingTime && `${readingTime} min read `} Published:{" "}
                     <time datetime={published?.toISOString()}>
@@ -35,7 +30,7 @@ const formatDate = (date: Date) => {
                 </p>
             </div>
         ) : published ? (
-            <p class="mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">
+            <p class="not-prose mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">
                 {readingTime && `${readingTime} min read `}
                 <time datetime={published.toISOString()}>
                     {formatDate(published)}
@@ -43,5 +38,7 @@ const formatDate = (date: Date) => {
             </p>
         ) : null
     }
-    <slot />
-</BaseLayout>
+    <article>
+        <slot />
+    </article>
+</ProseLayout>

@@ -14,12 +14,6 @@ const { page } = Astro.props;
 const { Content } = await render(page);
 ---
 
-<SiteInfoLayout
-    title={page.data.title}
-    h1={page.data.h1}
-    effectiveDate={page.data.effectiveDate}
-    website={page.data.website}
-    owner={page.data.owner}
->
+<SiteInfoLayout title={page.data.title} effectiveDate={page.data.effectiveDate}>
     <Content />
 </SiteInfoLayout>

@@ -1,6 +1,7 @@
 ---
 import List from "./List.astro";
 import ListRow from "./ListRow.astro";
+import { formatDate } from "../utils/date-formatter";
 import { getReadingTime } from "../utils/readingTime";
 import type { CollectionEntry } from "astro:content";
 
@@ -10,16 +11,10 @@ export interface Props {
 
 const { posts } = Astro.props;
 
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-});
-
 // Compute reading time and formatted strings for each post
 const postsWithReadingTime = posts.map((post) => {
     const readingTime = getReadingTime(post.body || "");
-    const formattedDate = dateFormatter.format(post.data.published);
+    const formattedDate = formatDate(post.data.published);
     return { post, formattedDate, readingTime };
 });
 ---

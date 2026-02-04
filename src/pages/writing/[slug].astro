@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import PostLayout from "../../layouts/PostLayout.astro";
+import WritingLayout from "../../layouts/WritingLayout.astro";
 import { getReadingTime } from "../../utils/readingTime";
 
 export async function getStaticPaths() {
@@ -16,16 +16,11 @@ const { Content } = await render(post);
 const readingTime = getReadingTime(post.body || "");
 ---
 
-<PostLayout
+<WritingLayout
     title={post.data.title}
-    h1={post.data.title}
     published={post.data.published}
     lastUpdated={post.data.lastUpdated}
     readingTime={readingTime}
 >
-    <article
-        class="prose prose-base max-w-none dark:prose-invert prose-a:text-inherit prose-a:font-normal prose-a:underline prose-a:underline-offset-4 prose-a:hover:text-(--color-accent-light) dark:prose-a:hover:text-(--color-accent-dark)"
-    >
-        <Content />
-    </article>
-</PostLayout>
+    <Content />
+</WritingLayout>

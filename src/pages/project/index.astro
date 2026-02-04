@@ -3,8 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectList from "../../components/ProjectList.astro";
 
-const title = "Projects - Koichi Nakayamada";
-const h1 = "Projects";
+const title = "Projects";
 
 const projectEntries = await getCollection("projects");
 const sortProjects = (
@@ -30,7 +29,7 @@ const researchProjects = sortProjects(
 );
 ---
 
-<BaseLayout title={title} h1={h1}>
+<BaseLayout title={title}>
     <section class="mb-20">
         <ProjectList projects={standardProjects} />
     </section>
