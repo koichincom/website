@@ -2,7 +2,6 @@
 import List from "./List.astro";
 import ListRow from "./ListRow.astro";
 import { getReadingTime } from "../utils/readingTime";
-import { getLocaleFromUrl } from "../i18n/utils";
 import type { CollectionEntry } from "astro:content";
 
 export interface Props {
@@ -11,8 +10,7 @@ export interface Props {
 
 const { posts } = Astro.props;
 
-const locale = getLocaleFromUrl(Astro.url);
-const dateFormatter = new Intl.DateTimeFormat(locale, {
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -22,9 +20,7 @@ const dateFormatter = new Intl.DateTimeFormat(locale, {
 const postsWithReadingTime = posts.map((post) => {
     const readingTime = getReadingTime(post.body || "");
     const formattedDate = dateFormatter.format(post.data.published);
-    // Remove language prefix from ID for URL
-    const slug = post.id.replace(/^(en|ja)\//, "");
-    return { post, formattedDate, readingTime, slug };
+    return { post, formattedDate, readingTime };
 });
 ---
 
@@ -32,9 +28,9 @@ const postsWithReadingTime = posts.map((post) => {
     class="grid w-full gap-x-12 grid-cols-[minmax(0,1fr)_max-content_max-content]"
 >
     {
-        postsWithReadingTime.map(({ post, formattedDate, readingTime, slug }) => (
+        postsWithReadingTime.map(({ post, formattedDate, readingTime }) => (
             <ListRow
-                href={`/writing/${slug}`}
+                href={`/writing/${post.id}`}
                 rowClass="col-span-full grid grid-cols-[subgrid]"
                 class="grid grid-cols-[subgrid] col-span-full items-center"
             >

@@ -1,10 +1,5 @@
 ---
 import Logo from "./Logo.astro";
-import { getLangFromUrl } from "../i18n/utils";
-import { useTranslations } from "../i18n/ui";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
 <header
@@ -36,7 +31,7 @@ const t = useTranslations(lang);
                     data-nav-href="/writing"
                     class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
                 >
-                    {t("nav.writing")}
+                    Writing
                 </a>
             </div>
 
@@ -47,7 +42,7 @@ const t = useTranslations(lang);
                     data-nav-href="/project"
                     class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
                 >
-                    {t("nav.projects")}
+                    Projects
                 </a>
             </div>
 
@@ -58,7 +53,7 @@ const t = useTranslations(lang);
                     data-nav-href="/about"
                     class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
                 >
-                    {t("nav.about")}
+                    About
                 </a>
             </div>
         </div>
