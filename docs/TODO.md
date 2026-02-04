@@ -37,13 +37,33 @@
 - [x] Refactor the layouts/ and related files to clean up the structure
 - [x] Make a centralized date formatting utility
 - [x] Clean up the content.config.ts: removing unnecessary element for making it easy to update in the future
+- [ ] Align writing last updated metadata between site and feed (updates array vs lastUpdated)
+- [ ] Create /feed page with RSS and Atom links and update the footer link
 - [ ] Page finalization and review
     - [ ] Home page
         - [ ] Introduction
         - [ ] Add a selfie
+        - [ ] Curate home lists (hide non-main posts)
+        - [ ] Decide how to render age (CSR vs remove)
+        - [ ] Add page description
     - [ ] Writing page
+        - [ ] Add short intro
+        - [ ] Add page description
+    - [ ] Writing post page
+        - [ ] Add bottom links: RSS feed and Writing list
     - [ ] Project page
+        - [ ] Add hardware-bound section label or merge it
+        - [ ] Add page description
     - [ ] About page
+        - [ ] Expand content (bio, focus, values, contact)
+        - [ ] Add page description
+    - [ ] Verify social meta tag naming (x or twitter)
 - [ ] CSS, Color, and Design improvements
+    - [ ] Global link highlight underline rule
 - [ ] Add Japanese support; learn Astro i18n
 - [ ] Mobile
+    - [ ] Header navigation wrapping and spacing
+    - [ ] Writing list columns stack cleanly
+    - [ ] Project list long titles and descriptions wrap well
+    - [ ] Footer grid stacks in a clear order
+- [ ] Remove unused tooltip script
