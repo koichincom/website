@@ -1,0 +1,6 @@
+name = "Personal Website"
+url = "https://github.com/koichincom/website"
+published = 2025-06-01T00:00:00Z
+description = "My personal website, designed to a minimal and calm space to express myself. Built with Astro."
+pinned = false
+featured = false

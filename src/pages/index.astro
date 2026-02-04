@@ -5,7 +5,6 @@ import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
 
 const title = "Koichi Nakayamada";
-const h1 = "Koichi Nakayamada";
 
 const birthDate = new Date(2004, 12 - 1, 9); // December 9, 2004, JS months are 0-indexed
 const today = new Date();
@@ -37,10 +36,10 @@ const writingPosts = (await getCollection("writing"))
             new Date(b.data.published).getTime() -
             new Date(a.data.published).getTime(),
     )
-    .slice(0, 3);
+    .slice(0, 5);
 ---
 
-<BaseLayout title={title} h1={h1}>
+<BaseLayout title={title} makeTitle={false}>
     <section class="mb-20">
         <p
             class="mb-8 sm:mb-12 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"

@@ -1,0 +1,7 @@
+name = "Focus Tutor"
+url = "https://github.com/koichincom/opencode-btca"
+published = 2025-06-01T00:00:00Z
+description = "EEG-based focus monitoring application that helps users track their concentration levels during study or work sessions."
+pinned = false
+featured = false
+hardwareBound = true

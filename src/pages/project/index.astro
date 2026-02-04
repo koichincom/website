@@ -1,10 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import ProjectList from "../components/ProjectList.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectList from "../../components/ProjectList.astro";
 
-const title = "Projects - Koichi Nakayamada";
-const h1 = "Projects";
+const title = "Projects";
 
 const projectEntries = await getCollection("projects");
 const sortProjects = (
@@ -23,19 +22,19 @@ const sortProjects = (
     });
 
 const standardProjects = sortProjects(
-    projectEntries.filter((project) => !project.data.research),
+    projectEntries.filter((project) => !project.data.hardwareBound),
 );
-const researchProjects = sortProjects(
-    projectEntries.filter((project) => project.data.research),
+const hardwareBoundProjects = sortProjects(
+    projectEntries.filter((project) => project.data.hardwareBound),
 );
 ---
 
-<BaseLayout title={title} h1={h1}>
+<BaseLayout title={title}>
     <section class="mb-20">
         <ProjectList projects={standardProjects} />
     </section>
     {
-        researchProjects.length ? (
+        hardwareBoundProjects.length ? (
             <section class="mb-20">
                 <!-- <h2 class="text-lg font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"> -->
                 <!--     Research -->
@@ -45,7 +44,7 @@ const researchProjects = sortProjects(
                 <!--     workflows. -->
                 <!-- </p> -->
                 <div class="mt-6">
-                    <ProjectList projects={researchProjects} />
+                    <ProjectList projects={hardwareBoundProjects} />
                 </div>
             </section>
         ) : null

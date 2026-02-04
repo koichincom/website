@@ -1,5 +1,5 @@
 name = "Aura"
-mainUrl = "https://github.com/deanzahci/aura"
+url = "https://github.com/deanzahci/aura"
 published = 2026-06-01T00:00:00Z
 description = "Move an object just by thinking: BCI app to control a robotic arm for pick and place tasks"
-research = true
+hardwareBound = true

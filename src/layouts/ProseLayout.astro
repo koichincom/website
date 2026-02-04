@@ -1,0 +1,31 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+export interface Props {
+    title: string;
+    makeTitle?: boolean;
+    description?: string;
+}
+
+const { title, makeTitle, description } = Astro.props;
+---
+
+<BaseLayout title={title} makeTitle={makeTitle} description={description}>
+    <div
+        class="prose prose-base max-w-none dark:prose-invert
+            prose-headings:text-(--color-text-first) prose-headings:font-bold
+            prose-p:text-(--color-text-second)
+            prose-strong:text-(--color-text-first) prose-strong:font-bold
+            prose-code:text-(--color-text-first) prose-code:font-normal prose-code:bg-(--color-hover) prose-code:px-1 prose-code:rounded dark:prose-code:bg-(--color-hover-dark)
+            prose-pre:bg-(--color-hover) prose-pre:prose-base dark:prose-pre:bg-(--color-hover-dark)
+            prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) dark:prose-blockquote:border-l-(--color-divider-dark)
+            prose-a:text-(--color-accent-light) prose-a:font-normal prose-a:underline prose-a:underline-offset-4 prose-a:hover:text-(--color-accent-light)/80 dark:prose-a:text-(--color-accent-dark) dark:prose-a:hover:text-(--color-accent-dark)/80
+            dark:prose-headings:text-(--color-text-first-dark)
+            dark:prose-p:text-(--color-text-second-dark)
+            dark:prose-strong:text-(--color-text-first-dark)
+            dark:prose-code:text-(--color-text-first-dark)
+            dark:prose-blockquote:text-(--color-text-second-dark)"
+    >
+        <slot />
+    </div>
+</BaseLayout>

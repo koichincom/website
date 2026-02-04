@@ -2,6 +2,8 @@
 
 Purpose: Essential guidance for agentic coding agents operating in this repository.
 
+if the function is used multiple times across different files, place it in `src/utils/`.
+
 ## Quick Reference
 
 - Local Dev: `bun run dev` (Starts Astro on port 4321)

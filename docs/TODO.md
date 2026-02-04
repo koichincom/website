@@ -8,13 +8,42 @@
 - [x] Two site maps are generated
 - [x] List clicked article's divider hidden problem
 - [x] Font flash prevention and learning about font loading display settings (swap, optional, etc)
-- [ ] Content structure and display refactoring: What to display on the home, writing, and project pages
-- [ ] Dynamic header href link changing
-- [ ] Design decisions, where to put what
-- [ ] Add Japanese language support
-
-## Some of other ideas
-
-- Reading progress bar at the top
-- Reference feature for writing articles
-- View count for articles in the lists (dynamic rendering + database?)
+- [x] Content structure and display refactoring: What to display on the home, writing, and project pages
+- [x] Content improvements and completion
+    - [x] Project posts
+    - [x] Writing posts
+- [x] Footer
+    - [x] Rethink the purpose and make it more like a site map if needed
+    - [x] Is privacy policy and copyright needed?
+    - [x] Sitemap, license, legal, social media, contact
+- [x] Site info pages using MDX
+    - [x] Legal page
+    - [x] License page
+    - [x] Cookie Policy page
+    - [x] Review the made three pages
+- [x] Header
+    - [x] Reading progress bar at the top
+    - [x] Dynamic header href link (disable the link where the user is currently at)
+    - [x] Dupulicated name in the home page; do I need to hide it when in the home page?
+- [x] Post page/Legal page
+    - [x] Footnotes for writing articles: done by Astro's markdown built-in
+    - [x] Why the theme setting on the code block affect and make it monochrome: The dual theme is expected in that case, and it just doesn't fit and override with something. I don't need to think about the detail.
+    - [x] How does the CSS controlling work?: Shiki for codeblock is from Astro-side, and Tailwind Prose is controlling the rest. Shiki somehow has precedence.
+    - [x] The font related variables from Shiki is defined by what?: Seemingly from theme, and I don't think i need to know
+    - [x] Use the same font color for the post/legal page: overwridden the prose by tailwind
+    - [x] How big the font size are in prose default?: It's 16px, so same as the text-base
+    - [x] How can I make the font size for codeblocks bigger?: It's done by Tailwind prose control, since the default prose was applied, I learnd about the combination of <pre> and <code>
+    - [x] Metadata design improvements
+- [x] Refactor the layouts/ and related files to clean up the structure
+- [x] Make a centralized date formatting utility
+- [x] Clean up the content.config.ts: removing unnecessary element for making it easy to update in the future
+- [ ] Page finalization and review
+    - [ ] Home page
+        - [ ] Introduction
+        - [ ] Add a selfie
+    - [ ] Writing page
+    - [ ] Project page
+    - [ ] About page
+- [ ] CSS, Color, and Design improvements
+- [ ] Add Japanese support; learn Astro i18n
+- [ ] Mobile

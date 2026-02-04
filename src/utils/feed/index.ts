@@ -129,7 +129,7 @@ async function getProjectItems(
 
     return Promise.all(
         projects.map(async (project) => {
-            const link = project.data.mainUrl;
+            const link = project.data.url;
             const description = await mdxToHtml(
                 `${projectNotice}\n\n${project.data.description}`,
                 site,

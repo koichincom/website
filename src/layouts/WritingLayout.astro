@@ -1,0 +1,43 @@
+---
+import { formatDate } from "../utils/date-formatter";
+import ProseLayout from "./ProseLayout.astro";
+
+export interface Props {
+    title: string;
+    published: Date;
+    lastUpdated?: Date;
+    readingTime: string;
+    makeTitle?: boolean;
+    description?: string;
+}
+const { title, published, lastUpdated, readingTime, makeTitle, description } =
+    Astro.props;
+---
+
+<ProseLayout title={title} makeTitle={makeTitle} description={description}>
+    <p class="not-prose mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2">
+        {
+            readingTime && (
+                <>
+                    <span>{readingTime}</span>
+                    <span aria-hidden="true">·</span>
+                </>
+            )
+        }
+        <time datetime={published.toISOString()}>{formatDate(published)}</time>
+        {
+            lastUpdated && (
+                <>
+                    <span aria-hidden="true">·</span>
+                    <span>Last updated:</span>
+                    <time datetime={lastUpdated.toISOString()}>
+                        {formatDate(lastUpdated)}
+                    </time>
+                </>
+            )
+        }
+    </p>
+    <article>
+        <slot />
+    </article>
+</ProseLayout>

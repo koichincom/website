@@ -1,0 +1,26 @@
+---
+import { formatDate } from "../utils/date-formatter";
+import ProseLayout from "./ProseLayout.astro";
+
+export interface Props {
+    title: string;
+    effectiveDate?: Date;
+}
+const { title, effectiveDate } = Astro.props;
+const website = "https://koichin.com";
+const owner = "Koichi Nakayamada";
+const contactEmail = "k@koichin.com";
+const formattedEffectiveDate = effectiveDate
+    ? formatDate(effectiveDate)
+    : "";
+---
+
+<ProseLayout title={title}>
+    <p>
+        Effective date: {formattedEffectiveDate}<br />
+        Website: <a href="{website}">{website}</a><br />
+        Owner: {owner}<br />
+        Contact: <a href="mailto:{contactEmail}">{contactEmail}</a>
+    </p>
+    <slot />
+</ProseLayout>

@@ -2,46 +2,125 @@
 import Logo from "./Logo.astro";
 ---
 
-<header class="sticky inset-x-0 top-0 z-50 h-14 sm:h-16 bg-(--color-background) dark:bg-(--color-background-dark)">
+<header
+    class="sticky inset-x-0 top-0 z-50 h-14 sm:h-16 bg-(--color-background) dark:bg-(--color-background-dark)"
+>
     <nav
-        class="h-full flex items-center justify-between gap-4 sm:gap-6 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap"
+        class="h-full flex items-center justify-between text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap"
     >
-      <div class="py-2">
-        <a
-            href="/"
-            class="flex items-center text-(--color-text-light) dark:text-(--color-text-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-        >
-            <Logo className="h-6 w-auto" />
-        </a>
-    </div>
-
-    <div class="flex gap-4 sm:gap-6">
-        <div class="py-2">
-            <a
-                href="/writing"
-                class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-            >
-                Writing
-            </a>
+        <div class="flex gap-4 sm:gap-6">
+            <div class="py-2">
+                <a
+                    href="/"
+                    data-nav-link
+                    data-nav-href="/"
+                    data-nav-logo
+                    class="inline-flex items-center gap-2 sm:gap-3 text-(--color-text-light) dark:text-(--color-text-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
+                >
+                    <Logo className="h-4 w-auto sm:h-5" />
+                    <span class="text-base sm:text-lg">Koichi Nakayamada</span>
+                </a>
+            </div>
         </div>
 
-        <div class="py-2">
-            <a
-                href="/project"
-                class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-            >
-                Projects
-            </a>
-        </div>
+        <div class="flex gap-4 sm:gap-6">
+            <div class="py-2">
+                <a
+                    href="/writing"
+                    data-nav-link
+                    data-nav-href="/writing"
+                    class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
+                >
+                    Writing
+                </a>
+            </div>
 
-        <div class="py-2">
-            <a
-                href="/about"
-                class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-            >
-                About
-            </a>
+            <div class="py-2">
+                <a
+                    href="/project"
+                    data-nav-link
+                    data-nav-href="/project"
+                    class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
+                >
+                    Projects
+                </a>
+            </div>
+
+            <div class="py-2">
+                <a
+                    href="/about"
+                    data-nav-link
+                    data-nav-href="/about"
+                    class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
+                >
+                    About
+                </a>
+            </div>
         </div>
-    </div>
-  </nav>
+    </nav>
 </header>
+
+<script is:inline data-astro-rerun>
+    (function() {
+        const linkClasses = [
+            'underline', 'decoration-transparent', 'underline-offset-4',
+            'hover:decoration-current', 'hover:text-(--color-accent-light)',
+            'dark:hover:text-(--color-accent-dark)'
+        ];
+        const currentClasses = [
+            'text-(--color-text-second)', 'dark:text-(--color-text-second-dark)'
+        ];
+        const logoClasses = [
+            'inline-flex', 'items-center', 'gap-2', 'sm:gap-3',
+            'text-(--color-text-light)', 'dark:text-(--color-text-dark)',
+            'hover:text-(--color-accent-light)', 'dark:hover:text-(--color-accent-dark)'
+        ];
+        const logoCurrentClasses = [
+            'inline-flex', 'items-center', 'gap-2', 'sm:gap-3',
+            'text-(--color-text-second)', 'dark:text-(--color-text-second-dark)'
+        ];
+
+        function updateNavLinkStates() {
+            const pathname = window.location.pathname;
+            const normalizedPath = pathname.endsWith('/') && pathname.length > 1
+                ? pathname.slice(0, -1)
+                : pathname;
+
+            document.querySelectorAll('[data-nav-link]').forEach((el) => {
+                const href = el.getAttribute('data-nav-href');
+                const isLogo = el.hasAttribute('data-nav-logo');
+                const isCurrent = normalizedPath === href;
+                const parent = el.parentElement;
+
+                if (isCurrent) {
+                    if (el.tagName.toLowerCase() === 'a') {
+                        const span = document.createElement('span');
+                        span.setAttribute('data-nav-link', '');
+                        span.setAttribute('data-nav-href', href);
+                        if (isLogo) span.setAttribute('data-nav-logo', '');
+                        span.setAttribute('aria-current', 'page');
+                        span.innerHTML = el.innerHTML;
+                        const classes = isLogo ? logoCurrentClasses : currentClasses;
+                        span.className = classes.join(' ');
+                        parent.replaceChild(span, el);
+                    }
+                } else {
+                    if (el.tagName.toLowerCase() === 'span') {
+                        const a = document.createElement('a');
+                        a.setAttribute('data-nav-link', '');
+                        a.setAttribute('data-nav-href', href);
+                        if (isLogo) a.setAttribute('data-nav-logo', '');
+                        a.setAttribute('href', href);
+                        a.innerHTML = el.innerHTML;
+                        const classes = isLogo ? logoClasses : linkClasses;
+                        a.className = classes.join(' ');
+                        parent.replaceChild(a, el);
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('astro:page-load', updateNavLinkStates);
+        updateNavLinkStates();
+    })();
+</script>

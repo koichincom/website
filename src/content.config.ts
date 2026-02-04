@@ -4,46 +4,59 @@ import { glob } from "astro/loaders";
 const writing = defineCollection({
     loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/writing" }),
     schema: z.object({
-        title: z.string().describe("The title of the writing piece"),
-        published: z.date().describe("Publication date"),
-        pinned: z.boolean().optional().describe("Pin this item to the top"),
+        title: z.string(),
+        published: z.date(),
+        pinned: z
+            .boolean()
+            .optional()
+            .describe(
+                "Whether to pin this post to the top of the writing list page",
+            ),
         updates: z
             .array(z.date())
             .default([])
             .describe("List of all update dates"),
-        lastUpdated: z.date().optional().describe("Last updated date"),
-        tags: z
-            .array(z.string())
-            .optional()
-            .describe("Tags for categorization"),
+        tags: z.array(z.string()).optional(),
     }),
 });
 
 const projects = defineCollection({
     loader: glob({ pattern: "**/*.toml", base: "./src/content/projects" }),
     schema: z.object({
-        name: z.string().describe("The name of the project"),
-        description: z.string().describe("A brief description of the project"),
+        name: z.string(),
+        description: z.string(),
         published: z
             .date()
             .describe(
-                "Publication date of the TOML entry (mainly for sorting)",
+                "Publication date of the entry (mainly for sorting, and not project launch date)",
             ),
-        mainUrl: z.string().url().describe("The primary URL of the project"),
-        research: z
+        url: z.string().url(),
+        hardwareBound: z
             .boolean()
             .default(false)
-            .describe("Research or setup-dependent project"),
-        pinned: z.boolean().optional().describe("Pin this item to the top"),
+            .describe("Whether this project is hardware-bound"),
+        pinned: z
+            .boolean()
+            .optional()
+            .describe(
+                "Whether to pin this project to the top of the project list page",
+            ),
         featured: z
             .boolean()
             .optional()
-            .describe("Feature this item on the home page"),
-        tags: z
-            .array(z.string())
-            .optional()
-            .describe("Tags for categorization"),
+            .describe("Whether to feature this item on the home page"),
+        tags: z.array(z.string()).optional(),
     }),
 });
 
-export const collections = { writing, projects };
+const siteInfo = defineCollection({
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/site-info" }),
+    schema: z.object({
+        title: z.string(),
+        effectiveDate: z
+            .date()
+            .describe("The effective date of this information"),
+    }),
+});
+
+export const collections = { writing, projects, siteInfo };
