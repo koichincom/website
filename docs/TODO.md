@@ -37,7 +37,8 @@
 - [x] Refactor the layouts/ and related files to clean up the structure
 - [x] Make a centralized date formatting utility
 - [x] Clean up the content.config.ts: removing unnecessary element for making it easy to update in the future
-- [ ] Align writing last updated metadata between site and feed (updates array vs lastUpdated)
+- [x] Remove unused tooltip script
+- [x] Align writing last updated metadata between site and feed (updates array vs lastUpdated)
 - [ ] Create /feed page with RSS and Atom links and update the footer link
 - [ ] Page finalization and review
     - [ ] Home page
@@ -66,4 +67,3 @@
     - [ ] Writing list columns stack cleanly
     - [ ] Project list long titles and descriptions wrap well
     - [ ] Footer grid stacks in a clear order
-- [ ] Remove unused tooltip script
