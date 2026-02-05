@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import { Feed } from "feed";
 
 import { createUrl, mdxToHtml } from "./utils";
+import { getLastUpdatedFromUpdates } from "../last-updated";
 
 type SiteAuthor = {
     name: string;
@@ -94,7 +95,8 @@ async function getWritingItems(
         writingPosts.map(async (post) => {
             const link = createUrl(`/writing/${post.id}`, site);
             const content = await mdxToHtml(post.body || "", site);
-            const date = post.data.lastUpdated ?? post.data.published;
+            const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
+            const date = lastUpdated ?? post.data.published;
             const baseItem = {
                 title: post.data.title,
                 id: link,
