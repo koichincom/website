@@ -1,3 +1,7 @@
+---
+import NewTabLink from "./NewTabLink.astro";
+---
+
 <nav
     class="mt-8 grid w-full grid-cols-[repeat(4,max-content)] justify-between gap-x-10 border-t border-(--color-divider) pt-8 pb-50 text-base text-(--color-text-second) dark:border-(--color-divider-dark) dark:text-(--color-text-second-dark)"
 >
@@ -67,14 +71,9 @@
                 </a>
             </li>
             <li>
-                <a
-                    href="https://github.com/koichincom/website"
-                    class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                >
+                <NewTabLink href="https://github.com/koichincom/website">
                     Source Code
-                </a>
+                </NewTabLink>
             </li>
         </ul>
     </div>
@@ -83,34 +82,19 @@
         <div class="font-semibold">Social</div>
         <ul class="space-y-2">
             <li>
-                <a
-                    href="https://x.com/koichincom"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-                >
+                <NewTabLink href="https://x.com/koichincom">
                     X/Twitter
-                </a>
+                </NewTabLink>
             </li>
             <li>
-                <a
-                    href="https://github.com/koichincom"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-                >
+                <NewTabLink href="https://github.com/koichincom">
                     GitHub
-                </a>
+                </NewTabLink>
             </li>
             <li>
-                <a
-                    href="https://linkedin.com/in/koichincom/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-                >
+                <NewTabLink href="https://linkedin.com/in/koichincom/">
                     LinkedIn
-                </a>
+                </NewTabLink>
             </li>
             <li>
                 <a
@@ -127,24 +111,14 @@
         <div class="font-semibold">Contact</div>
         <ul class="space-y-2">
             <li>
-                <a
-                    href="mailto:k@koichin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-                >
+                <NewTabLink href="mailto:k@koichin.com">
                     Email
-                </a>
+                </NewTabLink>
             </li>
             <li>
-                <a
-                    href="https://signal.me/#eu/hFxJqhdUe_9zSwQs01xjuf6sz9n5Zag3yfHQzxGwPZPL-X863I9DF5QXch7gCsUv"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-                >
+                <NewTabLink href="https://signal.me/#eu/hFxJqhdUe_9zSwQs01xjuf6sz9n5Zag3yfHQzxGwPZPL-X863I9DF5QXch7gCsUv">
                     Signal
-                </a>
+                </NewTabLink>
             </li>
         </ul>
     </div>
