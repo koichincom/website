@@ -59,6 +59,22 @@ export default defineConfig({
         "/proj": "/project",
         "/projects": "/project",
 
+        // About redirects
+        "/a": "/about",
+        "/ab": "/about",
+        "/abt": "/about",
+        "/aboutme": "/about",
+        "/abouts": "/about",
+
+        // Feed redirects
+        "/f": "/feed",
+        "/atom": "/feed",
+        "/rss": "/feed",
+        "/atom.xml": "/feed",
+        "/feed.xml": "/feed",
+        "/rss.xml": "/feed",
+        "/feeds": "/feed",
+
         // Social redirects
         "/github": "https://github.com/koichincom",
         "/gh": "https://github.com/koichincom",
