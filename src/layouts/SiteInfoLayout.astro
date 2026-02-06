@@ -1,5 +1,6 @@
 ---
 import { formatDate } from "../utils/date-formatter";
+import NewTabLink from "../components/NewTabLink.astro";
 import ProseLayout from "./ProseLayout.astro";
 
 export interface Props {
@@ -9,16 +10,16 @@ export interface Props {
 const { title, effectiveDate } = Astro.props;
 const website = "https://koichin.com";
 const owner = "Koichi Nakayamada";
-const formattedEffectiveDate = effectiveDate
-    ? formatDate(effectiveDate)
-    : "";
+const formattedEffectiveDate = effectiveDate ? formatDate(effectiveDate) : "";
+const contact = "mailto:k@koichin.com";
 ---
 
 <ProseLayout title={title}>
     <p>
         Effective date: {formattedEffectiveDate}<br />
-        Website: {website}<br />
-        Owner: {owner}
+        Website: <NewTabLink href={website}>{website}</NewTabLink><br />
+        Owner: {owner}<br />
+        Contact: <NewTabLink href={contact}>{contact.replace("mailto:", "")}</NewTabLink>
     </p>
     <slot />
 </ProseLayout>
