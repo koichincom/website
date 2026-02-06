@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import WritingLayout from "../../layouts/WritingLayout.astro";
 import { getLastUpdatedFromUpdates } from "../../utils/last-updated";
 import { getReadingTime } from "../../utils/reading-time";
+import NewTabLink from "../../components/NewTabLink.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("writing");
@@ -24,5 +25,8 @@ const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
     lastUpdated={lastUpdated}
     readingTime={readingTime}
 >
-    <Content />
+    <!-- Make NewTabLink component available as a custom tag in MDX globally -->
+    <!-- Not clearly documented but it seemingly works for not only HTML tags but also custom MDX components as well -->
+    <!-- https://docs.astro.build/en/guides/integrations-guide/mdx/#passing-components-to-mdx-content -->
+    <Content components={{ NewTabLink }} />
 </WritingLayout>
