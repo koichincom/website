@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import List from "../../components/List.astro";
+import ListRow from "../../components/ListRow.astro";
+import NewTabLink from "../../components/NewTabLink.astro";
+
+const title = "Feeds";
+
+const feeds = [
+    { label: "Combined", atom: "/atom/", rss: "/rss/" },
+    { label: "Writing", atom: "/atom/writing/", rss: "/rss/writing/" },
+    { label: "Project", atom: "/atom/project/", rss: "/rss/project/" },
+];
+---
+
+<BaseLayout title={title}>
+    <p
+        class="mb-8 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
+    >
+        Subscribe to the feeds below for updates across the site.
+    </p>
+    <List
+        class="grid w-full gap-x-10 grid-cols-[minmax(0,1fr)_max-content_max-content]"
+    >
+        {
+            feeds.map((feed) => (
+                <ListRow
+                    rowClass="col-span-full grid grid-cols-[subgrid]"
+                    class="grid grid-cols-[subgrid] col-span-full items-center"
+                >
+                    <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 group-hover:decoration-current group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark)">
+                        {feed.label}
+                    </span>
+                    <NewTabLink
+                        href={feed.atom}
+                        ariaLabel={`${feed.label} Atom feed`}
+                        class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)"
+                    >
+                        Atom
+                    </NewTabLink>
+                    <NewTabLink
+                        href={feed.rss}
+                        ariaLabel={`${feed.label} RSS feed`}
+                        class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)"
+                    >
+                        RSS
+                    </NewTabLink>
+                </ListRow>
+            ))
+        }
+    </List>
+</BaseLayout>
