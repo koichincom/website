@@ -4,19 +4,16 @@
 
 ### P0
 
-- [ ] Site info pages meta data: Add contact info and stuff
-- [ ] Copy the link Component just like the NewTabLink
-- [ ] NewTabLink component application for MDX files, and how to do it while keeping the Tailwind's utility first approach
+- [ ] Make a copy-link Component just like the NewTabLink
 
 ### P1
 
+- [ ] Add feed URL at the bottom of the writing page and stuff
 - [ ] Mobile
     - [ ] Header navigation wrapping and spacing
     - [ ] Writing list columns stack cleanly
     - [ ] Project list long titles and descriptions wrap well
     - [ ] Footer grid stacks in a clear order
-- [ ] Writing post page
-    - [ ] Add bottom links: RSS feed and Writing list
 - [ ] Home page
     - [ ] Introduction
     - [ ] Add a selfie
@@ -87,3 +84,5 @@
 - [x] Create /feed page with RSS and Atom links and update the footer link; make three feeds for each RSS and Atom
 - [x] Verify social meta tag naming (x or twitter)
 - [x] Remove the toast library and toast related code
+- [x] Site info pages meta data: Add contact info to the top and turn the domain to a href link
+- [x] Find a way to apply the NewTabLink component for content/ files
