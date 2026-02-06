@@ -1,6 +1,6 @@
-# Development Goal for v3.5.0
+# Development Goal
 
-Keep everything minimal and clean
-easy to update (TOML and MDX, no thumbnails required)
-Made for people who are interested in me, not wide popularity
-Putting writing and projects as the core, essential info only
+- Keep things minimal and calm
+- Easy to maintain (TOML and MDX for content, no thumbnails required)
+- Made for people who wanna know about me, not seling myself from the start
+- Put projects and writing as the core

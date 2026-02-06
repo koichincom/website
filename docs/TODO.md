@@ -67,3 +67,4 @@
     - [ ] Writing list columns stack cleanly
     - [ ] Project list long titles and descriptions wrap well
     - [ ] Footer grid stacks in a clear order
+- [ ] NewTabLink component application for MDX files, and how to do it while keeping the Tailwind's utility first approach
