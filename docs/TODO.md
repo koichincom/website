@@ -4,6 +4,7 @@
 
 ### P0
 
+- [ ] view-transition: persist might be avoided for header to not ship JavaScript
 - [ ] Page finalization and review
     - [ ] Home page
         - [ ] Introduction
@@ -26,6 +27,7 @@
 
 ### P1
 
+- [ ] The content border appear first before the font is loaded
 - [ ] Create /feed page with RSS and Atom links and update the footer link
 - [ ] NewTabLink component application for MDX files, and how to do it while keeping the Tailwind's utility first approach
 - [ ] Mobile
@@ -42,6 +44,7 @@
 
 ## Done
 
+- [x] Fully improve the AGENTS.md (remove the ones added by the template agent stuff and more personalize it)
 - [x] Make original Iosevka font for this website
     - Made an issue to the custom build temprate repo, and when it's accepted, I will make a PR that allow the user to leave the build to the relase or another branch so the build could be distributed like CDN, very easily. Until then, I will use font source's CDN.
 - [x] RSS and Atom feed integration
@@ -74,7 +77,7 @@
     - [x] The font related variables from Shiki is defined by what?: Seemingly from theme, and I don't think i need to know
     - [x] Use the same font color for the post/legal page: overwridden the prose by tailwind
     - [x] How big the font size are in prose default?: It's 16px, so same as the text-base
-    - [x] How can I make the font size for codeblocks bigger?: It's done by Tailwind prose control, since the default prose was applied, I learnd about the combination of <pre> and <code>
+    - [x] How can I make the font size for codeblocks bigger?: It's done by Tailwind prose control, since the default prose was applied, I learnd about the combination of `<pre>` and `<code>`
     - [x] Metadata design improvements
 - [x] Refactor the layouts/ and related files to clean up the structure
 - [x] Make a centralized date formatting utility
