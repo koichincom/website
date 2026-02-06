@@ -27,7 +27,6 @@
 ### P1
 
 - [ ] The content border appear first before the font is loaded
-- [ ] Create /feed page with RSS and Atom links and update the footer link
 - [ ] NewTabLink component application for MDX files, and how to do it while keeping the Tailwind's utility first approach
 - [ ] Mobile
     - [ ] Header navigation wrapping and spacing
@@ -84,3 +83,4 @@
 - [x] Clean up the content.config.ts: removing unnecessary element for making it easy to update in the future
 - [x] Remove unused tooltip script
 - [x] Align writing last updated metadata between site and feed (updates array vs lastUpdated)
+- [x] Create /feed page with RSS and Atom links and update the footer link; make three feeds for each RSS and Atom
