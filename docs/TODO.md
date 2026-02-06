@@ -4,6 +4,7 @@
 
 ### P0
 
+- [ ] Site info pages meta data: Add contact info and stuff
 - [ ] Copy the link Component just like the NewTabLink
 - [ ] NewTabLink component application for MDX files, and how to do it while keeping the Tailwind's utility first approach
 
@@ -85,3 +86,4 @@
 - [x] Align writing last updated metadata between site and feed (updates array vs lastUpdated)
 - [x] Create /feed page with RSS and Atom links and update the footer link; make three feeds for each RSS and Atom
 - [x] Verify social meta tag naming (x or twitter)
+- [x] Remove the toast library and toast related code
