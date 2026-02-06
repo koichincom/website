@@ -9,6 +9,8 @@ export interface Props {
     makeTitle?: boolean;
     description?: string;
 }
+type FeedScope = "combined" | "project" | "writing";
+
 const {
     title = "Koichi Nakayamada",
     makeTitle = true,
@@ -17,10 +19,49 @@ const {
 const seoTitle = makeTitle ? `${title} | Koichi Nakayamada` : title;
 
 const siteUrl = "https://koichin.com" + Astro.url.pathname;
-const rssUrl = Astro.site ? new URL("/rss/", Astro.site).toString() : "/rss/";
-const atomUrl = Astro.site
-    ? new URL("/atom/", Astro.site).toString()
-    : "/atom/";
+const pathToAbsoluteUrl = (path: string): string => {
+    return Astro.site ? new URL(path, Astro.site).toString() : path;
+};
+
+const feedPathMap: Record<FeedScope, { label: string; atom: string; rss: string }> =
+    {
+        combined: {
+            label: "Combined",
+            atom: "/atom/",
+            rss: "/rss/",
+        },
+        writing: {
+            label: "Writing",
+            atom: "/atom/writing/",
+            rss: "/rss/writing/",
+        },
+        project: {
+            label: "Project",
+            atom: "/atom/project/",
+            rss: "/rss/project/",
+        },
+    };
+
+const feedScopeOrder: FeedScope[] = Astro.url.pathname.startsWith("/project")
+    ? ["combined", "project", "writing"]
+    : ["combined", "writing", "project"];
+
+const feedAlternates = feedScopeOrder.flatMap((scope) => {
+    const feedPaths = feedPathMap[scope];
+
+    return [
+        {
+            type: "application/atom+xml",
+            title: `Koichi Nakayamada ${feedPaths.label} Atom`,
+            href: pathToAbsoluteUrl(feedPaths.atom),
+        },
+        {
+            type: "application/rss+xml",
+            title: `Koichi Nakayamada ${feedPaths.label} RSS`,
+            href: pathToAbsoluteUrl(feedPaths.rss),
+        },
+    ];
+});
 
 // Global container class
 const containerClass =
@@ -48,19 +89,16 @@ const containerClass =
         <link rel="canonical" href={siteUrl} />
         <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
-        <!-- RSS first, then Atom -->
-        <link
-            rel="alternate"
-            type="application/atom+xml"
-            title="Koichi Nakayamada Atom"
-            href={atomUrl}
-        />
-        <link
-            rel="alternate"
-            type="application/rss+xml"
-            title="Koichi Nakayamada RSS"
-            href={rssUrl}
-        />
+        {
+            feedAlternates.map((feed) => (
+                <link
+                    rel="alternate"
+                    type={feed.type}
+                    title={feed.title}
+                    href={feed.href}
+                />
+            ))
+        }
 
         <Font cssVariable="--font-iosevka-aile" preload />
     </head>

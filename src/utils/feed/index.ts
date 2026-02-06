@@ -16,11 +16,13 @@ type FeedItemData = FeedItem & {
     date: Date;
 };
 
-type FeedVariant = "atom" | "rss";
+type FeedFormat = "atom" | "rss";
+type FeedScope = "combined" | "project" | "writing";
 
 export async function generateFeed(
     context: APIContext,
-    variant: FeedVariant,
+    scope: FeedScope,
+    format: FeedFormat,
 ): Promise<Feed> {
     const site = getSiteUrl(context);
     const author: SiteAuthor = {
@@ -29,8 +31,8 @@ export async function generateFeed(
         link: site,
     };
 
-    const feed = createFeedInstance(site, author);
-    const items = await getFeedItems(site, author, variant);
+    const feed = createFeedInstance(site, author, scope);
+    const items = await getFeedItems(site, author, scope, format);
 
     items
         .sort((a, b) => b.date.valueOf() - a.date.valueOf())
@@ -52,18 +54,23 @@ function getSiteUrl(context: APIContext): string {
     return siteUrl.endsWith("/") ? siteUrl : `${siteUrl}/`;
 }
 
-function createFeedInstance(site: string, author: SiteAuthor): Feed {
+function createFeedInstance(
+    site: string,
+    author: SiteAuthor,
+    scope: FeedScope,
+): Feed {
+    const scopeConfig = getScopeConfig(scope, site);
     const feedOptions: FeedOptions = {
-        title: "Koichi Nakayamada",
-        description: "Writing and projects from Koichi Nakayamada.",
-        id: site,
-        link: site,
+        title: scopeConfig.title,
+        description: scopeConfig.description,
+        id: scopeConfig.link,
+        link: scopeConfig.link,
         language: "en",
         favicon: createUrl("/favicon.ico", site),
         copyright: `Copyright ${new Date().getFullYear()} Koichi Nakayamada`,
         feedLinks: {
-            rss: createUrl("/rss/", site),
-            atom: createUrl("/atom/", site),
+            rss: createUrl(scopeConfig.rssPath, site),
+            atom: createUrl(scopeConfig.atomPath, site),
         },
         author,
     };
@@ -74,10 +81,19 @@ function createFeedInstance(site: string, author: SiteAuthor): Feed {
 async function getFeedItems(
     site: string,
     author: SiteAuthor,
-    variant: FeedVariant,
+    scope: FeedScope,
+    format: FeedFormat,
 ): Promise<FeedItemData[]> {
+    if (scope === "writing") {
+        return getWritingItems(site, author, format);
+    }
+
+    if (scope === "project") {
+        return getProjectItems(site, author);
+    }
+
     const [writingItems, projectItems] = await Promise.all([
-        getWritingItems(site, author, variant),
+        getWritingItems(site, author, format),
         getProjectItems(site, author),
     ]);
 
@@ -87,7 +103,7 @@ async function getFeedItems(
 async function getWritingItems(
     site: string,
     author: SiteAuthor,
-    variant: FeedVariant,
+    format: FeedFormat,
 ): Promise<FeedItemData[]> {
     const writingPosts = await getCollection("writing");
 
@@ -105,7 +121,7 @@ async function getWritingItems(
                 author: [author],
             };
 
-            if (variant === "rss") {
+            if (format === "rss") {
                 return {
                     ...baseItem,
                     description: content,
@@ -118,6 +134,45 @@ async function getWritingItems(
             };
         }),
     );
+}
+
+function getScopeConfig(
+    scope: FeedScope,
+    site: string,
+): {
+    title: string;
+    description: string;
+    link: string;
+    rssPath: string;
+    atomPath: string;
+} {
+    if (scope === "writing") {
+        return {
+            title: "Koichi Nakayamada - Writing",
+            description: "Writing from Koichi Nakayamada.",
+            link: createUrl("/writing/", site),
+            rssPath: "/rss/writing/",
+            atomPath: "/atom/writing/",
+        };
+    }
+
+    if (scope === "project") {
+        return {
+            title: "Koichi Nakayamada - Projects",
+            description: "Projects from Koichi Nakayamada.",
+            link: createUrl("/project/", site),
+            rssPath: "/rss/project/",
+            atomPath: "/atom/project/",
+        };
+    }
+
+    return {
+        title: "Koichi Nakayamada",
+        description: "Writing and projects from Koichi Nakayamada.",
+        link: createUrl("/", site),
+        rssPath: "/rss/",
+        atomPath: "/atom/",
+    };
 }
 
 async function getProjectItems(
