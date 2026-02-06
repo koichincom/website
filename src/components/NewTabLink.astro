@@ -25,6 +25,5 @@ const arrowClass = [arrowSize].filter(Boolean).join(" ");
     rel="noopener noreferrer"
     aria-label={ariaLabel}
 >
-    <slot />
-    <span class={arrowClass} aria-hidden="true">&#8599;</span>
+    <slot /><span class={arrowClass} aria-hidden="true">{"\u00A0"}&#8599;</span>
 </a>
