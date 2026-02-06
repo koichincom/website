@@ -4,41 +4,41 @@
 
 ### P0
 
-- [ ] Page finalization and review
-    - [ ] Home page
-        - [ ] Introduction
-        - [ ] Add a selfie
-        - [ ] Curate home lists (hide non-main posts)
-        - [ ] Decide how to render age (CSR vs remove)
-        - [ ] Add page description
-    - [ ] Writing page
-        - [ ] Add short intro
-        - [ ] Add page description
-    - [ ] Writing post page
-        - [ ] Add bottom links: RSS feed and Writing list
-    - [ ] Project page
-        - [ ] Add hardware-bound section label or merge it
-        - [ ] Add page description
-    - [ ] About page
-        - [ ] Expand content (bio, focus, values, contact)
-        - [ ] Add page description
-    - [ ] Verify social meta tag naming (x or twitter)
+- [ ] Copy the link Component just like the NewTabLink
+- [ ] NewTabLink component application for MDX files, and how to do it while keeping the Tailwind's utility first approach
 
 ### P1
 
-- [ ] The content border appear first before the font is loaded
-- [ ] NewTabLink component application for MDX files, and how to do it while keeping the Tailwind's utility first approach
 - [ ] Mobile
     - [ ] Header navigation wrapping and spacing
     - [ ] Writing list columns stack cleanly
     - [ ] Project list long titles and descriptions wrap well
     - [ ] Footer grid stacks in a clear order
+- [ ] Writing post page
+    - [ ] Add bottom links: RSS feed and Writing list
+- [ ] Home page
+    - [ ] Introduction
+    - [ ] Add a selfie
+    - [ ] Curate home lists (hide non-main posts)
+    - [ ] Decide how to render age (CSR vs remove)
+    - [ ] Add page description
+- [ ] Writing page
+    - [ ] Add short intro
+    - [ ] Add page description
+- [ ] Project page
+    - [ ] Add hardware-bound section label or merge it
+    - [ ] Add page description
+- [ ] About page
+    - [ ] Expand content (bio, focus, values, contact)
+    - [ ] Add page description
 
 ### P2
 
 - [ ] CSS, Color, and Design improvements
     - [ ] Global link highlight underline rule
 - [ ] Add Japanese support; learn Astro i18n
+- [ ] The content border appear first before the font is loaded
+- [ ] SEO by checking the docs/SEO.md
 
 ## Done
 
@@ -84,3 +84,4 @@
 - [x] Remove unused tooltip script
 - [x] Align writing last updated metadata between site and feed (updates array vs lastUpdated)
 - [x] Create /feed page with RSS and Atom links and update the footer link; make three feeds for each RSS and Atom
+- [x] Verify social meta tag naming (x or twitter)
