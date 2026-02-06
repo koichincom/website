@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { visit } from "unist-util-visit";
 import type { Root, Heading } from "mdast";
 
+// Turn all headings into h2 to flatten the heading structure
 function remarkFlattenHeadings() {
     return (tree: Root) => {
         visit(tree, "heading", (node: Heading) => {
