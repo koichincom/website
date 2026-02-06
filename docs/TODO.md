@@ -4,34 +4,29 @@
 
 ### P0
 
-- [ ] Make a copy-link Component just like the NewTabLink
+- [ ] Project page: hardware section
+- [ ] RSS link to the writing page
 
 ### P1
 
 - [ ] Add feed URL at the bottom of the writing page and stuff
-- [ ] Mobile
-    - [ ] Header navigation wrapping and spacing
-    - [ ] Writing list columns stack cleanly
-    - [ ] Project list long titles and descriptions wrap well
-    - [ ] Footer grid stacks in a clear order
 - [ ] Home page
     - [ ] Introduction
     - [ ] Add a selfie
     - [ ] Curate home lists (hide non-main posts)
     - [ ] Decide how to render age (CSR vs remove)
     - [ ] Add page description
-- [ ] Writing page
-    - [ ] Add short intro
-    - [ ] Add page description
-- [ ] Project page
-    - [ ] Add hardware-bound section label or merge it
-    - [ ] Add page description
-- [ ] About page
-    - [ ] Expand content (bio, focus, values, contact)
-    - [ ] Add page description
+- [ ] About: Expand content (bio, focus, values, contact)
+- [ ] Properly append arrow icon to the end of the external links: So hard, not copieable, no wrapping
+- [ ] Make a copy-link Component just like the NewTabLink
 
 ### P2
 
+- [ ] Mobile
+    - [ ] Header navigation wrapping and spacing
+    - [ ] Writing list columns stack cleanly
+    - [ ] Project list long titles and descriptions wrap well
+    - [ ] Footer grid stacks in a clear order
 - [ ] CSS, Color, and Design improvements
     - [ ] Global link highlight underline rule
 - [ ] Add Japanese support; learn Astro i18n
@@ -85,4 +80,4 @@
 - [x] Verify social meta tag naming (x or twitter)
 - [x] Remove the toast library and toast related code
 - [x] Site info pages meta data: Add contact info to the top and turn the domain to a href link
-- [x] Find a way to apply the NewTabLink component for content/ files
+- [x] Find a way to apply the NewTabLink component for content/ files: found
