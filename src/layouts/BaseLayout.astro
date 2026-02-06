@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from "astro:transitions";
 import { Font } from "astro:assets";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -63,7 +62,6 @@ const containerClass =
             href={rssUrl}
         />
 
-        <ClientRouter fallback="swap" />
         <Font cssVariable="--font-iosevka-aile" preload />
     </head>
     <body
@@ -77,7 +75,7 @@ const containerClass =
         </a>
 
         <div class={containerClass}>
-            <Header transition:persist />
+            <Header />
 
             <main id="main-content" class="flex-1 pt-8 sm:pt-6 lg:pt-5 pb-8">
                 <h1
@@ -89,7 +87,7 @@ const containerClass =
             </main>
 
             <footer>
-                <Footer transition:persist />
+                <Footer />
             </footer>
         </div>
     </body>

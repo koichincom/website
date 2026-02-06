@@ -4,7 +4,6 @@
 
 ### P0
 
-- [ ] view-transition: persist might be avoided for header to not ship JavaScript
 - [ ] Page finalization and review
     - [ ] Home page
         - [ ] Introduction
@@ -44,6 +43,7 @@
 
 ## Done
 
+- [x] view-transition: persist might be avoided for header to not ship JavaScript, and implement the same with SSR
 - [x] Fully improve the AGENTS.md (remove the ones added by the template agent stuff and more personalize it)
 - [x] Make original Iosevka font for this website
     - Made an issue to the custom build temprate repo, and when it's accepted, I will make a PR that allow the user to leave the build to the relase or another branch so the build could be distributed like CDN, very easily. Until then, I will use font source's CDN.
