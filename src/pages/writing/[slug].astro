@@ -25,8 +25,7 @@ const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
     lastUpdated={lastUpdated}
     readingTime={readingTime}
 >
-    <!-- Make NewTabLink component available as a custom tag in MDX globally -->
-    <!-- Not clearly documented but it seemingly works for not only HTML tags but also custom MDX components as well -->
-    <!-- https://docs.astro.build/en/guides/integrations-guide/mdx/#passing-components-to-mdx-content -->
+    <!-- Expose NewTabLink to MDX via the MDX `components` map (works for custom tags too). -->
+    <!-- https://mdxjs.com/docs/using-mdx/#how-mdx-works -->
     <Content components={{ NewTabLink }} />
 </WritingLayout>
