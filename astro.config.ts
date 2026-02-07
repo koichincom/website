@@ -83,5 +83,9 @@ export default defineConfig({
         "/in": "https://linkedin.com/in/koichincom/",
         "/x": "https://x.com/koichincom",
         "/twitter": "https://x.com/koichincom",
+
+        // Misc redirects
+        "/source": "https://github.com/koichincom/website",
+        "/source-code": "https://github.com/koichincom/website",
     },
 });
