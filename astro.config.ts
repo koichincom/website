@@ -23,6 +23,7 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
     },
+    trailingSlash: "never",
     markdown: {
         remarkPlugins: [remarkFlattenHeadings],
         shikiConfig: {
