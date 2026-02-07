@@ -10,10 +10,7 @@ export interface Props {
 }
 type FeedScope = "combined" | "project" | "writing";
 
-const {
-    metaTitle = "Koichi Nakayamada",
-    description,
-} = Astro.props;
+const { metaTitle = "Koichi Nakayamada", description } = Astro.props;
 
 const siteUrl = "https://koichin.com" + Astro.url.pathname;
 const pathToAbsoluteUrl = (path: string): string => {
@@ -66,13 +63,31 @@ const feedAlternates = feedScopeOrder.flatMap((scope) => {
 const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
 ---
 
-<html lang="en" transition:animate="none">
+<html
+    lang="en"
+    class="bg-(--color-background) dark:bg-(--color-background-dark)"
+>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content={description} />
         <title>{metaTitle}</title>
+
+        <style>
+            html,
+            body {
+                background: #f1f1f1;
+                color-scheme: light dark;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                html,
+                body {
+                    background: #111111;
+                }
+            }
+        </style>
 
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={description} />
@@ -83,6 +98,13 @@ const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:creator" content="@koichincom" />
+
+        <meta name="theme-color" content="#f1f1f1" />
+        <meta
+            name="theme-color"
+            content="#111111"
+            media="(prefers-color-scheme: dark)"
+        />
 
         <link rel="canonical" href={siteUrl} />
         <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
