@@ -2,6 +2,8 @@
 
 - A personal website built with Astro, Tailwind CSS, and TypeScript.
 - Prefer retrieval-led reasoning over pre-training-led reasoning.
+- I don't know much about CSS and not interested in learning them. Please use your best judgement, follow the industry standard, and make suggestions, not asking me about it.
+- To avoid structural code debt, think about the overall structure and how the part is related in the big picture when making changes.
 
 ## Tech Stack
 
