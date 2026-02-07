@@ -1,9 +1,13 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageTitle from "../../components/PageTitle.astro";
+
 const title = "About";
+const metaTitle = `${title} | Koichi Nakayamada`;
 ---
 
-<BaseLayout title={title}>
+<BaseLayout metaTitle={metaTitle}>
+    <PageTitle>{title}</PageTitle>
     <p
         class="mb-8 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
     >

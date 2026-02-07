@@ -1,10 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageTitle from "../../components/PageTitle.astro";
 import List from "../../components/List.astro";
 import ListRow from "../../components/ListRow.astro";
 import NewTabLink from "../../components/NewTabLink.astro";
 
 const title = "Feeds";
+const metaTitle = `${title} | Koichi Nakayamada`;
 
 const feeds = [
     { label: "Combined", atom: "/atom/", rss: "/rss/" },
@@ -13,7 +15,8 @@ const feeds = [
 ];
 ---
 
-<BaseLayout title={title}>
+<BaseLayout metaTitle={metaTitle}>
+    <PageTitle>{title}</PageTitle>
     <p
         class="mb-8 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
     >

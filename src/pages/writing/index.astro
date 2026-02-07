@@ -1,9 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageTitle from "../../components/PageTitle.astro";
 import WritingList from "../../components/WritingList.astro";
 
 const title = "Writing";
+const metaTitle = `${title} | Koichi Nakayamada`;
 
 const writingPosts = (await getCollection("writing")).sort((a, b) => {
     const pinnedDelta =
@@ -18,7 +20,8 @@ const writingPosts = (await getCollection("writing")).sort((a, b) => {
 });
 ---
 
-<BaseLayout title={title}>
+<BaseLayout metaTitle={metaTitle}>
+    <PageTitle>{title}</PageTitle>
     <div class="pb-4">
         <WritingList posts={writingPosts} />
     </div>
