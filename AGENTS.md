@@ -7,7 +7,7 @@
 
 ## Tech Stack
 
-- Use TypeScript (not JavaScript) for all code
+- Use TypeScript except Astro's is:inline scripts (which needs to be in JavaScript)
 - Use Astro components for reusable UI elements
 - Use astro-docs MCP server for Astro questions (not found then ask user)
 
@@ -19,7 +19,7 @@ Run `bun run check` after changes to validate TypeScript, CSS, and routing.
 
 - Use Tailwind utility-first approach
 - Use Astro components to follow DRY principles (avoid custom CSS)
-- No animations, transitions, or motion effects
+- No animations or motion effects (except Astro's view transition API)
 - Exception: View transitions with `transition:animate="none"` only
 
 ## Naming Conventions
