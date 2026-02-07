@@ -58,12 +58,6 @@ const writingPosts = (await getCollection("writing"))
             >
                 Featured Projects
             </h2>
-            <a
-                href="/project"
-                class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-            >
-                All projects
-            </a>
         </div>
         <ProjectList projects={projects} />
     </section>
@@ -75,12 +69,6 @@ const writingPosts = (await getCollection("writing"))
             >
                 Latest Writing
             </h2>
-            <a
-                href="/writing"
-                class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-            >
-                All writing
-            </a>
         </div>
         <WritingList posts={writingPosts} />
     </section>
