@@ -1,8 +1,9 @@
 ---
 import { getCollection, render } from "astro:content";
-import WritingLayout from "../../layouts/WritingLayout.astro";
 import { getLastUpdatedFromUpdates } from "../../utils/last-updated";
 import { getReadingTime } from "../../utils/reading-time";
+
+import WritingLayout from "../../layouts/WritingLayout.astro";
 import NewTabLink from "../../components/NewTabLink.astro";
 
 export async function getStaticPaths() {

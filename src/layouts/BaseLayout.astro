@@ -1,8 +1,8 @@
 ---
+import "../styles/global.css";
 import { Font } from "astro:assets";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import "../styles/global.css";
 
 export interface Props {
     title: string;
@@ -23,24 +23,26 @@ const pathToAbsoluteUrl = (path: string): string => {
     return Astro.site ? new URL(path, Astro.site).toString() : path;
 };
 
-const feedPathMap: Record<FeedScope, { label: string; atom: string; rss: string }> =
-    {
-        combined: {
-            label: "Combined",
-            atom: "/atom/",
-            rss: "/rss/",
-        },
-        writing: {
-            label: "Writing",
-            atom: "/atom/writing/",
-            rss: "/rss/writing/",
-        },
-        project: {
-            label: "Project",
-            atom: "/atom/project/",
-            rss: "/rss/project/",
-        },
-    };
+const feedPathMap: Record<
+    FeedScope,
+    { label: string; atom: string; rss: string }
+> = {
+    combined: {
+        label: "Combined",
+        atom: "/atom/",
+        rss: "/rss/",
+    },
+    writing: {
+        label: "Writing",
+        atom: "/atom/writing/",
+        rss: "/rss/writing/",
+    },
+    project: {
+        label: "Project",
+        atom: "/atom/project/",
+        rss: "/rss/project/",
+    },
+};
 
 const feedScopeOrder: FeedScope[] = Astro.url.pathname.startsWith("/project")
     ? ["combined", "project", "writing"]
