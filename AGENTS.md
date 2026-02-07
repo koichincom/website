@@ -15,11 +15,6 @@
 
 Run `bun run check` after changes to validate TypeScript, CSS, and routing.
 
-## Code Organization
-
-- `src/utils/` - Utility functions used across multiple files
-- `src/styles/global.css` - Global styles with defined color palette only
-
 ## Styling Guidelines
 
 - Use Tailwind utility-first approach
@@ -31,6 +26,8 @@ Run `bun run check` after changes to validate TypeScript, CSS, and routing.
 
 - Components: `PascalCase.astro` (e.g., `Header.astro`, `BaseLayout.astro`)
 - Pages: `kebab-case.astro` (e.g., `index.astro`, `about.astro`)
+    - Exception: `404.astro` for the not found route
+    - Exception: Dynamic routes like `[slug].astro`
 - Utilities: `kebab-case.ts` (e.g., `reading-time.ts`)
 - Functions: `camelCase`
 - Constants: `UPPER_SNAKE_CASE`
