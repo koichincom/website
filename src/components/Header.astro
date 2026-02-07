@@ -32,14 +32,14 @@ const currentPath = getCurrentTopLevelPath();
     class="sticky inset-x-0 top-0 z-50 h-14 sm:h-16 bg-(--color-background) dark:bg-(--color-background-dark)"
 >
     <nav
-        class="h-full flex items-center justify-between text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap"
+        class="h-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap"
     >
         <div class="flex gap-4 sm:gap-6">
             <div class="py-2">
                 {
                     currentPath === "home" ? (
                         <span class="inline-flex items-center gap-2 sm:gap-3 text-(--color-text-second) dark:text-(--color-text-second-dark)">
-                            <Logo className="h-4 w-auto" />
+                            <Logo class="h-4 w-auto" />
                             <span class="text-base sm:text-lg">
                                 Koichi Nakayamada
                             </span>
@@ -47,9 +47,9 @@ const currentPath = getCurrentTopLevelPath();
                     ) : (
                         <a
                             href="/"
-                            class="inline-flex items-center gap-2 sm:gap-3 text-(--color-text-light) dark:text-(--color-text-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
+                            class="inline-flex items-center gap-2 sm:gap-3 text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
                         >
-                            <Logo className="h-4 w-auto" />
+                            <Logo class="h-4 w-auto" />
                             <span class="text-base sm:text-lg">
                                 Koichi Nakayamada
                             </span>

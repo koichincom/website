@@ -2,10 +2,10 @@
 import LogoSvg from "../assets/logo.svg";
 
 export interface Props {
-    className?: string;
+    class?: string;
 }
 
-const { className = "" } = Astro.props;
+const { class: className = "" } = Astro.props;
 ---
 
 <LogoSvg class={className} />

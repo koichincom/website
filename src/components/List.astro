@@ -4,8 +4,7 @@ export interface Props {
 }
 
 const { class: className = "" } = Astro.props;
-const baseClass = "mb-4";
-const listClass = [baseClass, className].filter(Boolean).join(" ");
+const listClass = className;
 ---
 
 <ul class={listClass}>
