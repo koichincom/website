@@ -40,36 +40,39 @@ const writingPosts = (await getCollection("writing"))
 ---
 
 <BaseLayout title={title} makeTitle={false}>
-    <section class="mb-20">
-        <p
-            class="mb-8 sm:mb-12 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
-        >
-            I'm a {age}-year-old Japanese data science student and open-source
-            developer, currently studying in the United States. I aspire to
-            practice "technical philanthropy" which is to contribute to humanity
-            through technology, driven by a genuine love for humankind.
-        </p>
-    </section>
-
-    <section class="mb-20">
-        <div class="flex items-center justify-between mb-6">
-            <h2
-                class="text-lg font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
+    <div class="flex flex-col gap-8 sm:gap-12 pb-4">
+        <section>
+            <p
+                class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
             >
-                Featured Projects
-            </h2>
-        </div>
-        <ProjectList projects={projects} />
-    </section>
+                I'm a {age}-year-old Japanese data science student and
+                open-source developer, currently studying in the United States.
+                I aspire to practice "technical philanthropy" which is to
+                contribute to humanity through technology, driven by a genuine
+                love for humankind.
+            </p>
+        </section>
 
-    <section class="mb-20">
-        <div class="flex items-center justify-between mb-6">
-            <h2
-                class="text-lg font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
-            >
-                Latest Writing
-            </h2>
-        </div>
-        <WritingList posts={writingPosts} />
-    </section>
+        <section>
+            <div class="flex items-center justify-between mb-6">
+                <h2
+                    class="text-lg font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
+                >
+                    Featured Projects
+                </h2>
+            </div>
+            <ProjectList projects={projects} />
+        </section>
+
+        <section>
+            <div class="flex items-center justify-between mb-6">
+                <h2
+                    class="text-lg font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
+                >
+                    Latest Writing
+                </h2>
+            </div>
+            <WritingList posts={writingPosts} />
+        </section>
+    </div>
 </BaseLayout>

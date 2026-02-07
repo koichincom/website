@@ -30,23 +30,16 @@ const hardwareBoundProjects = sortProjects(
 ---
 
 <BaseLayout title={title}>
-    <section class="mb-20">
-        <ProjectList projects={standardProjects} />
-    </section>
-    {
-        hardwareBoundProjects.length ? (
-            <section class="mb-20">
-                <!-- <h2 class="text-lg font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"> -->
-                <!--     Research -->
-                <!-- </h2> -->
-                <!-- <p class="mt-2 text-base text-(--color-text-third) dark:text-(--color-text-third-dark)"> -->
-                <!--     Requires dedicated hardware, hosting, or notebook-based -->
-                <!--     workflows. -->
-                <!-- </p> -->
-                <div class="mt-6">
+    <div class="flex flex-col gap-20 pb-24">
+        <section>
+            <ProjectList projects={standardProjects} />
+        </section>
+        {
+            hardwareBoundProjects.length ? (
+                <section class="pt-6">
                     <ProjectList projects={hardwareBoundProjects} />
-                </div>
-            </section>
-        ) : null
-    }
+                </section>
+            ) : null
+        }
+    </div>
 </BaseLayout>
