@@ -7,14 +7,12 @@ export interface Props {
     published: Date;
     lastUpdated?: Date;
     readingTime: string;
-    makeTitle?: boolean;
     description?: string;
 }
-const { title, published, lastUpdated, readingTime, makeTitle, description } =
-    Astro.props;
+const { title, published, lastUpdated, readingTime, description } = Astro.props;
 ---
 
-<ProseLayout title={title} makeTitle={makeTitle} description={description}>
+<ProseLayout title={title} description={description}>
     <p class="not-prose mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2">
         {
             readingTime && (

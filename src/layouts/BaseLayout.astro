@@ -5,18 +5,15 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 export interface Props {
-    title: string;
-    makeTitle?: boolean;
+    metaTitle: string;
     description?: string;
 }
 type FeedScope = "combined" | "project" | "writing";
 
 const {
-    title = "Koichi Nakayamada",
-    makeTitle = true,
+    metaTitle = "Koichi Nakayamada",
     description,
 } = Astro.props;
-const seoTitle = makeTitle ? `${title} | Koichi Nakayamada` : title;
 
 const siteUrl = "https://koichin.com" + Astro.url.pathname;
 const pathToAbsoluteUrl = (path: string): string => {
@@ -75,15 +72,15 @@ const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content={description} />
-        <title>{seoTitle}</title>
+        <title>{metaTitle}</title>
 
-        <meta property="og:title" content={seoTitle} />
+        <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={siteUrl} />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:creator" content="@koichincom" />
 
@@ -116,9 +113,6 @@ const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
         <Header />
 
         <main id="main-content" class:list={[containerClass, "flex-1"]}>
-            <h1 class="text-2xl sm:text-5xl font-bold mb-8">
-                {title}
-            </h1>
             <slot />
         </main>
 
