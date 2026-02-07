@@ -16,65 +16,123 @@ const navItems: NavItem[] = [
 ];
 
 const pathname = Astro.url.pathname;
+const normalizedPath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
 
-function getCurrentTopLevelPath(): TopLevelPath | null {
-    if (pathname === "/") return "home";
-    if (pathname === "/writing") return "writing";
-    if (pathname === "/project") return "project";
-    if (pathname === "/about") return "about";
+function getExactActiveSection(): TopLevelPath | null {
+    if (normalizedPath === "/") return "home";
+    if (normalizedPath === "/writing") return "writing";
+    if (normalizedPath === "/project") return "project";
+    if (normalizedPath === "/about") return "about";
     return null;
 }
 
-const currentPath = getCurrentTopLevelPath();
+function getActiveSection(): TopLevelPath | null {
+    if (normalizedPath === "/") return "home";
+    if (normalizedPath.startsWith("/writing")) return "writing";
+    if (normalizedPath.startsWith("/project")) return "project";
+    if (normalizedPath.startsWith("/about")) return "about";
+    return null;
+}
+
+const activeExactSection = getExactActiveSection();
+const activeSection = getActiveSection();
+
+const NAV_ITEM_BASE =
+    "nav-item inline-flex items-center rounded-full px-3 py-1";
+const NAV_ITEM_HOME_GAP = "gap-2 sm:gap-3";
+const NAV_ITEM_HOVER_BG =
+    "hover:bg-(--color-hover) dark:hover:bg-(--color-hover-dark)";
+const NAV_ITEM_HOVER_TEXT =
+    "hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)";
+const NAV_ITEM_ACTIVE_VARIANTS =
+    "data-[active=section]:bg-(--color-hover) dark:data-[active=section]:bg-(--color-hover-dark) data-[active=section]:text-(--color-accent-light) dark:data-[active=section]:text-(--color-accent-dark)";
+const NAV_CONTAINER_HAS_ACTIVE_SUPPRESS =
+    "[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)]:bg-transparent dark:[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)]:bg-transparent [&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)]:bg-transparent dark:[&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)]:bg-transparent";
+const NAV_CONTAINER_HAS_ACTIVE_TEXT_SUPPRESS =
+    "[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)]:!text-(--color-text-second) dark:[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)]:!text-(--color-text-second-dark) [&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)]:!text-(--color-text-second) dark:[&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)]:!text-(--color-text-second-dark)";
+const NAV_CONTAINER_PENDING_SUPPRESS =
+    "[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)]:bg-transparent dark:[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)]:bg-transparent";
+const NAV_CONTAINER_PENDING_TEXT_SUPPRESS =
+    "[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)]:!text-(--color-text-second) dark:[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)]:!text-(--color-text-second-dark)";
+const NAV_CONTAINER_HOME_HOVER_SUPPRESS =
+    "[&[data-home-exact='true']_.nav-home_.nav-item:hover]:!bg-transparent dark:[&[data-home-exact='true']_.nav-home_.nav-item:hover]:!bg-transparent [&[data-home-exact='true']_.nav-home_.nav-item:hover]:!text-(--color-text-second) dark:[&[data-home-exact='true']_.nav-home_.nav-item:hover]:!text-(--color-text-second-dark)";
+
+const navClass = [
+    "h-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap",
+    NAV_CONTAINER_HAS_ACTIVE_SUPPRESS,
+    NAV_CONTAINER_HAS_ACTIVE_TEXT_SUPPRESS,
+    NAV_CONTAINER_PENDING_SUPPRESS,
+    NAV_CONTAINER_PENDING_TEXT_SUPPRESS,
+    NAV_CONTAINER_HOME_HOVER_SUPPRESS,
+]
+    .filter(Boolean)
+    .join(" ");
+const homeLinkClass = [
+    NAV_ITEM_BASE,
+    NAV_ITEM_HOME_GAP,
+    NAV_ITEM_HOVER_BG,
+    NAV_ITEM_HOVER_TEXT,
+]
+    .filter(Boolean)
+    .join(" ");
+const navItemLinkClass = [
+    NAV_ITEM_BASE,
+    NAV_ITEM_HOVER_BG,
+    NAV_ITEM_HOVER_TEXT,
+    NAV_ITEM_ACTIVE_VARIANTS,
+].join(" ");
 ---
 
 <header
     class="sticky inset-x-0 top-0 z-50 h-18 sm:h-22 bg-(--color-background) dark:bg-(--color-background-dark)"
+    transition:persist
 >
     <nav
-        class="h-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap"
+        class={navClass}
+        data-site-nav
+        data-home-exact={activeExactSection === "home" ? "true" : "false"}
     >
-        <div class="flex gap-4 sm:gap-6">
+        <div class="flex nav-home">
             <div class="py-2">
-                {
-                    currentPath === "home" ? (
-                        <span class="inline-flex items-center gap-2 sm:gap-3 text-(--color-text-second) dark:text-(--color-text-second-dark)">
-                            <Logo class="h-4 w-auto" />
-                            <span class="text-base sm:text-lg">
-                                Koichi Nakayamada
-                            </span>
-                        </span>
-                    ) : (
-                        <a
-                            href="/"
-                            class="inline-flex items-center gap-2 sm:gap-3 text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-                        >
-                            <Logo class="h-4 w-auto" />
-                            <span class="text-base sm:text-lg">
-                                Koichi Nakayamada
-                            </span>
-                        </a>
-                    )
-                }
+                <a
+                    href={activeExactSection === "home" ? undefined : "/"}
+                    class={homeLinkClass}
+                    data-section="home"
+                    data-href="/"
+                    aria-current={
+                        activeExactSection === "home" ? "page" : undefined
+                    }
+                >
+                    <Logo class="h-4 w-auto" />
+                    <span class="text-base sm:text-lg">Koichi Nakayamada</span>
+                </a>
             </div>
         </div>
 
-        <div class="flex gap-4 sm:gap-6">
+        <div class="flex gap-2 sm:gap-3 nav-right">
             {
                 navItems.map((item) => (
                     <div class="py-2">
-                        {currentPath === item.path ? (
-                            <span class="text-(--color-text-second) dark:text-(--color-text-second-dark)">
-                                {item.label}
-                            </span>
-                        ) : (
-                            <a
-                                href={item.href}
-                                class="underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)"
-                            >
-                                {item.label}
-                            </a>
-                        )}
+                        <a
+                            href={
+                                activeSection === item.path
+                                    ? undefined
+                                    : item.href
+                            }
+                            class={navItemLinkClass}
+                            data-section={item.path}
+                            data-href={item.href}
+                            data-active={
+                                activeSection === item.path
+                                    ? "section"
+                                    : undefined
+                            }
+                            aria-current={
+                                activeSection === item.path ? "page" : undefined
+                            }
+                        >
+                            {item.label}
+                        </a>
                     </div>
                 ))
             }

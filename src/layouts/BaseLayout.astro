@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -66,6 +67,7 @@ const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
 <html
     lang="en"
     class="bg-(--color-background) dark:bg-(--color-background-dark)"
+    transition:animate="none"
 >
     <head>
         <meta charset="utf-8" />
@@ -73,6 +75,7 @@ const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content={description} />
         <title>{metaTitle}</title>
+        <ClientRouter />
 
         <style>
             html,
@@ -141,5 +144,103 @@ const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
         <div class={containerClass}>
             <Footer />
         </div>
+
+        <script is:inline>
+            const normalizePath = (path) => {
+                if (path === "/") return "/";
+                return path.replace(/\/$/, "");
+            };
+
+            const getExactActiveSection = (path) => {
+                if (path === "/") return "home";
+                if (path === "/writing") return "writing";
+                if (path === "/project") return "project";
+                if (path === "/about") return "about";
+                return null;
+            };
+
+            const getActiveSection = (path) => {
+                if (path === "/") return "home";
+                if (path.startsWith("/writing")) return "writing";
+                if (path.startsWith("/project")) return "project";
+                if (path.startsWith("/about")) return "about";
+                return null;
+            };
+
+            const updateNavState = () => {
+                const nav = document.querySelector("[data-site-nav]");
+                if (!nav) return;
+
+                const normalizedPath = normalizePath(window.location.pathname);
+                const activeExactSection =
+                    getExactActiveSection(normalizedPath);
+                const activeSection = getActiveSection(normalizedPath);
+
+                nav.setAttribute(
+                    "data-home-exact",
+                    activeExactSection === "home" ? "true" : "false"
+                );
+
+                const items = nav.querySelectorAll("[data-section]");
+
+                items.forEach((item) => {
+                    const section = item.dataset.section;
+                    if (!section) return;
+
+                    const isHome = section === "home";
+                    const isActiveExactHome =
+                        isHome && activeExactSection === "home";
+                    const isActiveSection =
+                        !isHome && section === activeSection;
+
+                    if (isActiveExactHome || isActiveSection) {
+                        item.setAttribute("aria-current", "page");
+                    } else {
+                        item.removeAttribute("aria-current");
+                    }
+
+                    if (isHome) {
+                        if (isActiveExactHome) {
+                            item.removeAttribute("href");
+                        } else {
+                            const href = item.getAttribute("data-href");
+                            if (href) item.setAttribute("href", href);
+                        }
+                        item.removeAttribute("data-active");
+                        return;
+                    }
+
+                    if (isActiveSection) {
+                        item.setAttribute("data-active", "section");
+                        item.removeAttribute("href");
+                        return;
+                    }
+
+                    item.removeAttribute("data-active");
+                    const href = item.getAttribute("data-href");
+                    if (href) item.setAttribute("href", href);
+                });
+            };
+
+            const setNavPending = (pending) => {
+                const nav = document.querySelector("[data-site-nav]");
+                if (!nav) return;
+                if (pending) {
+                    nav.setAttribute("data-nav-pending", "true");
+                } else {
+                    nav.removeAttribute("data-nav-pending");
+                }
+            };
+
+            updateNavState();
+            setNavPending(false);
+            document.addEventListener("astro:before-preparation", () => {
+                setNavPending(true);
+            });
+            document.addEventListener("astro:after-swap", () => {
+                updateNavState();
+                setNavPending(false);
+            });
+        </script>
     </body>
 </html>

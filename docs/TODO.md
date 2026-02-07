@@ -84,3 +84,5 @@
 - [x] Find a way to apply the NewTabLink component for content/ files: found
 - [x] HTML and CSS strucuture cleaning and refactoring
 - [x] Title prop in BaseLayout: Remove and replace with a component for each page for flexility
+- [x] Header link activation logic bug: removing the trailing slash by regex
+- [x] Set the astro trailing slash never
