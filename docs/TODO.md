@@ -4,8 +4,9 @@
 
 ### P0
 
-- [ ] Project page: hardware section
-- [ ] RSS link to the writing page
+- [ ] Header: show the current page with indicator (The current link is already disabled)
+- [ ] Project page: hardware section explanation
+- [ ] RSS link at the end of the writing page
 
 ### P1
 
@@ -18,7 +19,7 @@
     - [ ] Add page description
 - [ ] About: Expand content (bio, focus, values, contact)
 - [ ] Properly append arrow icon to the end of the external links: So hard, not copieable, no wrapping
-- [ ] Make a copy-link Component just like the NewTabLink
+- [ ] CopyLink component for the links to copy to clipboard: follow the NewTabLink component pattern: do after the NewTabLink completed entirely
 
 ### P2
 
@@ -61,7 +62,7 @@
 - [x] Header
     - [x] Reading progress bar at the top
     - [x] Dynamic header href link (disable the link where the user is currently at)
-    - [x] Dupulicated name in the home page; do I need to hide it when in the home page?
+    - [x] Dupulicated name in the home page; do I need to hide it when in the home page?: Yes but in the future when finalizing the home page design and text
 - [x] Post page/Legal page
     - [x] Footnotes for writing articles: done by Astro's markdown built-in
     - [x] Why the theme setting on the code block affect and make it monochrome: The dual theme is expected in that case, and it just doesn't fit and override with something. I don't need to think about the detail.
@@ -82,3 +83,4 @@
 - [x] Site info pages meta data: Add contact info to the top and turn the domain to a href link
 - [x] Find a way to apply the NewTabLink component for content/ files: found
 - [x] HTML and CSS strucuture cleaning and refactoring
+- [x] Title prop in BaseLayout: Remove and replace with a component for each page for flexility
