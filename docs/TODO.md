@@ -81,3 +81,4 @@
 - [x] Remove the toast library and toast related code
 - [x] Site info pages meta data: Add contact info to the top and turn the domain to a href link
 - [x] Find a way to apply the NewTabLink component for content/ files: found
+- [x] HTML and CSS strucuture cleaning and refactoring
