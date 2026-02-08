@@ -1,5 +1,4 @@
 ---
-import { fade } from "astro:transitions";
 import Logo from "./Logo.astro";
 import {
     getActiveSection,
@@ -76,7 +75,6 @@ const navItemLinkClass = [
 
 <header
     class="sticky inset-x-0 top-0 z-50 h-18 sm:h-22 bg-(--color-background) dark:bg-(--color-background-dark)"
-    transition:animate={fade()}
 >
     <nav
         class={navClass}
@@ -84,31 +82,33 @@ const navItemLinkClass = [
         data-home-exact={activeExactSection === "home" ? "true" : "false"}
     >
         <div class="flex nav-home">
-            {activeExactSection === "home" ? (
-                <span
-                    class={homeLinkClass}
-                    data-section="home"
-                    data-href="/"
-                    aria-current="page"
-                >
-                    <Logo class="h-4 w-auto" />
-                    <span class="text-base sm:text-lg">
-                        Koichi Nakayamada
+            {
+                activeExactSection === "home" ? (
+                    <span
+                        class={homeLinkClass}
+                        data-section="home"
+                        data-href="/"
+                        aria-current="page"
+                    >
+                        <Logo class="h-4 w-auto" />
+                        <span class="text-base sm:text-lg">
+                            Koichi Nakayamada
+                        </span>
                     </span>
-                </span>
-            ) : (
-                <a
-                    href="/"
-                    class={homeLinkClass}
-                    data-section="home"
-                    data-href="/"
-                >
-                    <Logo class="h-4 w-auto" />
-                    <span class="text-base sm:text-lg">
-                        Koichi Nakayamada
-                    </span>
-                </a>
-            )}
+                ) : (
+                    <a
+                        href="/"
+                        class={homeLinkClass}
+                        data-section="home"
+                        data-href="/"
+                    >
+                        <Logo class="h-4 w-auto" />
+                        <span class="text-base sm:text-lg">
+                            Koichi Nakayamada
+                        </span>
+                    </a>
+                )
+            }
         </div>
 
         <div class="flex gap-2 sm:gap-3 nav-right">
