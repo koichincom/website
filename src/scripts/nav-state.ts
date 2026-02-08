@@ -1,14 +1,21 @@
 import { getActiveSection, normalizePath } from "../utils/nav-section";
 
+type Section = ReturnType<typeof getActiveSection>;
+
+type AstroBeforePreparationEvent = Event & {
+    sourceElement?: Element | null;
+    to?: URL | string;
+};
+
 let initialized = false;
 
-export const initNavState = () => {
+export const initNavState = (): void => {
     if (initialized) return;
     initialized = true;
 
-    let pendingSection = null;
+    let pendingSection: Section = null;
 
-    const setNavPending = (pending) => {
+    const setNavPending = (pending: boolean): void => {
         const nav = document.querySelector("[data-site-nav]");
         if (!nav) return;
         if (pending) {
@@ -18,7 +25,7 @@ export const initNavState = () => {
         }
     };
 
-    const clearPendingHighlights = (root = document) => {
+    const clearPendingHighlights = (root: ParentNode = document): void => {
         root.querySelectorAll("[data-section][data-pending='true']").forEach(
             (item) => {
                 item.removeAttribute("data-pending");
@@ -26,7 +33,10 @@ export const initNavState = () => {
         );
     };
 
-    const applyPendingHighlight = (root, section) => {
+    const applyPendingHighlight = (
+        root: ParentNode | null,
+        section: NonNullable<Section>,
+    ): void => {
         if (!root || !section) return;
         const nav = root.querySelector("[data-site-nav]");
         if (!nav) return;
@@ -36,29 +46,26 @@ export const initNavState = () => {
         }
     };
 
-    const shouldApplyPendingHighlight = (section) => {
-        return Boolean(section && section !== "home");
-    };
-
     setNavPending(false);
     clearPendingHighlights();
 
-    document.addEventListener("astro:before-preparation", (event) => {
+    document.addEventListener("astro:before-preparation", (event: Event) => {
+        const astroEvent = event as AstroBeforePreparationEvent;
         const currentSection = getActiveSection(
             normalizePath(window.location.pathname),
         );
 
-        let nextPending = null;
-        const source = event && event.sourceElement;
-        if (source && source.closest) {
+        let nextPending: Section = null;
+        const source = astroEvent.sourceElement;
+        if (source) {
             const candidate = source.closest("[data-site-nav] [data-section]");
             if (candidate) {
-                nextPending = candidate.getAttribute("data-section");
+                nextPending = candidate.getAttribute("data-section") as Section;
             }
         }
 
-        if (!nextPending && event && event.to) {
-            const toValue = event.to;
+        if (!nextPending && astroEvent.to) {
+            const toValue = astroEvent.to;
             const toUrl =
                 typeof toValue === "string"
                     ? new URL(toValue, window.location.origin)
@@ -79,20 +86,13 @@ export const initNavState = () => {
         clearPendingHighlights();
         setNavPending(true);
 
-        if (shouldApplyPendingHighlight(pendingSection)) {
+        if (pendingSection) {
             applyPendingHighlight(document, pendingSection);
         }
     });
 
-    document.addEventListener("astro:before-swap", (event) => {
-        if (!shouldApplyPendingHighlight(pendingSection)) return;
-        if (!event || !event.newDocument) return;
-        applyPendingHighlight(event.newDocument, pendingSection);
-    });
-
+    // Using Astro Client-Router, JS runtime is not reloaded on page nav, so clear the pendingSection
     document.addEventListener("astro:after-swap", () => {
-        setNavPending(false);
-        clearPendingHighlights();
         pendingSection = null;
     });
 };
