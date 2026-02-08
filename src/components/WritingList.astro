@@ -1,5 +1,4 @@
 ---
-import List from "./List.astro";
 import ListRow from "./ListRow.astro";
 import { formatDate } from "../utils/date-formatter";
 import { getReadingTime } from "../utils/reading-time";
@@ -19,7 +18,7 @@ const postsWithReadingTime = posts.map((post) => {
 });
 ---
 
-<List
+<ul
     class="grid w-full gap-x-12 grid-cols-[minmax(0,1fr)_max-content_max-content]"
 >
     {
@@ -46,4 +45,4 @@ const postsWithReadingTime = posts.map((post) => {
             </ListRow>
         ))
     }
-</List>
+</ul>

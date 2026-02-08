@@ -1,5 +1,4 @@
 ---
-import List from "./List.astro";
 import ListRow from "./ListRow.astro";
 import type { CollectionEntry } from "astro:content";
 
@@ -10,7 +9,7 @@ export interface Props {
 const { projects } = Astro.props;
 ---
 
-<List>
+<ul>
     {
         projects.map((project) => (
             <ListRow
@@ -34,4 +33,4 @@ const { projects } = Astro.props;
             </ListRow>
         ))
     }
-</List>
+</ul>

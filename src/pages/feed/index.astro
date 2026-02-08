@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageTitle from "../../components/PageTitle.astro";
-import List from "../../components/List.astro";
 import ListRow from "../../components/ListRow.astro";
 import NewTabLink from "../../components/NewTabLink.astro";
 
@@ -24,7 +23,7 @@ const feeds = [
         projects.
     </p>
     <div class="pb-4">
-        <List
+        <ul
             class="grid w-full gap-x-10 grid-cols-[minmax(0,1fr)_max-content_max-content]"
         >
             {
@@ -53,6 +52,6 @@ const feeds = [
                     </ListRow>
                 ))
             }
-        </List>
+        </ul>
     </div>
 </BaseLayout>
