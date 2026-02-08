@@ -6,6 +6,8 @@
 
 ### P0
 
+- [ ] Adjust to the px-3 that the header pill has (text that touches the side should have px-3, but any bg button should have 0 padding x to match the header pill design, the divider should also have 0 padding x)
+
 ### P1
 
 - [ ] Feed and List CTA button at the end of the writing/project page/list
