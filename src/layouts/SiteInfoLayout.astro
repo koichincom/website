@@ -2,19 +2,21 @@
 import { formatDate } from "../utils/date-formatter";
 import NewTabLink from "../components/NewTabLink.astro";
 import ProseLayout from "./ProseLayout.astro";
+import type { TocHeading } from "../utils/toc";
 
 export interface Props {
     title: string;
     effectiveDate?: Date;
+    headings?: TocHeading[];
 }
-const { title, effectiveDate } = Astro.props;
+const { title, effectiveDate, headings } = Astro.props;
 const website = "https://koichin.com";
 const owner = "Koichi Nakayamada";
 const formattedEffectiveDate = effectiveDate ? formatDate(effectiveDate) : "";
 const contact = "mailto:k@koichin.com";
 ---
 
-<ProseLayout title={title}>
+<ProseLayout title={title} headings={headings}>
     <p>
         Effective date: {formattedEffectiveDate}<br />
         Website: <NewTabLink href={website}>{website}</NewTabLink><br />

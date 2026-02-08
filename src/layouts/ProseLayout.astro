@@ -1,32 +1,50 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import PageTitle from "../components/PageTitle.astro";
+import TableOfContents from "../components/TableOfContents.astro";
+import { getH2Headings } from "../utils/toc";
+import type { TocHeading } from "../utils/toc";
 
 export interface Props {
     title: string;
     description?: string;
+    headings?: TocHeading[];
 }
 
-const { title, description } = Astro.props;
+const { title, description, headings = [] } = Astro.props;
+const tocHeadings = getH2Headings(headings);
+const hasToc = tocHeadings.length > 0;
 ---
 
 <BaseLayout metaTitle={title} description={description}>
-    <PageTitle>{title}</PageTitle>
     <div
-        class="prose prose-base max-w-none dark:prose-invert
-            prose-headings:text-(--color-text-first) prose-headings:font-bold
-            prose-p:text-(--color-text-second)
-            prose-strong:text-(--color-text-first) prose-strong:font-bold
-            prose-code:text-(--color-text-first) prose-code:font-normal prose-code:bg-(--color-hover) prose-code:px-1 prose-code:rounded dark:prose-code:bg-(--color-hover-dark)
-            prose-pre:bg-(--color-hover) prose-pre:prose-base dark:prose-pre:bg-(--color-hover-dark)
-            prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) dark:prose-blockquote:border-l-(--color-divider-dark)
-            prose-a:text-(--color-accent-light) prose-a:font-normal prose-a:underline prose-a:underline-offset-4 prose-a:hover:text-(--color-accent-light)/80 dark:prose-a:text-(--color-accent-dark) dark:prose-a:hover:text-(--color-accent-dark)/80
-            dark:prose-headings:text-(--color-text-first-dark)
-            dark:prose-p:text-(--color-text-second-dark)
-            dark:prose-strong:text-(--color-text-first-dark)
-            dark:prose-code:text-(--color-text-first-dark)
-            dark:prose-blockquote:text-(--color-text-second-dark)"
+        class:list={[
+            "min-w-0",
+            hasToc && "lg:grid lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-10",
+        ]}
     >
-        <slot />
+        <div class="min-w-0">
+            <div class="mx-auto w-full max-w-[66ch]">
+                <PageTitle>{title}</PageTitle>
+                <div
+                    class="prose prose-base max-w-none dark:prose-invert
+                        prose-headings:text-(--color-text-first) prose-headings:font-bold
+                        prose-p:text-(--color-text-second)
+                        prose-strong:text-(--color-text-first) prose-strong:font-bold
+                        prose-code:text-(--color-text-first) prose-code:font-normal prose-code:bg-(--color-hover) prose-code:px-1 prose-code:rounded dark:prose-code:bg-(--color-hover-dark)
+                        prose-pre:bg-(--color-hover) prose-pre:prose-base dark:prose-pre:bg-(--color-hover-dark)
+                        prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) dark:prose-blockquote:border-l-(--color-divider-dark)
+                        prose-a:text-(--color-accent-light) prose-a:font-normal prose-a:underline prose-a:underline-offset-4 prose-a:hover:text-(--color-accent-light)/80 dark:prose-a:text-(--color-accent-dark) dark:prose-a:hover:text-(--color-accent-dark)/80
+                        dark:prose-headings:text-(--color-text-first-dark)
+                        dark:prose-p:text-(--color-text-second-dark)
+                        dark:prose-strong:text-(--color-text-first-dark)
+                        dark:prose-code:text-(--color-text-first-dark)
+                        dark:prose-blockquote:text-(--color-text-second-dark)"
+                >
+                    <slot />
+                </div>
+            </div>
+        </div>
+        {hasToc && <TableOfContents headings={tocHeadings} />}
     </div>
 </BaseLayout>

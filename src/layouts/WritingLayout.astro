@@ -1,6 +1,7 @@
 ---
 import { formatDate } from "../utils/date-formatter";
 import ProseLayout from "./ProseLayout.astro";
+import type { TocHeading } from "../utils/toc";
 
 export interface Props {
     title: string;
@@ -8,11 +9,13 @@ export interface Props {
     lastUpdated?: Date;
     readingTime: string;
     description?: string;
+    headings?: TocHeading[];
 }
-const { title, published, lastUpdated, readingTime, description } = Astro.props;
+const { title, published, lastUpdated, readingTime, description, headings } =
+    Astro.props;
 ---
 
-<ProseLayout title={title} description={description}>
+<ProseLayout title={title} description={description} headings={headings}>
     <p class="not-prose mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2">
         {
             readingTime && (
