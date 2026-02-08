@@ -42,16 +42,12 @@ const NAV_CONTAINER_PENDING_SUPPRESS =
     "[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)]:bg-transparent dark:[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)]:bg-transparent";
 const NAV_CONTAINER_PENDING_TEXT_SUPPRESS =
     "[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)]:!text-(--color-text-second) dark:[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)]:!text-(--color-text-second-dark)";
-const NAV_CONTAINER_HOME_HOVER_SUPPRESS =
-    "[&[data-home-exact='true']_.nav-home_.nav-item:hover]:!bg-transparent dark:[&[data-home-exact='true']_.nav-home_.nav-item:hover]:!bg-transparent [&[data-home-exact='true']_.nav-home_.nav-item:hover]:!text-(--color-text-second) dark:[&[data-home-exact='true']_.nav-home_.nav-item:hover]:!text-(--color-text-second-dark)";
-
 const navClass = [
     "h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap",
     NAV_CONTAINER_HAS_ACTIVE_SUPPRESS,
     NAV_CONTAINER_HAS_ACTIVE_TEXT_SUPPRESS,
     NAV_CONTAINER_PENDING_SUPPRESS,
     NAV_CONTAINER_PENDING_TEXT_SUPPRESS,
-    NAV_CONTAINER_HOME_HOVER_SUPPRESS,
 ]
     .filter(Boolean)
     .join(" ");
@@ -60,6 +56,7 @@ const homeLinkClass = [
     NAV_ITEM_HOME_GAP,
     NAV_ITEM_HOVER_BG,
     NAV_ITEM_HOVER_TEXT,
+    NAV_ITEM_ACTIVE_VARIANTS,
     NAV_ITEM_PENDING_VARIANTS,
 ]
     .filter(Boolean)
@@ -79,7 +76,6 @@ const navItemLinkClass = [
     <nav
         class={navClass}
         data-site-nav
-        data-home-exact={activeExactSection === "home" ? "true" : "false"}
     >
         <div class="flex nav-home">
             {
@@ -88,6 +84,7 @@ const navItemLinkClass = [
                         class={homeLinkClass}
                         data-section="home"
                         data-href="/"
+                        data-active="section"
                         aria-current="page"
                     >
                         <Logo class="h-4 w-auto" />
