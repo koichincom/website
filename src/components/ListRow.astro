@@ -17,13 +17,13 @@ const {
     rowClass: rowClassName = "",
 } = Astro.props;
 const rowClass = [
-    "group w-full rounded-md hover:bg-(--color-hover) dark:hover:bg-(--color-hover-dark) last:[&>a]:after:hidden last:[&>div]:after:hidden [&:has(+li:hover)>a]:after:opacity-0 [&:has(+li:hover)>div]:after:opacity-0",
+    "group w-full rounded-lg hover:bg-(--color-hover) dark:hover:bg-(--color-hover-dark) last:[&>a]:after:hidden last:[&>div]:after:hidden [&:has(+li:hover)>a]:after:opacity-0 [&:has(+li:hover)>div]:after:opacity-0",
     rowClassName,
 ]
     .filter(Boolean)
     .join(" ");
 const baseClass =
-    "relative flex flex-col w-full px-2 py-5 after:content-[''] after:absolute after:bottom-0 after:left-[var(--radius-md)] after:right-[var(--radius-md)] after:border-b after:border-(--color-divider) dark:after:border-(--color-divider-dark) hover:after:opacity-0";
+    "relative flex flex-col w-full px-surface-inset py-5 after:content-[''] after:absolute after:bottom-0 after:left-[var(--spacing-list-divider-inset)] after:right-[var(--spacing-list-divider-inset)] after:border-b after:border-(--color-divider) dark:after:border-(--color-divider-dark) hover:after:opacity-0";
 const linkClass = [baseClass, className].filter(Boolean).join(" ");
 ---
 

@@ -25,9 +25,11 @@ const hasToc = tocHeadings.length > 0;
     >
         <div class="min-w-0">
             <div class="mx-auto w-full max-w-[66ch]">
-                <PageTitle>{title}</PageTitle>
+                <PageTitle inset={false} class="ps-content-inset pe-content-inset"
+                    >{title}</PageTitle
+                >
                 <div
-                    class="prose prose-base max-w-none dark:prose-invert
+                    class="prose prose-base max-w-none ps-content-inset pe-content-inset dark:prose-invert
                         prose-headings:text-(--color-text-first) prose-headings:font-bold
                         prose-p:text-(--color-text-second)
                         prose-strong:text-(--color-text-first) prose-strong:font-bold

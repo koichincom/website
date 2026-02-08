@@ -8,7 +8,7 @@ import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
 
 const title = "Koichi Nakayamada";
-const h1Title = "Opensource, Data, and Student";
+const h1Title = "Technical Philanthropy";
 
 // Fetch projects sorted by pinned and published date, take featured ones
 const projects = (await getCollection("projects"))
@@ -38,7 +38,7 @@ const writingPosts = (await getCollection("writing"))
     <div class="flex flex-col gap-8 sm:gap-12 pb-4">
         <section>
             <p
-                class="px-3 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
+                class="px-content-inset text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
             >
                 I'm a <span id="age-display"></span>-year-old Japanese data
                 science student and open-source developer, currently studying in
