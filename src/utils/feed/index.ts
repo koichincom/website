@@ -150,9 +150,9 @@ function getScopeConfig(
         return {
             title: "Koichi Nakayamada - Writing",
             description: "Writing from Koichi Nakayamada.",
-            link: createUrl("/writing/", site),
-            rssPath: "/rss/writing/",
-            atomPath: "/atom/writing/",
+            link: createUrl("/writing", site),
+            rssPath: "/rss/writing",
+            atomPath: "/atom/writing",
         };
     }
 
@@ -160,9 +160,9 @@ function getScopeConfig(
         return {
             title: "Koichi Nakayamada - Projects",
             description: "Projects from Koichi Nakayamada.",
-            link: createUrl("/project/", site),
-            rssPath: "/rss/project/",
-            atomPath: "/atom/project/",
+            link: createUrl("/project", site),
+            rssPath: "/rss/project",
+            atomPath: "/atom/project",
         };
     }
 
@@ -170,8 +170,8 @@ function getScopeConfig(
         title: "Koichi Nakayamada",
         description: "Writing and projects from Koichi Nakayamada.",
         link: createUrl("/", site),
-        rssPath: "/rss/",
-        atomPath: "/atom/",
+        rssPath: "/rss",
+        atomPath: "/atom",
     };
 }
 
