@@ -1,7 +1,12 @@
 ---
+import { fade } from "astro:transitions";
 import Logo from "./Logo.astro";
-
-type TopLevelPath = "home" | "writing" | "project" | "about";
+import {
+    getActiveSection,
+    getExactActiveSection,
+    normalizePath,
+    type TopLevelPath,
+} from "../utils/nav-section";
 
 interface NavItem {
     path: TopLevelPath;
@@ -15,27 +20,9 @@ const navItems: NavItem[] = [
     { path: "about", href: "/about", label: "About" },
 ];
 
-const pathname = Astro.url.pathname;
-const normalizedPath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
-
-function getExactActiveSection(): TopLevelPath | null {
-    if (normalizedPath === "/") return "home";
-    if (normalizedPath === "/writing") return "writing";
-    if (normalizedPath === "/project") return "project";
-    if (normalizedPath === "/about") return "about";
-    return null;
-}
-
-function getActiveSection(): TopLevelPath | null {
-    if (normalizedPath === "/") return "home";
-    if (normalizedPath.startsWith("/writing")) return "writing";
-    if (normalizedPath.startsWith("/project")) return "project";
-    if (normalizedPath.startsWith("/about")) return "about";
-    return null;
-}
-
-const activeExactSection = getExactActiveSection();
-const activeSection = getActiveSection();
+const normalizedPath = normalizePath(Astro.url.pathname);
+const activeExactSection = getExactActiveSection(normalizedPath);
+const activeSection = getActiveSection(normalizedPath);
 
 const NAV_ITEM_BASE =
     "nav-item inline-flex items-center rounded-full px-3 py-1";
@@ -46,6 +33,8 @@ const NAV_ITEM_HOVER_TEXT =
     "hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)";
 const NAV_ITEM_ACTIVE_VARIANTS =
     "data-[active=section]:bg-(--color-hover) dark:data-[active=section]:bg-(--color-hover-dark) data-[active=section]:text-(--color-accent-light) dark:data-[active=section]:text-(--color-accent-dark)";
+const NAV_ITEM_PENDING_VARIANTS =
+    "data-[pending=true]:bg-(--color-hover) dark:data-[pending=true]:bg-(--color-hover-dark) data-[pending=true]:text-(--color-accent-light) dark:data-[pending=true]:text-(--color-accent-dark)";
 const NAV_CONTAINER_HAS_ACTIVE_SUPPRESS =
     "[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)]:bg-transparent dark:[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)]:bg-transparent [&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)]:bg-transparent dark:[&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)]:bg-transparent";
 const NAV_CONTAINER_HAS_ACTIVE_TEXT_SUPPRESS =
@@ -72,6 +61,7 @@ const homeLinkClass = [
     NAV_ITEM_HOME_GAP,
     NAV_ITEM_HOVER_BG,
     NAV_ITEM_HOVER_TEXT,
+    NAV_ITEM_PENDING_VARIANTS,
 ]
     .filter(Boolean)
     .join(" ");
@@ -80,12 +70,13 @@ const navItemLinkClass = [
     NAV_ITEM_HOVER_BG,
     NAV_ITEM_HOVER_TEXT,
     NAV_ITEM_ACTIVE_VARIANTS,
+    NAV_ITEM_PENDING_VARIANTS,
 ].join(" ");
 ---
 
 <header
     class="sticky inset-x-0 top-0 z-50 h-18 sm:h-22 bg-(--color-background) dark:bg-(--color-background-dark)"
-    transition:persist
+    transition:animate={fade()}
 >
     <nav
         class={navClass}
@@ -93,48 +84,57 @@ const navItemLinkClass = [
         data-home-exact={activeExactSection === "home" ? "true" : "false"}
     >
         <div class="flex nav-home">
-            <div class="py-2">
-                <a
-                    href={activeExactSection === "home" ? undefined : "/"}
+            {activeExactSection === "home" ? (
+                <span
                     class={homeLinkClass}
                     data-section="home"
                     data-href="/"
-                    aria-current={
-                        activeExactSection === "home" ? "page" : undefined
-                    }
+                    aria-current="page"
                 >
                     <Logo class="h-4 w-auto" />
-                    <span class="text-base sm:text-lg">Koichi Nakayamada</span>
+                    <span class="text-base sm:text-lg">
+                        Koichi Nakayamada
+                    </span>
+                </span>
+            ) : (
+                <a
+                    href="/"
+                    class={homeLinkClass}
+                    data-section="home"
+                    data-href="/"
+                >
+                    <Logo class="h-4 w-auto" />
+                    <span class="text-base sm:text-lg">
+                        Koichi Nakayamada
+                    </span>
                 </a>
-            </div>
+            )}
         </div>
 
         <div class="flex gap-2 sm:gap-3 nav-right">
             {
-                navItems.map((item) => (
-                    <div class="py-2">
-                        <a
-                            href={
-                                activeSection === item.path
-                                    ? undefined
-                                    : item.href
-                            }
+                navItems.map((item) =>
+                    activeSection === item.path ? (
+                        <span
                             class={navItemLinkClass}
                             data-section={item.path}
                             data-href={item.href}
-                            data-active={
-                                activeSection === item.path
-                                    ? "section"
-                                    : undefined
-                            }
-                            aria-current={
-                                activeSection === item.path ? "page" : undefined
-                            }
+                            data-active="section"
+                            aria-current="page"
+                        >
+                            {item.label}
+                        </span>
+                    ) : (
+                        <a
+                            href={item.href}
+                            class={navItemLinkClass}
+                            data-section={item.path}
+                            data-href={item.href}
                         >
                             {item.label}
                         </a>
-                    </div>
-                ))
+                    ),
+                )
             }
         </div>
     </nav>
