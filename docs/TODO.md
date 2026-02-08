@@ -4,8 +4,6 @@
 
 ### Now
 
-- [ ] Header: indicate the current page with a pill (client-side JS might be involved)
-
 ### P0
 
 - [ ] Project page: hardware section explanation
@@ -89,3 +87,4 @@
 - [x] Title prop in BaseLayout: Remove and replace with a component for each page for flexility
 - [x] Header link activation logic bug: removing the trailing slash by regex
 - [x] Set the astro trailing slash never
+- [x] Header: indicate the current page with a pill: View Transition and CSR were used
