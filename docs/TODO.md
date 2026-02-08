@@ -2,9 +2,12 @@
 
 ## Priorities
 
+### Now
+
+- [ ] Header: indicate the current page with a pill (client-side JS might be involved)
+
 ### P0
 
-- [ ] Header: show the current page with indicator (The current link is already disabled)
 - [ ] Project page: hardware section explanation
 - [ ] RSS link at the end of the writing page
 

@@ -11,6 +11,11 @@
 - Use Astro components for reusable UI elements
 - Use astro-docs MCP server for Astro questions (not found then ask user)
 
+# File Location
+
+- Use `src/scripts` for scripts used in client-side
+- Use `src/utils` for utility functions used in server-side
+
 ## Validation
 
 Run `bun run check` after changes to validate TypeScript, CSS, and routing.
