@@ -115,15 +115,27 @@ const navItemLinkClass = [
             {
                 navItems.map((item) =>
                     activeSection === item.path ? (
-                        <span
-                            class={navItemLinkClass}
-                            data-section={item.path}
-                            data-href={item.href}
-                            data-active="section"
-                            aria-current="page"
-                        >
-                            {item.label}
-                        </span>
+                        activeExactSection === item.path ? (
+                            <span
+                                class={navItemLinkClass}
+                                data-section={item.path}
+                                data-href={item.href}
+                                data-active="section"
+                                aria-current="page"
+                            >
+                                {item.label}
+                            </span>
+                        ) : (
+                            <a
+                                href={item.href}
+                                class={navItemLinkClass}
+                                data-section={item.path}
+                                data-href={item.href}
+                                data-active="section"
+                            >
+                                {item.label}
+                            </a>
+                        )
                     ) : (
                         <a
                             href={item.href}
