@@ -6,33 +6,20 @@
 
 ### P0
 
-- [ ] RSS link at the end of the writing page and articles
-
 ### P1
 
+- [ ] Feed and List CTA button at the end of the writing/project page/list
 - [ ] Writing Post page: better reading experience (table of content on the left, make the width shorter, etc)
-- [ ] Home page
-    - [ ] Introduction
-    - [ ] Add a selfie
-    - [ ] Curate home lists (hide non-main posts)
-    - [ ] Decide how to render age (CSR vs remove)
-    - [ ] Add page description
-- [ ] About: Expand content (bio, focus, values, contact)
-- [ ] Properly append arrow icon to the end of the external links: So hard, not copieable, no wrapping
-- [ ] CopyLink component for the links to copy to clipboard: follow the NewTabLink component pattern: do after the NewTabLink completed entirely
+- [ ] Home: hero and overall page design
+- [ ] NewTabLink component: non-copiable, line wrapping, and SVG as needed
+- [ ] CopyLink component: non-copiable, line wrapping, and SVG as needed
 
 ### P2
 
-- [ ] Mobile
-    - [ ] Header navigation wrapping and spacing
-    - [ ] Writing list columns stack cleanly
-    - [ ] Project list long titles and descriptions wrap well
-    - [ ] Footer grid stacks in a clear order
-- [ ] CSS, Color, and Design improvements
-    - [ ] Global link highlight underline rule
-- [ ] Add Japanese support; learn Astro i18n
-- [ ] The content border appear first before the font is loaded
-- [ ] SEO by checking the docs/SEO.md
+- [ ] Mobile responsive design
+- [ ] Overall design: CSS adjastments and color palette
+- [ ] Add Japanese support
+- [ ] SEO improvements by checking the docs/SEO.md
 
 ## Done
 
@@ -88,3 +75,4 @@
 - [x] Set the astro trailing slash never
 - [x] Header: indicate the current page with a pill: View Transition and CSR were used
 - [x] Project page: hardware section explanation: h2 boundary design decision is needed
+- [x] Render age in client side

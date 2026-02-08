@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
 import PageTitle from "../components/PageTitle.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import WritingList from "../components/WritingList.astro";
@@ -8,16 +9,6 @@ import ProjectList from "../components/ProjectList.astro";
 
 const title = "Koichi Nakayamada";
 const h1Title = "Opensource, Data, and Student";
-
-const birthDate = new Date(2004, 12 - 1, 9); // December 9, 2004, JS months are 0-indexed
-const today = new Date();
-const age =
-    today.getFullYear() -
-    birthDate.getFullYear() -
-    (today <
-    new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate())
-        ? 1
-        : 0);
 
 // Fetch projects sorted by pinned and published date, take featured ones
 const projects = (await getCollection("projects"))
@@ -49,7 +40,7 @@ const writingPosts = (await getCollection("writing"))
             <p
                 class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
             >
-                I'm a {age}-year-old Japanese data science student and
+                I'm a <span id="age-display"></span>-year-old Japanese data science student and
                 open-source developer, currently studying in the United States.
                 I aspire to practice "technical philanthropy" which is to
                 contribute to humanity through technology, driven by a genuine
@@ -67,4 +58,12 @@ const writingPosts = (await getCollection("writing"))
             <WritingList posts={writingPosts} />
         </section>
     </div>
+
+    <script>
+        import { AGE } from "../scripts/age-calculator";
+        const ageDisplay = document.getElementById("age-display");
+        if (ageDisplay) {
+            ageDisplay.textContent = AGE.toString();
+        }
+    </script>
 </BaseLayout>
