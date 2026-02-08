@@ -12,9 +12,13 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
-const { Content } = await render(page);
+const { Content, headings } = await render(page);
 ---
 
-<SiteInfoLayout title={page.data.title} effectiveDate={page.data.effectiveDate}>
+<SiteInfoLayout
+    title={page.data.title}
+    effectiveDate={page.data.effectiveDate}
+    headings={headings}
+>
     <Content components={{ NewTabLink }} />
 </SiteInfoLayout>

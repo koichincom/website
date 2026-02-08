@@ -11,7 +11,10 @@ export interface Props {
 }
 type FeedScope = "combined" | "project" | "writing";
 
-let { metaTitle = "Koichi Nakayamada", description } = Astro.props;
+let {
+    metaTitle = "Koichi Nakayamada",
+    description,
+} = Astro.props;
 metaTitle = metaTitle + " - Koichi Nakayamada";
 
 const siteUrl = "https://koichin.com" + Astro.url.pathname;
@@ -61,8 +64,7 @@ const feedAlternates = feedScopeOrder.flatMap((scope) => {
     ];
 });
 
-// Container class for width constraints
-const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
+const containerClass = "max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8";
 ---
 
 <html

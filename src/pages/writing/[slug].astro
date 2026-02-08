@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 const readingTime = getReadingTime(post.body || "");
 const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
 ---
@@ -25,6 +25,7 @@ const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
     published={post.data.published}
     lastUpdated={lastUpdated}
     readingTime={readingTime}
+    headings={headings}
 >
     <!-- Expose NewTabLink to MDX via the MDX `components` map (works for custom tags too). -->
     <!-- https://mdxjs.com/docs/using-mdx/#how-mdx-works -->
