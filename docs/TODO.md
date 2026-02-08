@@ -6,12 +6,11 @@
 
 ### P0
 
-- [ ] Project page: hardware section explanation
-- [ ] RSS link at the end of the writing page
+- [ ] RSS link at the end of the writing page and articles
 
 ### P1
 
-- [ ] Add feed URL at the bottom of the writing page and stuff
+- [ ] Writing Post page: better reading experience (table of content on the left, make the width shorter, etc)
 - [ ] Home page
     - [ ] Introduction
     - [ ] Add a selfie
@@ -88,3 +87,4 @@
 - [x] Header link activation logic bug: removing the trailing slash by regex
 - [x] Set the astro trailing slash never
 - [x] Header: indicate the current page with a pill: View Transition and CSR were used
+- [x] Project page: hardware section explanation: h2 boundary design decision is needed
