@@ -11,6 +11,10 @@
 - Use Astro components for reusable UI elements
 - Use astro-docs MCP server for Astro questions (not found then ask user)
 
+## Configuration Files
+
+- Astro config file: `astro.config.ts`
+
 # File Location
 
 - Use `src/scripts` for scripts used in client-side

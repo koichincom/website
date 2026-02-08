@@ -6,12 +6,11 @@
 
 ### P0
 
-- [ ] Adjust to the px-3 that the header pill has (text that touches the side should have px-3, but any bg button should have 0 padding x to match the header pill design, the divider should also have 0 padding x)
+- [ ] Writing Post page: better reading experience (table of content on the left, make the width shorter, etc)
 
 ### P1
 
 - [ ] Feed and List CTA button at the end of the writing/project page/list
-- [ ] Writing Post page: better reading experience (table of content on the left, make the width shorter, etc)
 - [ ] Home: hero and overall page design
 - [ ] NewTabLink component: non-copiable, line wrapping, and SVG as needed
 - [ ] CopyLink component: non-copiable, line wrapping, and SVG as needed
@@ -78,3 +77,5 @@
 - [x] Header: indicate the current page with a pill: View Transition and CSR were used
 - [x] Project page: hardware section explanation: h2 boundary design decision is needed
 - [x] Render age in client side
+- [x] Abandon the home exception for the header link activation, and have consistent mental model for the header links
+- [x] Adjust to the px-3 that the header pill has (text that touches the side should have px-3, but any bg button should have 0 padding x to match the header pill design, the divider should also have 0 padding x)
