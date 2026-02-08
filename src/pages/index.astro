@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageTitle from "../components/PageTitle.astro";
+import SectionTitle from "../components/SectionTitle.astro";
 import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
 
@@ -57,24 +58,12 @@ const writingPosts = (await getCollection("writing"))
         </section>
 
         <section>
-            <div class="flex items-center justify-between mb-6">
-                <h2
-                    class="text-lg font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
-                >
-                    Featured Projects
-                </h2>
-            </div>
+            <SectionTitle>Featured Projects</SectionTitle>
             <ProjectList projects={projects} />
         </section>
 
         <section>
-            <div class="flex items-center justify-between mb-6">
-                <h2
-                    class="text-lg font-semibold text-(--color-text-first) dark:text-(--color-text-first-dark)"
-                >
-                    Latest Writing
-                </h2>
-            </div>
+            <SectionTitle>Latest Writing</SectionTitle>
             <WritingList posts={writingPosts} />
         </section>
     </div>

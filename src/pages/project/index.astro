@@ -1,19 +1,18 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import PageTitle from "../../components/PageTitle.astro";
 import ProjectList from "../../components/ProjectList.astro";
+import PageTitle from "../../components/PageTitle.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
 
 const title = "Projects";
-const metaTitle = `${title} | Koichi Nakayamada`;
+const metaTitle = title;
 
 const projectEntries = await getCollection("projects");
-const sortProjects = (
-    entries: typeof projectEntries,
-): typeof projectEntries =>
+const sortProjects = (entries: typeof projectEntries): typeof projectEntries =>
     entries.sort((a, b) => {
-        const pinnedDelta = Number(b.data.pinned ?? false) -
-            Number(a.data.pinned ?? false);
+        const pinnedDelta =
+            Number(b.data.pinned ?? false) - Number(a.data.pinned ?? false);
         if (pinnedDelta !== 0) {
             return pinnedDelta;
         }
@@ -33,16 +32,21 @@ const hardwareBoundProjects = sortProjects(
 
 <BaseLayout metaTitle={metaTitle}>
     <PageTitle>{title}</PageTitle>
-    <div class="flex flex-col gap-20 pb-24">
+    <div class="flex flex-col gap-20">
         <section>
-            <ProjectList projects={standardProjects} />
+            {
+                standardProjects.length ? (
+                    <ProjectList projects={standardProjects} />
+                ) : null
+            }
         </section>
-        {
-            hardwareBoundProjects.length ? (
-                <section class="pt-6">
+        <section>
+            <SectionTitle>Hardware-Bound</SectionTitle>
+            {
+                hardwareBoundProjects.length ? (
                     <ProjectList projects={hardwareBoundProjects} />
-                </section>
-            ) : null
-        }
+                ) : null
+            }
+        </section>
     </div>
 </BaseLayout>

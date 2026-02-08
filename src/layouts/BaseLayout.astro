@@ -11,7 +11,8 @@ export interface Props {
 }
 type FeedScope = "combined" | "project" | "writing";
 
-const { metaTitle = "Koichi Nakayamada", description } = Astro.props;
+let { metaTitle = "Koichi Nakayamada", description } = Astro.props;
+metaTitle = metaTitle + " - Koichi Nakayamada";
 
 const siteUrl = "https://koichin.com" + Astro.url.pathname;
 const pathToAbsoluteUrl = (path: string): string => {
@@ -125,7 +126,7 @@ const containerClass = "max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8";
         <Font cssVariable="--font-iosevka-aile" preload />
     </head>
     <body
-        class="bg-(--color-background) dark:bg-(--color-background-dark) text-(--color-text-first) dark:text-(--color-text-first-dark) text-base flex flex-col min-h-screen gap-8"
+        class="bg-(--color-background) dark:bg-(--color-background-dark) text-(--color-text-first) dark:text-(--color-text-first-dark) text-base flex flex-col min-h-screen gap-10"
         transition:animate={fade()}
     >
         <a

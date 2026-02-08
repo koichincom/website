@@ -5,11 +5,11 @@ import List from "../../components/List.astro";
 import ListRow from "../../components/ListRow.astro";
 import NewTabLink from "../../components/NewTabLink.astro";
 
-const title = "Feeds";
-const metaTitle = `${title} | Koichi Nakayamada`;
+const title = "Feed";
+const metaTitle = title;
 
 const feeds = [
-    { label: "Combined", atom: "/atom", rss: "/rss" },
+    { label: "All", atom: "/atom", rss: "/rss" },
     { label: "Writing", atom: "/atom/writing", rss: "/rss/writing" },
     { label: "Project", atom: "/atom/project", rss: "/rss/project" },
 ];
@@ -18,9 +18,10 @@ const feeds = [
 <BaseLayout metaTitle={metaTitle}>
     <PageTitle>{title}</PageTitle>
     <p
-        class="mb-8 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
+        class="mb-8 text-(--color-text-second) dark:text-(--color-text-second-dark)"
     >
-        Subscribe to the feeds below for updates across the site.
+        Subscribe via Atom or RSS to get the latest updates on my writing and
+        projects.
     </p>
     <div class="pb-4">
         <List

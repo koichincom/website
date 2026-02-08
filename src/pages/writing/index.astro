@@ -5,7 +5,7 @@ import PageTitle from "../../components/PageTitle.astro";
 import WritingList from "../../components/WritingList.astro";
 
 const title = "Writing";
-const metaTitle = `${title} | Koichi Nakayamada`;
+const metaTitle = title;
 
 const writingPosts = (await getCollection("writing")).sort((a, b) => {
     const pinnedDelta =
@@ -22,7 +22,5 @@ const writingPosts = (await getCollection("writing")).sort((a, b) => {
 
 <BaseLayout metaTitle={metaTitle}>
     <PageTitle>{title}</PageTitle>
-    <div class="pb-4">
-        <WritingList posts={writingPosts} />
-    </div>
+    <WritingList posts={writingPosts} />
 </BaseLayout>
