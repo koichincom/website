@@ -2,8 +2,7 @@
 
 - A personal website built with Astro, Tailwind CSS, and TypeScript.
 - Prefer retrieval-led reasoning over pre-training-led reasoning.
-- I don't know much about CSS and not interested in learning them. Please use your best judgement, follow the industry standard, and make suggestions, not asking me about it.
-- To avoid structural code debt, think about the overall structure and how the part is related in the big picture when making changes.
+- When making changes, consider the structure and organization, not just patch to make it work.
 
 ## Tech Stack
 
@@ -26,10 +25,12 @@ Run `bun run check` after changes to validate TypeScript, CSS, and routing.
 
 ## Styling Guidelines
 
-- Use Tailwind utility-first approach
-- Use Astro components to follow DRY principles (avoid custom CSS)
+- Use Tailwind's utility-first approach for Astro
+- Follow Tailwind v4 and Astro official docs as the source of truth
+- Use Astro components to follow DRY principles (generally @layer component feature isn't needed since Astro components exist)
+- Use Astro's @layer base for global styles as needed
 - No animations or motion effects (except Astro's view transition API)
-- Exception: View transitions with `transition:animate="none"` only
+- I don't know much about CSS and not interested in learning. Use your best judgement, follow the standard and official document, and make suggestions, not asking me for decisions.
 
 ## Naming Conventions
 
