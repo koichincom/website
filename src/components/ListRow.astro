@@ -17,13 +17,12 @@ const {
     rowClass: rowClassName = "",
 } = Astro.props;
 const rowClass = [
-    "group w-full rounded-lg hover:bg-(--color-hover) dark:hover:bg-(--color-hover-dark) last:[&>a]:after:hidden last:[&>div]:after:hidden [&:has(+li:hover)>a]:after:opacity-0 [&:has(+li:hover)>div]:after:opacity-0",
+    "group relative w-full rounded-lg hover:bg-(--color-hover) dark:hover:bg-(--color-hover-dark) before:content-[''] before:absolute before:top-0 before:left-[var(--spacing-list-divider-inset)] before:right-[var(--spacing-list-divider-inset)] before:border-t before:border-(--color-divider) dark:before:border-(--color-divider-dark) first:before:hidden hover:before:opacity-0 hover:[&+li]:before:opacity-0",
     rowClassName,
 ]
     .filter(Boolean)
     .join(" ");
-const baseClass =
-    "relative flex flex-col w-full px-surface-inset py-5 after:content-[''] after:absolute after:bottom-0 after:left-[var(--spacing-list-divider-inset)] after:right-[var(--spacing-list-divider-inset)] after:border-b after:border-(--color-divider) dark:after:border-(--color-divider-dark) hover:after:opacity-0";
+const baseClass = "relative flex flex-col w-full px-surface-inset py-5";
 const linkClass = [baseClass, className].filter(Boolean).join(" ");
 ---
 
