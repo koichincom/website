@@ -11,10 +11,7 @@ export interface Props {
 }
 type FeedScope = "combined" | "project" | "writing";
 
-let {
-    metaTitle = "Koichi Nakayamada",
-    description,
-} = Astro.props;
+let { metaTitle = "Koichi Nakayamada", description } = Astro.props;
 metaTitle = metaTitle + " - Koichi Nakayamada";
 
 const siteUrl = "https://koichin.com" + Astro.url.pathname;
@@ -140,13 +137,7 @@ const containerClass = "max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8";
 
         <Header />
 
-        <main
-            id="main-content"
-            class:list={[
-                containerClass,
-                "flex-1",
-            ]}
-        >
+        <main id="main-content" class:list={[containerClass, "flex-1"]}>
             <slot />
         </main>
 
