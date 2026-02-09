@@ -4,16 +4,16 @@
 
 ### Now
 
-- [ ] NewTabLink component: non-copiable, line wrapping, and SVG as needed
-- [ ] CopyLink component: non-copiable, line wrapping, and SVG as needed
+- [ ] Writing Post page: better reading experience
 
 ### P0
 
-- [ ] Feed and List CTA button at the end of the writing/project page/list
-- [ ] Writing Post page: better reading experience
+- [ ] NewTabLink component: non-copiable, line wrapping, and SVG as needed
+- [ ] CopyLink component: non-copiable, line wrapping, and SVG as needed
 
 ### P1
 
+- [ ] Feed and List CTA button at the end of the writing/project page/list
 - [ ] Home: hero and overall page design
 
 ### P2
@@ -82,3 +82,5 @@
 - [x] Abandon the home exception for the header link activation, and have consistent mental model for the header links
 - [x] Adjust to the px-3 that the header pill has (text that touches the side should have px-3, but any bg button should have 0 padding x to match the header pill design, the divider should also have 0 padding x)
 - [x] URL styling default
+- [x] Header pill hitbox adjustment
+- [x] Header highlight continuity logic for the better View Transition experience
