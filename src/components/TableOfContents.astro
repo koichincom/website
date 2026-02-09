@@ -1,5 +1,5 @@
 ---
-import type { TocHeading } from "../utils/toc";
+import type { TocHeading } from "../utils/table-of-contents";
 
 export interface Props {
     headings: TocHeading[];
@@ -12,18 +12,13 @@ const { headings } = Astro.props;
     aria-label="Table of contents"
     class="hidden lg:block lg:sticky lg:top-32 self-start"
 >
-    <p
-        class="mb-3 text-xs font-semibold uppercase tracking-wide text-(--color-text-third) dark:text-(--color-text-third-dark)"
-    >
-        On this page
-    </p>
     <ol class="space-y-2">
         {
             headings.map((heading) => (
                 <li>
                     <a
                         href={`#${heading.slug}`}
-                        class="text-sm text-(--color-text-second) dark:text-(--color-text-second-dark) hover:text-(--color-text-first) dark:hover:text-(--color-text-first-dark) underline-offset-4 hover:underline"
+                        class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
                     >
                         {heading.text}
                     </a>

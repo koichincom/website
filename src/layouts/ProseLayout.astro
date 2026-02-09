@@ -2,8 +2,8 @@
 import BaseLayout from "./BaseLayout.astro";
 import PageTitle from "../components/PageTitle.astro";
 import TableOfContents from "../components/TableOfContents.astro";
-import { getH2Headings } from "../utils/toc";
-import type { TocHeading } from "../utils/toc";
+import { getH2Headings } from "../utils/table-of-contents";
+import type { TocHeading } from "../utils/table-of-contents";
 
 export interface Props {
     title: string;
@@ -25,8 +25,9 @@ const hasToc = tocHeadings.length > 0;
     >
         <div class="min-w-0">
             <div class="mx-auto w-full max-w-[66ch]">
-                <PageTitle inset={false} class="ps-content-inset pe-content-inset"
-                    >{title}</PageTitle
+                <PageTitle
+                    inset={false}
+                    class="ps-content-inset pe-content-inset">{title}</PageTitle
                 >
                 <div
                     class="prose prose-base max-w-none ps-content-inset pe-content-inset dark:prose-invert
@@ -36,7 +37,7 @@ const hasToc = tocHeadings.length > 0;
                         prose-code:text-(--color-text-first) prose-code:font-normal prose-code:bg-(--color-hover) prose-code:px-1 prose-code:rounded dark:prose-code:bg-(--color-hover-dark)
                         prose-pre:bg-(--color-hover) prose-pre:prose-base dark:prose-pre:bg-(--color-hover-dark)
                         prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) dark:prose-blockquote:border-l-(--color-divider-dark)
-                        prose-a:text-(--color-accent-light) prose-a:font-normal prose-a:underline prose-a:underline-offset-4 prose-a:hover:text-(--color-accent-light)/80 dark:prose-a:text-(--color-accent-dark) dark:prose-a:hover:text-(--color-accent-dark)/80
+                        prose-a:font-normal prose-a:underline prose-a:underline-offset-4 prose-a:hover:text-(--color-accent-light) dark:prose-a:hover:text-(--color-accent-dark)
                         dark:prose-headings:text-(--color-text-first-dark)
                         dark:prose-p:text-(--color-text-second-dark)
                         dark:prose-strong:text-(--color-text-first-dark)
