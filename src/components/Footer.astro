@@ -1,31 +1,34 @@
 ---
 import NewTabLink from "./NewTabLink.astro";
+
+const FOOTER_LINK_CLASS =
+    "no-underline hover:underline underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)";
 ---
 
 <footer class="border-t border-(--color-divider) dark:border-(--color-divider-dark)">
     <nav
-        class="grid w-full grid-cols-[repeat(4,max-content)] justify-between gap-x-10 px-content-inset pt-10 pb-30 text-base text-(--color-text-second) dark:text-(--color-text-second-dark) [&_a]:underline [&_a]:decoration-transparent [&_a]:underline-offset-4 [&_a:hover]:decoration-current [&_a:hover]:text-(--color-accent-light) dark:[&_a:hover]:text-(--color-accent-dark)"
+        class="grid w-full grid-cols-[repeat(4,max-content)] justify-between gap-x-10 px-content-inset pt-10 pb-30 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
     >
         <div class="space-y-4">
             <div class="font-semibold">Navigation</div>
             <ul class="space-y-2">
                 <li>
-                    <a href="/">
+                    <a href="/" class={FOOTER_LINK_CLASS}>
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="/writing">
+                    <a href="/writing" class={FOOTER_LINK_CLASS}>
                         Writing
                     </a>
                 </li>
                 <li>
-                    <a href="/project">
+                    <a href="/project" class={FOOTER_LINK_CLASS}>
                         Projects
                     </a>
                 </li>
                 <li>
-                    <a href="/about">
+                    <a href="/about" class={FOOTER_LINK_CLASS}>
                         About
                     </a>
                 </li>
@@ -36,22 +39,22 @@ import NewTabLink from "./NewTabLink.astro";
             <div class="font-semibold">Site Info</div>
             <ul class="space-y-2">
                 <li>
-                    <a href="/license">
+                    <a href="/license" class={FOOTER_LINK_CLASS}>
                         License
                     </a>
                 </li>
                 <li>
-                    <a href="/privacy">
+                    <a href="/privacy" class={FOOTER_LINK_CLASS}>
                         Privacy policy
                     </a>
                 </li>
                 <li>
-                    <a href="/cookie">
+                    <a href="/cookie" class={FOOTER_LINK_CLASS}>
                         Cookie policy
                     </a>
                 </li>
                 <li>
-                    <NewTabLink href="https://github.com/koichincom/website">
+                    <NewTabLink href="https://github.com/koichincom/website" class={FOOTER_LINK_CLASS}>
                         Source Code
                     </NewTabLink>
                 </li>
@@ -62,22 +65,22 @@ import NewTabLink from "./NewTabLink.astro";
             <div class="font-semibold">Social</div>
             <ul class="space-y-2">
                 <li>
-                    <NewTabLink href="https://x.com/koichincom">
+                    <NewTabLink href="https://x.com/koichincom" class={FOOTER_LINK_CLASS}>
                         X/Twitter
                     </NewTabLink>
                 </li>
                 <li>
-                    <NewTabLink href="https://github.com/koichincom">
+                    <NewTabLink href="https://github.com/koichincom" class={FOOTER_LINK_CLASS}>
                         GitHub
                     </NewTabLink>
                 </li>
                 <li>
-                    <NewTabLink href="https://linkedin.com/in/koichincom/">
+                    <NewTabLink href="https://linkedin.com/in/koichincom/" class={FOOTER_LINK_CLASS}>
                         LinkedIn
                     </NewTabLink>
                 </li>
                 <li>
-                    <a href="/feed">
+                    <a href="/feed" class={FOOTER_LINK_CLASS}>
                         Atom/RSS
                     </a>
                 </li>
@@ -88,12 +91,15 @@ import NewTabLink from "./NewTabLink.astro";
             <div class="font-semibold">Contact</div>
             <ul class="space-y-2">
                 <li>
-                    <NewTabLink href="mailto:k@koichin.com">
+                    <NewTabLink href="mailto:k@koichin.com" class={FOOTER_LINK_CLASS}>
                         Email
                     </NewTabLink>
                 </li>
                 <li>
-                    <NewTabLink href="https://signal.me/#eu/hFxJqhdUe_9zSwQs01xjuf6sz9n5Zag3yfHQzxGwPZPL-X863I9DF5QXch7gCsUv">
+                    <NewTabLink
+                        href="https://signal.me/#eu/hFxJqhdUe_9zSwQs01xjuf6sz9n5Zag3yfHQzxGwPZPL-X863I9DF5QXch7gCsUv"
+                        class={FOOTER_LINK_CLASS}
+                    >
                         Signal
                     </NewTabLink>
                 </li>
