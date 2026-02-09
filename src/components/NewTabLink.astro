@@ -12,9 +12,7 @@ const {
     ariaLabel,
     arrowSize = "text-[0.75em]",
 } = Astro.props;
-const baseClass =
-    "underline decoration-transparent underline-offset-4 hover:decoration-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)";
-const linkClass = [baseClass, className].filter(Boolean).join(" ");
+const linkClass = className;
 const arrowClass = [arrowSize].filter(Boolean).join(" ");
 ---
 

@@ -26,10 +26,10 @@ const postsWithReadingTime = posts.map((post) => {
             <ListRow
                 href={`/writing/${post.id}`}
                 rowClass="col-span-full grid grid-cols-[subgrid]"
-                class="grid grid-cols-[subgrid] col-span-full items-center"
+                class="grid grid-cols-[subgrid] col-span-full items-center no-underline"
             >
                 <div class="min-w-0 flex items-center min-h-[1lh]">
-                    <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) underline decoration-transparent underline-offset-4 group-hover:decoration-current group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) min-w-0 break-words leading-snug line-clamp-1">
+                    <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) min-w-0 break-words leading-snug line-clamp-1">
                         {post.data.title}
                     </span>
                 </div>

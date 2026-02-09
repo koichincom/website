@@ -29,6 +29,23 @@
     --font-sans: var(--font-iosevka-aile);
 }
 
+@layer base {
+    a {
+        text-decoration-line: underline;
+        text-underline-offset: 0.25rem;
+    }
+
+    a:hover {
+        color: var(--color-accent-light);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        a:hover {
+            color: var(--color-accent-dark);
+        }
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     .astro-code,
     .astro-code span {
