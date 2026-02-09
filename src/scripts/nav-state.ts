@@ -56,11 +56,14 @@ export const initNavState = (): void => {
         );
 
         let nextPending: Section = null;
+        let shouldApplyPendingHighlight = false;
+
         const source = astroEvent.sourceElement;
         if (source) {
             const candidate = source.closest("[data-site-nav] [data-section]");
             if (candidate) {
                 nextPending = candidate.getAttribute("data-section") as Section;
+                shouldApplyPendingHighlight = candidate.matches(":hover");
             }
         }
 
@@ -82,9 +85,9 @@ export const initNavState = (): void => {
             return;
         }
 
-        pendingSection = nextPending;
+        pendingSection = shouldApplyPendingHighlight ? nextPending : null;
         clearPendingHighlights();
-        setNavPending(true);
+        setNavPending(shouldApplyPendingHighlight);
 
         if (pendingSection) {
             applyPendingHighlight(document, pendingSection);
