@@ -4,6 +4,8 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { flattenHeadings } from "./src/utils/flatten-headings";
+import { rehypeCodeBlockHeader } from "./src/utils/rehype-code-block-header";
+import { shikiCodeMeta } from "./src/utils/shiki-code-meta";
 
 export default defineConfig({
     site: "https://koichin.com",
@@ -14,11 +16,13 @@ export default defineConfig({
     trailingSlash: "never",
     markdown: {
         remarkPlugins: [flattenHeadings],
+        rehypePlugins: [rehypeCodeBlockHeader],
         shikiConfig: {
             themes: {
                 light: "github-light",
-                dark: "kanagawa-wave",
+                dark: "github-dark",
             },
+            transformers: [shikiCodeMeta()],
         },
     },
     experimental: {
