@@ -5,6 +5,7 @@
 ### Now
 
 - [ ] Writing Post page: better reading experience
+- [ ] Copy, language, and filename (optional) feature for codeblocks
 
 ### P0
 
@@ -84,3 +85,4 @@
 - [x] URL styling default
 - [x] Header pill hitbox adjustment
 - [x] Header highlight continuity logic for the better View Transition experience
+- [x] Fix Shiki and Prose syntax highlighting conflict

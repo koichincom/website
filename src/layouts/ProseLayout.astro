@@ -30,19 +30,14 @@ const hasToc = tocHeadings.length > 0;
                     class="ps-content-inset pe-content-inset">{title}</PageTitle
                 >
                 <div
-                    class="prose prose-base max-w-none ps-content-inset pe-content-inset dark:prose-invert
-                        prose-headings:text-(--color-text-first) prose-headings:font-bold
-                        prose-p:text-(--color-text-second)
-                        prose-strong:text-(--color-text-first) prose-strong:font-bold
-                        prose-code:text-(--color-text-first) prose-code:font-normal prose-code:bg-(--color-hover) prose-code:px-1 prose-code:rounded dark:prose-code:bg-(--color-hover-dark)
-                        prose-pre:bg-(--color-hover) prose-pre:prose-base dark:prose-pre:bg-(--color-hover-dark)
-                        prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) dark:prose-blockquote:border-l-(--color-divider-dark)
-                        prose-a:font-normal prose-a:underline prose-a:underline-offset-4 prose-a:hover:text-(--color-accent-light) dark:prose-a:hover:text-(--color-accent-dark)
-                        dark:prose-headings:text-(--color-text-first-dark)
-                        dark:prose-p:text-(--color-text-second-dark)
-                        dark:prose-strong:text-(--color-text-first-dark)
-                        dark:prose-code:text-(--color-text-first-dark)
-                        dark:prose-blockquote:text-(--color-text-second-dark)"
+                    class:list={[
+                        "prose prose-base max-w-none ps-content-inset pe-content-inset dark:prose-invert",
+                        "prose-headings:text-(--color-text-first) prose-headings:font-bold prose-p:text-(--color-text-second) prose-strong:text-(--color-text-first) prose-strong:font-bold prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) prose-a:font-normal prose-a:underline prose-a:underline-offset-4 prose-a:hover:text-(--color-accent-light)",
+                        "[&_:not(pre)>code]:text-(--color-text-first) [&_:not(pre)>code]:font-normal [&_:not(pre)>code]:bg-(--color-hover) [&_:not(pre)>code]:px-1 [&_:not(pre)>code]:rounded",
+                        "[&_pre:not(.astro-code)]:bg-(--color-hover)",
+                        "dark:prose-headings:text-(--color-text-first-dark) dark:prose-p:text-(--color-text-second-dark) dark:prose-strong:text-(--color-text-first-dark) dark:[&_:not(pre)>code]:text-(--color-text-first-dark) dark:[&_:not(pre)>code]:bg-(--color-hover-dark) dark:[&_pre:not(.astro-code)]:bg-(--color-hover-dark) dark:prose-blockquote:text-(--color-text-second-dark) dark:prose-blockquote:border-l-(--color-divider-dark) dark:prose-a:hover:text-(--color-accent-dark)",
+                        "prose-pre:prose-base prose-code:prose-base",
+                    ]}
                 >
                     <slot />
                 </div>

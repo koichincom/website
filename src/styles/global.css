@@ -29,18 +29,24 @@
 }
 
 @layer base {
+    html {
+        overscroll-behavior-y: none;
+    }
+
     a {
         @apply underline underline-offset-4 hover:text-accent-light dark:hover:text-accent-dark;
     }
-}
 
-@media (prefers-color-scheme: dark) {
-    .astro-code,
-    .astro-code span {
-        color: var(--shiki-dark) !important;
-        background-color: var(--shiki-dark-bg) !important;
-        font-style: var(--shiki-dark-font-style) !important;
-        font-weight: var(--shiki-dark-font-weight) !important;
-        text-decoration: var(--shiki-dark-text-decoration) !important;
+    /* light/dark mode for code blocks, using Astro's built-in Shiki syntax highlighting */
+    /* https://docs.astro.build/en/guides/syntax-highlighting/ */
+    @media (prefers-color-scheme: dark) {
+        .astro-code,
+        .astro-code span {
+            color: var(--shiki-dark) !important;
+            background-color: var(--shiki-dark-bg) !important;
+            font-style: var(--shiki-dark-font-style) !important;
+            font-weight: var(--shiki-dark-font-weight) !important;
+            text-decoration: var(--shiki-dark-text-decoration) !important;
+        }
     }
 }
