@@ -3,19 +3,7 @@ import { defineConfig, fontProviders } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
-import { visit } from "unist-util-visit";
-import type { Root, Heading } from "mdast";
-
-// Turn all headings into h2 to flatten the heading structure
-function remarkFlattenHeadings() {
-    return (tree: Root) => {
-        visit(tree, "heading", (node: Heading) => {
-            if (node.depth > 2) {
-                node.depth = 2;
-            }
-        });
-    };
-}
+import { flattenHeadings } from "./src/utils/flatten-headings";
 
 export default defineConfig({
     site: "https://koichin.com",
@@ -25,11 +13,11 @@ export default defineConfig({
     },
     trailingSlash: "never",
     markdown: {
-        remarkPlugins: [remarkFlattenHeadings],
+        remarkPlugins: [flattenHeadings],
         shikiConfig: {
             themes: {
                 light: "github-light",
-                dark: "github-dark",
+                dark: "kanagawa-wave",
             },
         },
     },
