@@ -1,23 +1,6 @@
 import type { Element, Parent, Properties, Root, Text } from "hast";
 import { visit } from "unist-util-visit";
-
-const LANGUAGE_LABELS: Record<string, string> = {
-    cjs: "CJS",
-    cpp: "C++",
-    cs: "C#",
-    html: "HTML",
-    js: "JavaScript",
-    jsx: "JSX",
-    md: "Markdown",
-    mdx: "MDX",
-    py: "Python",
-    rb: "Ruby",
-    sh: "Shell",
-    sql: "SQL",
-    ts: "TypeScript",
-    tsx: "TSX",
-    yml: "YAML",
-};
+import { formatLanguageLabel } from "./language-labels";
 
 const normalizeOptionalText = (
     value: string | undefined,
@@ -84,10 +67,6 @@ const isShikiCodeBlock = (node: Element): boolean => {
     );
 
     return Boolean(dataLanguage || dataCodeLanguage);
-};
-
-const formatLanguageLabel = (language: string): string => {
-    return LANGUAGE_LABELS[language] ?? language;
 };
 
 const createTextNode = (value: string): Text => ({
