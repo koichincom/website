@@ -49,4 +49,94 @@
             text-decoration: var(--shiki-dark-text-decoration) !important;
         }
     }
+
+    .code-block {
+        margin: 1.5rem 0;
+        border: 1px solid var(--color-divider);
+        border-radius: 0.75rem;
+        overflow: hidden;
+    }
+
+    .code-block > pre.astro-code {
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    .code-block > pre.astro-code code {
+        border-radius: 0 !important;
+    }
+
+    .code-block__header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        border-bottom: 1px solid var(--color-divider);
+        background-color: var(--color-hover);
+        color: var(--color-text-second);
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
+
+    .code-block__filename {
+        font-weight: 600;
+    }
+
+    .code-block__language {
+        border: 1px solid var(--color-divider);
+        border-radius: 9999px;
+        padding: 0.125rem 0.5rem;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        color: var(--color-text-third);
+        background-color: var(--color-background);
+    }
+
+    .code-block__copy {
+        margin-left: auto;
+        border: 1px solid var(--color-divider);
+        border-radius: 0.375rem;
+        padding: 0.125rem 0.5rem;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        color: var(--color-text-second);
+        background-color: var(--color-background);
+        cursor: pointer;
+    }
+
+    .code-block__copy:hover {
+        color: var(--color-accent-light);
+    }
+
+    .code-block__copy:focus-visible {
+        outline: 2px solid var(--color-accent-light);
+        outline-offset: 2px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .code-block {
+            border-color: var(--color-divider-dark);
+        }
+
+        .code-block__header {
+            border-bottom-color: var(--color-divider-dark);
+            background-color: var(--color-hover-dark);
+            color: var(--color-text-second-dark);
+        }
+
+        .code-block__language,
+        .code-block__copy {
+            border-color: var(--color-divider-dark);
+            color: var(--color-text-third-dark);
+            background-color: var(--color-background-dark);
+        }
+
+        .code-block__copy:hover {
+            color: var(--color-accent-dark);
+        }
+
+        .code-block__copy:focus-visible {
+            outline-color: var(--color-accent-dark);
+        }
+    }
 }

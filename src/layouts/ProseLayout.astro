@@ -37,6 +37,7 @@ const hasToc = tocHeadings.length > 0;
                         "[&_pre:not(.astro-code)]:bg-(--color-hover)",
                         "dark:prose-headings:text-(--color-text-first-dark) dark:prose-p:text-(--color-text-second-dark) dark:prose-strong:text-(--color-text-first-dark) dark:[&_:not(pre)>code]:text-(--color-text-first-dark) dark:[&_:not(pre)>code]:bg-(--color-hover-dark) dark:[&_pre:not(.astro-code)]:bg-(--color-hover-dark) dark:prose-blockquote:text-(--color-text-second-dark) dark:prose-blockquote:border-l-(--color-divider-dark) dark:prose-a:hover:text-(--color-accent-dark)",
                         "prose-pre:prose-base prose-code:prose-base",
+                        "[&_pre.astro-code]:rounded-none",
                     ]}
                 >
                     <slot />
