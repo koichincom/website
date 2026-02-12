@@ -1,0 +1,48 @@
+---
+import TrailingIconLink from "./TrailingIconLink.astro";
+import NewTabLinkIcon from "./NewTabLinkIcon.astro";
+
+export interface Props {
+    href: string;
+    class?: string;
+    ariaLabel?: string;
+    iconClass?: string;
+}
+
+const {
+    href,
+    class: className = "",
+    ariaLabel = "Copy link",
+    iconClass = "w-[0.9em] h-[0.9em]",
+} = Astro.props;
+---
+
+<TrailingIconLink
+    href={href}
+    class={className}
+    ariaLabel={ariaLabel}
+    target="_self"
+    rel=""
+    data-copy-link
+>
+    <slot />
+    <NewTabLinkIcon slot="icon" class={iconClass} />
+</TrailingIconLink>
+
+<script is:inline>
+    document.addEventListener("click", async (e) => {
+        const link = e.target.closest("[data-copy-link]");
+        if (!link) return;
+
+        e.preventDefault();
+
+        const href = link.getAttribute("href");
+        if (href) {
+            try {
+                await navigator.clipboard.writeText(href);
+            } catch (err) {
+                console.error("Failed to copy:", err);
+            }
+        }
+    });
+</script>

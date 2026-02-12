@@ -6,6 +6,7 @@ import PageTitle from "../components/PageTitle.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
+import NewTabLink from "../components/NewTabLink.astro";
 
 const title = "Koichi Nakayamada";
 const h1Title = "Technical Philanthropy";
@@ -40,8 +41,8 @@ const writingPosts = (await getCollection("writing"))
             <p
                 class="px-content-inset text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
             >
-                I'm a <span id="age-display"></span>-year-old Japanese <a
-                    href="https://example.com">data science</a
+                I'm a <span id="age-display"></span>-year-old Japanese <NewTabLink
+                    href="https://example.com">data science</NewTabLink
                 > and open-source developer, currently studying in the United States.
                 I aspire to practice "technical philanthropy" which is to contribute
                 to humanity through technology, driven by a genuine love for humankind.

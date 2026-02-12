@@ -1,27 +1,23 @@
 ---
+import TrailingIconLink from "./TrailingIconLink.astro";
+import NewTabLinkIcon from "./NewTabLinkIcon.astro";
+
 export interface Props {
     href: string;
     class?: string;
     ariaLabel?: string;
-    arrowSize?: string;
+    iconClass?: string;
 }
 
 const {
     href,
     class: className = "",
     ariaLabel,
-    arrowSize = "text-[0.75em]",
+    iconClass = "w-[0.9em] h-[0.9em]",
 } = Astro.props;
-const linkClass = className;
-const arrowClass = [arrowSize].filter(Boolean).join(" ");
 ---
 
-<a
-    href={href}
-    class={linkClass}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label={ariaLabel}
->
-    <slot /><span class={arrowClass} aria-hidden="true">{"\u00A0"}&#8599;</span>
-</a>
+<TrailingIconLink href={href} class={className} ariaLabel={ariaLabel}>
+    <slot />
+    <NewTabLinkIcon slot="icon" class={iconClass} />
+</TrailingIconLink>

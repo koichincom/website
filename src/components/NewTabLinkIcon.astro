@@ -1,0 +1,11 @@
+---
+import ArrowIcon from "../assets/logo.svg";
+
+export interface Props {
+    class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<ArrowIcon class={className} />
