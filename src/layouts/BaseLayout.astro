@@ -19,24 +19,18 @@ const pathToAbsoluteUrl = (path: string): string => {
     return Astro.site ? new URL(path, Astro.site).toString() : path;
 };
 
-const feedPathMap: Record<
-    FeedScope,
-    { label: string; atom: string; rss: string }
-> = {
+const feedPathMap: Record<FeedScope, { label: string; atom: string }> = {
     combined: {
-        label: "Combined",
-        atom: "/atom",
-        rss: "/rss",
+        label: "All",
+        atom: "/feed/all",
     },
     writing: {
         label: "Writing",
-        atom: "/atom/writing",
-        rss: "/rss/writing",
+        atom: "/feed/writing",
     },
     project: {
-        label: "Project",
-        atom: "/atom/project",
-        rss: "/rss/project",
+        label: "Projects",
+        atom: "/feed/projects",
     },
 };
 
@@ -44,21 +38,14 @@ const feedScopeOrder: FeedScope[] = Astro.url.pathname.startsWith("/project")
     ? ["combined", "project", "writing"]
     : ["combined", "writing", "project"];
 
-const feedAlternates = feedScopeOrder.flatMap((scope) => {
+const feedAlternates = feedScopeOrder.map((scope) => {
     const feedPaths = feedPathMap[scope];
 
-    return [
-        {
-            type: "application/atom+xml",
-            title: `Koichi Nakayamada ${feedPaths.label} Atom`,
-            href: pathToAbsoluteUrl(feedPaths.atom),
-        },
-        {
-            type: "application/rss+xml",
-            title: `Koichi Nakayamada ${feedPaths.label} RSS`,
-            href: pathToAbsoluteUrl(feedPaths.rss),
-        },
-    ];
+    return {
+        type: "application/atom+xml",
+        title: `Koichi Nakayamada ${feedPaths.label} Atom`,
+        href: pathToAbsoluteUrl(feedPaths.atom),
+    };
 });
 
 const containerClass = "max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8";

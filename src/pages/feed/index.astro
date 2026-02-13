@@ -8,9 +8,9 @@ const title = "Feed";
 const metaTitle = title;
 
 const feeds = [
-    { label: "All", atom: "/atom", rss: "/rss" },
-    { label: "Writing", atom: "/atom/writing", rss: "/rss/writing" },
-    { label: "Project", atom: "/atom/project", rss: "/rss/project" },
+    { label: "All", atom: "/feed/all" },
+    { label: "Writing", atom: "/feed/writing" },
+    { label: "Projects", atom: "/feed/projects" },
 ];
 ---
 
@@ -19,12 +19,12 @@ const feeds = [
     <p
         class="mb-8 px-content-inset text-(--color-text-second) dark:text-(--color-text-second-dark)"
     >
-        Subscribe via Atom or RSS to get the latest updates on my writing and
+        Subscribe via Atom to get the latest updates on my writing and
         projects.
     </p>
     <div class="pb-4">
         <ul
-            class="grid w-full gap-x-10 grid-cols-[minmax(0,1fr)_max-content_max-content]"
+            class="grid w-full gap-x-10 grid-cols-[minmax(0,1fr)_max-content]"
         >
             {
                 feeds.map((feed) => (
@@ -41,13 +41,6 @@ const feeds = [
                             class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)"
                         >
                             Atom
-                        </NewTabLink>
-                        <NewTabLink
-                            href={feed.rss}
-                            ariaLabel={`${feed.label} RSS feed`}
-                            class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)"
-                        >
-                            RSS
                         </NewTabLink>
                     </ListRow>
                 ))

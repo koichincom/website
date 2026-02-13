@@ -5,7 +5,9 @@ const FOOTER_LINK_CLASS =
     "no-underline hover:underline underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)";
 ---
 
-<footer class="border-t border-(--color-divider) dark:border-(--color-divider-dark)">
+<footer
+    class="border-t border-(--color-divider) dark:border-(--color-divider-dark)"
+>
     <nav
         class="grid w-full grid-cols-[repeat(4,max-content)] justify-between gap-x-10 px-content-inset pt-10 pb-30 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
     >
@@ -13,24 +15,16 @@ const FOOTER_LINK_CLASS =
             <div class="font-semibold">Navigation</div>
             <ul class="space-y-2">
                 <li>
-                    <a href="/" class={FOOTER_LINK_CLASS}>
-                        Home
-                    </a>
+                    <a href="/" class={FOOTER_LINK_CLASS}> Home </a>
                 </li>
                 <li>
-                    <a href="/writing" class={FOOTER_LINK_CLASS}>
-                        Writing
-                    </a>
+                    <a href="/writing" class={FOOTER_LINK_CLASS}> Writing </a>
                 </li>
                 <li>
-                    <a href="/project" class={FOOTER_LINK_CLASS}>
-                        Projects
-                    </a>
+                    <a href="/project" class={FOOTER_LINK_CLASS}> Projects </a>
                 </li>
                 <li>
-                    <a href="/about" class={FOOTER_LINK_CLASS}>
-                        About
-                    </a>
+                    <a href="/about" class={FOOTER_LINK_CLASS}> About </a>
                 </li>
             </ul>
         </div>
@@ -39,9 +33,7 @@ const FOOTER_LINK_CLASS =
             <div class="font-semibold">Site Info</div>
             <ul class="space-y-2">
                 <li>
-                    <a href="/license" class={FOOTER_LINK_CLASS}>
-                        License
-                    </a>
+                    <a href="/license" class={FOOTER_LINK_CLASS}> License </a>
                 </li>
                 <li>
                     <a href="/privacy" class={FOOTER_LINK_CLASS}>
@@ -54,7 +46,10 @@ const FOOTER_LINK_CLASS =
                     </a>
                 </li>
                 <li>
-                    <NewTabLink href="https://github.com/koichincom/website" class={FOOTER_LINK_CLASS}>
+                    <NewTabLink
+                        href="https://github.com/koichincom/website"
+                        class={FOOTER_LINK_CLASS}
+                    >
                         Source Code
                     </NewTabLink>
                 </li>
@@ -65,24 +60,31 @@ const FOOTER_LINK_CLASS =
             <div class="font-semibold">Social</div>
             <ul class="space-y-2">
                 <li>
-                    <NewTabLink href="https://x.com/koichincom" class={FOOTER_LINK_CLASS}>
+                    <NewTabLink
+                        href="https://x.com/koichincom"
+                        class={FOOTER_LINK_CLASS}
+                    >
                         X/Twitter
                     </NewTabLink>
                 </li>
                 <li>
-                    <NewTabLink href="https://github.com/koichincom" class={FOOTER_LINK_CLASS}>
+                    <NewTabLink
+                        href="https://github.com/koichincom"
+                        class={FOOTER_LINK_CLASS}
+                    >
                         GitHub
                     </NewTabLink>
                 </li>
                 <li>
-                    <NewTabLink href="https://linkedin.com/in/koichincom/" class={FOOTER_LINK_CLASS}>
+                    <NewTabLink
+                        href="https://linkedin.com/in/koichincom/"
+                        class={FOOTER_LINK_CLASS}
+                    >
                         LinkedIn
                     </NewTabLink>
                 </li>
                 <li>
-                    <a href="/feed" class={FOOTER_LINK_CLASS}>
-                        Atom/RSS
-                    </a>
+                    <a href="/feed" class={FOOTER_LINK_CLASS}> Atom feed </a>
                 </li>
             </ul>
         </div>
@@ -91,7 +93,10 @@ const FOOTER_LINK_CLASS =
             <div class="font-semibold">Contact</div>
             <ul class="space-y-2">
                 <li>
-                    <NewTabLink href="mailto:k@koichin.com" class={FOOTER_LINK_CLASS}>
+                    <NewTabLink
+                        href="mailto:k@koichin.com"
+                        class={FOOTER_LINK_CLASS}
+                    >
                         Email
                     </NewTabLink>
                 </li>

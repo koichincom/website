@@ -3,11 +3,11 @@ import type { APIContext } from "astro";
 import { generateFeed } from "../../utils/feed";
 
 export async function GET(context: APIContext): Promise<Response> {
-    const feed = await generateFeed(context, "combined", "rss");
+    const feed = await generateFeed(context, "project");
 
-    return new Response(feed.rss2(), {
+    return new Response(feed.atom1(), {
         headers: {
-            "Content-Type": "application/rss+xml; charset=utf-8",
+            "Content-Type": "application/atom+xml; charset=utf-8",
         },
     });
 }

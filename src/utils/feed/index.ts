@@ -16,13 +16,11 @@ type FeedItemData = FeedItem & {
     date: Date;
 };
 
-type FeedFormat = "atom" | "rss";
 type FeedScope = "combined" | "project" | "writing";
 
 export async function generateFeed(
     context: APIContext,
     scope: FeedScope,
-    format: FeedFormat,
 ): Promise<Feed> {
     const site = getSiteUrl(context);
     const author: SiteAuthor = {
@@ -32,7 +30,7 @@ export async function generateFeed(
     };
 
     const feed = createFeedInstance(site, author, scope);
-    const items = await getFeedItems(site, author, scope, format);
+    const items = await getFeedItems(site, author, scope);
 
     items
         .sort((a, b) => b.date.valueOf() - a.date.valueOf())
@@ -69,7 +67,6 @@ function createFeedInstance(
         favicon: createUrl("/favicon.ico", site),
         copyright: `Copyright ${new Date().getFullYear()} Koichi Nakayamada`,
         feedLinks: {
-            rss: createUrl(scopeConfig.rssPath, site),
             atom: createUrl(scopeConfig.atomPath, site),
         },
         author,
@@ -82,10 +79,9 @@ async function getFeedItems(
     site: string,
     author: SiteAuthor,
     scope: FeedScope,
-    format: FeedFormat,
 ): Promise<FeedItemData[]> {
     if (scope === "writing") {
-        return getWritingItems(site, author, format);
+        return getWritingItems(site, author);
     }
 
     if (scope === "project") {
@@ -93,7 +89,7 @@ async function getFeedItems(
     }
 
     const [writingItems, projectItems] = await Promise.all([
-        getWritingItems(site, author, format),
+        getWritingItems(site, author),
         getProjectItems(site, author),
     ]);
 
@@ -103,7 +99,6 @@ async function getFeedItems(
 async function getWritingItems(
     site: string,
     author: SiteAuthor,
-    format: FeedFormat,
 ): Promise<FeedItemData[]> {
     const writingPosts = await getCollection("writing");
 
@@ -121,13 +116,6 @@ async function getWritingItems(
                 author: [author],
             };
 
-            if (format === "rss") {
-                return {
-                    ...baseItem,
-                    description: content,
-                };
-            }
-
             return {
                 ...baseItem,
                 content,
@@ -143,7 +131,6 @@ function getScopeConfig(
     title: string;
     description: string;
     link: string;
-    rssPath: string;
     atomPath: string;
 } {
     if (scope === "writing") {
@@ -151,8 +138,7 @@ function getScopeConfig(
             title: "Koichi Nakayamada - Writing",
             description: "Writing from Koichi Nakayamada.",
             link: createUrl("/writing", site),
-            rssPath: "/rss/writing",
-            atomPath: "/atom/writing",
+            atomPath: "/feed/writing",
         };
     }
 
@@ -161,8 +147,7 @@ function getScopeConfig(
             title: "Koichi Nakayamada - Projects",
             description: "Projects from Koichi Nakayamada.",
             link: createUrl("/project", site),
-            rssPath: "/rss/project",
-            atomPath: "/atom/project",
+            atomPath: "/feed/projects",
         };
     }
 
@@ -170,8 +155,7 @@ function getScopeConfig(
         title: "Koichi Nakayamada",
         description: "Writing and projects from Koichi Nakayamada.",
         link: createUrl("/", site),
-        rssPath: "/rss",
-        atomPath: "/atom",
+        atomPath: "/feed/all",
     };
 }
 
