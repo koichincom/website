@@ -38,46 +38,36 @@ export default defineConfig({
     },
 
     redirects: {
-        // Writing redirects
+        // Writing
         "/w": "/writing",
-        "/writings": "/writing",
         "/b": "/writing",
         "/blog": "/writing",
         "/blogs": "/writing",
+        "/writings": "/writing",
 
-        // Project redirects
+        // Projects
         "/p": "/project",
-        "/pj": "/project",
-        "/pjt": "/project",
-        "/proj": "/project",
         "/projects": "/project",
 
-        // About redirects
+        // About
         "/a": "/about",
-        "/ab": "/about",
-        "/abt": "/about",
-        "/aboutme": "/about",
-        "/abouts": "/about",
 
-        // Feed redirects
-        "/f": "/feed",
-        "/atom": "/feed",
-        "/rss": "/feed",
-        "/atom.xml": "/feed",
-        "/feed.xml": "/feed",
-        "/rss.xml": "/feed",
+        // Feed
         "/feeds": "/feed",
+        "/feed.xml": "/feed",
+        "/rss": "/feed",
+        "/rss.xml": "/feed",
+        "/atom": "/feed",
+        "/atom.xml": "/feed",
 
-        // Social redirects
-        "/github": "https://github.com/koichincom",
-        "/gh": "https://github.com/koichincom",
+        // Social
         "/linkedin": "https://linkedin.com/in/koichincom/",
-        "/li": "https://linkedin.com/in/koichincom/",
-        "/in": "https://linkedin.com/in/koichincom/",
         "/x": "https://x.com/koichincom",
         "/twitter": "https://x.com/koichincom",
+        "/github": "https://github.com/koichincom",
+        "/gh": "https://github.com/koichincom",
 
-        // Misc redirects
+        // Misc
         "/source": "https://github.com/koichincom/website",
         "/source-code": "https://github.com/koichincom/website",
     },
