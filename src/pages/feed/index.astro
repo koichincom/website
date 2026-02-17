@@ -3,14 +3,15 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageTitle from "../../components/PageTitle.astro";
 import ListRow from "../../components/ListRow.astro";
 import NewTabLink from "../../components/NewTabLink.astro";
+import CopyLink from "../../components/CopyLink.astro";
 
 const title = "Feed";
 const metaTitle = title;
 
 const feeds = [
-    { label: "All", atom: "/feed/all" },
-    { label: "Writing", atom: "/feed/writing" },
-    { label: "Projects", atom: "/feed/projects" },
+    { label: "All", atom: "/feed/all", description: "Subscribe to all updates from writing and projects" },
+    { label: "Writing", atom: "/feed/writing", description: "Subscribe to my blog posts and articles" },
+    { label: "Projects", atom: "/feed/projects", description: "Subscribe to project releases and updates" },
 ];
 ---
 
@@ -19,12 +20,12 @@ const feeds = [
     <p
         class="mb-8 px-content-inset text-(--color-text-second) dark:text-(--color-text-second-dark)"
     >
-        Subscribe via Atom to get the latest updates on my writing and
+        Subscribe via Atom or RSS to get the latest updates on my writing and
         projects.
     </p>
     <div class="pb-4">
         <ul
-            class="grid w-full gap-x-10 grid-cols-[minmax(0,1fr)_max-content]"
+            class="grid w-full gap-x-10 grid-cols-[minmax(0,1fr)_minmax(0,3fr)_max-content_max-content]"
         >
             {
                 feeds.map((feed) => (
@@ -32,8 +33,11 @@ const feeds = [
                         rowClass="col-span-full grid grid-cols-[subgrid]"
                         class="grid grid-cols-[subgrid] col-span-full items-center"
                     >
-                        <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark)">
+                        <span class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark)">
                             {feed.label}
+                        </span>
+                        <span class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">
+                            {feed.description}
                         </span>
                         <NewTabLink
                             href={feed.atom}
@@ -42,6 +46,13 @@ const feeds = [
                         >
                             Atom
                         </NewTabLink>
+                        <CopyLink
+                            href={`${import.meta.env.SITE || 'https://koichin.com'}${feed.atom}`}
+                            ariaLabel={`Copy ${feed.label} feed URL`}
+                            class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)"
+                        >
+                            click to copy
+                        </CopyLink>
                     </ListRow>
                 ))
             }
