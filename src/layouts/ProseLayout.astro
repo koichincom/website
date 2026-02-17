@@ -32,7 +32,9 @@ const hasToc = tocHeadings.length > 0;
                 <div
                     class:list={[
                         "prose prose-base max-w-none ps-content-inset pe-content-inset dark:prose-invert",
-                        "prose-headings:text-(--color-text-first) prose-headings:font-bold prose-p:text-(--color-text-second) prose-strong:text-(--color-text-first) prose-strong:font-bold prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) prose-a:font-normal prose-a:underline prose-a:underline-offset-4 prose-a:hover:text-(--color-accent-light)",
+                        // prose-a:* classes override Tailwind Typography's default link styles
+                        // to ensure consistency with the global link design in global.css
+                        "prose-headings:text-(--color-text-first) prose-headings:font-bold prose-p:text-(--color-text-second) prose-strong:text-(--color-text-first) prose-strong:font-bold prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) prose-a:font-normal prose-a:hover:text-(--color-accent-light)",
                         "[&_:not(pre)>code]:text-(--color-text-first) [&_:not(pre)>code]:font-normal [&_:not(pre)>code]:bg-(--color-hover) [&_:not(pre)>code]:px-1 [&_:not(pre)>code]:rounded",
                         "[&_pre:not(.astro-code)]:bg-(--color-hover)",
                         "dark:prose-headings:text-(--color-text-first-dark) dark:prose-p:text-(--color-text-second-dark) dark:prose-strong:text-(--color-text-first-dark) dark:[&_:not(pre)>code]:text-(--color-text-first-dark) dark:[&_:not(pre)>code]:bg-(--color-hover-dark) dark:[&_pre:not(.astro-code)]:bg-(--color-hover-dark) dark:prose-blockquote:text-(--color-text-second-dark) dark:prose-blockquote:border-l-(--color-divider-dark) dark:prose-a:hover:text-(--color-accent-dark)",

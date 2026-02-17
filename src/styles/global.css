@@ -33,8 +33,11 @@
         overscroll-behavior-y: none;
     }
 
-    a {
-        @apply underline underline-offset-4 hover:text-accent-light dark:hover:text-accent-dark;
+    main a:not(.no-underline) {
+        @apply hover:text-accent-light dark:hover:text-accent-dark;
+        text-decoration: none;
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 0.08em;
     }
 
     /* light/dark mode for code blocks, using Astro's built-in Shiki syntax highlighting */
