@@ -7,6 +7,7 @@ import SectionTitle from "../components/SectionTitle.astro";
 import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
 import CopyToClipboardLink from "../components/CopyToClipboardLink.astro";
+import NewWindowLink from "../components/NewWindowLink.astro";
 
 const title = "Koichi Nakayamada";
 const h1Title = "Technical Philanthropy";
@@ -42,10 +43,13 @@ const writingPosts = (await getCollection("writing"))
                 class="px-content-inset text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
             >
                 I'm a <span id="age-display"></span>-year-old Japanese <CopyToClipboardLink
-                    href="https://example.com">data science</CopyToClipboardLink
-                > and open-source developer, currently studying in the United States.
-                I aspire to practice "technical philanthropy" which is to contribute
-                to humanity through technology, driven by a genuine love for humankind.
+                    href="https://example.com"
+                    >datag science</CopyToClipboardLink
+                > and <NewWindowLink href="https:example.com"
+                    >open-source</NewWindowLink
+                > developer, currently studying in the United States. I aspire to
+                practice "technical philanthropy" which is to contribute to humanity
+                through technology, driven by a genuine love for humankind.
                 <a> Learn more about me</a>.
             </p>
         </section>
