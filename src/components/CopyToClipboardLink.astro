@@ -13,7 +13,7 @@ const {
     href,
     class: className = "",
     ariaLabel = "Copy link",
-    iconClass = "w-[0.9em] h-[0.9em]",
+    iconClass = "w-[1em] h-[1em]",
 } = Astro.props;
 ---
 
@@ -25,6 +25,5 @@ const {
     rel=""
     data-copy-to-clipboard-link
 >
-    <slot />
-    <LinkSvg slot="icon" class={iconClass} />
+    <slot /><!-- --><LinkSvg slot="icon" class={iconClass} />
 </LinkWithTrailingIcon>
