@@ -4,7 +4,6 @@
 
 ### Now
 
-- [ ] Link design global
 - [ ] Reading progress bar
 - [ ] Table of content scrolls to the right position with smooth scroll
 - [ ] Scrollable table of content
@@ -87,3 +86,6 @@
 - [x] Copy, language, and filename (optional) feature for codeblocks functionality
 - [x] NewTabLink & CopyLink component: non-copiable, line wrapping, and SVG as needed
 - [x] Include all content in feed?: Yes, keep it
+- [x] Link design for header, main and footer
+- [x] Link design and refactor for prose
+- [x] Prose tailwind refactor, commenting, and cleaning
