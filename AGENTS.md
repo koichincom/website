@@ -31,6 +31,7 @@ Run `bun run check` after changes to validate TypeScript, CSS, and routing.
 - Use Astro's @layer base for global styles as needed
 - No animations or motion effects (except Astro's view transition API)
 - I don't know much about CSS and not interested in learning. Use your best judgement, follow the standard and official document, and make suggestions, not asking me for decisions.
+- I use https://www.svgrepo.com/collection/dazzle-line-icons/ for SVG icons. Ask me if you need any icons
 
 ## Naming Conventions
 

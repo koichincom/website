@@ -4,20 +4,23 @@
 
 ### Now
 
+- [ ] Link design global
+- [ ] Reading progress bar
+- [ ] Table of content scrolls to the right position with smooth scroll
+- [ ] Scrollable table of content
+
 ### P0
 
 ### P1
 
 - [ ] Feed and List CTA button at the end of the writing/project page/list
 - [ ] Home: hero and overall page design
-- [ ] Writing Post page: better reading experience
 
 ### P2
 
-- [ ] Include all content in feed? (https://css-tricks.com/working-with-web-feeds-its-more-than-rss/)
+- [ ] Add Japanese support
 - [ ] Mobile responsive design
 - [ ] Overall design: CSS adjastments and color palette
-- [ ] Add Japanese support
 - [ ] SEO improvements by checking the docs/SEO.md
 
 ## Done
@@ -83,3 +86,4 @@
 - [x] Fix Shiki and Prose syntax highlighting conflict
 - [x] Copy, language, and filename (optional) feature for codeblocks functionality
 - [x] NewTabLink & CopyLink component: non-copiable, line wrapping, and SVG as needed
+- [x] Include all content in feed?: Yes, keep it
