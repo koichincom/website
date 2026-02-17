@@ -6,9 +6,6 @@
 
 ### P0
 
-- [ ] NewTabLink component: non-copiable, line wrapping, and SVG as needed
-- [ ] CopyLink component: non-copiable, line wrapping, and SVG as needed
-
 ### P1
 
 - [ ] Feed and List CTA button at the end of the writing/project page/list
@@ -85,3 +82,4 @@
 - [x] Header highlight continuity logic for the better View Transition experience
 - [x] Fix Shiki and Prose syntax highlighting conflict
 - [x] Copy, language, and filename (optional) feature for codeblocks functionality
+- [x] NewTabLink & CopyLink component: non-copiable, line wrapping, and SVG as needed
