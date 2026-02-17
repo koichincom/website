@@ -1,0 +1,30 @@
+---
+import LinkWithTrailingIcon from "./LinkWithTrailingIcon.astro";
+import LinkSvg from "../assets/link-svgrepo-com.svg";
+
+export interface Props {
+    href: string;
+    class?: string;
+    ariaLabel?: string;
+    iconClass?: string;
+}
+
+const {
+    href,
+    class: className = "",
+    ariaLabel = "Copy link",
+    iconClass = "w-[0.9em] h-[0.9em]",
+} = Astro.props;
+---
+
+<LinkWithTrailingIcon
+    href={href}
+    class={className}
+    ariaLabel={ariaLabel}
+    target="_self"
+    rel=""
+    data-copy-to-clipboard-link
+>
+    <slot />
+    <LinkSvg slot="icon" class={iconClass} />
+</LinkWithTrailingIcon>

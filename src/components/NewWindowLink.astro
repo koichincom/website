@@ -1,0 +1,29 @@
+---
+import LinkWithTrailingIcon from "./LinkWithTrailingIcon.astro";
+import ArrowIcon from "../assets/arrow-up-right-svgrepo-com.svg";
+
+export interface Props {
+    href: string;
+    class?: string;
+    ariaLabel?: string;
+    iconClass?: string;
+}
+
+const {
+    href,
+    class: className = "",
+    ariaLabel,
+    iconClass = "w-[0.9em] h-[0.9em]",
+} = Astro.props;
+---
+
+<LinkWithTrailingIcon
+    href={href}
+    class={className}
+    ariaLabel={ariaLabel}
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    <slot />
+    <ArrowIcon slot="icon" class={iconClass} />
+</LinkWithTrailingIcon>

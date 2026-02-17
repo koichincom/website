@@ -5,14 +5,16 @@ export interface Props {
     ariaLabel?: string;
     target?: string;
     rel?: string;
+    [key: string]: any;
 }
 
 const {
     href,
     class: className = "",
     ariaLabel,
-    target = "_blank",
-    rel = "noopener noreferrer",
+    target,
+    rel,
+    ...rest
 } = Astro.props;
 ---
 
@@ -22,6 +24,7 @@ const {
     target={target}
     rel={rel}
     aria-label={ariaLabel}
+    {...rest}
 >
     <span class="inline-flex items-baseline">
         <slot /><span

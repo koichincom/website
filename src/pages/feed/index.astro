@@ -2,8 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageTitle from "../../components/PageTitle.astro";
 import ListRow from "../../components/ListRow.astro";
-import NewTabLink from "../../components/NewTabLink.astro";
-import CopyLink from "../../components/CopyLink.astro";
+import NewWindowLink from "../../components/NewWindowLink.astro";
+import CopyToClipboardLink from "../../components/CopyToClipboardLink.astro";
 
 const title = "Feed";
 const metaTitle = title;
@@ -39,20 +39,20 @@ const feeds = [
                         <span class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">
                             {feed.description}
                         </span>
-                        <NewTabLink
+                        <NewWindowLink
                             href={feed.atom}
                             ariaLabel={`${feed.label} Atom feed`}
                             class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)"
                         >
                             Atom
-                        </NewTabLink>
-                        <CopyLink
+                        </NewWindowLink>
+                        <CopyToClipboardLink
                             href={`${import.meta.env.SITE || 'https://koichin.com'}${feed.atom}`}
                             ariaLabel={`Copy ${feed.label} feed URL`}
                             class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)"
                         >
                             click to copy
-                        </CopyLink>
+                        </CopyToClipboardLink>
                     </ListRow>
                 ))
             }

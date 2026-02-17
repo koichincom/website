@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import SiteInfoLayout from "../layouts/SiteInfoLayout.astro";
-import NewTabLink from "../components/NewTabLink.astro";
+import NewWindowLink from "../components/NewWindowLink.astro";
 
 export async function getStaticPaths() {
     const siteInfoPages = await getCollection("siteInfo");
@@ -20,5 +20,5 @@ const { Content, headings } = await render(page);
     effectiveDate={page.data.effectiveDate}
     headings={headings}
 >
-    <Content components={{ NewTabLink }} />
+    <Content components={{ NewWindowLink }} />
 </SiteInfoLayout>

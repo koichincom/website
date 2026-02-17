@@ -1,5 +1,5 @@
 ---
-import NewTabLink from "./NewTabLink.astro";
+import NewWindowLink from "./NewWindowLink.astro";
 
 const FOOTER_LINK_CLASS =
     "no-underline hover:underline underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)";
@@ -46,12 +46,12 @@ const FOOTER_LINK_CLASS =
                     </a>
                 </li>
                 <li>
-                    <NewTabLink
+                    <NewWindowLink
                         href="https://github.com/koichincom/website"
                         class={FOOTER_LINK_CLASS}
                     >
                         Source Code
-                    </NewTabLink>
+                    </NewWindowLink>
                 </li>
             </ul>
         </div>
@@ -60,28 +60,28 @@ const FOOTER_LINK_CLASS =
             <div class="font-semibold">Social</div>
             <ul class="space-y-2">
                 <li>
-                    <NewTabLink
+                    <NewWindowLink
                         href="https://x.com/koichincom"
                         class={FOOTER_LINK_CLASS}
                     >
                         X/Twitter
-                    </NewTabLink>
+                    </NewWindowLink>
                 </li>
                 <li>
-                    <NewTabLink
+                    <NewWindowLink
                         href="https://github.com/koichincom"
                         class={FOOTER_LINK_CLASS}
                     >
                         GitHub
-                    </NewTabLink>
+                    </NewWindowLink>
                 </li>
                 <li>
-                    <NewTabLink
+                    <NewWindowLink
                         href="https://linkedin.com/in/koichincom/"
                         class={FOOTER_LINK_CLASS}
                     >
                         LinkedIn
-                    </NewTabLink>
+                    </NewWindowLink>
                 </li>
                 <li>
                     <a href="/feed" class={FOOTER_LINK_CLASS}> Atom feed </a>
@@ -93,20 +93,20 @@ const FOOTER_LINK_CLASS =
             <div class="font-semibold">Contact</div>
             <ul class="space-y-2">
                 <li>
-                    <NewTabLink
+                    <NewWindowLink
                         href="mailto:k@koichin.com"
                         class={FOOTER_LINK_CLASS}
                     >
                         Email
-                    </NewTabLink>
+                    </NewWindowLink>
                 </li>
                 <li>
-                    <NewTabLink
+                    <NewWindowLink
                         href="https://signal.me/#eu/hFxJqhdUe_9zSwQs01xjuf6sz9n5Zag3yfHQzxGwPZPL-X863I9DF5QXch7gCsUv"
                         class={FOOTER_LINK_CLASS}
                     >
                         Signal
-                    </NewTabLink>
+                    </NewWindowLink>
                 </li>
             </ul>
         </div>

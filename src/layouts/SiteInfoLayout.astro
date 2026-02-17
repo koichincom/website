@@ -1,6 +1,6 @@
 ---
 import { formatDate } from "../utils/date-formatter";
-import NewTabLink from "../components/NewTabLink.astro";
+import NewWindowLink from "../components/NewWindowLink.astro";
 import ProseLayout from "./ProseLayout.astro";
 import type { TocHeading } from "../utils/table-of-contents";
 
@@ -19,9 +19,9 @@ const contact = "mailto:k@koichin.com";
 <ProseLayout title={title} headings={headings}>
     <p>
         Effective date: {formattedEffectiveDate}<br />
-        Website: <NewTabLink href={website}>{website}</NewTabLink><br />
+        Website: <NewWindowLink href={website}>{website}</NewWindowLink><br />
         Owner: {owner}<br />
-        Contact: <NewTabLink href={contact}>{contact.replace("mailto:", "")}</NewTabLink>
+        Contact: <NewWindowLink href={contact}>{contact.replace("mailto:", "")}</NewWindowLink>
     </p>
     <slot />
 </ProseLayout>
