@@ -22,6 +22,8 @@
     --spacing-content-inset: var(--spacing-inline-edge);
     --spacing-surface-inset: var(--spacing-inline-edge);
     --spacing-list-divider-inset: var(--spacing-content-inset);
+
+    --link-underline-thickness: 1.75px;
 }
 
 @theme inline {
@@ -36,7 +38,7 @@
     main a:not(.no-underline) {
         @apply hover:text-accent-light dark:hover:text-accent-dark;
         text-decoration: none;
-        border-bottom: 1.75px solid currentColor;
+        border-bottom: var(--link-underline-thickness) solid currentColor;
         padding-bottom: 0;
     }
 

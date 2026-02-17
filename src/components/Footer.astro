@@ -2,7 +2,7 @@
 import NewWindowLink from "./NewWindowLink.astro";
 
 const FOOTER_LINK_CLASS =
-    "no-underline hover:underline underline-offset-4 hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)";
+    "no-underline [border-bottom-width:var(--link-underline-thickness)] border-transparent hover:border-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)";
 ---
 
 <footer
@@ -15,16 +15,16 @@ const FOOTER_LINK_CLASS =
             <div class="font-semibold">Navigation</div>
             <ul class="space-y-2">
                 <li>
-                    <a href="/" class={FOOTER_LINK_CLASS}> Home </a>
+                    <a href="/" class={FOOTER_LINK_CLASS}>Home</a>
                 </li>
                 <li>
-                    <a href="/writing" class={FOOTER_LINK_CLASS}> Writing </a>
+                    <a href="/writing" class={FOOTER_LINK_CLASS}>Writing</a>
                 </li>
                 <li>
-                    <a href="/project" class={FOOTER_LINK_CLASS}> Projects </a>
+                    <a href="/project" class={FOOTER_LINK_CLASS}>Projects</a>
                 </li>
                 <li>
-                    <a href="/about" class={FOOTER_LINK_CLASS}> About </a>
+                    <a href="/about" class={FOOTER_LINK_CLASS}>About</a>
                 </li>
             </ul>
         </div>
@@ -33,25 +33,25 @@ const FOOTER_LINK_CLASS =
             <div class="font-semibold">Site Info</div>
             <ul class="space-y-2">
                 <li>
-                    <a href="/license" class={FOOTER_LINK_CLASS}> License </a>
+                    <a href="/license" class={FOOTER_LINK_CLASS}>License</a>
                 </li>
                 <li>
-                    <a href="/privacy" class={FOOTER_LINK_CLASS}>
-                        Privacy policy
-                    </a>
+                    <a href="/privacy" class={FOOTER_LINK_CLASS}
+                        >Privacy policy</a
+                    >
                 </li>
                 <li>
-                    <a href="/cookie" class={FOOTER_LINK_CLASS}>
-                        Cookie policy
-                    </a>
+                    <a href="/cookie" class={FOOTER_LINK_CLASS}>Cookie policy</a
+                    >
                 </li>
                 <li>
+                    <!-- prettier-ignore -->
                     <NewWindowLink
                         href="https://github.com/koichincom/website"
                         class={FOOTER_LINK_CLASS}
-                    >
-                        Source Code
-                    </NewWindowLink>
+                        ><!--
+                        -->Source Code<!--
+                    --></NewWindowLink>
                 </li>
             </ul>
         </div>
@@ -60,31 +60,34 @@ const FOOTER_LINK_CLASS =
             <div class="font-semibold">Social</div>
             <ul class="space-y-2">
                 <li>
+                    <!-- prettier-ignore -->
                     <NewWindowLink
                         href="https://x.com/koichincom"
                         class={FOOTER_LINK_CLASS}
-                    >
-                        X/Twitter
-                    </NewWindowLink>
+                        ><!--
+                        -->X/Twitter<!--
+                    --></NewWindowLink>
                 </li>
                 <li>
+                    <!-- prettier-ignore -->
                     <NewWindowLink
                         href="https://github.com/koichincom"
                         class={FOOTER_LINK_CLASS}
-                    >
-                        GitHub
-                    </NewWindowLink>
+                        ><!--
+                        -->GitHub<!--
+                    --></NewWindowLink>
                 </li>
                 <li>
+                    <!-- prettier-ignore -->
                     <NewWindowLink
                         href="https://linkedin.com/in/koichincom/"
                         class={FOOTER_LINK_CLASS}
-                    >
-                        LinkedIn
-                    </NewWindowLink>
+                        ><!--
+                        -->LinkedIn<!--
+                    --></NewWindowLink>
                 </li>
                 <li>
-                    <a href="/feed" class={FOOTER_LINK_CLASS}> Atom feed </a>
+                    <a href="/feed" class={FOOTER_LINK_CLASS}>Atom feed</a>
                 </li>
             </ul>
         </div>
@@ -93,20 +96,22 @@ const FOOTER_LINK_CLASS =
             <div class="font-semibold">Contact</div>
             <ul class="space-y-2">
                 <li>
+                    <!-- prettier-ignore -->
                     <NewWindowLink
                         href="mailto:k@koichin.com"
                         class={FOOTER_LINK_CLASS}
-                    >
-                        Email
-                    </NewWindowLink>
+                        ><!--
+                        -->Email<!--
+                    --></NewWindowLink>
                 </li>
                 <li>
+                    <!-- prettier-ignore -->
                     <NewWindowLink
                         href="https://signal.me/#eu/hFxJqhdUe_9zSwQs01xjuf6sz9n5Zag3yfHQzxGwPZPL-X863I9DF5QXch7gCsUv"
                         class={FOOTER_LINK_CLASS}
-                    >
-                        Signal
-                    </NewWindowLink>
+                        ><!--
+                        -->Signal<!--
+                    --></NewWindowLink>
                 </li>
             </ul>
         </div>
