@@ -17,10 +17,12 @@ const {
 } = Astro.props;
 ---
 
+<!-- prettier-ignore -->
 <LinkWithTrailingIcon
     href={href}
     class={className}
     ariaLabel={ariaLabel}
     target="_blank"
     rel="noopener noreferrer"
-><slot /><!-- --><ArrowIcon slot="icon" class={iconClass} /></LinkWithTrailingIcon>
+    ><slot /><!--
+    --><ArrowIcon slot="icon" class={iconClass} /></LinkWithTrailingIcon>

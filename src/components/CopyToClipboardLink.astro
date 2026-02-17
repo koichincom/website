@@ -17,6 +17,7 @@ const {
 } = Astro.props;
 ---
 
+<!-- prettier-ignore -->
 <LinkWithTrailingIcon
     href={href}
     class={className}
@@ -24,4 +25,5 @@ const {
     target="_self"
     rel=""
     data-copy-to-clipboard-link
-><slot /><!-- --><LinkSvg slot="icon" class={iconClass} /></LinkWithTrailingIcon>
+    ><slot /><!--
+    --><LinkSvg slot="icon" class={iconClass} /></LinkWithTrailingIcon>
