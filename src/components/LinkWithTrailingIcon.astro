@@ -18,6 +18,7 @@ const {
 } = Astro.props;
 ---
 
+<!-- prettier-ignore -->
 <a
     href={href}
     class={className}
@@ -25,6 +26,9 @@ const {
     rel={rel}
     aria-label={ariaLabel}
     {...rest}
-><slot /><!-- --><span class="inline-block leading-none align-baseline" aria-hidden="true"><slot
-            name="icon"
-        /></span></a>
+    ><!--
+    --><slot /><!--
+    --><span
+        class="ml-[0.2em] inline-block leading-none align-baseline"
+        aria-hidden="true"><slot name="icon" /></span
+    ></a>

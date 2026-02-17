@@ -13,7 +13,7 @@ const {
     href,
     class: className = "",
     ariaLabel,
-    iconClass = "w-[1em] h-[1em]",
+    iconClass = "w-[1lh] h-[1lh]",
 } = Astro.props;
 ---
 
@@ -23,6 +23,4 @@ const {
     ariaLabel={ariaLabel}
     target="_blank"
     rel="noopener noreferrer"
->
-    <slot /><!-- --><ArrowIcon slot="icon" class={iconClass} />
-</LinkWithTrailingIcon>
+><slot /><!-- --><ArrowIcon slot="icon" class={iconClass} /></LinkWithTrailingIcon>
