@@ -36,8 +36,8 @@
     main a:not(.no-underline) {
         @apply hover:text-accent-light dark:hover:text-accent-dark;
         text-decoration: none;
-        border-bottom: 1px solid currentColor;
-        padding-bottom: 0.08em;
+        border-bottom: 1.75px solid currentColor;
+        padding-bottom: 0;
     }
 
     /* light/dark mode for code blocks, using Astro's built-in Shiki syntax highlighting */
