@@ -65,9 +65,9 @@
     }
 
     .code-block {
-        margin: 1.5rem 0;
+        margin: calc(var(--spacing) * 6) 0;
         border: 1px solid var(--color-divider);
-        border-radius: 0.75rem;
+        border-radius: calc(var(--spacing) * 3);
         overflow: hidden;
     }
 
@@ -83,13 +83,13 @@
     .code-block__header {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 0.75rem;
+        gap: calc(var(--spacing) * 2);
+        padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
         border-bottom: 1px solid var(--color-divider);
         background-color: var(--color-hover);
         color: var(--color-text-second);
-        font-size: 0.875rem;
-        line-height: 1.25rem;
+        font-size: calc(var(--spacing) * 3.5);
+        line-height: calc(var(--spacing) * 5);
     }
 
     .code-block__filename {
@@ -99,9 +99,9 @@
     .code-block__language {
         border: 1px solid var(--color-divider);
         border-radius: 9999px;
-        padding: 0.125rem 0.5rem;
-        font-size: 0.75rem;
-        line-height: 1rem;
+        padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 2);
+        font-size: calc(var(--spacing) * 3);
+        line-height: calc(var(--spacing) * 4);
         color: var(--color-text-third);
         background-color: var(--color-background);
     }
@@ -109,10 +109,10 @@
     .code-block__copy {
         margin-left: auto;
         border: 1px solid var(--color-divider);
-        border-radius: 0.375rem;
-        padding: 0.125rem 0.5rem;
-        font-size: 0.75rem;
-        line-height: 1rem;
+        border-radius: calc(var(--spacing) * 1.5);
+        padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 2);
+        font-size: calc(var(--spacing) * 3);
+        line-height: calc(var(--spacing) * 4);
         color: var(--color-text-second);
         background-color: var(--color-background);
         cursor: pointer;
