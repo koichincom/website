@@ -10,7 +10,7 @@ const { headings } = Astro.props;
 
 <nav
     aria-label="Table of contents"
-    class="hidden lg:block lg:sticky lg:top-32 self-start"
+    class="hidden lg:block lg:sticky lg:top-[var(--layout-main-start-offset)] lg:max-h-[calc(100dvh-var(--layout-main-start-offset)-var(--spacing-content-inset))] lg:overflow-y-auto lg:overscroll-contain self-start"
 >
     <ol class="space-y-2">
         {
