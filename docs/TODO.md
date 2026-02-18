@@ -5,19 +5,20 @@
 ### Now
 
 - [ ] Feed and List CTA button at the end of the writing/project page/list
-- [ ] Home: hero and overall page design
 
 ### P0
 
-- [ ] Mobile responsive design
-
 ### P1
+
+- [ ] Home: hero and overall page design
+    - Continuous reading experience at the bottom
+- [ ] Mobile responsive design
 
 ### P2
 
-- [ ] Add Japanese support
 - [ ] Overall design: CSS adjastments and color palette
-- [ ] SEO improvements by checking the docs/SEO.md
+- [ ] SEO improvements (docs/SEO.md)
+- [ ] Add Japanese support
 
 ## Done
 
