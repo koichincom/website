@@ -22,6 +22,8 @@
     --spacing-content-inset: var(--spacing-inline-edge);
     --spacing-surface-inset: var(--spacing-inline-edge);
     --spacing-list-divider-inset: var(--spacing-content-inset);
+    /* Vertical offset where <main> content begins: header height + gap. Syncs with TOC sticky position and heading scroll-margin. */
+    --layout-main-start-offset: calc(var(--spacing) * 32);
 
     --link-underline-thickness: 1.75px;
 }
@@ -33,6 +35,13 @@
 @layer base {
     html {
         overscroll-behavior-y: none;
+        scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
     }
 
     main a:not(.no-underline) {
