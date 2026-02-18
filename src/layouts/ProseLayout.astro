@@ -31,28 +31,20 @@ const hasToc = tocHeadings.length > 0;
                 >
                 <div
                     class:list={[
-                        // Prose base
-                        "prose prose-base max-w-none ps-content-inset pe-content-inset",
+                        // Base of prose
+                        "prose prose-base max-w-none ps-content-inset pe-content-inset prose-pre: prose-base prose-a:no-underline",
                         // Offset heading anchor jumps for sticky header
                         "[&_h2]:scroll-mt-[var(--layout-main-start-offset)] [&_h3]:scroll-mt-[var(--layout-main-start-offset)] [&_h4]:scroll-mt-[var(--layout-main-start-offset)]",
-                        // prose-a
-                        // Global custom underline overrides
-                        "prose-a:no-underline",
                         // Light mode color
                         "prose-headings:text-(--color-text-first) prose-headings:font-bold prose-p:text-(--color-text-second) prose-a:text-(--color-text-second) prose-strong:text-(--color-text-first) prose-strong:font-bold prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) prose-a:hover:text-(--color-accent-light)",
                         // Dark mode color
                         "dark:prose-headings:text-(--color-text-first-dark) dark:prose-p:text-(--color-text-second-dark) dark:prose-strong:text-(--color-text-first-dark) dark:prose-a:text-(--color-text-second-dark) dark:[&_:not(pre)>code]:text-(--color-text-first-dark) dark:[&_:not(pre)>code]:bg-(--color-hover-dark) dark:[&_pre:not(.astro-code)]:bg-(--color-hover-dark) dark:prose-blockquote:text-(--color-text-second-dark) dark:prose-blockquote:border-l-(--color-divider-dark) dark:prose-a:hover:text-(--color-accent-dark)",
-                        //
-                        // Code related styles
-                        //
-                        // Inline code and code blocks
-                        "prose-pre:prose-base prose-code:prose-base",
                         // Inline code elements
-                        "[&_:not(pre)>code]:text-(--color-text-first) [&_:not(pre)>code]:font-normal [&_:not(pre)>code]:bg-(--color-hover) [&_:not(pre)>code]:px-1 [&_:not(pre)>code]:rounded",
+                        "[&_:not(pre)>code]:text-(--color-text-first) [&_:not(pre)>code]:font-normal [&_:not(pre)>code]:bg-(--color-hover) [&_:not(pre)>code]:px-1 [&_:not(pre)>code]:rounded [&_code::before]:content-none [&_code::after]:content-none",
                         // Non-astro (Non-shiki) code block
                         "[&_pre:not(.astro-code)]:bg-(--color-hover)",
                         // Astro (Shiki) code block
-                        // The wrapper of this has rounded corners
+                        // Its wrapper has its own rounded corners
                         "[&_pre.astro-code]:rounded-none",
                     ]}
                 >
