@@ -33,7 +33,10 @@ const hasToc = tocHeadings.length > 0;
                     class:list={[
                         // Prose base
                         "prose prose-base max-w-none ps-content-inset pe-content-inset",
+                        // Offset heading anchor jumps for sticky header
+                        "[&_h2]:scroll-mt-[var(--layout-main-start-offset)] [&_h3]:scroll-mt-[var(--layout-main-start-offset)] [&_h4]:scroll-mt-[var(--layout-main-start-offset)]",
                         // prose-a
+                        // Global custom underline overrides
                         "prose-a:no-underline",
                         // Light mode color
                         "prose-headings:text-(--color-text-first) prose-headings:font-bold prose-p:text-(--color-text-second) prose-a:text-(--color-text-second) prose-strong:text-(--color-text-first) prose-strong:font-bold prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) prose-a:hover:text-(--color-accent-light)",
