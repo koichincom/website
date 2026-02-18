@@ -4,21 +4,18 @@
 
 ### Now
 
-- [ ] Reading progress bar
-- [ ] Table of content scrolls to the right position with smooth scroll
-- [ ] Scrollable table of content
+- [ ] Feed and List CTA button at the end of the writing/project page/list
+- [ ] Home: hero and overall page design
 
 ### P0
 
-### P1
+- [ ] Mobile responsive design
 
-- [ ] Feed and List CTA button at the end of the writing/project page/list
-- [ ] Home: hero and overall page design
+### P1
 
 ### P2
 
 - [ ] Add Japanese support
-- [ ] Mobile responsive design
 - [ ] Overall design: CSS adjastments and color palette
 - [ ] SEO improvements by checking the docs/SEO.md
 
@@ -89,3 +86,5 @@
 - [x] Link design for header, main and footer
 - [x] Link design and refactor for prose
 - [x] Prose tailwind refactor, commenting, and cleaning
+- [x] Table of content scrolls to the right position with smooth scroll
+- [x] Scrollable table of content
