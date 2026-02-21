@@ -19,6 +19,15 @@
 - Use `src/scripts` for scripts used in client-side
 - Use `src/utils` for utility functions used in server-side
 
+## Assets and SVGs
+
+- Default to `src/assets` for local assets.
+- Use `public/` only when a file must be referenced by a stable direct URL and served untouched.
+- In `.astro`, import SVGs as components (no `?raw`) when rendering markup.
+- In `src/scripts/*.ts`, use `?raw` only when an API expects SVG/HTML as a string.
+- In `src/scripts/*.ts`, use `?url` when a URL string is required.
+- Do not add wrapper icon components unless they provide meaningful shared semantics/default behavior beyond simple class passthrough.
+
 ## Validation
 
 Run `bun run check` after changes to validate TypeScript, CSS, and routing.
@@ -31,7 +40,7 @@ Run `bun run check` after changes to validate TypeScript, CSS, and routing.
 - Use Astro's @layer base for global styles as needed
 - No animations or motion effects (except Astro's view transition API)
 - I don't know much about CSS and not interested in learning. Use your best judgement, follow the standard and official document, and make suggestions, not asking me for decisions.
-- I use https://www.svgrepo.com/collection/dazzle-line-icons/ for SVG icons. Ask me if you need any icons
+- I use https://dazzleui.pro/library for SVG icons. Ask me if you need any icons
 
 ## Naming Conventions
 

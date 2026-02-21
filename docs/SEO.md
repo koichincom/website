@@ -67,10 +67,12 @@ Critical pages missing `description` prop:
 Update `BaseLayout.astro`:
 
 ```typescript
+import defaultOgImage from "../assets/social-default.jpg?url";
+
 const DEFAULT_DESCRIPTION =
     "Koichi Nakayamada - Data science student and open-source developer practicing technical philanthropy";
 const SITE_NAME = "Koichi Nakayamada";
-const DEFAULT_OG_IMAGE = "/assets/selfie.jpg";
+const DEFAULT_OG_IMAGE = defaultOgImage;
 const LOCALE = "en_US";
 
 // Fallback description

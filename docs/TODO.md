@@ -4,21 +4,27 @@
 
 ### Now
 
-- [ ] Feed and List CTA button at the end of the writing/project page/list
+- [ ] List structure that doesn't truncate string and make the list row size flexible
+- [ ] Make the CopyToClipboardLink make prop agnostic (accept string or link) for emails, and change the toast text to "Copied"
 
 ### P0
 
 ### P1
 
-- [ ] Home: hero and overall page design
+- [ ] Add table sorting or filtering feature for the project list
+- [ ] Reorganize tag system for projects (hardware, tryout, oss) and display in the list
+- [ ] Feed CTA design at the end of each piece of writing
+- [ ] Home design
     - Continuous reading experience at the bottom
-- [ ] Mobile responsive design
+    - GIF or image for the hero
+- [ ] View all buttons for featured projects and latest writing
+- [ ] Mobile responsiveness
 
 ### P2
 
-- [ ] Overall design: CSS adjastments and color palette
+- [ ] CSS adjastments and color palette
 - [ ] SEO improvements (docs/SEO.md)
-- [ ] Add Japanese support
+- [ ] Add Japanese support (Astro i18n)
 
 ## Done
 
@@ -89,3 +95,8 @@
 - [x] Prose tailwind refactor, commenting, and cleaning
 - [x] Table of content scrolls to the right position with smooth scroll
 - [x] Scrollable table of content
+- [x] Organize SVG files location and for notyf icon as well
+- [x] Add notification toast (notyf)
+- [x] Were the files in public/assets/ used?
+- [x] Prose's CSS updates cause text color issue for bullet points
+- [x] Does this name compete with Tailwind's "no-underline"? (from global.css: main a:not(.no-underline))
