@@ -18,15 +18,16 @@ const getCopyLink = (
     return link;
 };
 
-const copyText = async (text: string): Promise<void> => {
+const copyText = async (text: string): Promise<boolean> => {
     if (!navigator.clipboard?.writeText) {
-        return;
+        return false;
     }
 
     try {
         await navigator.clipboard.writeText(text);
+        return true;
     } catch {
-        return;
+        return false;
     }
 };
 
@@ -52,7 +53,18 @@ const initCopyToClipboardLink = (): void => {
             return;
         }
 
-        await copyText(href);
+        const copied = await copyText(href);
+        if (copied) {
+            (
+                window as unknown as {
+                    notyf: { success(message: string): void };
+                }
+            ).notyf.success("Link Copied");
+        } else {
+            (
+                window as unknown as { notyf: { error(message: string): void } }
+            ).notyf.error("Failed to Copy Link");
+        }
     });
 };
 

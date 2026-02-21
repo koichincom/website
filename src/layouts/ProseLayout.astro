@@ -37,8 +37,16 @@ const hasToc = tocHeadings.length > 0;
                         "[&_h2]:scroll-mt-[var(--layout-main-start-offset)] [&_h3]:scroll-mt-[var(--layout-main-start-offset)] [&_h4]:scroll-mt-[var(--layout-main-start-offset)]",
                         // Light mode color
                         "prose-headings:text-(--color-text-first) prose-headings:font-bold prose-p:text-(--color-text-second) prose-a:text-(--color-text-second) prose-strong:text-(--color-text-first) prose-strong:font-bold prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) prose-a:hover:text-(--color-accent-light)",
+                        // List items color
+                        "prose-li:text-(--color-text-second) [&_li::marker]:text-(--color-text-second)",
+                        // Table color
+                        "prose-th:text-(--color-text-first) prose-td:text-(--color-text-second) prose-th:border-(--color-divider) prose-td:border-(--color-divider)",
                         // Dark mode color
                         "dark:prose-headings:text-(--color-text-first-dark) dark:prose-p:text-(--color-text-second-dark) dark:prose-strong:text-(--color-text-first-dark) dark:prose-a:text-(--color-text-second-dark) dark:[&_:not(pre)>code]:text-(--color-text-first-dark) dark:[&_:not(pre)>code]:bg-(--color-hover-dark) dark:[&_pre:not(.astro-code)]:bg-(--color-hover-dark) dark:prose-blockquote:text-(--color-text-second-dark) dark:prose-blockquote:border-l-(--color-divider-dark) dark:prose-a:hover:text-(--color-accent-dark)",
+                        // Dark mode list items color
+                        "dark:prose-li:text-(--color-text-second-dark) dark:[&_li::marker]:text-(--color-text-second-dark)",
+                        // Dark mode table color
+                        "dark:prose-th:text-(--color-text-first-dark) dark:prose-td:text-(--color-text-second-dark) dark:prose-th:border-(--color-divider-dark) dark:prose-td:border-(--color-divider-dark)",
                         // Inline code elements
                         "[&_:not(pre)>code]:text-(--color-text-first) [&_:not(pre)>code]:font-normal [&_:not(pre)>code]:bg-(--color-hover) [&_:not(pre)>code]:px-1 [&_:not(pre)>code]:rounded [&_code::before]:content-none [&_code::after]:content-none",
                         // Non-astro (Non-shiki) code block

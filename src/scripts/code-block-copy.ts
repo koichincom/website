@@ -1,10 +1,4 @@
-const COPY_LABEL = "Copy";
-const COPIED_LABEL = "Copied";
-const FAILED_LABEL = "Failed";
-const RESET_DELAY_MS = 1500;
-
 let initialized = false;
-const resetTimers = new WeakMap<HTMLButtonElement, number>();
 
 const getCodeText = (container: Element): string | undefined => {
     const codeElement = container.querySelector("pre.astro-code code");
@@ -28,30 +22,6 @@ const writeToClipboard = async (text: string): Promise<boolean> => {
     } catch {
         return false;
     }
-};
-
-const setButtonLabel = (button: HTMLButtonElement, label: string): void => {
-    button.textContent = label;
-};
-
-const clearResetTimer = (button: HTMLButtonElement): void => {
-    const timerId = resetTimers.get(button);
-
-    if (timerId !== undefined) {
-        window.clearTimeout(timerId);
-        resetTimers.delete(button);
-    }
-};
-
-const scheduleReset = (button: HTMLButtonElement): void => {
-    clearResetTimer(button);
-
-    const timerId = window.setTimeout(() => {
-        setButtonLabel(button, COPY_LABEL);
-        resetTimers.delete(button);
-    }, RESET_DELAY_MS);
-
-    resetTimers.set(button, timerId);
 };
 
 const initCodeBlockCopy = (): void => {
@@ -83,14 +53,24 @@ const initCodeBlockCopy = (): void => {
         const code = getCodeText(container);
 
         if (!code) {
-            setButtonLabel(button, FAILED_LABEL);
-            scheduleReset(button);
+            (
+                window as unknown as { notyf: { error(message: string): void } }
+            ).notyf.error("Failed to Copy Code");
             return;
         }
 
         const copied = await writeToClipboard(code);
-        setButtonLabel(button, copied ? COPIED_LABEL : FAILED_LABEL);
-        scheduleReset(button);
+        if (copied) {
+            (
+                window as unknown as {
+                    notyf: { success(message: string): void };
+                }
+            ).notyf.success("Code Copied");
+        } else {
+            (
+                window as unknown as { notyf: { error(message: string): void } }
+            ).notyf.error("Failed to Copy Code");
+        }
     });
 };
 

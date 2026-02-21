@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@import "notyf/notyf.min.css";
 
 @theme {
     --color-background: #f1f1f1;
@@ -44,11 +45,16 @@
         }
     }
 
-    main a:not(.no-underline) {
+    main a:not(.no-custom-underline) {
         @apply hover:text-accent-light dark:hover:text-accent-dark;
         text-decoration: none;
         border-bottom: var(--link-underline-thickness) solid currentColor;
         padding-bottom: 0;
+    }
+
+    .no-custom-underline {
+        text-decoration: none;
+        border-bottom: 0;
     }
 
     /* light/dark mode for code blocks, using Astro's built-in Shiki syntax highlighting */
