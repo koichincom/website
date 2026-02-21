@@ -6,7 +6,7 @@ import PageTitle from "../components/PageTitle.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
-import CopyToClipboardLink from "../components/CopyToClipboardLink.astro";
+import CopyLink from "../components/CopyLink.astro";
 import NewWindowLink from "../components/NewWindowLink.astro";
 
 const title = "Koichi Nakayamada";
@@ -53,8 +53,8 @@ const writingPosts = (await getCollection("writing"))
                     >X (Twitter)</NewWindowLink
                 > and get in contact with me using <NewWindowLink href=""
                     >Signal</NewWindowLink
-                > or <CopyToClipboardLink href="mailto://k@koichin.com"
-                    >Email</CopyToClipboardLink
+                > or <CopyLink href="mailto://k@koichin.com"
+                    >Email</CopyLink
                 >.
             </p>
         </section>

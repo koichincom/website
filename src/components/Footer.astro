@@ -1,6 +1,6 @@
 ---
 import NewWindowLink from "./NewWindowLink.astro";
-import CopyToClipboardLink from "./CopyToClipboardLink.astro";
+import CopyLink from "./CopyLink.astro";
 
 const FOOTER_LINK_CLASS =
     "[border-bottom-width:var(--link-underline-thickness)] border-transparent hover:border-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)";
@@ -98,12 +98,12 @@ const FOOTER_LINK_CLASS =
             <ul class="space-y-2">
                 <li>
                     <!-- prettier-ignore -->
-                    <CopyToClipboardLink
+                    <CopyLink
                         href="k@koichin.com"
                         class={FOOTER_LINK_CLASS}
                         ><!--
                         -->Email<!--
-                    --></CopyToClipboardLink>
+                    --></CopyLink>
                 </li>
                 <li>
                     <!-- prettier-ignore -->

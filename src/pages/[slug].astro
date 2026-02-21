@@ -2,7 +2,7 @@
 import { getCollection, render } from "astro:content";
 import SiteInfoLayout from "../layouts/SiteInfoLayout.astro";
 import NewWindow from "../components/NewWindowLink.astro";
-import Copy from "../components/CopyToClipboardLink.astro";
+import Copy from "../components/CopyLink.astro";
 
 export async function getStaticPaths() {
     const siteInfoPages = await getCollection("siteInfo");

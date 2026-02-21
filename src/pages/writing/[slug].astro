@@ -5,7 +5,7 @@ import { getReadingTime } from "../../utils/reading-time";
 
 import WritingLayout from "../../layouts/WritingLayout.astro";
 import NewWindow from "../../components/NewWindowLink.astro";
-import Copy from "../../components/CopyToClipboardLink.astro";
+import Copy from "../../components/CopyLink.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("writing");

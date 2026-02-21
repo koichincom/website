@@ -1,7 +1,7 @@
 ---
 import { formatDate } from "../utils/date-formatter";
 import NewWindowLink from "../components/NewWindowLink.astro";
-import CopyToClipboardLink from "../components/CopyToClipboardLink.astro";
+import CopyLink from "../components/CopyLink.astro";
 import ProseLayout from "./ProseLayout.astro";
 import type { TocHeading } from "../utils/table-of-contents";
 
@@ -22,8 +22,8 @@ const contact = "k@koichin.com";
         Effective date: {formattedEffectiveDate}<br />
         Website: <NewWindowLink href={website}>{website}</NewWindowLink><br />
         Owner: {owner}<br />
-        Contact: <CopyToClipboardLink href={contact}
-            >{contact.replace("mailto:", "")}</CopyToClipboardLink
+        Contact: <CopyLink href={contact}
+            >{contact.replace("mailto:", "")}</CopyLink
         >
     </p>
     <slot />
