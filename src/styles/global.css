@@ -52,7 +52,21 @@
         padding-bottom: 0;
     }
 
-    .no-custom-underline {
+    main button[data-copy-str]:not(.no-custom-underline) {
+        @apply hover:text-accent-light dark:hover:text-accent-dark;
+    }
+
+    button[data-copy-str]:not(.no-custom-underline) {
+        text-decoration: none;
+    }
+
+    main button[data-copy-str]:not(.no-custom-underline) > span {
+        border-bottom: var(--link-underline-thickness) solid currentColor;
+        padding-bottom: 0;
+    }
+
+    .no-custom-underline,
+    main button[data-copy-str].no-custom-underline > span {
         text-decoration: none;
         border-bottom: 0;
     }
