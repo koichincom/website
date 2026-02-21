@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
 import SiteInfoLayout from "../layouts/SiteInfoLayout.astro";
-import NewWindowLink from "../components/NewWindowLink.astro";
+import NewWindow from "../components/NewWindowLink.astro";
+import Copy from "../components/CopyToClipboardLink.astro";
 
 export async function getStaticPaths() {
     const siteInfoPages = await getCollection("siteInfo");
@@ -20,5 +21,5 @@ const { Content, headings } = await render(page);
     effectiveDate={page.data.effectiveDate}
     headings={headings}
 >
-    <Content components={{ NewWindowLink }} />
+    <Content components={{ NewWindow, Copy }} />
 </SiteInfoLayout>

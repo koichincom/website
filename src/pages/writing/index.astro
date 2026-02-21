@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageTitle from "../../components/PageTitle.astro";
 import WritingList from "../../components/WritingList.astro";
+import NewWindowLink from "../../components/NewWindowLink.astro";
 
 const title = "Writing";
 const metaTitle = title;
@@ -22,5 +23,15 @@ const writingPosts = (await getCollection("writing")).sort((a, b) => {
 
 <BaseLayout metaTitle={metaTitle}>
     <PageTitle>{title}</PageTitle>
+    <p
+        class="mb-8 px-content-inset text-(--color-text-second) dark:text-(--color-text-second-dark)"
+    >
+        Writing and reading are integrals of my life. They both let us take a
+        pause and think, and the latter gives us room for interpretation. I hope
+        you can find such joy from mine. It's usually about life, technology,
+        and humanism. You can subscribe to my writing and projects via <NewWindowLink
+            href="/feed">Atom feeds</NewWindowLink
+        >.
+    </p>
     <WritingList posts={writingPosts} />
 </BaseLayout>

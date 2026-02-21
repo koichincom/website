@@ -1,6 +1,7 @@
 ---
 import { formatDate } from "../utils/date-formatter";
 import NewWindowLink from "../components/NewWindowLink.astro";
+import CopyToClipboardLink from "../components/CopyToClipboardLink.astro";
 import ProseLayout from "./ProseLayout.astro";
 import type { TocHeading } from "../utils/table-of-contents";
 
@@ -13,7 +14,7 @@ const { title, effectiveDate, headings } = Astro.props;
 const website = "https://koichin.com";
 const owner = "Koichi Nakayamada";
 const formattedEffectiveDate = effectiveDate ? formatDate(effectiveDate) : "";
-const contact = "mailto:k@koichin.com";
+const contact = "k@koichin.com";
 ---
 
 <ProseLayout title={title} headings={headings}>
@@ -21,7 +22,9 @@ const contact = "mailto:k@koichin.com";
         Effective date: {formattedEffectiveDate}<br />
         Website: <NewWindowLink href={website}>{website}</NewWindowLink><br />
         Owner: {owner}<br />
-        Contact: <NewWindowLink href={contact}>{contact.replace("mailto:", "")}</NewWindowLink>
+        Contact: <CopyToClipboardLink href={contact}
+            >{contact.replace("mailto:", "")}</CopyToClipboardLink
+        >
     </p>
     <slot />
 </ProseLayout>

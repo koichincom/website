@@ -10,7 +10,7 @@ import CopyToClipboardLink from "../components/CopyToClipboardLink.astro";
 import NewWindowLink from "../components/NewWindowLink.astro";
 
 const title = "Koichi Nakayamada";
-const h1Title = "Technical Philanthropy";
+const h1Title = "Build Things, Analyze Data";
 
 // Fetch projects sorted by pinned and published date, take featured ones
 const projects = (await getCollection("projects"))
@@ -25,14 +25,13 @@ const projects = (await getCollection("projects"))
         );
     });
 
-// Fetch writing posts sorted by published date (newest first), take latest 5
 const writingPosts = (await getCollection("writing"))
     .sort(
         (a, b) =>
             new Date(b.data.published).getTime() -
             new Date(a.data.published).getTime(),
     )
-    .slice(0, 5);
+    .slice(0, 3);
 ---
 
 <BaseLayout metaTitle={title}>
@@ -42,16 +41,28 @@ const writingPosts = (await getCollection("writing"))
             <p
                 class="px-content-inset text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
             >
-                I'm a <span id="age-display"></span>-year-old Japanese <CopyToClipboardLink
-                    href="https://example.com"
-                    >datag science</CopyToClipboardLink
-                > and <NewWindowLink href="https:example.com"
-                    >open-source</NewWindowLink
-                > developer, currently studying in the United States. I aspire to
-                practice "technical philanthropy" which is to contribute to humanity
-                through technology, driven by a genuine love for humankind.
-                <a> Learn more about me</a>.
+                A Japanese developer and Data Science student, studying in the
+                U.S. <br />Lately I work on <NewWindowLink
+                    href="https://github.com/koichincom/count.nvim"
+                    >count.nvim</NewWindowLink
+                >, a Neovim plugin for counting various text file metrics for
+                writing.<br /> You can follow me either by <a href="feed"
+                    >Atom feed</a
+                > or
+                <NewWindowLink href="https://x.com/koichincom"
+                    >X (Twitter)</NewWindowLink
+                > and get in contact with me using <NewWindowLink href=""
+                    >Signal</NewWindowLink
+                > or <CopyToClipboardLink href="mailto://k@koichin.com"
+                    >Email</CopyToClipboardLink
+                >.
             </p>
+        </section>
+
+        <section>
+            <video controls preload="none" playsinline>
+                <source src="/test.mp4" type="video/mp4" />
+            </video>
         </section>
 
         <section>

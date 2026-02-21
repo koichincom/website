@@ -5,13 +5,25 @@ import ListRow from "../../components/ListRow.astro";
 import NewWindowLink from "../../components/NewWindowLink.astro";
 import CopyToClipboardLink from "../../components/CopyToClipboardLink.astro";
 
-const title = "Feed";
+const title = "Atom Feeds";
 const metaTitle = title;
 
 const feeds = [
-    { label: "All", atom: "/feed/all", description: "Subscribe to all updates from writing and projects" },
-    { label: "Writing", atom: "/feed/writing", description: "Subscribe to my blog posts and articles" },
-    { label: "Projects", atom: "/feed/projects", description: "Subscribe to project releases and updates" },
+    {
+        label: "All",
+        atom: "/feed/all",
+        description: "All updates from writing and projects",
+    },
+    {
+        label: "Writing",
+        atom: "/feed/writing",
+        description: "Only my writing posts",
+    },
+    {
+        label: "Projects",
+        atom: "/feed/projects",
+        description: "Only my project releases",
+    },
 ];
 ---
 
@@ -20,8 +32,10 @@ const feeds = [
     <p
         class="mb-8 px-content-inset text-(--color-text-second) dark:text-(--color-text-second-dark)"
     >
-        Subscribe via Atom or RSS to get the latest updates on my writing and
-        projects.
+        Subscribe to my writing and/or projects via Atom feeds. Atom is the more
+        standarized and modern RSS. You can copy the links below and paste in
+        RSS applications or clients just like RSS. I provide the full content in
+        the feeds.
     </p>
     <div class="pb-4">
         <ul
@@ -39,20 +53,20 @@ const feeds = [
                         <span class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">
                             {feed.description}
                         </span>
+                        <CopyToClipboardLink
+                            href={`${import.meta.env.SITE || "https://koichin.com"}${feed.atom}`}
+                            ariaLabel={`Copy ${feed.label} feed URL`}
+                            class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) no-custom-underline"
+                        >
+                            Atom URL
+                        </CopyToClipboardLink>
                         <NewWindowLink
                             href={feed.atom}
                             ariaLabel={`${feed.label} Atom feed`}
-                            class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)"
+                            class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) no-custom-underline"
                         >
-                            Atom
+                            Raw Atom file
                         </NewWindowLink>
-                        <CopyToClipboardLink
-                            href={`${import.meta.env.SITE || 'https://koichin.com'}${feed.atom}`}
-                            ariaLabel={`Copy ${feed.label} feed URL`}
-                            class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)"
-                        >
-                            click to copy
-                        </CopyToClipboardLink>
                     </ListRow>
                 ))
             }
