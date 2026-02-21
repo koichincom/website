@@ -1,5 +1,5 @@
 ---
-import LinkWithTrailingIcon from "./LinkWithTrailingIcon.astro";
+import AppendIconInlineText from "./AppendIconInlineText.astro";
 import LinkSvg from "../assets/link.svg";
 
 export interface Props {
@@ -18,7 +18,7 @@ const {
 ---
 
 <!-- prettier-ignore -->
-<LinkWithTrailingIcon
+<AppendIconInlineText
     href={href}
     class={className}
     ariaLabel={ariaLabel}
@@ -26,4 +26,4 @@ const {
     rel=""
     data-copy-to-clipboard-link
     ><slot /><!--
-    --><LinkSvg slot="icon" class={iconClass} /></LinkWithTrailingIcon>
+    --><LinkSvg slot="icon" class={iconClass} /></AppendIconInlineText>
