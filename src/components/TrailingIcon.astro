@@ -1,0 +1,13 @@
+---
+export interface Props {
+    class?: string;
+}
+
+const {
+    class: className = "ml-[0.2em] inline-block leading-none align-baseline",
+} = Astro.props;
+---
+
+<!-- prettier-ignore -->
+<span><slot /><!--
+--><span class={className} aria-hidden="true"><slot name="icon" /></span></span>

@@ -6,7 +6,7 @@ import PageTitle from "../components/PageTitle.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
-import CopyLink from "../components/CopyLink.astro";
+import CopyStr from "../components/CopyStr.astro";
 import NewWindowLink from "../components/NewWindowLink.astro";
 
 const title = "Koichi Nakayamada";
@@ -51,11 +51,9 @@ const writingPosts = (await getCollection("writing"))
                 > or
                 <NewWindowLink href="https://x.com/koichincom"
                     >X (Twitter)</NewWindowLink
-                > and get in contact with me using <NewWindowLink href=""
-                    >Signal</NewWindowLink
-                > or <CopyLink href="mailto://k@koichin.com"
-                    >Email</CopyLink
-                >.
+                > and get in contact with me using <NewWindowLink
+                    href="https://example.com">Signal</NewWindowLink
+                > or <CopyStr copyValue="k@koichin.com">Email</CopyStr>.
             </p>
         </section>
 

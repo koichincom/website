@@ -1,15 +1,18 @@
 ---
 import NewWindowLink from "./NewWindowLink.astro";
-import CopyLink from "./CopyLink.astro";
+import CopyStr from "./CopyStr.astro";
 
 const FOOTER_LINK_CLASS =
     "[border-bottom-width:var(--link-underline-thickness)] border-transparent hover:border-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)";
+const FOOTER_TRAILING_LINK_CLASS =
+    "hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) [&>span]:[border-bottom-width:var(--link-underline-thickness)] [&>span]:border-transparent hover:[&>span]:border-current";
 ---
 
 <footer
     class="border-t border-(--color-divider) dark:border-(--color-divider-dark)"
 >
     <nav
+        aria-label="Footer navigation"
         class="grid w-full grid-cols-[repeat(4,max-content)] justify-between gap-x-10 px-content-inset pt-10 pb-30 text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
     >
         <div class="space-y-4">
@@ -49,7 +52,7 @@ const FOOTER_LINK_CLASS =
                     <!-- prettier-ignore -->
                     <NewWindowLink
                         href="https://github.com/koichincom/website"
-                        class={FOOTER_LINK_CLASS}
+                        class={FOOTER_TRAILING_LINK_CLASS}
                         ><!--
                         -->Source Code<!--
                     --></NewWindowLink>
@@ -64,7 +67,7 @@ const FOOTER_LINK_CLASS =
                     <!-- prettier-ignore -->
                     <NewWindowLink
                         href="https://x.com/koichincom"
-                        class={FOOTER_LINK_CLASS}
+                        class={FOOTER_TRAILING_LINK_CLASS}
                         ><!--
                         -->X/Twitter<!--
                     --></NewWindowLink>
@@ -73,7 +76,7 @@ const FOOTER_LINK_CLASS =
                     <!-- prettier-ignore -->
                     <NewWindowLink
                         href="https://github.com/koichincom"
-                        class={FOOTER_LINK_CLASS}
+                        class={FOOTER_TRAILING_LINK_CLASS}
                         ><!--
                         -->GitHub<!--
                     --></NewWindowLink>
@@ -82,7 +85,7 @@ const FOOTER_LINK_CLASS =
                     <!-- prettier-ignore -->
                     <NewWindowLink
                         href="https://linkedin.com/in/koichincom/"
-                        class={FOOTER_LINK_CLASS}
+                        class={FOOTER_TRAILING_LINK_CLASS}
                         ><!--
                         -->LinkedIn<!--
                     --></NewWindowLink>
@@ -98,18 +101,18 @@ const FOOTER_LINK_CLASS =
             <ul class="space-y-2">
                 <li>
                     <!-- prettier-ignore -->
-                    <CopyLink
-                        href="k@koichin.com"
-                        class={FOOTER_LINK_CLASS}
+                    <CopyStr
+                        copyValue="k@koichin.com"
+                        class={FOOTER_TRAILING_LINK_CLASS}
                         ><!--
                         -->Email<!--
-                    --></CopyLink>
+                    --></CopyStr>
                 </li>
                 <li>
                     <!-- prettier-ignore -->
                     <NewWindowLink
                         href="https://signal.me/#eu/hFxJqhdUe_9zSwQs01xjuf6sz9n5Zag3yfHQzxGwPZPL-X863I9DF5QXch7gCsUv"
-                        class={FOOTER_LINK_CLASS}
+                        class={FOOTER_TRAILING_LINK_CLASS}
                         ><!--
                         -->Signal<!--
                     --></NewWindowLink>

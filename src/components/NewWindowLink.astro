@@ -1,5 +1,5 @@
 ---
-import AppendIconToText from "./AppendIconToText.astro";
+import TrailingIcon from "./TrailingIcon.astro";
 import ArrowIcon from "../assets/arrow-up-right.svg";
 
 export interface Props {
@@ -18,11 +18,11 @@ const {
 ---
 
 <!-- prettier-ignore -->
-<AppendIconToText
+<a
     href={href}
     class={className}
-    ariaLabel={ariaLabel}
+    aria-label={ariaLabel}
     target="_blank"
     rel="noopener noreferrer"
-    ><slot /><!--
-    --><ArrowIcon slot="icon" class={iconClass} /></AppendIconToText>
+><TrailingIcon><slot /><!--
+--><ArrowIcon slot="icon" class={iconClass} /></TrailingIcon></a>
