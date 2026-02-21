@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout metaTitle="Notyf Test">
+    <div style="padding: 20px;">
+        <h1>Notyf Toast Test</h1>
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <button id="success-btn">Test Success</button>
+            <button id="error-btn">Test Error</button>
+        </div>
+    </div>
+
+    <script>
+        import type { Notyf } from "notyf";
+        declare global {
+            interface Window {
+                notyf?: Notyf;
+            }
+        }
+
+        document.getElementById("success-btn")?.addEventListener("click", () => {
+            window.notyf?.success("This is a success toast!");
+        });
+
+        document.getElementById("error-btn")?.addEventListener("click", () => {
+            window.notyf?.error("This is an error toast!");
+        });
+    </script>
+</BaseLayout>
