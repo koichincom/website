@@ -1,6 +1,6 @@
 import { Notyf } from "notyf";
-import notyfErrorIcon from "../assets/notyf-error.svg?raw";
-import notyfSuccessIcon from "../assets/notyf-success.svg?raw";
+import notyfErrorIcon from "../assets/cross.svg?raw";
+import notyfSuccessIcon from "../assets/check.svg?raw";
 
 const NOTYF_CONTAINER_SELECTOR = ".notyf";
 
