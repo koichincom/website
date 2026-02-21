@@ -6,13 +6,9 @@
 
 ## Tech Stack
 
-- Use TypeScript except Astro's is:inline scripts (which needs to be in JavaScript)
+- Use TypeScript by default
 - Use Astro components for reusable UI elements
-- Use astro-docs MCP server for Astro questions (not found then ask user)
-
-## Configuration Files
-
-- Astro config file: `astro.config.ts`
+- Use astro-docs MCP server for Astro questions
 
 # File Location
 
@@ -39,8 +35,6 @@ Run `bun run check` after changes to validate TypeScript, CSS, and routing.
 - Use Astro components to follow DRY principles (generally @layer component feature isn't needed since Astro components exist)
 - Use Astro's @layer base for global styles as needed
 - No animations or motion effects (except Astro's view transition API)
-- I don't know much about CSS and not interested in learning. Use your best judgement, follow the standard and official document, and make suggestions, not asking me for decisions.
-- I use https://dazzleui.pro/library for SVG icons. Ask me if you need any icons
 
 ## Naming Conventions
 
@@ -51,3 +45,7 @@ Run `bun run check` after changes to validate TypeScript, CSS, and routing.
 - Utilities: `kebab-case.ts` (e.g., `reading-time.ts`)
 - Functions: `camelCase`
 - Constants: `UPPER_SNAKE_CASE`
+
+## LLM Agent Use
+
+I am not a frontend developer and don't have expertise in CSS or Tailwind. I will handle TypeScript, HTML, and basic Astro structure, but CSS and Tailwind are outside my scope. Make styling decisions independently using your best judgment, following the official Tailwind and Astro documentation. Don't ask me to make styling decisions; provide only high-level explanations.
