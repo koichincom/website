@@ -5,7 +5,7 @@ import { getReadingTime } from "../../utils/reading-time";
 
 import WritingLayout from "../../layouts/WritingLayout.astro";
 import NewWindow from "../../components/NewWindowLink.astro";
-import Copy from "../../components/CopyLink.astro";
+import CopyStr from "../../components/CopyStr.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("writing");
@@ -30,5 +30,5 @@ const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
 >
     <!-- Expose NewWindowLink to MDX via the MDX `components` map (works for custom tags too). -->
     <!-- https://mdxjs.com/docs/using-mdx/#how-mdx-works -->
-    <Content components={{ NewWindow, Copy }} />
+    <Content components={{ NewWindow, CopyStr }} />
 </WritingLayout>
