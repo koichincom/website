@@ -1,0 +1,7 @@
+
+name = "Sales IQ"
+url = "https://github.com/deanzahci/salesiq"
+published = 2027-06-01T00:00:00Z
+description = "A real-time AI sales coach that watches and advise your pitch through computer vision and WebSocket. Picks up micro-expressions, vocal hesitation, and body language cues."
+type = "experiment"
+oss = true

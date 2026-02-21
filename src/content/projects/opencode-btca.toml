@@ -4,3 +4,5 @@ published = 2025-06-01T00:00:00Z
 description = "Allow OpenCode to directly get infomation from the tool's source code by integrating Better Context CLI"
 pinned = true
 featured = true
+type = "tryOut"
+oss = true

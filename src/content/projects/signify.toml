@@ -1,4 +1,6 @@
-name = "Signify"
-url = "https://github.com/deanzahci/signify"
+name = "Signify ASL"
+url = "https://signifyasl.com"
 published = 2027-06-01T00:00:00Z
-description = "Gamify sign language learning with fast and lightweight Computer Vision model, trained from scratch"
+description = "Gamify your American-sign language learning using a custom LSTM model. Think Wordle and MonkeyType but for learning sign language. Available on signifyasl.com."
+type = "tryOut"
+oss = true

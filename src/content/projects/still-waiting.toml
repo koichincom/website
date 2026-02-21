@@ -1,6 +1,8 @@
 name = "Still Waiting"
 url = "https://github.com/koichincom/still-waiting"
 published = 2027-06-01T00:00:00Z
-description = "24 hours reply reminder bot for Discord. Free to add and self-hostable."
+description = "24 hours reply reminder bot for Discord. I stopped the deployment, but you can self-host it easily."
 pinned = true
 featured = true
+type = "tryOut"
+oss = true

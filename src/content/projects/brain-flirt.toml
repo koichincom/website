@@ -1,0 +1,8 @@
+name = "Brain Flirt"
+url = "https://github.com/koichincom/brain-flirt"
+published = 2027-06-01T00:00:00Z
+description = "Get to know when your potential romatic partner you're talking to gets bored using EEG technology."
+pinned = false
+featured = false
+type = "hardware"
+oss = true

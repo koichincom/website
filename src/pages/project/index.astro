@@ -3,13 +3,13 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectList from "../../components/ProjectList.astro";
 import PageTitle from "../../components/PageTitle.astro";
-import SectionTitle from "../../components/SectionTitle.astro";
+import NewWindowLink from "../../components/NewWindowLink.astro";
 
 const title = "Projects";
 const metaTitle = title;
 
-const projectEntries = await getCollection("projects");
-const sortProjects = (entries: typeof projectEntries): typeof projectEntries =>
+const Projects = await getCollection("projects");
+const sortProjects = (entries: typeof Projects): typeof Projects =>
     entries.sort((a, b) => {
         const pinnedDelta =
             Number(b.data.pinned ?? false) - Number(a.data.pinned ?? false);
@@ -22,31 +22,30 @@ const sortProjects = (entries: typeof projectEntries): typeof projectEntries =>
         );
     });
 
-const standardProjects = sortProjects(
-    projectEntries.filter((project) => !project.data.hardwareBound),
-);
-const hardwareBoundProjects = sortProjects(
-    projectEntries.filter((project) => project.data.hardwareBound),
-);
+const sortedProjects = sortProjects(Projects);
 ---
 
 <BaseLayout metaTitle={metaTitle}>
     <PageTitle>{title}</PageTitle>
-    <div class="flex flex-col gap-20">
-        <section>
-            {
-                standardProjects.length ? (
-                    <ProjectList projects={standardProjects} />
-                ) : null
-            }
-        </section>
-        <section id="hardware-bound">
-            <SectionTitle>Hardware-Bound</SectionTitle>
-            {
-                hardwareBoundProjects.length ? (
-                    <ProjectList projects={hardwareBoundProjects} />
-                ) : null
-            }
-        </section>
-    </div>
+    <p class="px-content-inset mb-8">
+        Making things is my huge interest from my childhood. Now I make things
+        to make the world better and advance humanity. You can get updates via <NewWindowLink
+            href="/feed">Atom feeds</NewWindowLink
+        >.
+    </p>
+    <ul class="px-content-inset mb-8">
+        <li>
+            <b>Try-out: </b> you can quickly try out from the link.
+        </li>
+        <li>
+            <b>Hardware:</b> require hardware and may not use it right away.
+        </li>
+        <li>
+            <b>Opensource:</b> the code is open-sourced. Check the repo for license.
+        </li>
+        <li>
+            <b>Experimental:</b> built as an experimentation. Not for actual use.
+        </li>
+    </ul>
+    {sortedProjects.length ? <ProjectList projects={sortedProjects} /> : null}
 </BaseLayout>

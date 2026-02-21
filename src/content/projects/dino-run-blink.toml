@@ -1,6 +1,6 @@
 name = "Dino Run Blink"
 url = "https://github.com/deanzahci/dino-run-blink"
 published = 2025-06-01T00:00:00Z
-description = "Play the Chrome Dino Run game with eye blinks using Brain-Computer Interface (Muse2)"
-hardwareBound = true
-featured = true
+description = "Play the classic dino run game with eye blinks by processing EOG from Brain-Computer Interface in realtime"
+type = "hardware"
+oss = true

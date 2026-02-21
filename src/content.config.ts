@@ -31,10 +31,8 @@ const projects = defineCollection({
                 "Publication date of the entry (mainly for sorting, and not project launch date)",
             ),
         url: z.string().url(),
-        hardwareBound: z
-            .boolean()
-            .default(false)
-            .describe("Whether this project is hardware-bound"),
+        type: z.enum(["tryOut", "experiment", "hardware"]),
+        oss: z.boolean(),
         pinned: z
             .boolean()
             .optional()
