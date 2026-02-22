@@ -1,0 +1,8 @@
+name = "Test"
+url = "https://github.com/koichincom/brain-flirt"
+published = 2027-06-01T00:00:00Z
+description = "A test project for Brain Flirt."
+pinned = false
+featured = false
+type = "hardware"
+oss = true
