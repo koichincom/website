@@ -4,9 +4,6 @@
 
 ### Now
 
-- [ ] List structure that doesn't truncate string and make the list row size flexible
-- [ ] Make the CopyToClipboardLink make prop agnostic (accept string or link) for emails, and change the toast text to "Copied"
-
 ### P0
 
 ### P1
@@ -100,3 +97,5 @@
 - [x] Were the files in public/assets/ used?
 - [x] Prose's CSS updates cause text color issue for bullet points
 - [x] Does this name compete with Tailwind's "no-underline"? (from global.css: main a:not(.no-underline))
+- [x] Make the CopyToClipboardLink make prop agnostic (accept string or link) for emails, and change the toast text to "Copied"
+- [x] List structure that doesn't truncate string and make the list row size flexible
