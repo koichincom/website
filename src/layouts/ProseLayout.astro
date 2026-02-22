@@ -58,6 +58,7 @@ const hasToc = tocHeadings.length > 0;
                 >
                     <slot />
                 </div>
+                <slot name="cta" />
             </div>
         </div>
         {hasToc && <TableOfContents headings={tocHeadings} />}
