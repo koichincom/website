@@ -7,6 +7,7 @@ import SectionTitle from "../components/SectionTitle.astro";
 import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
 import NewWindowLink from "../components/NewWindowLink.astro";
+import Button from "../components/Button.astro";
 
 const title = "Koichi Nakayamada";
 const h1Title = "Build Things, Analyze Data";
@@ -34,21 +35,18 @@ const writingPosts = (await getCollection("writing"))
 ---
 
 <BaseLayout metaTitle={title}>
-    <PageTitle>{h1Title}</PageTitle>
+    <PageTitle inset={false} class="text-center">{h1Title}</PageTitle>
     <div class="flex flex-col gap-8 sm:gap-12 pb-4">
         <section>
             <p
-                class="px-content-inset text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
+                class="px-content-inset text-center text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
             >
-                Japanese developer and Data Science student in the U.S. <br
-                />Currently working on <NewWindowLink
+                Japanese developer and Data Science student in the U.S.<br
+                />Interested in Open Source, CLI/TUI, AI, Data Science, Zig
+                language.<br />Currently working on <NewWindowLink
                     href="https://github.com/koichincom/count.nvim"
                     >count.nvim</NewWindowLink
-                >, a Neovim plugin for counting various text metrics.<br /> You can
-                follow me either by <a href="feed">Atom feed</a> or on
-                <NewWindowLink href="https://x.com/koichincom"
-                    >X (Twitter)</NewWindowLink
-                > .
+                >, a Neovim plugin for counting text metrics.<br />
             </p>
         </section>
 

@@ -1,0 +1,98 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type BaseProps = {
+    class?: string;
+    bgColor?: string;
+    textColor?: string;
+    hoverBgColor?: string;
+    hoverTextColor?: string;
+};
+
+type LinkProps = BaseProps &
+    Omit<HTMLAttributes<"a">, "class" | "href" | "type"> & {
+        href: string;
+        copyValue?: never;
+        type?: never;
+    };
+
+type CopyProps = BaseProps &
+    Omit<HTMLAttributes<"button">, "class" | "type"> & {
+        copyValue: string;
+        href?: never;
+        type?: never;
+    };
+
+type ButtonProps = BaseProps &
+    Omit<HTMLAttributes<"button">, "class"> & {
+        href?: never;
+        copyValue?: never;
+        type?: "button" | "submit" | "reset";
+    };
+
+export type Props = LinkProps | CopyProps | ButtonProps;
+
+const {
+    class: className,
+    type = "button",
+    href,
+    copyValue,
+    bgColor = "var(--color-text-first)",
+    textColor = "var(--color-background)",
+    hoverBgColor,
+    hoverTextColor,
+    ...rest
+} = Astro.props;
+
+const resolvedHoverBgColor = hoverBgColor ?? bgColor;
+const resolvedHoverTextColor = hoverTextColor ?? textColor;
+
+const styleValue = [
+    `--button-bg: ${bgColor}`,
+    `--button-text: ${textColor}`,
+    `--button-bg-hover: ${resolvedHoverBgColor}`,
+    `--button-text-hover: ${resolvedHoverTextColor}`,
+].join("; ");
+
+const commonClasses = [
+    "inline-flex cursor-pointer appearance-none items-center justify-center rounded-full text-sm font-medium leading-none",
+    "bg-[var(--button-bg)] text-[var(--button-text)]",
+    "hover:bg-[var(--button-bg-hover)] hover:text-[var(--button-text-hover)]",
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--button-text)]",
+    className,
+];
+
+const isLinkMode = typeof href === "string";
+const isCopyMode = typeof copyValue === "string";
+---
+
+{
+    isLinkMode ? (
+        <a href={href} class:list={commonClasses} style={styleValue} {...rest}>
+            <slot />
+        </a>
+    ) : isCopyMode ? (
+        <button
+            type="button"
+            class:list={commonClasses}
+            style={styleValue}
+            data-copy-str
+            data-copy-str-value={copyValue}
+            {...rest}
+        >
+            <slot />
+        </button>
+    ) : (
+        <button
+            type={type}
+            class:list={[
+                commonClasses,
+                "disabled:cursor-not-allowed disabled:opacity-60",
+            ]}
+            style={styleValue}
+            {...rest}
+        >
+            <slot />
+        </button>
+    )
+}
