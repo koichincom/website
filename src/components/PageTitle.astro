@@ -1,5 +1,5 @@
 ---
-import { classNames as cn } from "../utils/class-names";
+import { classNames } from "../utils/class-names";
 
 export interface Props {
     inset?: boolean;
@@ -7,7 +7,7 @@ export interface Props {
 }
 
 const { inset = true, class: className = "" } = Astro.props;
-const titleClass = cn(
+const titleClass = classNames(
     inset && "px-content-inset",
     "text-2xl sm:text-5xl font-bold mb-8",
     className,

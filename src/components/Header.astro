@@ -1,5 +1,5 @@
 ---
-import { classNames as cn } from "../utils/class-names";
+import { classNames } from "../utils/class-names";
 import Logo from "./Logo.astro";
 import {
     getActiveSection,
@@ -45,15 +45,15 @@ const NAV_CONTAINER_PENDING_SUPPRESS =
     "[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent dark:[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent";
 const NAV_CONTAINER_PENDING_TEXT_SUPPRESS =
     "[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)_>.nav-pill]:!text-(--color-text-second) dark:[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)_>.nav-pill]:!text-(--color-text-second-dark)";
-const navClass = cn(
+const navClass = classNames(
     "h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap",
     NAV_CONTAINER_HAS_ACTIVE_SUPPRESS,
     NAV_CONTAINER_HAS_ACTIVE_TEXT_SUPPRESS,
     NAV_CONTAINER_PENDING_SUPPRESS,
     NAV_CONTAINER_PENDING_TEXT_SUPPRESS,
 );
-const homeLinkClass = cn(NAV_ITEM_HITBOX_BASE);
-const homePillClass = cn(
+const homeLinkClass = classNames(NAV_ITEM_HITBOX_BASE);
+const homePillClass = classNames(
     NAV_ITEM_PILL_BASE,
     NAV_ITEM_HOME_PILL_GAP,
     NAV_ITEM_PILL_HOVER_BG,
@@ -61,8 +61,8 @@ const homePillClass = cn(
     NAV_ITEM_PILL_ACTIVE_VARIANTS,
     NAV_ITEM_PILL_PENDING_VARIANTS,
 );
-const navItemLinkClass = cn(NAV_ITEM_HITBOX_BASE);
-const navItemPillClass = cn(
+const navItemLinkClass = classNames(NAV_ITEM_HITBOX_BASE);
+const navItemPillClass = classNames(
     NAV_ITEM_PILL_BASE,
     NAV_ITEM_PILL_HOVER_BG,
     NAV_ITEM_PILL_HOVER_TEXT,
