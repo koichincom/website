@@ -33,5 +33,5 @@ const writingPosts = (await getCollection("writing")).sort((a, b) => {
             href="/feed">Atom feeds</NewWindowLink
         >.
     </p>
-    <WritingList posts={writingPosts} subtitleMinLines={2} />
+    <WritingList posts={writingPosts} rowMinLines={2} />
 </BaseLayout>

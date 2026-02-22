@@ -8,13 +8,13 @@ import { cssVarStyle, normalizeMinLines } from "../utils/min-lines";
 
 export interface Props {
     posts: CollectionEntry<"writing">[];
-    subtitleMinLines?: number;
+    rowMinLines?: number;
 }
 
-const { posts, subtitleMinLines = 2 } = Astro.props;
-const minLines = normalizeMinLines(subtitleMinLines, 2);
+const { posts, rowMinLines = 2 } = Astro.props;
+const minLines = normalizeMinLines(rowMinLines, 2);
 const rowMinHeightClass =
-    "sm:min-h-[calc(var(--writing-subtitle-min-lines)*1lh)]";
+    "sm:min-h-[calc(var(--writing-row-min-lines)*1lh)]";
 const titleColumnClass = ["min-w-0 flex items-center mr-36", rowMinHeightClass]
     .filter(Boolean)
     .join(" ");
@@ -42,7 +42,7 @@ const postsWithReadingTime = posts.map((post) => {
 });
 ---
 
-<ul class="grid w-full grid-cols-[fit-content(30%)_minmax(0,1fr)_max-content]">
+<ul class="grid w-full grid-cols-[fit-content(40%)_minmax(0,1fr)_max-content]">
     {
         postsWithReadingTime.map(
             ({ post, formattedDate, readingTime, subtitle }) => (
@@ -54,7 +54,7 @@ const postsWithReadingTime = posts.map((post) => {
                     <div
                         class={titleColumnClass}
                         style={cssVarStyle(
-                            "--writing-subtitle-min-lines",
+                            "--writing-row-min-lines",
                             minLines,
                         )}
                     >
@@ -65,7 +65,7 @@ const postsWithReadingTime = posts.map((post) => {
                     <div
                         class={subtitleColumnClass}
                         style={cssVarStyle(
-                            "--writing-subtitle-min-lines",
+                            "--writing-row-min-lines",
                             minLines,
                         )}
                     >
@@ -76,7 +76,7 @@ const postsWithReadingTime = posts.map((post) => {
                     <div
                         class={metadataColumnClass}
                         style={cssVarStyle(
-                            "--writing-subtitle-min-lines",
+                            "--writing-row-min-lines",
                             minLines,
                         )}
                     >
