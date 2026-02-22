@@ -1,15 +1,34 @@
 ---
 import ListRow from "./ListRow.astro";
 import type { CollectionEntry } from "astro:content";
+import { cssVarStyle, normalizeMinLines } from "../utils/min-lines";
 
 export interface Props {
     projects: CollectionEntry<"projects">[];
+    rowMinLines?: number;
 }
 
-const { projects } = Astro.props;
+const { projects, rowMinLines = 1 } = Astro.props;
+
+const minLines = normalizeMinLines(rowMinLines, 1);
+const rowMinHeightClass = "sm:min-h-[calc(var(--project-row-min-lines)*1lh)]";
+const nameColumnClass = [
+    "min-w-0 sm:flex sm:items-center sm:leading-snug",
+    rowMinHeightClass,
+]
+    .filter(Boolean)
+    .join(" ");
+const descriptionColumnClass = [
+    "min-w-0 sm:flex sm:items-center mt-2 sm:mt-0 sm:leading-snug",
+    rowMinHeightClass,
+]
+    .filter(Boolean)
+    .join(" ");
 ---
 
-<ul>
+<ul
+    class="sm:grid sm:w-full sm:gap-x-36 sm:grid-cols-[fit-content(40%)_minmax(0,1fr)]"
+>
     {
         projects.map((project) => (
             <ListRow
@@ -17,19 +36,24 @@ const { projects } = Astro.props;
                 target="_blank"
                 rel="noopener noreferrer"
                 ariaLabel={`Open ${project.data.name}`}
-                class="no-custom-underline"
+                rowClass="sm:col-span-full sm:grid sm:grid-cols-[subgrid]"
+                class="no-custom-underline sm:grid sm:grid-cols-[subgrid] sm:col-span-full sm:items-start"
             >
-                <div class="flex flex-col sm:grid sm:grid-cols-[minmax(0,0.3fr)_minmax(0,0.7fr)] sm:items-center sm:gap-x-6">
-                    <div class="sm:min-w-0 sm:flex sm:items-center sm:min-h-[2lh]">
-                        <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) sm:min-w-0 sm:break-words sm:leading-snug sm:line-clamp-2">
-                            {project.data.name}
-                        </span>
-                    </div>
-                    <div class="sm:min-w-0 sm:flex sm:items-center sm:min-h-[2lh] mt-2 sm:mt-0">
-                        <span class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) sm:min-w-0 sm:break-words sm:leading-snug sm:line-clamp-2">
-                            {project.data.description}
-                        </span>
-                    </div>
+                <div
+                    class={nameColumnClass}
+                    style={cssVarStyle("--project-row-min-lines", minLines)}
+                >
+                    <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) min-w-0 break-words leading-snug">
+                        {project.data.name}
+                    </span>
+                </div>
+                <div
+                    class={descriptionColumnClass}
+                    style={cssVarStyle("--project-row-min-lines", minLines)}
+                >
+                    <span class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) min-w-0 break-words leading-snug">
+                        {project.data.description}
+                    </span>
                 </div>
             </ListRow>
         ))

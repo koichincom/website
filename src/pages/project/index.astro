@@ -47,5 +47,12 @@ const sortedProjects = sortProjects(Projects);
             <b>Experimental:</b> built as an experimentation. Not for actual use.
         </li>
     </ul>
-    {sortedProjects.length ? <ProjectList projects={sortedProjects} /> : null}
+    {
+        sortedProjects.length ? (
+            <ProjectList
+                projects={sortedProjects}
+                rowMinLines={2}
+            />
+        ) : null
+    }
 </BaseLayout>

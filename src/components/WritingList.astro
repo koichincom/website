@@ -1,48 +1,99 @@
 ---
 import ListRow from "./ListRow.astro";
+import type { CollectionEntry } from "astro:content";
+
 import { formatDate } from "../utils/date-formatter";
 import { getReadingTime } from "../utils/reading-time";
-import type { CollectionEntry } from "astro:content";
+import { cssVarStyle, normalizeMinLines } from "../utils/min-lines";
 
 export interface Props {
     posts: CollectionEntry<"writing">[];
+    subtitleMinLines?: number;
 }
 
-const { posts } = Astro.props;
+const { posts, subtitleMinLines = 2 } = Astro.props;
+const minLines = normalizeMinLines(subtitleMinLines, 2);
+const rowMinHeightClass =
+    "sm:min-h-[calc(var(--writing-subtitle-min-lines)*1lh)]";
+const titleColumnClass = ["min-w-0 flex items-center mr-36", rowMinHeightClass]
+    .filter(Boolean)
+    .join(" ");
+const subtitleColumnClass = [
+    "min-w-0 flex items-center mr-12",
+    rowMinHeightClass,
+]
+    .filter(Boolean)
+    .join(" ");
+const metadataColumnClass = [
+    "min-w-0 justify-self-end sm:flex sm:items-center",
+    rowMinHeightClass,
+]
+    .filter(Boolean)
+    .join(" ");
 
 // Compute reading time and formatted strings for each post
 const postsWithReadingTime = posts.map((post) => {
     const readingTime = getReadingTime(post.body || "");
     const formattedDate = formatDate(post.data.published);
-    return { post, formattedDate, readingTime };
+    const postData = post.data as Record<string, unknown>;
+    const subtitle =
+        typeof postData.subtitle === "string" ? postData.subtitle : "";
+    return { post, formattedDate, readingTime, subtitle };
 });
 ---
 
-<ul
-    class="grid w-full gap-x-12 grid-cols-[minmax(0,1fr)_max-content_max-content]"
->
+<ul class="grid w-full grid-cols-[fit-content(30%)_minmax(0,1fr)_max-content]">
     {
-        postsWithReadingTime.map(({ post, formattedDate, readingTime }) => (
-            <ListRow
-                href={`/writing/${post.id}`}
-                rowClass="col-span-full grid grid-cols-[subgrid]"
-                class="grid grid-cols-[subgrid] col-span-full items-center no-custom-underline"
-            >
-                <div class="min-w-0 flex items-center min-h-[1lh]">
-                    <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) min-w-0 break-words leading-snug line-clamp-1">
-                        {post.data.title}
-                    </span>
-                </div>
-                <time
-                    class="tabular-nums whitespace-nowrap text-right justify-self-end line-clamp-1 text-(--color-text-third) dark:text-(--color-text-third-dark)"
-                    datetime={post.data.published.toISOString()}
+        postsWithReadingTime.map(
+            ({ post, formattedDate, readingTime, subtitle }) => (
+                <ListRow
+                    href={`/writing/${post.id}`}
+                    rowClass="col-span-full grid grid-cols-[subgrid]"
+                    class="grid grid-cols-[subgrid] col-span-full items-start no-custom-underline"
                 >
-                    {formattedDate}
-                </time>
-                <span class="tabular-nums whitespace-nowrap text-right justify-self-end line-clamp-1 text-(--color-text-third) dark:text-(--color-text-third-dark)">
-                    {readingTime}
-                </span>
-            </ListRow>
-        ))
+                    <div
+                        class={titleColumnClass}
+                        style={cssVarStyle(
+                            "--writing-subtitle-min-lines",
+                            minLines,
+                        )}
+                    >
+                        <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) min-w-0 break-words leading-snug">
+                            {post.data.title}
+                        </span>
+                    </div>
+                    <div
+                        class={subtitleColumnClass}
+                        style={cssVarStyle(
+                            "--writing-subtitle-min-lines",
+                            minLines,
+                        )}
+                    >
+                        <span class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) min-w-0 break-words leading-snug">
+                            {subtitle}
+                        </span>
+                    </div>
+                    <div
+                        class={metadataColumnClass}
+                        style={cssVarStyle(
+                            "--writing-subtitle-min-lines",
+                            minLines,
+                        )}
+                    >
+                        <div class="flex flex-col items-end">
+                            <span class="tabular-nums whitespace-nowrap text-right text-(--color-text-third) dark:text-(--color-text-third-dark)">
+                                {readingTime}
+                            </span>
+                            <time
+                                class="tabular-nums whitespace-nowrap text-right text-(--color-text-third) dark:text-(--color-text-third-dark)"
+                                datetime={post.data.published.toISOString()}
+                            >
+                                {formattedDate}
+                            </time>
+                        </div>
+                    </div>
+                </ListRow>
+            ),
+        )
     }
 </ul>

@@ -65,12 +65,15 @@ const writingPosts = (await getCollection("writing"))
 
         <section>
             <SectionTitle>Featured Projects</SectionTitle>
-            <ProjectList projects={projects} />
+            <ProjectList
+                projects={projects}
+                rowMinLines={2}
+            />
         </section>
 
         <section>
             <SectionTitle>Latest Writing</SectionTitle>
-            <WritingList posts={writingPosts} />
+            <WritingList posts={writingPosts} subtitleMinLines={2} />
         </section>
     </div>
 

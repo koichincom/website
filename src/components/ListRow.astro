@@ -16,6 +16,7 @@ const {
     class: className = "",
     rowClass: rowClassName = "",
 } = Astro.props;
+
 const rowClass = [
     "group relative w-full rounded-lg hover:bg-(--color-hover) dark:hover:bg-(--color-hover-dark) before:content-[''] before:absolute before:top-0 before:left-[var(--spacing-list-divider-inset)] before:right-[var(--spacing-list-divider-inset)] before:border-t before:border-(--color-divider) dark:before:border-(--color-divider-dark) first:before:hidden hover:before:opacity-0 hover:[&+li]:before:opacity-0",
     rowClassName,
