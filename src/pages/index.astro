@@ -6,7 +6,6 @@ import PageTitle from "../components/PageTitle.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
-import CopyStr from "../components/CopyStr.astro";
 import NewWindowLink from "../components/NewWindowLink.astro";
 
 const title = "Koichi Nakayamada";
@@ -41,19 +40,15 @@ const writingPosts = (await getCollection("writing"))
             <p
                 class="px-content-inset text-base text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
             >
-                A Japanese developer and Data Science student, studying in the
-                U.S. <br />Lately I work on <NewWindowLink
+                Japanese developer and Data Science student in the U.S. <br
+                />Currently working on <NewWindowLink
                     href="https://github.com/koichincom/count.nvim"
                     >count.nvim</NewWindowLink
-                >, a Neovim plugin for counting various text file metrics for
-                writing.<br /> You can follow me either by <a href="feed"
-                    >Atom feed</a
-                > or
+                >, a Neovim plugin for counting various text metrics.<br /> You can
+                follow me either by <a href="feed">Atom feed</a> or on
                 <NewWindowLink href="https://x.com/koichincom"
                     >X (Twitter)</NewWindowLink
-                > and get in contact with me using <NewWindowLink
-                    href="https://example.com">Signal</NewWindowLink
-                > or <CopyStr copyValue="k@koichin.com">Email</CopyStr>.
+                > .
             </p>
         </section>
 
@@ -66,7 +61,11 @@ const writingPosts = (await getCollection("writing"))
         <section>
             <span class="flex items-center justify-between mb-8">
                 <SectionTitle>Featured Projects</SectionTitle>
-                <a href="/projects" class="text-(--color-text-second) dark:text-(--color-text-second-dark)">All projects</a>
+                <a
+                    href="/projects"
+                    class="text-(--color-text-second) dark:text-(--color-text-second-dark)"
+                    >All projects</a
+                >
             </span>
             <ProjectList projects={projects} rowMinLines={2} />
         </section>
@@ -74,7 +73,11 @@ const writingPosts = (await getCollection("writing"))
         <section>
             <span class="flex items-center justify-between mb-8">
                 <SectionTitle>Latest Writing</SectionTitle>
-                <a href="/writing" class="text-(--color-text-second) dark:text-(--color-text-second-dark)">All writing</a>
+                <a
+                    href="/writing"
+                    class="text-(--color-text-second) dark:text-(--color-text-second-dark)"
+                    >All writing</a
+                >
             </span>
             <WritingList posts={writingPosts} rowMinLines={2} />
         </section>

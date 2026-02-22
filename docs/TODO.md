@@ -11,9 +11,6 @@
 - [ ] Add table sorting or filtering feature for the project list
 - [ ] Reorganize tag system for projects (hardware, tryout, oss) and display in the list
 - [ ] Feed CTA design at the end of each piece of writing
-- [ ] Home design
-    - Continuous reading experience at the bottom
-    - GIF or image for the hero
 - [ ] Mobile responsiveness
 
 ### P2
@@ -99,3 +96,6 @@
 - [x] Make the CopyToClipboardLink make prop agnostic (accept string or link) for emails, and change the toast text to "Copied"
 - [x] List structure that doesn't truncate string and make the list row size flexible
 - [x] View all buttons for featured projects and latest writing
+- [x] Home design
+    - Continuous reading experience at the bottom
+    - GIF or image for the hero
