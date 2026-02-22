@@ -4,32 +4,32 @@ import type { CollectionEntry } from "astro:content";
 
 import { formatDate } from "../utils/date-formatter";
 import { getReadingTime } from "../utils/reading-time";
-import { cssVarStyle, normalizeMinLines } from "../utils/min-lines";
+import {
+    cssVarStyle,
+    normalizeMinLines as normalizeMinLines,
+} from "../utils/min-lines";
+import { classNames } from "../utils/class-names";
 
 export interface Props {
     posts: CollectionEntry<"writing">[];
-    rowMinLines?: number;
+    rowMinLines: number;
 }
 
-const { posts, rowMinLines = 2 } = Astro.props;
+const { posts, rowMinLines } = Astro.props;
 const minLines = normalizeMinLines(rowMinLines);
-const rowMinHeightClass =
-    "sm:min-h-[calc(var(--writing-row-min-lines)*1lh)]";
-const titleColumnClass = ["min-w-0 flex items-center mr-36", rowMinHeightClass]
-    .filter(Boolean)
-    .join(" ");
-const subtitleColumnClass = [
+const rowMinHeightClass = "sm:min-h-[calc(var(--writing-row-min-lines)*1lh)]";
+const titleColumnClass = classNames(
+    "min-w-0 flex items-center mr-36",
+    rowMinHeightClass,
+);
+const subtitleColumnClass = classNames(
     "min-w-0 flex items-center mr-12",
     rowMinHeightClass,
-]
-    .filter(Boolean)
-    .join(" ");
-const metadataColumnClass = [
+);
+const metadataColumnClass = classNames(
     "min-w-0 justify-self-end sm:flex sm:items-center",
     rowMinHeightClass,
-]
-    .filter(Boolean)
-    .join(" ");
+);
 
 // Compute reading time and formatted strings for each post
 const postsWithReadingTime = posts.map((post) => {
@@ -53,32 +53,23 @@ const postsWithReadingTime = posts.map((post) => {
                 >
                     <div
                         class={titleColumnClass}
-                        style={cssVarStyle(
-                            "--writing-row-min-lines",
-                            minLines,
-                        )}
+                        style={cssVarStyle("--writing-row-min-lines", minLines)}
                     >
-                        <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) min-w-0 break-words leading-snug">
+                        <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) min-w-0 break-words">
                             {post.data.title}
                         </span>
                     </div>
                     <div
                         class={subtitleColumnClass}
-                        style={cssVarStyle(
-                            "--writing-row-min-lines",
-                            minLines,
-                        )}
+                        style={cssVarStyle("--writing-row-min-lines", minLines)}
                     >
-                        <span class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) min-w-0 break-words leading-snug">
+                        <span class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) min-w-0 break-words">
                             {subtitle}
                         </span>
                     </div>
                     <div
                         class={metadataColumnClass}
-                        style={cssVarStyle(
-                            "--writing-row-min-lines",
-                            minLines,
-                        )}
+                        style={cssVarStyle("--writing-row-min-lines", minLines)}
                     >
                         <div class="flex flex-col items-end">
                             <span class="tabular-nums whitespace-nowrap text-right text-(--color-text-third) dark:text-(--color-text-third-dark)">

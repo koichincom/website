@@ -1,17 +1,17 @@
 ---
+import { classNames as cn } from "../utils/class-names";
+
 export interface Props {
     inset?: boolean;
     class?: string;
 }
 
 const { inset = true, class: className = "" } = Astro.props;
-const titleClass = [
+const titleClass = cn(
     inset && "px-content-inset",
     "text-2xl sm:text-5xl font-bold mb-8",
     className,
-]
-    .filter(Boolean)
-    .join(" ");
+);
 ---
 
 <h1 class={titleClass}>

@@ -2,28 +2,25 @@
 import ListRow from "./ListRow.astro";
 import type { CollectionEntry } from "astro:content";
 import { cssVarStyle, normalizeMinLines } from "../utils/min-lines";
+import { classNames } from "../utils/class-names";
 
 export interface Props {
     projects: CollectionEntry<"projects">[];
-    rowMinLines?: number;
+    rowMinLines: number;
 }
 
-const { projects, rowMinLines = 1 } = Astro.props;
+const { projects, rowMinLines } = Astro.props;
 
 const minLines = normalizeMinLines(rowMinLines);
 const rowMinHeightClass = "sm:min-h-[calc(var(--project-row-min-lines)*1lh)]";
-const nameColumnClass = [
-    "min-w-0 sm:flex sm:items-center sm:leading-snug",
+const nameColumnClass = classNames(
+    "min-w-0 sm:flex sm:items-center",
     rowMinHeightClass,
-]
-    .filter(Boolean)
-    .join(" ");
-const descriptionColumnClass = [
-    "min-w-0 sm:flex sm:items-center mt-2 sm:mt-0 sm:leading-snug",
+);
+const descriptionColumnClass = classNames(
+    "min-w-0 sm:flex sm:items-center mt-2 sm:mt-0",
     rowMinHeightClass,
-]
-    .filter(Boolean)
-    .join(" ");
+);
 ---
 
 <ul
@@ -43,7 +40,7 @@ const descriptionColumnClass = [
                     class={nameColumnClass}
                     style={cssVarStyle("--project-row-min-lines", minLines)}
                 >
-                    <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) min-w-0 break-words leading-snug">
+                    <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) min-w-0 break-words">
                         {project.data.name}
                     </span>
                 </div>
@@ -51,7 +48,7 @@ const descriptionColumnClass = [
                     class={descriptionColumnClass}
                     style={cssVarStyle("--project-row-min-lines", minLines)}
                 >
-                    <span class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) min-w-0 break-words leading-snug">
+                    <span class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) min-w-0 break-words">
                         {project.data.description}
                     </span>
                 </div>
