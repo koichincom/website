@@ -4,18 +4,22 @@
 
 ### Now
 
+- [ ] I found the X and RSS are kind of the CTA for this website, emphasize them more in the design: currently the button component is too complex. Make it for this usecase only, don't generalize it too early
+
 ### P0
+
+- [ ] Add table sorting or filtering feature for the project list
+- [ ] Consider to drop the name on scroll
 
 ### P1
 
-- [ ] Add table sorting or filtering feature for the project list
+- [ ] The best reading experience!
 - [ ] Reorganize tag system for projects (hardware, tryout, oss) and display in the list
-- [ ] Feed CTA design at the end of each piece of writing
 - [ ] Mobile responsiveness
 
 ### P2
 
-- [ ] CSS adjastments and color palette
+- [ ] CSS adjastments and color palette: probably let AI to list the important check points and let them check by reading all the codebase
 - [ ] SEO improvements (docs/SEO.md)
 - [ ] Add Japanese support (Astro i18n)
 
@@ -97,5 +101,6 @@
 - [x] List structure that doesn't truncate string and make the list row size flexible
 - [x] View all buttons for featured projects and latest writing
 - [x] Home design
-    - Continuous reading experience at the bottom
-    - GIF or image for the hero
+    - Continuous reading experience at the bottom: No
+    - GIF or image for the hero: Test video is embedded already
+- [x] Feed CTA design at the end of each piece of writing
