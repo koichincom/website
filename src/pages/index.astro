@@ -64,15 +64,18 @@ const writingPosts = (await getCollection("writing"))
         </section>
 
         <section>
-            <SectionTitle>Featured Projects</SectionTitle>
-            <ProjectList
-                projects={projects}
-                rowMinLines={2}
-            />
+            <span class="flex items-center justify-between mb-8">
+                <SectionTitle>Featured Projects</SectionTitle>
+                <a href="/projects" class="text-(--color-text-second) dark:text-(--color-text-second-dark)">All projects</a>
+            </span>
+            <ProjectList projects={projects} rowMinLines={2} />
         </section>
 
         <section>
-            <SectionTitle>Latest Writing</SectionTitle>
+            <span class="flex items-center justify-between mb-8">
+                <SectionTitle>Latest Writing</SectionTitle>
+                <a href="/writing" class="text-(--color-text-second) dark:text-(--color-text-second-dark)">All writing</a>
+            </span>
             <WritingList posts={writingPosts} rowMinLines={2} />
         </section>
     </div>
