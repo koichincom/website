@@ -3,8 +3,7 @@ import TrailingIcon from "./TrailingIcon.astro";
 import LinkSvg from "../assets/link.svg";
 
 export interface Props {
-    copyValue?: string;
-    href?: string;
+    copyValue: string;
     class?: string;
     ariaLabel?: string;
     iconClass?: string;
@@ -12,13 +11,10 @@ export interface Props {
 
 const {
     copyValue,
-    href,
     class: className = "",
-    ariaLabel = "Copy string or link to clipboard",
+    ariaLabel = "Copy to clipboard",
     iconClass = "w-[1lh] h-[1lh]",
 } = Astro.props;
-
-const resolvedCopyValue = copyValue ?? href;
 ---
 
 <!-- prettier-ignore -->
@@ -30,6 +26,6 @@ const resolvedCopyValue = copyValue ?? href;
     ]}
     aria-label={ariaLabel}
     data-copy-str
-    data-copy-str-value={resolvedCopyValue}
+    data-copy-str-value={copyValue}
 ><TrailingIcon><slot /><!--
 --><LinkSvg slot="icon" class={iconClass} /></TrailingIcon></button>

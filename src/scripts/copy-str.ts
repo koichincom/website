@@ -2,45 +2,31 @@ const COPY_STR_SELECTOR = "[data-copy-str]";
 
 let copyStrInitialized = false;
 
-type CopyStrElement = HTMLAnchorElement | HTMLButtonElement;
-
 const getCopyStrElement = (
     target: EventTarget | null,
-): CopyStrElement | undefined => {
+): HTMLButtonElement | undefined => {
     if (!(target instanceof Element)) {
         return undefined;
     }
 
     const copyStrElement = target.closest(COPY_STR_SELECTOR);
 
-    if (
-        !(
-            copyStrElement instanceof HTMLAnchorElement ||
-            copyStrElement instanceof HTMLButtonElement
-        )
-    ) {
+    if (!(copyStrElement instanceof HTMLButtonElement)) {
         return undefined;
     }
 
     return copyStrElement;
 };
 
-const getCopyValue = (copyStrElement: CopyStrElement): string | undefined => {
+const getCopyValue = (
+    copyStrElement: HTMLButtonElement,
+): string | undefined => {
     const copyValue = copyStrElement.getAttribute("data-copy-str-value");
     if (copyValue) {
         return copyValue;
     }
 
-    if (!(copyStrElement instanceof HTMLAnchorElement)) {
-        return undefined;
-    }
-
-    const href = copyStrElement.getAttribute("href");
-    if (!href) {
-        return undefined;
-    }
-
-    return href;
+    return undefined;
 };
 
 const copyText = async (text: string): Promise<boolean> => {
@@ -69,8 +55,6 @@ const initCopyStr = (): void => {
         if (!copyStrElement) {
             return;
         }
-
-        event.preventDefault();
 
         const copyValue = getCopyValue(copyStrElement);
         if (!copyValue) {
