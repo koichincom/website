@@ -10,7 +10,7 @@ export interface Props {
 
 const { projects, rowMinLines = 1 } = Astro.props;
 
-const minLines = normalizeMinLines(rowMinLines, 1);
+const minLines = normalizeMinLines(rowMinLines);
 const rowMinHeightClass = "sm:min-h-[calc(var(--project-row-min-lines)*1lh)]";
 const nameColumnClass = [
     "min-w-0 sm:flex sm:items-center sm:leading-snug",

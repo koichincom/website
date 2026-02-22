@@ -1,10 +1,10 @@
-export const normalizeMinLines = (
-    value: number | undefined,
-    fallback = 1,
-): number => {
-    const raw =
-        typeof value === "number" && Number.isFinite(value) ? value : fallback;
-    return Math.max(1, Math.floor(raw));
+export const normalizeMinLines = (value: number): number => {
+    if (value <= 0 || isNaN(value) || !isFinite(value)) {
+        throw new Error(
+            `Invalid rowMinLines: ${value}. Must be a positive finite number.`,
+        );
+    }
+    return Math.floor(value);
 };
 
 export const cssVarStyle = (
