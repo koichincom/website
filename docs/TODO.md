@@ -14,7 +14,6 @@
 - [ ] Home design
     - Continuous reading experience at the bottom
     - GIF or image for the hero
-- [ ] View all buttons for featured projects and latest writing
 - [ ] Mobile responsiveness
 
 ### P2
@@ -99,3 +98,4 @@
 - [x] Does this name compete with Tailwind's "no-underline"? (from global.css: main a:not(.no-underline))
 - [x] Make the CopyToClipboardLink make prop agnostic (accept string or link) for emails, and change the toast text to "Copied"
 - [x] List structure that doesn't truncate string and make the list row size flexible
+- [x] View all buttons for featured projects and latest writing
