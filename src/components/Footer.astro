@@ -61,15 +61,27 @@ const FOOTER_TRAILING_LINK_CLASS =
         </div>
 
         <div class="space-y-4">
-            <div class="font-semibold">Social</div>
+            <div class="font-semibold">Follow</div>
             <ul class="space-y-2">
+                <li>
+                    <!-- prettier-ignore -->
+                    <NewWindowLink
+                        href="https://mastodon.social/@koichincom"
+                        class={FOOTER_TRAILING_LINK_CLASS}
+                        ><!--
+                        -->Mastodon<!--
+                    --></NewWindowLink>
+                </li>
+                <li>
+                    <a href="/feed" class={FOOTER_LINK_CLASS}>Atom feed</a>
+                </li>
                 <li>
                     <!-- prettier-ignore -->
                     <NewWindowLink
                         href="https://x.com/koichincom"
                         class={FOOTER_TRAILING_LINK_CLASS}
                         ><!--
-                        -->X/Twitter<!--
+                        -->X<!--
                     --></NewWindowLink>
                 </li>
                 <li>
@@ -89,9 +101,6 @@ const FOOTER_TRAILING_LINK_CLASS =
                         ><!--
                         -->LinkedIn<!--
                     --></NewWindowLink>
-                </li>
-                <li>
-                    <a href="/feed" class={FOOTER_LINK_CLASS}>Atom feed</a>
                 </li>
             </ul>
         </div>
