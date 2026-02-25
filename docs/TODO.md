@@ -4,7 +4,8 @@
 
 ### Now
 
-- [ ] I found the X and RSS are kind of the CTA for this website, emphasize them more in the design: currently the button component is too complex. Make it for this usecase only, don't generalize it too early
+- [ ] Make the Atom feed and social media (X and/or Mastodon) the CTA of the homepage, and other places like the header as needed.
+    - The current Button component was generalized too early, drop and simplify
 
 ### P0
 
