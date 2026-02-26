@@ -13,8 +13,10 @@ export interface Props {
 const { title, effectiveDate, headings } = Astro.props;
 const website = "https://koichin.com";
 const owner = "Koichi Nakayamada";
-const formattedEffectiveDate = effectiveDate ? formatDate(effectiveDate) : "";
-const contact = "k@koichin.com";
+const contactEmail = "k@koichin.com";
+const formattedEffectiveDate = effectiveDate
+    ? formatDate(effectiveDate)
+    : "";
 ---
 
 <ProseLayout title={title} headings={headings}>
