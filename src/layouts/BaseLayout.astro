@@ -9,10 +9,11 @@ import faviconSvg from "../assets/favicon.svg?raw";
 export interface Props {
     metaTitle: string;
     description?: string;
+    fediverseCreator?: string;
 }
 type FeedScope = "combined" | "project" | "writing";
 
-let { metaTitle = "Koichi Nakayamada", description } = Astro.props;
+let { metaTitle = "Koichi Nakayamada", description, fediverseCreator } = Astro.props;
 metaTitle = metaTitle + " - Koichi Nakayamada";
 
 const siteUrl = "https://koichin.com" + Astro.url.pathname;
@@ -100,6 +101,10 @@ const faviconHref = `data:image/svg+xml,${encodeURIComponent(
             content="#111111"
             media="(prefers-color-scheme: dark)"
         />
+
+        {fediverseCreator && (
+            <meta name="fediverse:creator" content={fediverseCreator} />
+        )}
 
         <link rel="canonical" href={siteUrl} />
         <link rel="icon" type="image/svg+xml" href={faviconHref} />

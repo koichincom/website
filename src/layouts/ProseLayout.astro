@@ -9,14 +9,15 @@ export interface Props {
     title: string;
     description?: string;
     headings?: TocHeading[];
+    fediverseCreator?: string;
 }
 
-const { title, description, headings = [] } = Astro.props;
+const { title, description, headings = [], fediverseCreator } = Astro.props;
 const tocHeadings = getH2Headings(headings);
 const hasToc = tocHeadings.length > 0;
 ---
 
-<BaseLayout metaTitle={title} description={description}>
+<BaseLayout metaTitle={title} description={description} fediverseCreator={fediverseCreator}>
     <div
         class:list={[
             "min-w-0",
