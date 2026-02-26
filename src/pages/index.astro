@@ -7,6 +7,7 @@ import SectionTitle from "../components/SectionTitle.astro";
 import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
 import NewWindowLink from "../components/NewWindowLink.astro";
+import CTALink from "../components/CTALink.astro";
 
 const title = "Koichi Nakayamada";
 const h1Title = "Build Things, Analyze Data";
@@ -47,6 +48,19 @@ const writingPosts = (await getCollection("writing"))
                     >count.nvim</NewWindowLink
                 >, a Neovim plugin for counting text metrics.<br />
             </p>
+            <div class="flex justify-center gap-4 mt-6">
+                <CTALink
+                    text="Follow on Mastodon"
+                    href="https://mastodon.social/@koichincom"
+                    newWindow
+                />
+                <CTALink
+                    text="Follow on X"
+                    href="https://x.com/koichincom"
+                    newWindow
+                />
+                <CTALink text="Subscribe to Atom Feed" href="/feed" />
+            </div>
         </section>
 
         <section>

@@ -1,0 +1,25 @@
+---
+export interface Props {
+    text: string;
+    href: string;
+    className?: string;
+    ariaLabel?: string;
+    newWindow?: boolean;
+}
+
+const { text, href, className, ariaLabel, newWindow = false } = Astro.props;
+
+const target = newWindow ? "_blank" : undefined;
+const rel = newWindow ? "noopener noreferrer" : undefined;
+const baseClasses = "inline-flex items-center rounded-full px-surface-inset py-1 no-custom-underline bg-(--color-text-first) text-(--color-background) dark:bg-(--color-text-first-dark) dark:text-(--color-background-dark)";
+---
+
+<a
+    href={href}
+    class:list={[baseClasses, className]}
+    {...(ariaLabel && { "aria-label": ariaLabel })}
+    target={target}
+    rel={rel}
+>
+    {text}
+</a>
