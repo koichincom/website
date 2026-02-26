@@ -35,6 +35,13 @@ const writingPosts = (await getCollection("writing"))
 ---
 
 <BaseLayout metaTitle={title}>
+    <!-- Remove later -->
+    <b
+        class="block px-content-inset py-2 text-center text-sm text-(--color-text-second) dark:text-(--color-text-second-dark) bg-(--color-bg-emphasis) rounded-lg mb-8"
+    >
+        This website is still under construction. I'm making this temporary
+        version public for the website access.
+    </b>
     <PageTitle inset={false} class="text-center">{h1Title}</PageTitle>
     <div class="flex flex-col gap-8 sm:gap-12 pb-4">
         <section>
@@ -61,12 +68,6 @@ const writingPosts = (await getCollection("writing"))
                 />
                 <CTALink text="Subscribe to Atom Feed" href="/feed" />
             </div>
-        </section>
-
-        <section>
-            <video controls preload="none" playsinline>
-                <source src="/test.mp4" type="video/mp4" />
-            </video>
         </section>
 
         <section>
