@@ -9,17 +9,15 @@
 
 ### P0
 
-- [ ] Add table sorting or filtering feature for the project list
-- [ ] Consider to drop the name on scroll
-
 ### P1
 
 - [ ] The best reading experience!
 - [ ] Reorganize tag system for projects (hardware, tryout, oss) and display in the list
-- [ ] Mobile responsiveness
+- [ ] Add table sorting or filtering feature for the project list
 
 ### P2
 
+- [ ] Mobile responsiveness
 - [ ] CSS adjastments and color palette: probably let AI to list the important check points and let them check by reading all the codebase
 - [ ] SEO improvements (docs/SEO.md)
 - [ ] Add Japanese support (Astro i18n)
@@ -105,3 +103,4 @@
     - Continuous reading experience at the bottom: No
     - GIF or image for the hero: Test video is embedded already
 - [x] Feed CTA design at the end of each piece of writing
+- [x] Consider to fade out the name in the header on scroll
