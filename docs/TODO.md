@@ -4,14 +4,12 @@
 
 ### Now
 
-- [ ] Make the Atom feed and social media (X and/or Mastodon) the CTA of the homepage, and other places like the header as needed.
-    - The current Button component was generalized too early, drop and simplify
+- [ ] The best reading experience!
 
 ### P0
 
 ### P1
 
-- [ ] The best reading experience!
 - [ ] Reorganize tag system for projects (hardware, tryout, oss) and display in the list
 - [ ] Add table sorting or filtering feature for the project list
 
@@ -103,4 +101,6 @@
     - Continuous reading experience at the bottom: No
     - GIF or image for the hero: Test video is embedded already
 - [x] Feed CTA design at the end of each piece of writing
+- [x] Make the Atom feed and social media (X and/or Mastodon) the CTA of the homepage, and other places like the header as needed.
+    - The current Button component was generalized too early, drop and simplify
 - [x] Consider to fade out the name in the header on scroll
