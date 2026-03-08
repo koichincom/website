@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import { Feed } from "feed";
 
 import { createUrl, mdxToHtml } from "./utils";
+import { SOCIAL_LINKS } from "../social-links";
 
 type SiteAuthor = {
     name: string;
@@ -25,7 +26,7 @@ export async function generateFeed(
     const site = getSiteUrl(context);
     const author: SiteAuthor = {
         name: "Koichi Nakayamada",
-        email: "k@koichin.com",
+        email: SOCIAL_LINKS.email,
         link: site,
     };
 

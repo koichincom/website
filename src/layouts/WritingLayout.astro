@@ -1,46 +1,35 @@
 ---
-import { formatDate } from "../utils/date-formatter";
 import ProseLayout from "./ProseLayout.astro";
 import type { TocHeading } from "../utils/table-of-contents";
 import NewWindowLink from "../components/NewWindowLink.astro";
+import { SOCIAL_IDENTIFIERS, SOCIAL_LINKS } from "../utils/social-links";
 
 export interface Props {
     title: string;
+    subtitle?: string;
     published: Date;
     lastUpdated?: Date;
     readingTime: string;
     description?: string;
     headings?: TocHeading[];
 }
-const { title, published, lastUpdated, readingTime, description, headings } =
-    Astro.props;
+const { title, subtitle, description, headings } = Astro.props;
 ---
 
-<ProseLayout title={title} description={description} headings={headings} fediverseCreator="@koichincom@mastodon.social">
-    <p
-        class="not-prose mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark) flex items-center gap-2"
-    >
-        {
-            readingTime && (
-                <>
-                    <span>{readingTime}</span>
-                    <span aria-hidden="true">·</span>
-                </>
-            )
-        }
-        <time datetime={published.toISOString()}>{formatDate(published)}</time>
-        {
-            lastUpdated && (
-                <>
-                    <span aria-hidden="true">·</span>
-                    <span>Last updated:</span>
-                    <time datetime={lastUpdated.toISOString()}>
-                        {formatDate(lastUpdated)}
-                    </time>
-                </>
-            )
-        }
-    </p>
+<ProseLayout
+    title={title}
+    description={description}
+    headings={headings}
+    fediverseCreator={SOCIAL_IDENTIFIERS.fediverseCreator}
+>
+    <slot name="sidebar" slot="sidebar" />
+    {
+        subtitle && (
+            <p class="not-prose mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">
+                {subtitle}
+            </p>
+        )
+    }
     <article>
         <slot />
     </article>
@@ -51,10 +40,11 @@ const { title, published, lastUpdated, readingTime, description, headings } =
         >
         </div>
         <p>
-            If you found this article interesting, consider sharing it with your
-            friends, or following me by <a href="/feed">Atom feed</a> or on
-            <NewWindowLink href="https://x.com/koichincom"
-                >X (Twitter)</NewWindowLink
+            For new writing or updates, subscribe to my <a href="/feed"
+                >Atom feed</a
+            > or follow me on
+            <NewWindowLink href={SOCIAL_LINKS.mastodonProfile}
+                >Mastodon</NewWindowLink
             >.
         </p>
     </div>

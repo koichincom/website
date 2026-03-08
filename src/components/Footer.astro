@@ -1,6 +1,7 @@
 ---
 import NewWindowLink from "./NewWindowLink.astro";
 import CopyStr from "./CopyStr.astro";
+import { SOCIAL_LINKS } from "../utils/social-links";
 
 const FOOTER_LINK_CLASS =
     "[border-bottom-width:var(--link-underline-thickness)] border-transparent hover:border-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)";
@@ -66,25 +67,19 @@ const FOOTER_TRAILING_LINK_CLASS =
                 <li>
                     <!-- prettier-ignore -->
                     <NewWindowLink
-                        href="https://mastodon.social/@koichincom"
+                        href={SOCIAL_LINKS.mastodonProfile}
                         class={FOOTER_TRAILING_LINK_CLASS}
                         ><!--
                         -->Mastodon<!--
                     --></NewWindowLink>
                 </li>
                 <li>
-                    <!-- prettier-ignore -->
-                    <NewWindowLink
-                        href="https://x.com/koichincom"
-                        class={FOOTER_TRAILING_LINK_CLASS}
-                        ><!--
-                        -->X<!--
-                    --></NewWindowLink>
+                    <a href="/feed" class={FOOTER_LINK_CLASS}>Atom feed</a>
                 </li>
                 <li>
                     <!-- prettier-ignore -->
                     <NewWindowLink
-                        href="https://github.com/koichincom"
+                        href={SOCIAL_LINKS.githubProfile}
                         class={FOOTER_TRAILING_LINK_CLASS}
                         ><!--
                         -->GitHub<!--
@@ -93,7 +88,7 @@ const FOOTER_TRAILING_LINK_CLASS =
                 <li>
                     <!-- prettier-ignore -->
                     <NewWindowLink
-                        href="https://linkedin.com/in/koichincom/"
+                        href={SOCIAL_LINKS.linkedInProfile}
                         class={FOOTER_TRAILING_LINK_CLASS}
                         ><!--
                         -->LinkedIn<!--
@@ -108,7 +103,7 @@ const FOOTER_TRAILING_LINK_CLASS =
                 <li>
                     <!-- prettier-ignore -->
                     <NewWindowLink
-                        href="https://signal.me/#eu/hFxJqhdUe_9zSwQs01xjuf6sz9n5Zag3yfHQzxGwPZPL-X863I9DF5QXch7gCsUv"
+                        href={SOCIAL_LINKS.signalProfile}
                         class={FOOTER_TRAILING_LINK_CLASS}
                         ><!--
                         -->Signal<!--
@@ -117,7 +112,7 @@ const FOOTER_TRAILING_LINK_CLASS =
                 <li>
                     <!-- prettier-ignore -->
                     <CopyStr
-                        copyValue="k@koichin.com"
+                        copyValue={SOCIAL_LINKS.email}
                         class={FOOTER_TRAILING_LINK_CLASS}
                         ><!--
                         -->Email<!--

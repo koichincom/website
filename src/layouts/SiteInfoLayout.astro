@@ -4,6 +4,7 @@ import NewWindowLink from "../components/NewWindowLink.astro";
 import CopyStr from "../components/CopyStr.astro";
 import ProseLayout from "./ProseLayout.astro";
 import type { TocHeading } from "../utils/table-of-contents";
+import { SOCIAL_LINKS } from "../utils/social-links";
 
 export interface Props {
     title: string;
@@ -14,10 +15,11 @@ const { title, effectiveDate, headings } = Astro.props;
 const website = "https://koichin.com";
 const owner = "Koichi Nakayamada";
 const formattedEffectiveDate = effectiveDate ? formatDate(effectiveDate) : "";
-const contact = "k@koichin.com";
+const contact = SOCIAL_LINKS.email;
 ---
 
 <ProseLayout title={title} headings={headings}>
+    <slot name="sidebar" slot="sidebar" />
     <p>
         Effective date: {formattedEffectiveDate}<br />
         Website: <NewWindowLink href={website}>{website}</NewWindowLink><br />
