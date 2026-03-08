@@ -32,7 +32,7 @@ export default defineConfig({
                 provider: fontProviders.fontsource(),
                 name: "Iosevka Aile",
                 cssVariable: "--font-iosevka-aile",
-                display: "block",
+                display: "swap",
             },
         ],
     },
