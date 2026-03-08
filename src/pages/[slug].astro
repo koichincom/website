@@ -21,5 +21,6 @@ const { Content, headings } = await render(page);
     effectiveDate={page.data.effectiveDate}
     headings={headings}
 >
+    <section slot="sidebar"></section>
     <Content components={{ NewWindow, CopyStr }} />
 </SiteInfoLayout>

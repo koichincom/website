@@ -8,6 +8,7 @@ import WritingList from "../components/WritingList.astro";
 import ProjectList from "../components/ProjectList.astro";
 import NewWindowLink from "../components/NewWindowLink.astro";
 import CTALink from "../components/CTALink.astro";
+import { SOCIAL_LINKS } from "../utils/social-links";
 
 const title = "Koichi Nakayamada";
 const h1Title = "Build Things, Analyze Data";
@@ -41,7 +42,7 @@ const writingPosts = (await getCollection("writing"))
             <p
                 class="px-content-inset text-center text-(--color-text-second) dark:text-(--color-text-second-dark) leading-relaxed"
             >
-                Japanese developer and Data Science student, based in the U.S.<br
+                Japanese developer and Data Science student based in the U.S.<br
                 />Interested in Open Source, AI/ML, Data Science, CLI/TUI,
                 Linux, Nix, Zig.<br />Currently working on <NewWindowLink
                     href="https://github.com/koichincom/count.nvim"
@@ -51,22 +52,14 @@ const writingPosts = (await getCollection("writing"))
             <div class="flex justify-center gap-4 mt-6">
                 <CTALink
                     text="Follow on Mastodon"
-                    href="https://mastodon.social/@koichincom"
+                    href={SOCIAL_LINKS.mastodonProfile}
                     newWindow
                 />
                 <CTALink
-                    text="Follow on X"
-                    href="https://x.com/koichincom"
-                    newWindow
+                    text="Atom feed"
+                    href="/feed"
                 />
-                <CTALink text="Subscribe to Atom Feed" href="/feed" />
             </div>
-        </section>
-
-        <section>
-            <video controls preload="none" playsinline>
-                <source src="/test.mp4" type="video/mp4" />
-            </video>
         </section>
 
         <section>

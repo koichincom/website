@@ -23,6 +23,7 @@ const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
 
 <WritingLayout
     title={post.data.title}
+    subtitle={post.data.subtitle}
     published={post.data.published}
     lastUpdated={lastUpdated}
     readingTime={readingTime}
@@ -31,4 +32,5 @@ const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
     <!-- Expose NewWindowLink to MDX via the MDX `components` map (works for custom tags too). -->
     <!-- https://mdxjs.com/docs/using-mdx/#how-mdx-works -->
     <Content components={{ NewWindow, CopyStr }} />
+    <section slot="sidebar"></section>
 </WritingLayout>
