@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import PageTitle from "../components/PageTitle.astro";
-import TableOfContents from "../components/TableOfContents.astro";
 import { getH2Headings } from "../utils/table-of-contents";
 import type { TocHeading } from "../utils/table-of-contents";
 
@@ -13,15 +12,41 @@ export interface Props {
 }
 
 const { title, description, headings = [], fediverseCreator } = Astro.props;
+
 const tocHeadings = getH2Headings(headings);
 const hasToc = tocHeadings.length > 0;
+const hasSidebar = hasToc || Astro.slots.has("sidebar");
+
+const proseBase = "prose prose-base max-w-none ps-content-inset pe-content-inset prose-a:no-underline";
+const proseScrollOffset = "[&_h2]:scroll-mt-[var(--layout-main-start-offset)] [&_h3]:scroll-mt-[var(--layout-main-start-offset)] [&_h4]:scroll-mt-[var(--layout-main-start-offset)]";
+const proseLight = [
+    "prose-headings:text-(--color-text-first) prose-headings:font-bold prose-p:text-(--color-text-second) prose-a:text-(--color-text-second) prose-strong:text-(--color-text-first) prose-strong:font-bold prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) prose-a:hover:text-(--color-accent-light)",
+    "prose-li:text-(--color-text-second) [&_li::marker]:text-(--color-text-second)",
+    "prose-th:text-(--color-text-first) prose-td:text-(--color-text-second) prose-th:border-(--color-divider) prose-td:border-(--color-divider)",
+];
+const proseDark = [
+    "dark:prose-headings:text-(--color-text-first-dark) dark:prose-p:text-(--color-text-second-dark) dark:prose-strong:text-(--color-text-first-dark) dark:prose-a:text-(--color-text-second-dark) dark:[&_:not(pre)>code]:text-(--color-text-first-dark) dark:[&_:not(pre)>code]:bg-(--color-hover-dark) dark:[&_pre:not(.astro-code)]:bg-(--color-hover-dark) dark:prose-blockquote:text-(--color-text-second-dark) dark:prose-blockquote:border-l-(--color-divider-dark) dark:prose-a:hover:text-(--color-accent-dark)",
+    "dark:prose-li:text-(--color-text-second-dark) dark:[&_li::marker]:text-(--color-text-second-dark)",
+    "dark:prose-th:text-(--color-text-first-dark) dark:prose-td:text-(--color-text-second-dark) dark:prose-th:border-(--color-divider-dark) dark:prose-td:border-(--color-divider-dark)",
+];
+const proseCode = [
+    "[&_:not(pre)>code]:text-(--color-text-first) [&_:not(pre)>code]:font-normal [&_:not(pre)>code]:bg-(--color-hover) [&_:not(pre)>code]:px-1 [&_:not(pre)>code]:rounded [&_code::before]:content-none [&_code::after]:content-none",
+    "[&_pre:not(.astro-code)]:bg-(--color-hover)",
+    "[&_pre.astro-code]:rounded-none",
+];
+const proseClasses = [proseBase, proseScrollOffset, ...proseLight, ...proseDark, ...proseCode];
 ---
 
-<BaseLayout metaTitle={title} description={description} fediverseCreator={fediverseCreator}>
+<BaseLayout
+    metaTitle={title}
+    description={description}
+    fediverseCreator={fediverseCreator}
+>
     <div
         class:list={[
             "min-w-0",
-            hasToc && "lg:grid lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-10",
+            hasSidebar &&
+                "lg:grid lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-10",
         ]}
     >
         <div class="min-w-0">
@@ -31,37 +56,35 @@ const hasToc = tocHeadings.length > 0;
                     class="ps-content-inset pe-content-inset">{title}</PageTitle
                 >
                 <div
-                    class:list={[
-                        // Base of prose
-                        "prose prose-base max-w-none ps-content-inset pe-content-inset prose-pre: prose-base prose-a:no-underline",
-                        // Offset heading anchor jumps for sticky header
-                        "[&_h2]:scroll-mt-[var(--layout-main-start-offset)] [&_h3]:scroll-mt-[var(--layout-main-start-offset)] [&_h4]:scroll-mt-[var(--layout-main-start-offset)]",
-                        // Light mode color
-                        "prose-headings:text-(--color-text-first) prose-headings:font-bold prose-p:text-(--color-text-second) prose-a:text-(--color-text-second) prose-strong:text-(--color-text-first) prose-strong:font-bold prose-blockquote:text-(--color-text-second) prose-blockquote:border-l-(--color-divider) prose-a:hover:text-(--color-accent-light)",
-                        // List items color
-                        "prose-li:text-(--color-text-second) [&_li::marker]:text-(--color-text-second)",
-                        // Table color
-                        "prose-th:text-(--color-text-first) prose-td:text-(--color-text-second) prose-th:border-(--color-divider) prose-td:border-(--color-divider)",
-                        // Dark mode color
-                        "dark:prose-headings:text-(--color-text-first-dark) dark:prose-p:text-(--color-text-second-dark) dark:prose-strong:text-(--color-text-first-dark) dark:prose-a:text-(--color-text-second-dark) dark:[&_:not(pre)>code]:text-(--color-text-first-dark) dark:[&_:not(pre)>code]:bg-(--color-hover-dark) dark:[&_pre:not(.astro-code)]:bg-(--color-hover-dark) dark:prose-blockquote:text-(--color-text-second-dark) dark:prose-blockquote:border-l-(--color-divider-dark) dark:prose-a:hover:text-(--color-accent-dark)",
-                        // Dark mode list items color
-                        "dark:prose-li:text-(--color-text-second-dark) dark:[&_li::marker]:text-(--color-text-second-dark)",
-                        // Dark mode table color
-                        "dark:prose-th:text-(--color-text-first-dark) dark:prose-td:text-(--color-text-second-dark) dark:prose-th:border-(--color-divider-dark) dark:prose-td:border-(--color-divider-dark)",
-                        // Inline code elements
-                        "[&_:not(pre)>code]:text-(--color-text-first) [&_:not(pre)>code]:font-normal [&_:not(pre)>code]:bg-(--color-hover) [&_:not(pre)>code]:px-1 [&_:not(pre)>code]:rounded [&_code::before]:content-none [&_code::after]:content-none",
-                        // Non-astro (Non-shiki) code block
-                        "[&_pre:not(.astro-code)]:bg-(--color-hover)",
-                        // Astro (Shiki) code block
-                        // Its wrapper has its own rounded corners
-                        "[&_pre.astro-code]:rounded-none",
-                    ]}
+                    class:list={proseClasses}
                 >
                     <slot />
                 </div>
                 <slot name="cta" />
             </div>
         </div>
-        {hasToc && <TableOfContents headings={tocHeadings} />}
+        {
+            hasSidebar && (
+                <aside class="hidden lg:block self-start lg:sticky lg:top-[var(--layout-main-start-offset)] lg:max-h-[calc(100dvh-var(--layout-main-start-offset)-var(--spacing-content-inset))] lg:overflow-y-auto lg:overscroll-contain">
+                    <slot name="sidebar" />
+                    {hasToc && (
+                        <nav aria-label="Table of contents">
+                            <ol class="space-y-2">
+                                {tocHeadings.map((heading) => (
+                                    <li>
+                                        <a
+                                            href={`#${heading.slug}`}
+                                            class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
+                                        >
+                                            {heading.text}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ol>
+                        </nav>
+                    )}
+                </aside>
+            )
+        }
     </div>
 </BaseLayout>
