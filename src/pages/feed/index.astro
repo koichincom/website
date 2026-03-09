@@ -32,10 +32,12 @@ const feeds = [
     <p
         class="mb-8 px-content-inset text-(--color-text-second) dark:text-(--color-text-second-dark)"
     >
-        Subscribe to my writing and/or projects via Atom feeds. Atom is the more
-        standarized and modern RSS. You can copy the links below and paste in
-        RSS applications or clients just like RSS. I provide the full content in
-        the feeds.
+        Subscribe to my writing and/or projects using the following Atom feeds. <NewWindowLink
+            href="https://en.wikipedia.org/wiki/Atom_(web_standard)"
+            >Atom</NewWindowLink
+        > is a web feeds syndication format that is more standarized than RSS. You
+        can copy the links below and paste in an Atom/RSS reader application or client.
+        I provide the full content in the feeds.
     </p>
     <div class="pb-4">
         <ul
@@ -58,14 +60,14 @@ const feeds = [
                             ariaLabel={`Copy ${feed.label} feed URL`}
                             class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) no-custom-underline"
                         >
-                            Atom URL
+                            Copy URL
                         </CopyStr>
                         <NewWindowLink
                             href={feed.atom}
                             ariaLabel={`${feed.label} Atom feed`}
                             class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) no-custom-underline"
                         >
-                            Atom file
+                            View Atom XML
                         </NewWindowLink>
                     </ListRow>
                 ))
