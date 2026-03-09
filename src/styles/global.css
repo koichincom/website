@@ -173,4 +173,31 @@
             outline-color: var(--color-accent-dark);
         }
     }
+
+    /* Prose sidebar title transitions, driven by scroll speed vars */
+    [data-sidebar-title] {
+        opacity: 0;
+        transform: translateY(-8px);
+        max-height: 0;
+        overflow: hidden;
+        transition:
+            opacity var(--sidebar-transition-ms, 150ms) linear,
+            transform var(--sidebar-transition-ms, 150ms) linear,
+            max-height var(--sidebar-transition-ms, 150ms) linear;
+    }
+
+    @media (min-width: 1024px) {
+        [data-prose-layout][data-sidebar-title-visible="true"]
+            [data-sidebar-title] {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: var(--sidebar-title-max-height, 200px);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        [data-sidebar-title] {
+            transition: none;
+        }
+    }
 }

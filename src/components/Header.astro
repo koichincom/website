@@ -72,7 +72,8 @@ const navItemPillClass = classNames(
 ---
 
 <header
-    class="sticky top-0 z-50 h-18 sm:h-22 bg-(--color-background) dark:bg-(--color-background-dark)"
+    data-site-header
+    class="sticky top-0 z-50 [--site-header-height:72px] sm:[--site-header-height:88px] h-[var(--site-header-height)] bg-(--color-background) dark:bg-(--color-background-dark)"
 >
     <nav class={navClass} data-site-nav aria-label="Primary navigation">
         <div class="flex nav-home">
