@@ -7,9 +7,6 @@ import { SOCIAL_IDENTIFIERS, SOCIAL_LINKS } from "../utils/social-links";
 export interface Props {
     title: string;
     subtitle?: string;
-    published: Date;
-    lastUpdated?: Date;
-    readingTime: string;
     description?: string;
     headings?: TocHeading[];
 }
@@ -18,18 +15,15 @@ const { title, subtitle, description, headings } = Astro.props;
 
 <ProseLayout
     title={title}
+    subtitle={subtitle}
     description={description}
     headings={headings}
     fediverseCreator={SOCIAL_IDENTIFIERS.fediverseCreator}
 >
-    <slot name="sidebar" slot="sidebar" />
-    {
-        subtitle && (
-            <p class="not-prose mb-4 text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">
-                {subtitle}
-            </p>
-        )
-    }
+    <slot name="sidebar-meta" slot="sidebar-meta" />
+    <div class="lg:hidden">
+        <slot name="meta" />
+    </div>
     <article>
         <slot />
     </article>
@@ -41,10 +35,10 @@ const { title, subtitle, description, headings } = Astro.props;
         </div>
         <p>
             For new writing or updates, subscribe to my <a href="/feed"
-                >Atom feed</a
-            > or follow me on
+                >Atom feeds</a
+            > or follow my
             <NewWindowLink href={SOCIAL_LINKS.mastodonProfile}
-                >Mastodon</NewWindowLink
+                >Mastodon account</NewWindowLink
             >.
         </p>
     </div>
