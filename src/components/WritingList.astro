@@ -3,7 +3,7 @@ import ListRow from "./ListRow.astro";
 import type { CollectionEntry } from "astro:content";
 
 import { formatDate } from "../utils/date-formatter";
-import { getReadingTime } from "../utils/reading-time";
+import { getReadingTimeStr } from "../utils/reading-time";
 import {
     cssVarStyle,
     normalizeMinLines as normalizeMinLines,
@@ -33,7 +33,7 @@ const metadataColumnClass = classNames(
 
 // Compute reading time and formatted strings for each post
 const postsWithReadingTime = posts.map((post) => {
-    const readingTime = getReadingTime(post.body || "");
+    const readingTime = getReadingTimeStr(post.body || "");
     const formattedDate = formatDate(post.data.published);
     const postData = post.data as Record<string, unknown>;
     const subtitle =
