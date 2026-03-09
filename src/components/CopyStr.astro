@@ -7,6 +7,8 @@ export interface Props {
     class?: string;
     ariaLabel?: string;
     iconClass?: string;
+    trailingContentClass?: string;
+    trailingIconWrapperClass?: string;
 }
 
 const {
@@ -14,6 +16,8 @@ const {
     class: className = "",
     ariaLabel = "Copy to clipboard",
     iconClass = "w-[1lh] h-[1lh]",
+    trailingContentClass,
+    trailingIconWrapperClass,
 } = Astro.props;
 ---
 
@@ -27,5 +31,5 @@ const {
     aria-label={ariaLabel}
     data-copy-str
     data-copy-str-value={copyValue}
-><TrailingIcon><slot /><!--
+><TrailingIcon contentClass={trailingContentClass} class={trailingIconWrapperClass}><slot /><!--
 --><LinkSvg slot="icon" class={iconClass} /></TrailingIcon></button>

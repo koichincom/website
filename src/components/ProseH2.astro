@@ -1,0 +1,30 @@
+---
+import CopyStr from "./CopyStr.astro";
+
+type Props = astroHTML.JSX.HTMLAttributes;
+
+const { id, class: className, ...rest } = Astro.props as Props;
+const headingBaseUrl = Astro.site
+    ? new URL(Astro.url.pathname, Astro.site)
+    : Astro.url;
+const copyValue = id
+    ? `${headingBaseUrl.toString()}#${id}`
+    : headingBaseUrl.toString();
+const headingCopyClass = "group prose-heading-copy";
+const headingTrailingIconWrapperClass =
+    "ml-[0.2em] inline-block leading-none align-baseline opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100";
+const headingIconClass = "w-[1lh] h-[1lh]";
+---
+
+<h2 id={id} class={className} {...rest}>
+    <!-- prettier-ignore -->
+    <CopyStr
+        copyValue={copyValue}
+        ariaLabel="Copy heading link"
+        class={headingCopyClass}
+        trailingIconWrapperClass={headingTrailingIconWrapperClass}
+        iconClass={headingIconClass}
+    ><!--
+    --><slot /><!--
+    --></CopyStr>
+</h2>
