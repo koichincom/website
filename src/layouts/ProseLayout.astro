@@ -6,16 +6,17 @@ import type { TocHeading } from "../utils/table-of-contents";
 
 export interface Props {
     title: string;
+    subtitle?: string;
     description?: string;
     headings?: TocHeading[];
     fediverseCreator?: string;
 }
 
-const { title, description, headings = [], fediverseCreator } = Astro.props;
+const { title, subtitle, description, headings = [], fediverseCreator } = Astro.props;
 
 const tocHeadings = getH2Headings(headings);
 const hasToc = tocHeadings.length > 0;
-const hasSidebar = hasToc || Astro.slots.has("sidebar");
+const hasSidebarMetaOrToc = hasToc || Astro.slots.has("sidebar-meta");
 
 const proseBase = "prose prose-base max-w-none ps-content-inset pe-content-inset prose-a:no-underline";
 const proseScrollOffset = "[&_h2]:scroll-mt-[var(--layout-main-start-offset)] [&_h3]:scroll-mt-[var(--layout-main-start-offset)] [&_h4]:scroll-mt-[var(--layout-main-start-offset)]";
@@ -43,18 +44,31 @@ const proseClasses = [proseBase, proseScrollOffset, ...proseLight, ...proseDark,
     fediverseCreator={fediverseCreator}
 >
     <div
+        data-prose-layout
         class:list={[
             "min-w-0",
-            hasSidebar &&
+            hasSidebarMetaOrToc &&
                 "lg:grid lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-10",
         ]}
     >
         <div class="min-w-0">
             <div class="mx-auto w-full max-w-[66ch]">
-                <PageTitle
-                    inset={false}
-                    class="ps-content-inset pe-content-inset">{title}</PageTitle
-                >
+                <div data-prose-title>
+                    <span
+                        data-prose-title-sentinel
+                        aria-hidden="true"
+                        class="block h-px -mb-px"
+                    ></span>
+                    <PageTitle
+                        inset={false}
+                        class="ps-content-inset pe-content-inset">{title}</PageTitle
+                    >
+                    {subtitle && (
+                        <p class="not-prose -mt-6 mb-4 px-content-inset text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">
+                            {subtitle}
+                        </p>
+                    )}
+                </div>
                 <div
                     class:list={proseClasses}
                 >
@@ -64,25 +78,33 @@ const proseClasses = [proseBase, proseScrollOffset, ...proseLight, ...proseDark,
             </div>
         </div>
         {
-            hasSidebar && (
+            hasSidebarMetaOrToc && (
                 <aside class="hidden lg:block self-start lg:sticky lg:top-[var(--layout-main-start-offset)] lg:max-h-[calc(100dvh-var(--layout-main-start-offset)-var(--spacing-content-inset))] lg:overflow-y-auto lg:overscroll-contain">
-                    <slot name="sidebar" />
-                    {hasToc && (
-                        <nav aria-label="Table of contents">
-                            <ol class="space-y-2">
-                                {tocHeadings.map((heading) => (
-                                    <li>
-                                        <a
-                                            href={`#${heading.slug}`}
-                                            class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
-                                        >
-                                            {heading.text}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ol>
-                        </nav>
-                    )}
+                    <div data-sidebar-title class="pb-4">
+                        <p class="font-bold">{title}</p>
+                        {subtitle && (
+                            <p class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">{subtitle}</p>
+                        )}
+                    </div>
+                    <div data-sidebar-body>
+                        <slot name="sidebar-meta" />
+                        {hasToc && (
+                            <nav aria-label="Table of contents">
+                                <ol class="space-y-2">
+                                    {tocHeadings.map((heading) => (
+                                        <li>
+                                            <a
+                                                href={`#${heading.slug}`}
+                                                class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
+                                            >
+                                                {heading.text}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ol>
+                            </nav>
+                        )}
+                    </div>
                 </aside>
             )
         }
