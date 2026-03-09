@@ -6,6 +6,7 @@ import { formatDate } from "../../utils/date-formatter";
 import WritingLayout from "../../layouts/WritingLayout.astro";
 import NewWindow from "../../components/NewWindowLink.astro";
 import CopyStr from "../../components/CopyStr.astro";
+import ProseH2 from "../../components/ProseH2.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("writing");
@@ -28,7 +29,9 @@ const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
 >
     <!-- Expose NewWindowLink and CopyStr components to MDX via the MDX `components` map (works for custom tags too). -->
     <!-- https://mdxjs.com/docs/using-mdx/#how-mdx-works -->
-    <Content components={{ NewWindow, CopyStr }} />
+    <!-- Heading depths are normalized to h2 in remark (flattenHeadings),
+         so mapping `h2` here customizes all Markdown/MDX headings post-transform. -->
+    <Content components={{ NewWindow, CopyStr, h2: ProseH2 }} />
 
     <section slot="meta">
         <p>

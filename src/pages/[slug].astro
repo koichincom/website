@@ -5,6 +5,7 @@ import { formatDate } from "../utils/date-formatter";
 import { SOCIAL_LINKS } from "../utils/social-links";
 import NewWindowLink from "../components/NewWindowLink.astro";
 import CopyStr from "../components/CopyStr.astro";
+import ProseH2 from "../components/ProseH2.astro";
 
 export async function getStaticPaths() {
     const siteInfoPages = await getCollection("siteInfo");
@@ -54,5 +55,7 @@ const contact = SOCIAL_LINKS.email;
         </p>
     </section>
 
-    <Content components={{ NewWindow: NewWindowLink, CopyStr }} />
+    <!-- Heading depths are normalized to h2 in remark (flattenHeadings),
+         so mapping `h2` here customizes all Markdown/MDX headings post-transform. -->
+    <Content components={{ NewWindow: NewWindowLink, CopyStr, h2: ProseH2 }} />
 </SiteInfoLayout>
