@@ -1,7 +1,9 @@
 ---
 import { getCollection, render } from "astro:content";
 import SiteInfoLayout from "../layouts/SiteInfoLayout.astro";
-import NewWindow from "../components/NewWindowLink.astro";
+import { formatDate } from "../utils/date-formatter";
+import { SOCIAL_LINKS } from "../utils/social-links";
+import NewWindowLink from "../components/NewWindowLink.astro";
 import CopyStr from "../components/CopyStr.astro";
 
 export async function getStaticPaths() {
@@ -14,13 +16,43 @@ export async function getStaticPaths() {
 
 const { page } = Astro.props;
 const { Content, headings } = await render(page);
+
+const website = "https://koichin.com";
+const owner = "Koichi Nakayamada";
+const effectiveDate = page.data.effectiveDate;
+const formattedEffectiveDate = effectiveDate ? formatDate(effectiveDate) : "";
+const contact = SOCIAL_LINKS.email;
 ---
 
-<SiteInfoLayout
-    title={page.data.title}
-    effectiveDate={page.data.effectiveDate}
-    headings={headings}
->
-    <section slot="sidebar"></section>
-    <Content components={{ NewWindow, CopyStr }} />
+<SiteInfoLayout title={page.data.title} headings={headings}>
+    <section slot="sidebar-meta">
+        <p>
+            Effective date:
+            <br />
+            {formattedEffectiveDate}
+            <br />
+            Website:
+            <br />
+            <NewWindowLink href={website}>{website}</NewWindowLink>
+            <br />
+            Owner:
+            <br />
+            {owner}
+            <br />
+            Contact:
+            <br />
+            <CopyStr copyValue={contact}>{contact}</CopyStr>
+        </p>
+    </section>
+    <section slot="meta">
+        <p>
+            Effective date: {formattedEffectiveDate}<br />
+            Website: <NewWindowLink href={website}>{website}</NewWindowLink><br
+            />
+            Owner: {owner}<br />
+            Contact: <CopyStr copyValue={contact}>{contact}</CopyStr>
+        </p>
+    </section>
+
+    <Content components={{ NewWindow: NewWindowLink, CopyStr }} />
 </SiteInfoLayout>
