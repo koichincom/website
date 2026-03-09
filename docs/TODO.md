@@ -5,6 +5,13 @@
 ### Now
 
 - [ ] The best reading experience!
+    - [x] Sidebar functionality
+    - [x] Fix footnotes position (fixed header)
+    - [ ] Copiable heading link
+    - [ ] Tag-based article recommendation
+    - [ ] Current header section indication
+    - [ ] Sidenotes
+    - [ ] Styling including the typography plugin
 
 ### P0
 
@@ -12,9 +19,11 @@
 
 - [ ] Reorganize tag system for projects (hardware, tryout, oss) and display in the list
 - [ ] Add table sorting or filtering feature for the project list
+- [ ] Fediverse based comment system
 
 ### P2
 
+- [ ] Use SVG for the arrow icon of the footernote link
 - [ ] Mobile responsiveness
 - [ ] CSS adjastments and color palette: probably let AI to list the important check points and let them check by reading all the codebase
 - [ ] SEO improvements (docs/SEO.md)
