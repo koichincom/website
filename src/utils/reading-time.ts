@@ -1,4 +1,4 @@
-export function getReadingTime(content: string): string {
+export function getReadingTimeStr(content: string): string {
     const WORDS_PER_MINUTE = 238;
     const words = content.trim().split(/\s+/).length;
     const minutes = Math.ceil(words / WORDS_PER_MINUTE);
