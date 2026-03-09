@@ -45,6 +45,10 @@
         }
     }
 
+    [data-prose-layout] .prose :target {
+        scroll-margin-top: var(--layout-main-start-offset);
+    }
+
     main a:not(.no-custom-underline) {
         @apply hover:text-accent-light dark:hover:text-accent-dark;
         text-decoration: none;
@@ -69,6 +73,15 @@
     main button[data-copy-str].no-custom-underline > span {
         text-decoration: none;
         border-bottom: 0;
+    }
+
+    main button[data-copy-str].prose-heading-copy > span {
+        border-bottom: var(--link-underline-thickness) solid transparent;
+    }
+
+    main button[data-copy-str].prose-heading-copy:hover > span,
+    main button[data-copy-str].prose-heading-copy:focus-visible > span {
+        border-bottom-color: currentColor;
     }
 
     /* light/dark mode for code blocks, using Astro's built-in Shiki syntax highlighting */
