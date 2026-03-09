@@ -1,5 +1,7 @@
 # AGENTS.md
 
+CURENTLY: not working on mobile, only the desktop version of the site.
+
 - A personal website built with Astro, Tailwind CSS, and TypeScript.
 - Prefer retrieval-led reasoning over pre-training-led reasoning.
 - When making changes, consider the structure and organization, not just patch to make it work.
@@ -14,6 +16,7 @@
 
 - Use `src/scripts` for scripts used in client-side
 - Use `src/utils` for utility functions used in server-side
+- `/astro.config.ts` is for Astro configuration, not `.mjs`
 
 ## Assets and SVGs
 
