@@ -55,20 +55,18 @@ const feeds = [
                         <span class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">
                             {feed.description}
                         </span>
+                        <!-- prettier-ignore -->
                         <CopyStr
                             copyValue={`${import.meta.env.SITE || "https://koichin.com"}${feed.atom}`}
                             ariaLabel={`Copy ${feed.label} feed URL`}
                             class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) site-copy-link-no-underline"
-                        >
-                            Copy URL
-                        </CopyStr>
+                        >Copy URL</CopyStr>
+                        <!-- prettier-ignore -->
                         <NewWindowLink
                             href={feed.atom}
                             ariaLabel={`${feed.label} Atom feed`}
                             class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) site-link-no-underline"
-                        >
-                            View Atom XML
-                        </NewWindowLink>
+                        >View Atom XML</NewWindowLink>
                     </ListRow>
                 ))
             }
