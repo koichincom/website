@@ -63,7 +63,9 @@ export const initNavState = (): void => {
             const candidate = source.closest("[data-site-nav] [data-section]");
             if (candidate) {
                 nextPending = candidate.getAttribute("data-section") as Section;
-                shouldApplyPendingHighlight = candidate.matches(":hover");
+                shouldApplyPendingHighlight = candidate.matches(
+                    ":hover, :focus-visible, :focus-within",
+                );
             }
         }
 

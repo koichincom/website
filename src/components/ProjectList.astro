@@ -40,7 +40,7 @@ const descriptionColumnClass = classNames(
                     class={nameColumnClass}
                     style={cssVarStyle("--project-row-min-lines", minLines)}
                 >
-                    <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) min-w-0 break-words">
+                    <span class="text-base font-semibold text-(--color-text-second) dark:text-(--color-text-second-dark) group-hover:text-(--color-accent-light) group-focus-within:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) dark:group-focus-within:text-(--color-accent-dark) min-w-0 break-words">
                         {project.data.name}
                     </span>
                 </div>

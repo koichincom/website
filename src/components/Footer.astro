@@ -4,9 +4,9 @@ import CopyStr from "./CopyStr.astro";
 import { SOCIAL_LINKS } from "../utils/social-links";
 
 const FOOTER_LINK_CLASS =
-    "[border-bottom-width:var(--link-underline-thickness)] border-transparent hover:border-current hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark)";
+    "[border-bottom-width:var(--link-underline-thickness)] border-transparent hover:border-current focus-visible:border-current hover:text-(--color-accent-light) focus-visible:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) dark:focus-visible:text-(--color-accent-dark)";
 const FOOTER_TRAILING_LINK_CLASS =
-    "hover:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) [&>span]:[border-bottom-width:var(--link-underline-thickness)] [&>span]:border-transparent hover:[&>span]:border-current";
+    "hover:text-(--color-accent-light) focus-visible:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) dark:focus-visible:text-(--color-accent-dark) [&>span]:[border-bottom-width:var(--link-underline-thickness)] [&>span]:border-transparent hover:[&>span]:border-current focus-visible:[&>span]:border-current";
 ---
 
 <footer

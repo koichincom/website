@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 
 const rowClass = classNames(
-    "group relative w-full rounded-lg hover:bg-(--color-hover) dark:hover:bg-(--color-hover-dark) before:content-[''] before:absolute before:top-0 before:left-[var(--spacing-list-divider-inset)] before:right-[var(--spacing-list-divider-inset)] before:border-t before:border-(--color-divider) dark:before:border-(--color-divider-dark) first:before:hidden hover:before:opacity-0 hover:[&+li]:before:opacity-0",
+    "group relative w-full rounded-lg hover:bg-(--color-hover) focus-within:bg-(--color-hover) dark:hover:bg-(--color-hover-dark) dark:focus-within:bg-(--color-hover-dark) before:content-[''] before:absolute before:top-0 before:left-[var(--spacing-list-divider-inset)] before:right-[var(--spacing-list-divider-inset)] before:border-t before:border-(--color-divider) dark:before:border-(--color-divider-dark) first:before:hidden hover:before:opacity-0 focus-within:before:opacity-0 hover:[&+li]:before:opacity-0 focus-within:[&+li]:before:opacity-0",
     rowClassName,
 );
 const baseClass = "relative flex flex-col w-full px-surface-inset py-5";

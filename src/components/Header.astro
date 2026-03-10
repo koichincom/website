@@ -30,21 +30,21 @@ const NAV_ITEM_PILL_BASE =
     "nav-pill inline-flex items-center rounded-full px-surface-inset py-1";
 const NAV_ITEM_HOME_PILL_GAP = "gap-2 sm:gap-3";
 const NAV_ITEM_PILL_HOVER_BG =
-    "group-hover:bg-(--color-hover) dark:group-hover:bg-(--color-hover-dark)";
+    "group-hover:bg-(--color-hover) group-focus-visible:bg-(--color-hover) dark:group-hover:bg-(--color-hover-dark) dark:group-focus-visible:bg-(--color-hover-dark)";
 const NAV_ITEM_PILL_HOVER_TEXT =
-    "group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark)";
+    "group-hover:text-(--color-accent-light) group-focus-visible:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) dark:group-focus-visible:text-(--color-accent-dark)";
 const NAV_ITEM_PILL_ACTIVE_VARIANTS =
     "group-data-[active=section]:bg-(--color-hover) dark:group-data-[active=section]:bg-(--color-hover-dark) group-data-[active=section]:text-(--color-accent-light) dark:group-data-[active=section]:text-(--color-accent-dark)";
 const NAV_ITEM_PILL_PENDING_VARIANTS =
     "group-data-[pending=true]:bg-(--color-hover) dark:group-data-[pending=true]:bg-(--color-hover-dark) group-data-[pending=true]:text-(--color-accent-light) dark:group-data-[pending=true]:text-(--color-accent-dark)";
 const NAV_CONTAINER_HAS_ACTIVE_SUPPRESS =
-    "[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent dark:[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent [&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent dark:[&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent";
+    "[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent dark:[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent [&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent dark:[&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent [&:has(.nav-home:focus-within)_.nav-item[data-active]:not(:focus-within)_>.nav-pill]:bg-transparent dark:[&:has(.nav-home:focus-within)_.nav-item[data-active]:not(:focus-within)_>.nav-pill]:bg-transparent [&:has(.nav-right:focus-within)_.nav-item[data-active]:not(:focus-within)_>.nav-pill]:bg-transparent dark:[&:has(.nav-right:focus-within)_.nav-item[data-active]:not(:focus-within)_>.nav-pill]:bg-transparent";
 const NAV_CONTAINER_HAS_ACTIVE_TEXT_SUPPRESS =
-    "[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:!text-(--color-text-second) dark:[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:!text-(--color-text-second-dark) [&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:!text-(--color-text-second) dark:[&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:!text-(--color-text-second-dark)";
+    "[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:!text-(--color-text-second) dark:[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:!text-(--color-text-second-dark) [&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:!text-(--color-text-second) dark:[&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:!text-(--color-text-second-dark) [&:has(.nav-home:focus-within)_.nav-item[data-active]:not(:focus-within)_>.nav-pill]:!text-(--color-text-second) dark:[&:has(.nav-home:focus-within)_.nav-item[data-active]:not(:focus-within)_>.nav-pill]:!text-(--color-text-second-dark) [&:has(.nav-right:focus-within)_.nav-item[data-active]:not(:focus-within)_>.nav-pill]:!text-(--color-text-second) dark:[&:has(.nav-right:focus-within)_.nav-item[data-active]:not(:focus-within)_>.nav-pill]:!text-(--color-text-second-dark)";
 const NAV_CONTAINER_PENDING_SUPPRESS =
-    "[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent dark:[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent";
+    "[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover):not(:focus-within)_>.nav-pill]:bg-transparent dark:[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover):not(:focus-within)_>.nav-pill]:bg-transparent";
 const NAV_CONTAINER_PENDING_TEXT_SUPPRESS =
-    "[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)_>.nav-pill]:!text-(--color-text-second) dark:[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover)_>.nav-pill]:!text-(--color-text-second-dark)";
+    "[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover):not(:focus-within)_>.nav-pill]:!text-(--color-text-second) dark:[&[data-nav-pending='true']_.nav-item[data-active]:not(:hover):not(:focus-within)_>.nav-pill]:!text-(--color-text-second-dark)";
 const navClass = classNames(
     "h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-base text-(--color-text-second) dark:text-(--color-text-second-dark) whitespace-nowrap",
     NAV_CONTAINER_HAS_ACTIVE_SUPPRESS,
