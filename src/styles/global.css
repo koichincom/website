@@ -24,7 +24,9 @@
     --spacing-surface-inset: var(--spacing-inline-edge);
     --spacing-list-divider-inset: var(--spacing-content-inset);
     /* Vertical offset where <main> content begins: header height + gap. Syncs with TOC sticky position and heading scroll-margin. */
-    --layout-main-start-offset: calc(var(--spacing) * 32);
+    --layout-main-start-offset: calc(
+        var(--site-header-height) + var(--layout-main-start-gap)
+    );
 
     --link-underline-thickness: 1.75px;
 }
@@ -34,6 +36,18 @@
 }
 
 @layer base {
+    :root {
+        --site-header-height: 72px;
+        --layout-main-start-gap: 56px;
+    }
+
+    @media (min-width: 640px) {
+        :root {
+            --site-header-height: 88px;
+            --layout-main-start-gap: 40px;
+        }
+    }
+
     html {
         overscroll-behavior-y: none;
         scroll-behavior: smooth;
@@ -148,10 +162,27 @@
         }
     }
 
+    .site-toc-link-current-transition {
+        transition:
+            color
+                var(
+                    --prose-toc-transition-ms,
+                    var(--prose-scroll-transition-ms, 150ms)
+                )
+                linear,
+            border-bottom-color
+                var(
+                    --prose-toc-transition-ms,
+                    var(--prose-scroll-transition-ms, 150ms)
+                )
+                linear;
+    }
+
     .site-toc-link:hover,
     .site-toc-link:focus-visible {
         color: var(--color-accent-light);
         border-bottom-color: currentColor;
+        transition: none;
 
         @variant dark {
             color: var(--color-accent-dark);
@@ -161,10 +192,23 @@
     .site-toc-link[aria-current="location"],
     .site-toc-link[data-current="true"] {
         color: var(--color-text-second);
-        border-bottom-color: currentColor;
+        border-bottom-color: var(--color-text-third);
 
         @variant dark {
             color: var(--color-text-second-dark);
+            border-bottom-color: var(--color-text-third-dark);
+        }
+    }
+
+    .site-toc-link[aria-current="location"]:hover,
+    .site-toc-link[aria-current="location"]:focus-visible,
+    .site-toc-link[data-current="true"]:hover,
+    .site-toc-link[data-current="true"]:focus-visible {
+        color: var(--color-accent-light);
+        border-bottom-color: currentColor;
+
+        @variant dark {
+            color: var(--color-accent-dark);
         }
     }
 
@@ -272,16 +316,16 @@
         }
     }
 
-    /* Prose sidebar title transitions, driven by scroll speed vars */
+    /* Prose sidebar transitions, driven by scroll speed var */
     [data-sidebar-title] {
         opacity: 0;
         transform: translateY(-8px);
         max-height: 0;
         overflow: hidden;
         transition:
-            opacity var(--sidebar-transition-ms, 150ms) linear,
-            transform var(--sidebar-transition-ms, 150ms) linear,
-            max-height var(--sidebar-transition-ms, 150ms) linear;
+            opacity var(--prose-scroll-transition-ms, 150ms) linear,
+            transform var(--prose-scroll-transition-ms, 150ms) linear,
+            max-height var(--prose-scroll-transition-ms, 150ms) linear;
     }
 
     @media (min-width: 1024px) {
@@ -294,7 +338,8 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-        [data-sidebar-title] {
+        [data-sidebar-title],
+        .site-toc-link {
             transition: none;
         }
     }
