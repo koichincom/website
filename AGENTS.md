@@ -1,6 +1,6 @@
 # AGENTS.md
 
-CURENTLY: not working on mobile, only the desktop version of the site.
+Not working on mobile now, only the desktop version of the site.
 
 - A personal website built with Astro, Tailwind CSS, and TypeScript.
 - Prefer retrieval-led reasoning over pre-training-led reasoning.
@@ -8,7 +8,7 @@ CURENTLY: not working on mobile, only the desktop version of the site.
 
 ## Tech Stack
 
-- Use TypeScript not JavaScript
+- Use TypeScript, Tailwid CSS v4, and Astro
 - Use Astro components for reusable UI elements
 - Use astro-docs MCP server for Astro questions
 - Use websearch, webfetch, or btca tools for factual information
