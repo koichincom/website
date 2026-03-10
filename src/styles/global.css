@@ -137,6 +137,37 @@
         border-bottom: 0;
     }
 
+    .site-toc-link {
+        text-decoration: none;
+        border-bottom: var(--link-underline-thickness) solid transparent;
+        padding-bottom: 0;
+        color: var(--color-text-third);
+
+        @variant dark {
+            color: var(--color-text-third-dark);
+        }
+    }
+
+    .site-toc-link:hover,
+    .site-toc-link:focus-visible {
+        color: var(--color-accent-light);
+        border-bottom-color: currentColor;
+
+        @variant dark {
+            color: var(--color-accent-dark);
+        }
+    }
+
+    .site-toc-link[aria-current="location"],
+    .site-toc-link[data-current="true"] {
+        color: var(--color-text-second);
+        border-bottom-color: currentColor;
+
+        @variant dark {
+            color: var(--color-text-second-dark);
+        }
+    }
+
     .site-copy-link-prose-heading > span {
         border-bottom: var(--link-underline-thickness) solid transparent;
     }

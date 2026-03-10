@@ -86,16 +86,21 @@ const proseClasses = [proseBase, proseScrollOffset, ...proseLight, ...proseDark,
                             <p class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">{subtitle}</p>
                         )}
                     </div>
-                    <div data-sidebar-body>
+                    <div
+                        data-sidebar-body
+                        class="text-(--color-text-third) dark:text-(--color-text-third-dark)"
+                    >
                         <slot name="sidebar-meta" />
                         {hasToc && (
-                            <nav aria-label="Table of contents">
+                            <nav aria-label="Table of contents" data-prose-toc>
                                 <ol class="space-y-2">
                                     {tocHeadings.map((heading) => (
                                         <li>
                                             <a
                                                 href={`#${heading.slug}`}
-                                                class="text-base text-(--color-text-second) dark:text-(--color-text-second-dark)"
+                                                data-prose-toc-link
+                                                data-toc-slug={heading.slug}
+                                                class="text-base site-link-no-underline site-toc-link"
                                             >
                                                 {heading.text}
                                             </a>
