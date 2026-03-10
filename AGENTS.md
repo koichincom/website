@@ -8,11 +8,12 @@ CURENTLY: not working on mobile, only the desktop version of the site.
 
 ## Tech Stack
 
-- Use TypeScript by default
+- Use TypeScript not JavaScript
 - Use Astro components for reusable UI elements
 - Use astro-docs MCP server for Astro questions
+- Use websearch, webfetch, or btca tools for factual information
 
-# File Location
+## File Location
 
 - Use `src/scripts` for scripts used in client-side
 - Use `src/utils` for utility functions used in server-side
@@ -33,12 +34,21 @@ Run `bun run check` after changes to validate TypeScript, CSS, and routing.
 
 ## Styling Guidelines
 
-- Use Tailwind's utility-first approach over custom CSS
-- Follow Tailwind v4 and Astro official docs as the source of truth
+**All CSS must follow Tailwind v4 conventions.** No exceptions.
+
+- **Utility-first only**: Use Tailwind v4 utility classes exclusively. Do not write custom CSS rules unless absolutely unavoidable.
 - Use Astro components to follow DRY principles (generally @layer component feature isn't needed since Astro components exist)
-- Use Astro's @layer base for global styles as needed
-- No animations or motion effects (except Astro's view transition API)
 - Keyboard accessibility: Any hover effect (text color change, underline, background) must have an equivalent `focus-visible` or `focus-within` style for keyboard navigation
+
+## Animation Policy
+
+- **No hover animations**: Keep hover effects instant (color, underline, background changes). Do not add `transition-*` or animation to hover states.
+- **Animate only big context changes**: Use animation for meaningful structural changes users need help tracking:
+    - Page navigation transitions (e.g., `fade()`)
+    - Reveal/hide of major UI sections (e.g., prose sidebar title)
+    - Major layout or state shifts
+- **Keep it quiet**: Use short durations, small movement distances, and linear/subtle easing. Avoid bouncy or flashy effects.
+- **Respect reduced motion**: Always provide `prefers-reduced-motion` fallbacks that disable or simplify animations.
 
 ## Naming Conventions
 
@@ -52,4 +62,4 @@ Run `bun run check` after changes to validate TypeScript, CSS, and routing.
 
 ## LLM Agent Use
 
-I am not a frontend developer and don't have expertise in CSS or Tailwind. I will handle TypeScript, HTML, and basic Astro structure, but CSS and Tailwind are outside my scope. Make styling decisions independently using your best judgment, following the official Tailwind and Astro documentation. Don't ask me to make styling decisions; provide only high-level explanations.
+I am not a frontend developer. I will handle basic Astro structure, but CSS, Tailwind, DOM-related TypeScript are outside my scope. Make styling decisions independently using your best judgment, following the official Tailwind and Astro documentation. DO NOT ask me to make styling decisions; provide only high-level explanations.
