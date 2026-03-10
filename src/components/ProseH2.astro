@@ -10,9 +10,10 @@ const headingBaseUrl = Astro.site
 const copyValue = id
     ? `${headingBaseUrl.toString()}#${id}`
     : headingBaseUrl.toString();
-const headingCopyClass = "group prose-heading-copy";
+const headingCopyClass =
+    "group prose-heading-copy focus-visible:text-(--color-accent-light) dark:focus-visible:text-(--color-accent-dark)";
 const headingTrailingIconWrapperClass =
-    "ml-[0.2em] inline-block leading-none align-baseline opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100";
+    "ml-[0.2em] inline-block leading-none align-baseline text-(--color-text-third) dark:text-(--color-text-third-dark) group-hover:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) group-focus-visible:text-(--color-accent-light) dark:group-focus-visible:text-(--color-accent-dark)";
 const headingIconClass = "w-[1lh] h-[1lh]";
 ---
 
