@@ -10,9 +10,8 @@
     - [x] Sidebar functionality
     - [x] Fix footnotes position (fixed header)
     - [x] Copiable heading link
-    - [ ] Current header section indication
+    - [ ] Current header section indication: Check the doc/
     - [ ] Sidenotes
-    - [ ] Styling including the typography plugin
 
 ### P1
 
@@ -25,7 +24,7 @@
 
 - [ ] Use SVG for the arrow icon of the footernote link
 - [ ] Mobile responsiveness
-- [ ] CSS adjastments and color palette: probably let AI to list the important check points and let them check by reading all the codebase
+- [ ] CSS involved styling improvements, color scheme, typography CSS
 - [ ] SEO improvements (docs/SEO.md)
 - [ ] Add Japanese support (Astro i18n)
 
