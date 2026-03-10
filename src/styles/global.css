@@ -49,46 +49,53 @@
         scroll-margin-top: var(--layout-main-start-offset);
     }
 
-    main a:not(.no-custom-underline) {
+    main a:not(.site-link-no-underline) {
         @apply hover:text-accent-light focus-visible:text-accent-light dark:hover:text-accent-dark dark:focus-visible:text-accent-dark;
         text-decoration: none;
-        border-bottom: var(--link-underline-thickness) solid currentColor;
+        border-bottom: var(--link-underline-thickness) solid
+            var(--color-text-third);
         padding-bottom: 0;
+
+        @variant dark {
+            border-bottom-color: var(--color-text-third-dark);
+        }
     }
 
-    main button[data-copy-str]:not(.no-custom-underline) {
+    main a:not(.site-link-no-underline):hover,
+    main a:not(.site-link-no-underline):focus-visible {
+        border-bottom-color: currentColor;
+    }
+
+    main button[data-copy-str]:not(.site-copy-link-no-underline) {
         @apply hover:text-accent-light focus-visible:text-accent-light dark:hover:text-accent-dark dark:focus-visible:text-accent-dark;
     }
 
-    button[data-copy-str]:not(.no-custom-underline) {
+    button[data-copy-str]:not(.site-copy-link-no-underline) {
         text-decoration: none;
     }
 
-    main button[data-copy-str]:not(.no-custom-underline) > span {
-        border-bottom: var(--link-underline-thickness) solid currentColor;
+    main button[data-copy-str]:not(.site-copy-link-no-underline) > span {
+        border-bottom: var(--link-underline-thickness) solid
+            var(--color-text-third);
         padding-bottom: 0;
+
+        @variant dark {
+            border-bottom-color: var(--color-text-third-dark);
+        }
     }
 
-    .no-custom-underline,
-    main button[data-copy-str].no-custom-underline > span {
-        text-decoration: none;
-        border-bottom: 0;
-    }
-
-    main button[data-copy-str].prose-heading-copy > span {
-        border-bottom: var(--link-underline-thickness) solid transparent;
-    }
-
-    main button[data-copy-str].prose-heading-copy:hover > span,
-    main button[data-copy-str].prose-heading-copy:focus-visible > span {
+    main button[data-copy-str]:not(.site-copy-link-no-underline):hover > span,
+    main
+        button[data-copy-str]:not(.site-copy-link-no-underline):focus-visible
+        > span {
         border-bottom-color: currentColor;
     }
 
     /* light/dark mode for code blocks, using Astro's built-in Shiki syntax highlighting */
     /* https://docs.astro.build/en/guides/syntax-highlighting/ */
-    @media (prefers-color-scheme: dark) {
-        .astro-code,
-        .astro-code span {
+    .astro-code,
+    .astro-code span {
+        @variant dark {
             color: var(--shiki-dark) !important;
             background-color: var(--shiki-dark-bg) !important;
             font-style: var(--shiki-dark-font-style) !important;
@@ -96,12 +103,58 @@
             text-decoration: var(--shiki-dark-text-decoration) !important;
         }
     }
+}
+
+@layer components {
+    .site-link-hover-underline {
+        text-decoration: none;
+        border-bottom: var(--link-underline-thickness) solid transparent;
+        padding-bottom: 0;
+    }
+
+    .site-link-hover-underline:hover,
+    .site-link-hover-underline:focus-visible {
+        border-bottom-color: currentColor;
+    }
+
+    .site-copy-link-hover-underline {
+        text-decoration: none;
+    }
+
+    .site-copy-link-hover-underline > span {
+        border-bottom: var(--link-underline-thickness) solid transparent;
+        padding-bottom: 0;
+    }
+
+    .site-copy-link-hover-underline:hover > span,
+    .site-copy-link-hover-underline:focus-visible > span {
+        border-bottom-color: currentColor;
+    }
+
+    .site-link-no-underline,
+    .site-copy-link-no-underline > span {
+        text-decoration: none;
+        border-bottom: 0;
+    }
+
+    .site-copy-link-prose-heading > span {
+        border-bottom: var(--link-underline-thickness) solid transparent;
+    }
+
+    .site-copy-link-prose-heading:hover > span,
+    .site-copy-link-prose-heading:focus-visible > span {
+        border-bottom-color: currentColor;
+    }
 
     .code-block {
         margin: calc(var(--spacing) * 6) 0;
         border: 1px solid var(--color-divider);
         border-radius: calc(var(--spacing) * 3);
         overflow: hidden;
+
+        @variant dark {
+            border-color: var(--color-divider-dark);
+        }
     }
 
     .code-block > pre.astro-code {
@@ -123,6 +176,12 @@
         color: var(--color-text-second);
         font-size: calc(var(--spacing) * 3.5);
         line-height: calc(var(--spacing) * 5);
+
+        @variant dark {
+            border-bottom-color: var(--color-divider-dark);
+            background-color: var(--color-hover-dark);
+            color: var(--color-text-second-dark);
+        }
     }
 
     .code-block__filename {
@@ -137,6 +196,12 @@
         line-height: calc(var(--spacing) * 4);
         color: var(--color-text-third);
         background-color: var(--color-background);
+
+        @variant dark {
+            border-color: var(--color-divider-dark);
+            color: var(--color-text-third-dark);
+            background-color: var(--color-background-dark);
+        }
     }
 
     .code-block__copy {
@@ -149,41 +214,28 @@
         color: var(--color-text-second);
         background-color: var(--color-background);
         cursor: pointer;
+
+        @variant dark {
+            border-color: var(--color-divider-dark);
+            color: var(--color-text-third-dark);
+            background-color: var(--color-background-dark);
+        }
     }
 
     .code-block__copy:hover {
         color: var(--color-accent-light);
+
+        @variant dark {
+            color: var(--color-accent-dark);
+        }
     }
 
     .code-block__copy:focus-visible {
         color: var(--color-accent-light);
         outline: 2px solid var(--color-accent-light);
         outline-offset: 2px;
-    }
 
-    @media (prefers-color-scheme: dark) {
-        .code-block {
-            border-color: var(--color-divider-dark);
-        }
-
-        .code-block__header {
-            border-bottom-color: var(--color-divider-dark);
-            background-color: var(--color-hover-dark);
-            color: var(--color-text-second-dark);
-        }
-
-        .code-block__language,
-        .code-block__copy {
-            border-color: var(--color-divider-dark);
-            color: var(--color-text-third-dark);
-            background-color: var(--color-background-dark);
-        }
-
-        .code-block__copy:hover {
-            color: var(--color-accent-dark);
-        }
-
-        .code-block__copy:focus-visible {
+        @variant dark {
             color: var(--color-accent-dark);
             outline-color: var(--color-accent-dark);
         }

@@ -11,7 +11,7 @@ const { text, href, className, ariaLabel, newWindow = false } = Astro.props;
 
 const target = newWindow ? "_blank" : undefined;
 const rel = newWindow ? "noopener noreferrer" : undefined;
-const baseClasses = "inline-flex items-center rounded-full px-surface-inset py-1 no-custom-underline bg-(--color-text-first) text-(--color-background) dark:bg-(--color-text-first-dark) dark:text-(--color-background-dark)";
+const baseClasses = "inline-flex items-center rounded-full px-surface-inset py-1 site-link-no-underline bg-(--color-text-first) text-(--color-background) dark:bg-(--color-text-first-dark) dark:text-(--color-background-dark)";
 ---
 
 <a

@@ -58,14 +58,14 @@ const feeds = [
                         <CopyStr
                             copyValue={`${import.meta.env.SITE || "https://koichin.com"}${feed.atom}`}
                             ariaLabel={`Copy ${feed.label} feed URL`}
-                            class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) no-custom-underline"
+                            class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) site-copy-link-no-underline"
                         >
                             Copy URL
                         </CopyStr>
                         <NewWindowLink
                             href={feed.atom}
                             ariaLabel={`${feed.label} Atom feed`}
-                            class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) no-custom-underline"
+                            class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark) site-link-no-underline"
                         >
                             View Atom XML
                         </NewWindowLink>

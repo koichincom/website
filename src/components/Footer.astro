@@ -4,9 +4,9 @@ import CopyStr from "./CopyStr.astro";
 import { SOCIAL_LINKS } from "../utils/social-links";
 
 const FOOTER_LINK_CLASS =
-    "text-(--color-text-third) dark:text-(--color-text-third-dark) [border-bottom-width:var(--link-underline-thickness)] border-transparent hover:border-current focus-visible:border-current hover:text-(--color-accent-light) focus-visible:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) dark:focus-visible:text-(--color-accent-dark)";
+    "site-link-hover-underline text-(--color-text-third) dark:text-(--color-text-third-dark) hover:text-(--color-accent-light) focus-visible:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) dark:focus-visible:text-(--color-accent-dark)";
 const FOOTER_TRAILING_LINK_CLASS =
-    "text-(--color-text-third) dark:text-(--color-text-third-dark) hover:text-(--color-accent-light) focus-visible:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) dark:focus-visible:text-(--color-accent-dark) [&>span]:[border-bottom-width:var(--link-underline-thickness)] [&>span]:border-transparent hover:[&>span]:border-current focus-visible:[&>span]:border-current";
+    "site-copy-link-hover-underline text-(--color-text-third) dark:text-(--color-text-third-dark) hover:text-(--color-accent-light) focus-visible:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) dark:focus-visible:text-(--color-accent-dark)";
 ---
 
 <footer
@@ -69,9 +69,6 @@ const FOOTER_TRAILING_LINK_CLASS =
             <div class="font-semibold">Social</div>
             <ul class="space-y-2">
                 <li>
-                    <a href="/feed" class={FOOTER_LINK_CLASS}>Atom Feeds</a>
-                </li>
-                <li>
                     <!-- prettier-ignore -->
                     <NewWindowLink
                         href={SOCIAL_LINKS.mastodonProfile}
@@ -79,6 +76,9 @@ const FOOTER_TRAILING_LINK_CLASS =
                         ><!--
                         -->Mastodon<!--
                     --></NewWindowLink>
+                </li>
+                <li>
+                    <a href="/feed" class={FOOTER_LINK_CLASS}>Atom Feeds</a>
                 </li>
                 <li>
                     <!-- prettier-ignore -->
@@ -116,7 +116,7 @@ const FOOTER_TRAILING_LINK_CLASS =
                 <li>
                     <CopyStr
                         copyValue={SOCIAL_LINKS.email}
-                        class={FOOTER_TRAILING_LINK_CLASS}>Copy Email</CopyStr
+                        class={FOOTER_TRAILING_LINK_CLASS}>Email</CopyStr
                     >
                 </li>
             </ul>
