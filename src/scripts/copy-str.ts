@@ -62,12 +62,18 @@ const initCopyStr = (): void => {
         }
 
         const copied = await copyText(copyValue);
+        const pointerActivated = event.detail > 0;
+
         if (copied) {
             (
                 window as unknown as {
                     notyf: { success(message: string): void };
                 }
             ).notyf.success("Copied");
+
+            if (pointerActivated) {
+                copyStrElement.blur();
+            }
         } else {
             (
                 window as unknown as { notyf: { error(message: string): void } }
