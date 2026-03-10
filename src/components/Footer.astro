@@ -4,9 +4,9 @@ import CopyStr from "./CopyStr.astro";
 import { SOCIAL_LINKS } from "../utils/social-links";
 
 const FOOTER_LINK_CLASS =
-    "[border-bottom-width:var(--link-underline-thickness)] border-transparent hover:border-current focus-visible:border-current hover:text-(--color-accent-light) focus-visible:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) dark:focus-visible:text-(--color-accent-dark)";
+    "text-(--color-text-third) dark:text-(--color-text-third-dark) [border-bottom-width:var(--link-underline-thickness)] border-transparent hover:border-current focus-visible:border-current hover:text-(--color-accent-light) focus-visible:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) dark:focus-visible:text-(--color-accent-dark)";
 const FOOTER_TRAILING_LINK_CLASS =
-    "hover:text-(--color-accent-light) focus-visible:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) dark:focus-visible:text-(--color-accent-dark) [&>span]:[border-bottom-width:var(--link-underline-thickness)] [&>span]:border-transparent hover:[&>span]:border-current focus-visible:[&>span]:border-current";
+    "text-(--color-text-third) dark:text-(--color-text-third-dark) hover:text-(--color-accent-light) focus-visible:text-(--color-accent-light) dark:hover:text-(--color-accent-dark) dark:focus-visible:text-(--color-accent-dark) [&>span]:[border-bottom-width:var(--link-underline-thickness)] [&>span]:border-transparent hover:[&>span]:border-current focus-visible:[&>span]:border-current";
 ---
 
 <footer
@@ -31,11 +31,14 @@ const FOOTER_TRAILING_LINK_CLASS =
                 <li>
                     <a href="/about" class={FOOTER_LINK_CLASS}>About</a>
                 </li>
+                <li>
+                    <a href="/feed" class={FOOTER_LINK_CLASS}>Atom Feeds</a>
+                </li>
             </ul>
         </div>
 
         <div class="space-y-4">
-            <div class="font-semibold">Site Info</div>
+            <div class="font-semibold">Site</div>
             <ul class="space-y-2">
                 <li>
                     <a href="/license" class={FOOTER_LINK_CLASS}>License</a>
@@ -46,17 +49,18 @@ const FOOTER_TRAILING_LINK_CLASS =
                     >
                 </li>
                 <li>
-                    <a href="/cookie" class={FOOTER_LINK_CLASS}>Cookie policy</a
-                    >
-                </li>
-                <li>
-                    <!-- prettier-ignore -->
                     <NewWindowLink
                         href="https://github.com/koichincom/website"
                         class={FOOTER_TRAILING_LINK_CLASS}
-                        ><!--
-                        -->Source Code<!--
-                    --></NewWindowLink>
+                        >Source Code</NewWindowLink
+                    >
+                </li>
+                <li>
+                    <NewWindowLink
+                        href="https://github.com/koichincom/website/issues"
+                        class={FOOTER_TRAILING_LINK_CLASS}
+                        >Report Issue</NewWindowLink
+                    >
                 </li>
             </ul>
         </div>
@@ -110,13 +114,10 @@ const FOOTER_TRAILING_LINK_CLASS =
                     --></NewWindowLink>
                 </li>
                 <li>
-                    <!-- prettier-ignore -->
                     <CopyStr
                         copyValue={SOCIAL_LINKS.email}
-                        class={FOOTER_TRAILING_LINK_CLASS}
-                        ><!--
-                        -->Email<!--
-                    --></CopyStr>
+                        class={FOOTER_TRAILING_LINK_CLASS}>Copy Email</CopyStr
+                    >
                 </li>
             </ul>
         </div>

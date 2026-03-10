@@ -33,11 +33,12 @@ Run `bun run check` after changes to validate TypeScript, CSS, and routing.
 
 ## Styling Guidelines
 
-- Use Tailwind's utility-first approach for Astro
+- Use Tailwind's utility-first approach over custom CSS
 - Follow Tailwind v4 and Astro official docs as the source of truth
 - Use Astro components to follow DRY principles (generally @layer component feature isn't needed since Astro components exist)
 - Use Astro's @layer base for global styles as needed
 - No animations or motion effects (except Astro's view transition API)
+- Keyboard accessibility: Any hover effect (text color change, underline, background) must have an equivalent `focus-visible` or `focus-within` style for keyboard navigation
 
 ## Naming Conventions
 
