@@ -4,14 +4,18 @@
 
 ### Now
 
-### P0
-
 - [ ] The best reading experience!
     - [x] Sidebar functionality
     - [x] Fix footnotes position (fixed header)
     - [x] Copiable heading link
-    - [ ] Current header section indication: Check the doc/
-    - [ ] Sidenotes
+    - [x] Current header section indication: Check the doc/
+    - [x] Current ToC indication should treat the end scroll of the page as the last section
+    - [x] Header height should be handled by something else to be shared
+    - [x] Animation for the current ToC section indication
+    - [ ] ToC jump should lead to the right position considering the fixed header
+    - [ ] ToC jump trigger should be shared with the current section detection
+
+### P0
 
 ### P1
 
@@ -19,6 +23,7 @@
 - [ ] Add table sorting or filtering feature for the project list
 - [ ] Tag based writing recommendation
 - [ ] Fediverse based comment system: https://gregnewman.io/blog/mastodon-comments-in-astrojs/
+- [ ] Sidenotes in the sidebar and disable the footnotes if it presents
 
 ### P2
 
