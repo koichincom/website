@@ -7,8 +7,9 @@
 - [ ] The best reading experience!
     - [x] Sidebar functionality
     - [x] Fix footnotes position (fixed header)
-    - [ ] Copiable heading link
+    - [x] Copiable heading link
     - [ ] Tag-based article recommendation
+    - [ ] Fediverse based comment system: https://gregnewman.io/blog/mastodon-comments-in-astrojs/
     - [ ] Current header section indication
     - [ ] Sidenotes
     - [ ] Styling including the typography plugin
@@ -19,7 +20,6 @@
 
 - [ ] Reorganize tag system for projects (hardware, tryout, oss) and display in the list
 - [ ] Add table sorting or filtering feature for the project list
-- [ ] Fediverse based comment system
 
 ### P2
 
@@ -113,3 +113,7 @@
 - [x] Make the Atom feed and social media (X and/or Mastodon) the CTA of the homepage, and other places like the header as needed.
     - The current Button component was generalized too early, drop and simplify
 - [x] Consider to fade out the name in the header on scroll
+- [x] Add the issue report link in the footer
+- [x] Focus-visible behavior: making it just like hover
+- [x] Combine the Privacy and Cookie Policy
+- [x] Trailingicon's newline adjustment (the last word and the icon should go to the next line together)
