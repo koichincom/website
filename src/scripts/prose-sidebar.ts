@@ -195,6 +195,8 @@ const getActiveTocSlug = (tracker: TocTracker): string => {
         document.body.scrollHeight,
     );
     const isAtPageEnd =
+        // Prevents "at page end" from being true at initial top position,
+        // including short/non-scrollable pages.
         window.scrollY > 0 &&
         window.innerHeight + window.scrollY >=
             pageScrollHeight - PAGE_END_EPSILON_PX;
