@@ -11,7 +11,7 @@ export default defineConfig({
     site: "https://koichin.com",
     integrations: [sitemap(), mdx()],
     vite: {
-        plugins: [tailwindcss()],
+        plugins: [tailwindcss() as any],
     },
     trailingSlash: "never",
     markdown: {
