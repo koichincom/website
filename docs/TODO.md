@@ -1,10 +1,11 @@
 # Todo
 
-## Priorities
-
-### Now
+## Now
 
 - [ ] Reorganize tag system for projects (hardware, tryout, oss) and display in the list
+
+## P0
+
 - [ ] The best reading experience!
     - [x] Sidebar functionality
     - [x] Fix footnotes position (fixed header)
@@ -16,18 +17,14 @@
     - [ ] ToC jump should lead to the right position considering the fixed header
     - [ ] ToC jump trigger should be shared with the current section detection
 
-### P0
-
-- [ ] Header accent color should be only used on hover
-
-### P1
+## P1
 
 - [ ] Add table sorting or filtering feature for the project list
 - [ ] Tag based writing recommendation
 - [ ] Fediverse based comment system: https://gregnewman.io/blog/mastodon-comments-in-astrojs/
 - [ ] Sidenotes in the sidebar and disable the footnotes if it presents
 
-### P2
+## P2
 
 - [ ] Use SVG for the arrow icon of the footernote link
 - [ ] Mobile responsiveness
@@ -126,3 +123,4 @@
 - [x] CSS styling check if that follows the Tailwind best practices
 - [x] When feed link is copied, the hover effect continues on that row
 - [x] When a link is clicked and the GUI key is pressed, the focus-visible is triggered
+- [x] Header: accent color only on hover
