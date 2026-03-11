@@ -18,6 +18,7 @@ const writing = defineCollection({
             .default([])
             .describe("List of all update dates"),
         tags: z.array(z.string()).optional(),
+        mastodonStatusUrl: z.string().url().optional(),
     }),
 });
 

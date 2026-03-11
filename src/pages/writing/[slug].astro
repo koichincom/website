@@ -7,6 +7,7 @@ import WritingLayout from "../../layouts/WritingLayout.astro";
 import NewWindow from "../../components/NewWindowLink.astro";
 import CopyStr from "../../components/CopyStr.astro";
 import ProseH2 from "../../components/ProseH2.astro";
+import MastodonComments from "../../components/MastodonComments.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("writing");
@@ -32,6 +33,12 @@ const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
     <!-- Heading depths are normalized to h2 in remark (flattenHeadings),
          so mapping `h2` here customizes all Markdown/MDX headings post-transform. -->
     <Content components={{ NewWindow, CopyStr, h2: ProseH2 }} />
+
+    {
+        post.data.mastodonStatusUrl && (
+            <MastodonComments statusUrl={post.data.mastodonStatusUrl} />
+        )
+    }
 
     <section slot="meta">
         <p>

@@ -1,0 +1,13 @@
+---
+export interface Props {
+    statusUrl: string;
+}
+
+const { statusUrl } = Astro.props;
+---
+
+<section data-mastodon-comments data-mastodon-status-url={statusUrl}>
+    <h2>Comments</h2>
+    <p data-mastodon-comments-state>Loading comments...</p>
+    <ul data-mastodon-comments-list hidden></ul>
+</section>
