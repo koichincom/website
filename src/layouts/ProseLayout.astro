@@ -80,24 +80,25 @@ const proseClasses = [proseBase, proseScrollOffset, ...proseLight, ...proseDark,
         {
             hasSidebarMetaOrToc && (
                 <aside class="hidden lg:block self-start lg:sticky lg:top-[var(--layout-main-start-offset)] lg:max-h-[calc(100dvh-var(--layout-main-start-offset)-var(--spacing-content-inset))] lg:overflow-y-auto lg:overscroll-contain">
-                    <div data-sidebar-title class="pb-4">
+                    <div data-sidebar-title class="space-y-1 pb-5">
                         <p class="font-bold">{title}</p>
                         {subtitle && (
-                            <p class="text-sm text-(--color-text-third) dark:text-(--color-text-third-dark)">{subtitle}</p>
+                            <p class="text-base text-(--color-text-third) dark:text-(--color-text-third-dark)">{subtitle}</p>
                         )}
                     </div>
                     <div
                         data-sidebar-body
-                        class="text-(--color-text-third) dark:text-(--color-text-third-dark)"
+                        class="space-y-6 text-base/6 text-(--color-text-third) [&_section]:space-y-3 dark:text-(--color-text-third-dark)"
                     >
                         <slot name="sidebar-meta" />
                         {hasToc && (
                             <nav aria-label="Table of contents" data-prose-toc>
-                                <ol class="space-y-2">
+                                <ol class="space-y-3">
                                     {tocHeadings.map((heading) => (
                                         <li>
                                             <a
                                                 href={`#${heading.slug}`}
+                                                data-astro-reload
                                                 data-prose-toc-link
                                                 data-toc-slug={heading.slug}
                                                 class="text-base site-link-no-underline site-toc-link"

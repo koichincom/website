@@ -53,20 +53,19 @@ const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
         </p>
     </section>
     <section slot="sidebar-meta">
-        {readingTime} to read
-        <br />
-        <time datetime={post.data.published.toISOString()}>
-            Published on <br />{formatDate(post.data.published)}</time
-        >
-        <br />
+        <p>{readingTime} to read</p>
+        <time class="block" datetime={post.data.published.toISOString()}>
+            Published on
+            <br />
+            {formatDate(post.data.published)}
+        </time>
         {
             lastUpdated && (
-                <>
-                    <time datetime={lastUpdated.toISOString()}>
-                        Last updated <br />
-                        {formatDate(lastUpdated)}
-                    </time>
-                </>
+                <time class="block" datetime={lastUpdated.toISOString()}>
+                    Last updated
+                    <br />
+                    {formatDate(lastUpdated)}
+                </time>
             )
         }
     </section>

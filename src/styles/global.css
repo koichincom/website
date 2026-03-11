@@ -50,13 +50,6 @@
 
     html {
         overscroll-behavior-y: none;
-        scroll-behavior: smooth;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        html {
-            scroll-behavior: auto;
-        }
     }
 
     [data-prose-layout] .prose :target {
@@ -322,6 +315,10 @@
         transform: translateY(-8px);
         max-height: 0;
         overflow: hidden;
+    }
+
+    [data-prose-layout][data-sidebar-title-transitions="true"]
+        [data-sidebar-title] {
         transition:
             opacity var(--prose-scroll-transition-ms, 150ms) linear,
             transform var(--prose-scroll-transition-ms, 150ms) linear,

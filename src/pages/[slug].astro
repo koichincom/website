@@ -27,23 +27,14 @@ const contact = SOCIAL_LINKS.email;
 
 <SiteInfoLayout title={page.data.title} headings={headings}>
     <section slot="sidebar-meta">
-        <p>
-            Effective date:
-            <br />
-            {formattedEffectiveDate}
-            <br />
-            Website:
-            <br />
-            <NewWindowLink href={website}>{website}</NewWindowLink>
-            <br />
-            Owner:
-            <br />
-            {owner}
-            <br />
-            Contact:
-            <br />
-            <CopyStr copyValue={contact}>{contact}</CopyStr>
-        </p>
+        <p>Effective date</p>
+        <p>{formattedEffectiveDate}</p>
+        <p>Website</p>
+        <p><NewWindowLink href={website}>{website}</NewWindowLink></p>
+        <p>Owner</p>
+        <p>{owner}</p>
+        <p>Contact</p>
+        <p><CopyStr copyValue={contact}>{contact}</CopyStr></p>
     </section>
     <section slot="meta">
         <p>
