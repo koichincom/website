@@ -64,7 +64,7 @@ export const initNavState = (): void => {
             if (candidate) {
                 nextPending = candidate.getAttribute("data-section") as Section;
                 shouldApplyPendingHighlight = candidate.matches(
-                    ":hover, :focus-visible, :focus-within",
+                    ":hover, :focus-visible",
                 );
             }
         }

@@ -34,9 +34,9 @@ const NAV_ITEM_PILL_HOVER_BG =
 const NAV_ITEM_PILL_HOVER_TEXT =
     "group-hover:text-(--color-accent-light) group-focus-visible:text-(--color-accent-light) dark:group-hover:text-(--color-accent-dark) dark:group-focus-visible:text-(--color-accent-dark)";
 const NAV_ITEM_PILL_ACTIVE_VARIANTS =
-    "group-data-[active=section]:bg-(--color-hover) dark:group-data-[active=section]:bg-(--color-hover-dark) group-data-[active=section]:text-(--color-accent-light) dark:group-data-[active=section]:text-(--color-accent-dark)";
+    "group-data-[active=section]:bg-(--color-hover) dark:group-data-[active=section]:bg-(--color-hover-dark)";
 const NAV_ITEM_PILL_PENDING_VARIANTS =
-    "group-data-[pending=true]:bg-(--color-hover) dark:group-data-[pending=true]:bg-(--color-hover-dark) group-data-[pending=true]:text-(--color-accent-light) dark:group-data-[pending=true]:text-(--color-accent-dark)";
+    "group-data-[pending=true]:bg-(--color-hover) dark:group-data-[pending=true]:bg-(--color-hover-dark)";
 const NAV_CONTAINER_HAS_ACTIVE_SUPPRESS =
     "[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent dark:[&:has(.nav-home:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent [&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent dark:[&:has(.nav-right:hover)_.nav-item[data-active]:not(:hover)_>.nav-pill]:bg-transparent [&:has(.nav-home:focus-within)_.nav-item[data-active]:not(:focus-within)_>.nav-pill]:bg-transparent dark:[&:has(.nav-home:focus-within)_.nav-item[data-active]:not(:focus-within)_>.nav-pill]:bg-transparent [&:has(.nav-right:focus-within)_.nav-item[data-active]:not(:focus-within)_>.nav-pill]:bg-transparent dark:[&:has(.nav-right:focus-within)_.nav-item[data-active]:not(:focus-within)_>.nav-pill]:bg-transparent";
 const NAV_CONTAINER_HAS_ACTIVE_TEXT_SUPPRESS =
@@ -53,7 +53,7 @@ const navClass = classNames(
     NAV_CONTAINER_PENDING_TEXT_SUPPRESS,
 );
 const homeLinkClass = classNames(NAV_ITEM_HITBOX_BASE);
-const homePillClass = classNames(
+const homeInteractivePillClass = classNames(
     NAV_ITEM_PILL_BASE,
     NAV_ITEM_HOME_PILL_GAP,
     NAV_ITEM_PILL_HOVER_BG,
@@ -61,13 +61,22 @@ const homePillClass = classNames(
     NAV_ITEM_PILL_ACTIVE_VARIANTS,
     NAV_ITEM_PILL_PENDING_VARIANTS,
 );
+const homeCurrentPillClass = classNames(
+    NAV_ITEM_PILL_BASE,
+    NAV_ITEM_HOME_PILL_GAP,
+    NAV_ITEM_PILL_ACTIVE_VARIANTS,
+);
 const navItemLinkClass = classNames(NAV_ITEM_HITBOX_BASE);
-const navItemPillClass = classNames(
+const navItemInteractivePillClass = classNames(
     NAV_ITEM_PILL_BASE,
     NAV_ITEM_PILL_HOVER_BG,
     NAV_ITEM_PILL_HOVER_TEXT,
     NAV_ITEM_PILL_ACTIVE_VARIANTS,
     NAV_ITEM_PILL_PENDING_VARIANTS,
+);
+const navItemCurrentPillClass = classNames(
+    NAV_ITEM_PILL_BASE,
+    NAV_ITEM_PILL_ACTIVE_VARIANTS,
 );
 ---
 
@@ -86,7 +95,7 @@ const navItemPillClass = classNames(
                         data-active="section"
                         aria-current="page"
                     >
-                        <span class={homePillClass}>
+                        <span class={homeCurrentPillClass}>
                             <Logo class="h-4 w-auto" />
                             <span class="text-base sm:text-lg">
                                 Koichi Nakayamada
@@ -100,7 +109,7 @@ const navItemPillClass = classNames(
                         data-section="home"
                         data-href="/"
                     >
-                        <span class={homePillClass}>
+                        <span class={homeInteractivePillClass}>
                             <Logo class="h-4 w-auto" />
                             <span class="text-base sm:text-lg">
                                 Koichi Nakayamada
@@ -123,7 +132,7 @@ const navItemPillClass = classNames(
                                 data-active="section"
                                 aria-current="page"
                             >
-                                <span class={navItemPillClass}>
+                                <span class={navItemCurrentPillClass}>
                                     {item.label}
                                 </span>
                             </span>
@@ -135,7 +144,7 @@ const navItemPillClass = classNames(
                                 data-href={item.href}
                                 data-active="section"
                             >
-                                <span class={navItemPillClass}>
+                                <span class={navItemInteractivePillClass}>
                                     {item.label}
                                 </span>
                             </a>
@@ -147,7 +156,9 @@ const navItemPillClass = classNames(
                             data-section={item.path}
                             data-href={item.href}
                         >
-                            <span class={navItemPillClass}>{item.label}</span>
+                            <span class={navItemInteractivePillClass}>
+                                {item.label}
+                            </span>
                         </a>
                     ),
                 )
