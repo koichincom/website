@@ -1,4 +1,5 @@
 const COMMENT_SECTION_SELECTOR = "[data-mastodon-comments]";
+const COMMENT_LIMIT = 5;
 
 type ParsedStatusUrl = {
     instanceOrigin: string;
@@ -6,10 +7,8 @@ type ParsedStatusUrl = {
 };
 
 type MastodonComment = {
-    id: string;
     name: string;
     text: string;
-    url: string;
 };
 
 let mastodonCommentsInitialized = false;
@@ -52,17 +51,10 @@ const parseComment = (status: unknown): MastodonComment | undefined => {
         return undefined;
     }
 
-    const id = status.id;
-    const url = status.url;
     const content = status.content;
     const account = status.account;
 
-    if (
-        typeof id !== "string" ||
-        typeof url !== "string" ||
-        typeof content !== "string" ||
-        !isRecord(account)
-    ) {
+    if (typeof content !== "string" || !isRecord(account)) {
         return undefined;
     }
 
@@ -78,10 +70,8 @@ const parseComment = (status: unknown): MastodonComment | undefined => {
     const text = htmlToText(content);
 
     return {
-        id,
         name,
         text: text || "(No text content)",
-        url,
     };
 };
 
@@ -150,10 +140,12 @@ const renderComments = (
         return;
     }
 
+    const limitedComments = comments.slice(0, COMMENT_LIMIT);
     const fragment = document.createDocumentFragment();
 
-    comments.forEach((comment) => {
+    limitedComments.forEach((comment) => {
         const item = document.createElement("li");
+
         const nameParagraph = document.createElement("p");
         const nameStrong = document.createElement("strong");
         nameStrong.textContent = comment.name;
@@ -162,15 +154,7 @@ const renderComments = (
         const textParagraph = document.createElement("p");
         textParagraph.textContent = comment.text;
 
-        const linkParagraph = document.createElement("p");
-        const link = document.createElement("a");
-        link.href = comment.url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer nofollow";
-        link.textContent = "View on Mastodon";
-        linkParagraph.append(link);
-
-        item.append(nameParagraph, textParagraph, linkParagraph);
+        item.append(nameParagraph, textParagraph);
         fragment.append(item);
     });
 

@@ -7,7 +7,6 @@ import WritingLayout from "../../layouts/WritingLayout.astro";
 import NewWindow from "../../components/NewWindowLink.astro";
 import CopyStr from "../../components/CopyStr.astro";
 import ProseH2 from "../../components/ProseH2.astro";
-import MastodonComments from "../../components/MastodonComments.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("writing");
@@ -36,7 +35,25 @@ const lastUpdated = getLastUpdatedFromUpdates(post.data.updates);
 
     {
         post.data.mastodonStatusUrl && (
-            <MastodonComments statusUrl={post.data.mastodonStatusUrl} />
+            <>
+                <section
+                    data-mastodon-comments
+                    data-mastodon-status-url={post.data.mastodonStatusUrl}
+                >
+                    <h2>Comments</h2>
+                    <p data-mastodon-comments-state>Loading comments...</p>
+                    <ul data-mastodon-comments-list hidden />
+                    <p>
+                        <!-- prettier-ignore -->
+                        <NewWindow
+                            href={post.data.mastodonStatusUrl}
+                            data-mastodon-comments-read-more
+                            >Read more on Mastodon</NewWindow
+                        >
+                    </p>
+                </section>
+                <script src="../../scripts/mastodon-comments.ts" />
+            </>
         )
     }
 
