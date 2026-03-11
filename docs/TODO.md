@@ -2,7 +2,7 @@
 
 ## Now
 
-- [ ] Reorganize tag system for projects (hardware, tryout, oss) and display in the list
+- [ ] Fediverse based comment system
 
 ## P0
 
@@ -13,15 +13,14 @@
     - [x] Current header section indication: Check the doc/
     - [x] Current ToC indication should treat the end scroll of the page as the last section
     - [x] Header height should be handled by something else to be shared
-    - [ ] Animation for the current ToC section indication
+    - [x] Animation for the current ToC section indication
     - [ ] ToC jump should lead to the right position considering the fixed header
     - [ ] ToC jump trigger should be shared with the current section detection
 
 ## P1
 
-- [ ] Add table sorting or filtering feature for the project list
+- [ ] Reorganize tag system for projects (hardware, tryout, oss) and display in the list
 - [ ] Tag based writing recommendation
-- [ ] Fediverse based comment system: https://gregnewman.io/blog/mastodon-comments-in-astrojs/
 - [ ] Sidenotes in the sidebar and disable the footnotes if it presents
 
 ## P2
