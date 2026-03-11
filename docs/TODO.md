@@ -2,11 +2,8 @@
 
 ## Now
 
-- [ ] Fediverse based comment system
-
-## P0
-
-- [ ] The best reading experience!
+- [ ] Generalized pill button component
+- [ ] Provide the world best reading experience!
     - [x] Sidebar functionality
     - [x] Fix footnotes position (fixed header)
     - [x] Copiable heading link
@@ -14,20 +11,26 @@
     - [x] Current ToC indication should treat the end scroll of the page as the last section
     - [x] Header height should be handled by something else to be shared
     - [x] Animation for the current ToC section indication
-    - [ ] ToC jump should lead to the right position considering the fixed header
-    - [ ] ToC jump trigger should be shared with the current section detection
+    - [ ] ToC jump should lead to the right position considering the fixed header and ToC jump trigger should be shared with the current section detection
+    - [ ] Fediverse based comment system
+        - Include the "Comments" section to the ToC
+        - Use pill button component
+
+## P0
+
+- [ ] The List button hover effects stick when the link is clicked (Project List mainly)
+- [ ] Mobile responsivenes
+- [ ] CSS involved styling improvements, color scheme, typography CSS
 
 ## P1
 
 - [ ] Reorganize tag system for projects (hardware, tryout, oss) and display in the list
-- [ ] Tag based writing recommendation
+- [ ] Tag based next writing recommendation
 - [ ] Sidenotes in the sidebar and disable the footnotes if it presents
 
 ## P2
 
 - [ ] Use SVG for the arrow icon of the footernote link
-- [ ] Mobile responsiveness
-- [ ] CSS involved styling improvements, color scheme, typography CSS
 - [ ] SEO improvements (docs/SEO.md)
 - [ ] Add Japanese support (Astro i18n)
 
